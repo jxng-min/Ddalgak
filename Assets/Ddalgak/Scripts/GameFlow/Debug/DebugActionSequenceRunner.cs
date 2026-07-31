@@ -7,10 +7,10 @@ namespace Ddalgak
 {
     public sealed class DebugActionSequenceRunner : ActionSequenceRunnerBase
     {
-        public override IEnumerator Run(IReadOnlyList<ActionStepData> actionSteps,
+        public override IEnumerator Run(IReadOnlyList<ButtonAction> buttonActions,
                                         Action<ActionSequenceResult> onCompleted)
         {
-            var stepCount = actionSteps?.Count ?? 0;
+            var stepCount = buttonActions?.Count ?? 0;
             
             Debug.Log($"[GameFlow] Debug action sequence succeeds immediately. Steps: {stepCount}");
             

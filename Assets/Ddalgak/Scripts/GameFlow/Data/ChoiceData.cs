@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Ddalgak
 {
@@ -7,7 +8,7 @@ namespace Ddalgak
     public sealed class ChoiceData
     {
         public string choiceId;
-        public EGameInputButton inputButton;
+        public KeyCode inputKey;
         public string description;
         public string changePreview;
         public StatModifier baseModifier;
@@ -16,6 +17,6 @@ namespace Ddalgak
         public string successResultText;
         public string failureResultText;
         public bool isFatalOnActionFailure;
-        public List<ActionStepData> actionSteps = new();
+        public List<ButtonAction> buttonActions = new();
     }
 }

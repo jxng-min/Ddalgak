@@ -74,21 +74,21 @@ namespace Ddalgak
                 }
 
                 if (keyboard.qKey.wasPressedThisFrame &&
-                    TryFindChoice(choices, EGameInputButton.Q, out ChoiceData qChoice))
+                    TryFindChoice(choices, KeyCode.Q, out ChoiceData qChoice))
                 {
                     SelectChoice(qChoice, onSelected);
                     yield break;
                 }
 
                 if (keyboard.spaceKey.wasPressedThisFrame &&
-                    TryFindChoice(choices, EGameInputButton.Space, out ChoiceData spaceChoice))
+                    TryFindChoice(choices, KeyCode.Space, out ChoiceData spaceChoice))
                 {
                     SelectChoice(spaceChoice, onSelected);
                     yield break;
                 }
 
                 if (keyboard.pKey.wasPressedThisFrame &&
-                    TryFindChoice(choices, EGameInputButton.P, out ChoiceData pChoice))
+                    TryFindChoice(choices, KeyCode.P, out ChoiceData pChoice))
                 {
                     SelectChoice(pChoice, onSelected);
                     yield break;
@@ -239,7 +239,7 @@ namespace Ddalgak
                     continue;
                 }
 
-                GUILayout.Label($"[{choice.inputButton}] {choice.description}");
+                GUILayout.Label($"[{choice.inputKey}] {choice.description}");
                 if (!string.IsNullOrWhiteSpace(choice.changePreview))
                 {
                     GUILayout.Label($"    {choice.changePreview}");
@@ -294,12 +294,12 @@ namespace Ddalgak
         }
 
         private static bool TryFindChoice(IReadOnlyList<ChoiceData> choices,
-                                          EGameInputButton inputButton,
+                                          KeyCode inputKey,
                                           out ChoiceData result)
         {
             foreach (ChoiceData choice in choices)
             {
-                if (choice != null && choice.inputButton == inputButton)
+                if (choice != null && choice.inputKey == inputKey)
                 {
                     result = choice;
                     return true;
@@ -312,7 +312,7 @@ namespace Ddalgak
 
         private void SelectChoice(ChoiceData choice, Action<ChoiceData> onSelected)
         {
-            _statusText = $"선택: {choice.inputButton} - {choice.description}";
+            _statusText = $"선택: {choice.inputKey} - {choice.description}";
             onSelected?.Invoke(choice);
         }
 

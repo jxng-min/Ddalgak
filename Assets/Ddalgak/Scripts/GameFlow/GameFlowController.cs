@@ -203,7 +203,7 @@ namespace Ddalgak
             ChangeState(EGameFlowState.Action);
 
             ActionSequenceResult actionResult = null;
-            yield return actionSequenceRunner.Run(context.GetActionSteps(),
+            yield return actionSequenceRunner.Run(context.GetButtonActions(),
                                                   result => actionResult = result);
 
             context.ActionResult = actionResult ?? ActionSequenceResult.Failure(0, 0);

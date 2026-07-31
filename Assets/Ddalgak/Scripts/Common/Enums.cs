@@ -35,19 +35,4 @@ namespace Ddalgak
         SecurityCollapsed,
         FatalEventFailure
     }
-
-    public enum EActionInputType
-    {
-        SinglePress,
-        Hold,
-        RepeatedPress,
-        Timing
-    }
-
-    public enum EGameInputButton
-    {
-        Q,
-        Space,
-        P
-    }
 }

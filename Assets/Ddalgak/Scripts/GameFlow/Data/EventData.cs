@@ -22,7 +22,7 @@ namespace Ddalgak
         public int maxSecurity = 100;
         public List<string> requiredEventIds = new();
         public List<ChoiceData> choices = new();
-        public List<ActionStepData> actionSteps = new();
+        public List<ButtonAction> buttonActions = new();
         public StatModifier actionSuccessModifier;
         public StatModifier actionFailureModifier;
         public string successResultText;
