@@ -129,9 +129,12 @@ namespace Ddalgak
             while (timer < action.Duration && !_isCancelled)
             {
                 timer += Time.deltaTime;
+                float totalDuration = 0;
 
                 if (Input.GetKey(action.Key))
                 {
+                    timer = 0;
+                    totalDuration = action.Duration;
                     holdTimer += Time.deltaTime;
                     if (holdTimer >= action.HoldedDuration)
                     {
@@ -139,13 +142,17 @@ namespace Ddalgak
                         yield break;
                     }
                 }
-                else if (Input.GetKeyUp(action.Key) && holdTimer < action.Duration)
+                else if (Input.GetKeyUp(action.Key) && holdTimer < totalDuration)
                 {
                     onStepFinished?.Invoke(false);
                     yield break;
                 }
+                else if (!Input.GetKey(action.Key))
+                {
+                    totalDuration += action.AddDuration;
+                }
 
-                yield return null;
+                    yield return null;
             }
             onStepFinished?.Invoke(false);
         }
