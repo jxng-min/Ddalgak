@@ -1,0 +1,19 @@
+rowID,isEnable,eventName,title,description,eventType,weight,isConditional,conditionalStat,minTreasury,maxTreasury,minPublicSentiment,maxPublicSentiment,minSecurity,maxSecurity,requiredEventIds,choiceIds,buttonActionIds,actionSuccessResultId,actionFailureResultId,isFatalOnActionFailure
+B01,True,FAMINE,흉년,긴 가뭄으로 올해 수확량이 크게 줄었습니다.\n식량 가격이 오르자 백성들의 불만도 커지고 있습니다.,NormalChoice,1,False,,0,100,0,100,0,100,,B01_Q|B01_SPACE|B01_P,,,,False
+B02,True,COLLAPSED_WALL,무너진 성벽,수도 외곽의 오래된 성벽에서 커다란 균열이 발견되었습니다.\n아직 적군의 움직임은 보이지 않습니다.,NormalChoice,1,False,,0,100,0,100,0,100,,B02_Q|B02_SPACE|B02_P,,,,False
+B03,True,FOUNDING_FESTIVAL,왕국 건국 축제,곧 왕국의 건국 기념일입니다.\n백성들은 성대한 축제가 열리기를 기대하고 있습니다.,NormalChoice,1,False,,0,100,0,100,0,100,,B03_Q|B03_SPACE|B03_P,,,,False
+B04,True,SUSPICIOUS_MERCHANT_GUILD,수상한 상단,출처를 알 수 없는 거대 상단이 왕국에서 독점적으로 장사할 권리를 요청했습니다.\n상단은 그 대가로 상당한 금액을 왕실에 약속했습니다.,NormalChoice,1,False,,0,100,0,100,0,100,,B04_Q|B04_SPACE|B04_P,,,,False
+B05,True,CORRUPT_TAX_OFFICIAL,부패한 세금 관리,한 세금 관리가 백성들에게 정해진 양보다 많은 세금을 걷었다는 고발이 접수되었습니다.\n관리가 빼돌린 재산도 상당한 것으로 보입니다.,NormalChoice,1,False,,0,100,0,100,0,100,,B05_Q|B05_SPACE|B05_P,,,,False
+B06,True,ABANDONED_GOLD_MINE,버려진 금광,"오래전 붕괴 사고로 폐쇄된 금광에서 다시 금빛 광석이 발견되었습니다.\n광부들은 큰돈을 벌 수 있다며 채굴 재개를 요청했지만, 갱도의 안전은 확인되지 않았습니다.",NormalChoice,1,False,,0,100,0,100,0,100,,B06_Q|B06_SPACE|B06_P,,,,False
+B07,True,DRAGON_EGG_FOUND,용의 알 발견,"깊은 산속 동굴에서 거대한 용의 알이 발견되었습니다.\n학자들은 희귀한 발견이라며 연구를 요청하지만, 부화할 경우 왕국에 큰 위협이 될 수 있습니다.",NormalChoice,1,False,,0,100,0,100,0,100,,B07_Q|B07_SPACE|B07_P,,,,False
+B08,True,ROYAL_DEBT_COLLECTION,왕실 채무 상환 독촉,왕실이 빌린 채무의 상환 기한이 다가왔습니다.\n채권단은 오늘 안에 대책을 내놓으라며 왕궁을 압박하고 있습니다.,NormalChoice,1,True,Treasury,0,30,0,100,0,100,,B08_Q|B08_SPACE|B08_P,,,,False
+B09,True,PALACE_SQUARE_PROTEST,광장에 모인 시위대,왕궁 앞 광장에 불만을 품은 백성들이 모였습니다.\n시위대는 왕의 직접 사과와 즉각적인 대책을 요구하고 있습니다.,NormalChoice,1,True,PublicSentiment,0,100,0,30,0,100,,B09_Q|B09_SPACE|B09_P,,,,False
+B10,True,COLLAPSING_BORDER_OUTPOST,무너져 가는 국경 초소,국경을 지키는 오래된 초소가 무너질 위기에 놓였습니다.\n병력과 물자가 부족해 즉시 대응하지 않으면 방어선이 비게 됩니다.,NormalChoice,1,True,Security,0,100,0,100,0,30,,B10_Q|B10_SPACE|B10_P,,,,False
+A01,True,BANDIT_RAID,도적 떼 출현,북쪽 마을 주변에 도적 떼가 나타났습니다.\n상단과 농가가 공격받고 있어 신속한 대응이 필요합니다.,ActionChoice,1,False,,0,100,0,100,0,100,,A01_Q|A01_SPACE|A01_P,,,,False
+A02,True,MARKET_FIRE,시장 대화재,시장 한복판에서 큰불이 번지기 시작했습니다.\n강한 바람 탓에 불길이 주변 주택으로 옮겨붙고 있습니다.,ActionChoice,1,False,,0,100,0,100,0,100,,A02_Q|A02_SPACE|A02_P,,,,False
+A03,True,PLAGUE_OUTBREAK,전염병 발생,남쪽 지방에서 정체불명의 전염병이 빠르게 퍼지고 있습니다.\n수도까지 번지기 전에 대응 방식을 정해야 합니다.,ActionChoice,1,False,,0,100,0,100,0,100,,A03_Q|A03_SPACE|A03_P,,,,False
+A04,True,NEIGHBORING_KINGDOM_ENVOY,이웃 왕국의 사절,이웃 왕국의 사절단이 동맹과 통상 협정을 제안했습니다.\n환대와 협상 방식에 따라 관계가 크게 달라질 수 있습니다.,ActionChoice,1,False,,0,100,0,100,0,100,,A04_Q|A04_SPACE|A04_P,,,,False
+A05,True,RIVER_FLOOD_RISK,강의 범람 위기,며칠째 이어진 폭우로 강물이 제방 위까지 차올랐습니다.\n제방이 무너지면 인근 마을과 왕실 시설이 함께 침수될 수 있습니다.,ActionChoice,1,False,,0,100,0,100,0,100,,A05_Q|A05_SPACE|A05_P,,,,False
+S01,True,ROYAL_ASSASSIN,왕실 암살자,왕좌 뒤의 커튼이 갑자기 흔들립니다.\n숨어 있던 암살자가 단검을 들고 왕에게 달려듭니다.,SuddenChoice,1,False,,0,100,0,100,0,100,,,S01_Q_RAPID|S01_SPACE_RAPID|S01_P_RAPID,S01_ACTION_SUCCESS,S01_ACTION_FAILURE,True
+S02,True,ROYAL_WAREHOUSE_COLLAPSE,왕실 창고 붕괴,왕실 창고에서 커다란 굉음이 들려옵니다.\n천장을 받치던 기둥이 무너지며 쌓여 있던 보급품이 쏟아지기 시작합니다.,SuddenChoice,1,False,,0,100,0,100,0,100,,,S02_SPACE_HOLD,S02_ACTION_SUCCESS,S02_ACTION_FAILURE,False
+S03,True,FALLING_CROWN,왕관 낙하 사고,대관식 연설 도중 왕관이 왕의 머리에서 미끄러졌습니다.\n왕관이 바닥에 떨어지기 전에 붙잡아야 합니다.,SuddenChoice,1,False,,0,100,0,100,0,100,,,S03_P_TIMING,S03_ACTION_SUCCESS,S03_ACTION_FAILURE,False

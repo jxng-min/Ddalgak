@@ -1,0 +1,619 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8674448324446155421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A02_P_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A02_P_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 112
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.2
+  successRangeStart: 0.4
+  successRangeEnd: 0.58
+--- !u!114 &-8638815949099138160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: S01_Q_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: S01_Q_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 113
+  duration: 1
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 4
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-3814971696516052891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_SPACE_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_SPACE_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 32
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.25
+  successRangeStart: 0.4
+  successRangeEnd: 0.55
+--- !u!114 &-3635434026604147825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A01_P_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A01_P_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 112
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.1
+  successRangeStart: 0.4
+  successRangeEnd: 0.6
+--- !u!114 &-3525648595795282247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_Q_STEP_SPACE2
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_Q_STEP_SPACE2
+  isEnable: 1
+  actionType: 1
+  key: 32
+  duration: 1.2
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-3348778973085790582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_P_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_P_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 112
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 12
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-3107812627395958201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: S01_P_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: S01_P_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 112
+  duration: 1
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 4
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-2639070229725346566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: S03_P_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: S03_P_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 112
+  duration: 2.5
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.5
+  successRangeStart: 0.45
+  successRangeEnd: 0.55
+--- !u!114 &-2098623297414600665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A02_Q_STEP_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A02_Q_STEP_SPACE
+  isEnable: 1
+  actionType: 1
+  key: 32
+  duration: 1.5
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-2031597115760009620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A04_SPACE_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A04_SPACE_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 32
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.15
+  successRangeStart: 0.42
+  successRangeEnd: 0.58
+--- !u!114 &-1883260480673202333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_Q_STEP_Q2
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_Q_STEP_Q2
+  isEnable: 1
+  actionType: 1
+  key: 113
+  duration: 1.2
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-1164225636776953669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A03_P_TIMING
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A03_P_TIMING
+  isEnable: 1
+  actionType: 4
+  key: 112
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 1.1
+  successRangeStart: 0.42
+  successRangeEnd: 0.58
+--- !u!114 &-1052243831547456451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_Q_STEP_Q1
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_Q_STEP_Q1
+  isEnable: 1
+  actionType: 1
+  key: 113
+  duration: 1.2
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-707514880527894333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A04_P_HOLD
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A04_P_HOLD
+  isEnable: 1
+  actionType: 2
+  key: 112
+  duration: 3
+  holdDuration: 2
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &-295931057716664748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A02_Q_STEP_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A02_Q_STEP_P
+  isEnable: 1
+  actionType: 1
+  key: 112
+  duration: 1.5
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
+  m_Name: DT_ButtonAction
+  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
+  dataTableCsv: {fileID: 4900000, guid: 4dc8d906acab53c43a30b3115e78c217, type: 3}
+  dataTableRowName: Ddalgak.ButtonActionDataTableRow, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  dataTableRows:
+  - {fileID: 3036433967621190012}
+  - {fileID: 7341259170385008478}
+  - {fileID: -3635434026604147825}
+  - {fileID: 4064880556612091967}
+  - {fileID: -2098623297414600665}
+  - {fileID: -295931057716664748}
+  - {fileID: 9181166126448787463}
+  - {fileID: -8674448324446155421}
+  - {fileID: 1800063883648822191}
+  - {fileID: 4693915669985119748}
+  - {fileID: -1164225636776953669}
+  - {fileID: 945192080870464416}
+  - {fileID: -2031597115760009620}
+  - {fileID: -707514880527894333}
+  - {fileID: -1052243831547456451}
+  - {fileID: 6703124546476861687}
+  - {fileID: -1883260480673202333}
+  - {fileID: -3525648595795282247}
+  - {fileID: -3814971696516052891}
+  - {fileID: -3348778973085790582}
+  - {fileID: -8638815949099138160}
+  - {fileID: 6869670110397365604}
+  - {fileID: -3107812627395958201}
+  - {fileID: 6094513120591864537}
+  - {fileID: -2639070229725346566}
+  dataTableRowScript: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+--- !u!114 &945192080870464416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A04_Q_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A04_Q_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 113
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 10
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &1800063883648822191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A03_Q_HOLD
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A03_Q_HOLD
+  isEnable: 1
+  actionType: 2
+  key: 113
+  duration: 3.5
+  holdDuration: 2.5
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &3036433967621190012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A01_Q_HOLD
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A01_Q_HOLD
+  isEnable: 1
+  actionType: 2
+  key: 113
+  duration: 3
+  holdDuration: 2
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &4064880556612091967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A02_Q_STEP_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A02_Q_STEP_Q
+  isEnable: 1
+  actionType: 1
+  key: 113
+  duration: 1.5
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &4693915669985119748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A03_SPACE_SINGLE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A03_SPACE_SINGLE
+  isEnable: 1
+  actionType: 1
+  key: 32
+  duration: 2
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &6094513120591864537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: S02_SPACE_HOLD
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: S02_SPACE_HOLD
+  isEnable: 1
+  actionType: 2
+  key: 32
+  duration: 3.5
+  holdDuration: 2.5
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &6703124546476861687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A05_Q_STEP_SPACE1
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A05_Q_STEP_SPACE1
+  isEnable: 1
+  actionType: 1
+  key: 32
+  duration: 1.2
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 0
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &6869670110397365604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: S01_SPACE_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: S01_SPACE_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 32
+  duration: 1
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 4
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &7341259170385008478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A01_SPACE_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A01_SPACE_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 32
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 10
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
+--- !u!114 &9181166126448787463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57fd801319698a4daa8d32e85f6eaad, type: 3}
+  m_Name: A02_SPACE_RAPID
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionDataTableRow
+  rowID: A02_SPACE_RAPID
+  isEnable: 1
+  actionType: 3
+  key: 32
+  duration: 3
+  holdDuration: 0
+  addDuration: 0
+  targetPressCount: 12
+  timingSpeed: 0
+  successRangeStart: 0
+  successRangeEnd: 0
