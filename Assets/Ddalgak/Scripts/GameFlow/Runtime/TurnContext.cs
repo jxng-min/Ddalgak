@@ -5,7 +5,7 @@ namespace Ddalgak
 {
     public sealed class TurnContext
     {
-        private static readonly IReadOnlyList<ActionStepData> EmptyActionSteps = Array.Empty<ActionStepData>();
+        private static readonly IReadOnlyList<ButtonAction> EmptyButtonActions = Array.Empty<ButtonAction>();
 
         public EventData Event { get; set; }
         public ChoiceData SelectedChoice { get; set; }
@@ -30,26 +30,26 @@ namespace Ddalgak
 
                 if (Event.eventType == EEventType.SuddenChoice)
                 {
-                    return Event.actionSteps is { Count: > 0 };
+                    return Event.buttonActions is { Count: > 0 };
                 }
 
-                return SelectedChoice?.actionSteps is { Count: > 0 };
+                return SelectedChoice?.buttonActions is { Count: > 0 };
             }
         }
 
-        public IReadOnlyList<ActionStepData> GetActionSteps()
+        public IReadOnlyList<ButtonAction> GetButtonActions()
         {
             if (Event == null)
             {
-                return EmptyActionSteps;
+                return EmptyButtonActions;
             }
 
             if (Event.eventType == EEventType.SuddenChoice)
             {
-                return Event.actionSteps ?? EmptyActionSteps;
+                return Event.buttonActions ?? EmptyButtonActions;
             }
 
-            return SelectedChoice?.actionSteps ?? EmptyActionSteps;
+            return SelectedChoice?.buttonActions ?? EmptyButtonActions;
         }
     }
 }

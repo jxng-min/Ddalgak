@@ -7,7 +7,7 @@ namespace Ddalgak
 {
     public abstract class ActionSequenceRunnerBase : MonoBehaviour
     {
-        public abstract IEnumerator Run(IReadOnlyList<ActionStepData> actionSteps,
+        public abstract IEnumerator Run(IReadOnlyList<ButtonAction> buttonActions,
                                         Action<ActionSequenceResult> onCompleted);
         public abstract void Cancel();
     }
