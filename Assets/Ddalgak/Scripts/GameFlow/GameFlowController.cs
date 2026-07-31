@@ -16,6 +16,7 @@ namespace Ddalgak
         private const int ConditionalActivationThreshold = 30;
         private const int ConditionalCriticalThreshold = 15;
         private const float ConditionalCriticalWeightMultiplier = 2f;
+        private const int LargeRiskDecreaseThreshold = -10;
 
         [Header("Dependencies")]
         [SerializeField] private EventRepositoryBase eventRepository;
@@ -153,7 +154,9 @@ namespace Ddalgak
 
         private IEnumerator StartWeek(int week)
         {
-            _runtimeState.StartWeek(week, CreateWeekSlots(week));
+            List<EEventType> slots = CreateWeekSlots(week);
+            PreventThreeConsecutiveTypes(slots, week);
+            _runtimeState.StartWeek(week, slots);
             ChangeState(EGameFlowState.WeekStart);
             yield return presenter.ShowWeekStart(_runtimeState);
         }
@@ -244,7 +247,174 @@ namespace Ddalgak
                 candidates.Add(eventData);
             }
 
+            List<EventData> riskFilteredCandidates = FilterConsecutiveRisk(candidates);
+            if (riskFilteredCandidates.Count > 0)
+            {
+                candidates = riskFilteredCandidates;
+            }
+            else if (candidates.Count > 0 && _runtimeState.LastCompletedEvent != null)
+            {
+                Debug.Log("[GameFlow] Risk-stat restriction relaxed because no candidate remains.");
+            }
+
             return RandomUtility.GetWeightedRandom(candidates, GetEventWeight);
+        }
+
+        private void PreventThreeConsecutiveTypes(List<EEventType> slots, int week)
+        {
+            if (slots == null || slots.Count == 0 || _runtimeState.LastCompletedEvent == null)
+            {
+                return;
+            }
+
+            EEventType previousType = _runtimeState.LastCompletedEvent.eventType;
+            int consecutiveCount = _runtimeState.ConsecutiveSameEventTypeCount;
+
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (slots[i] == previousType)
+                {
+                    consecutiveCount++;
+                }
+                else
+                {
+                    previousType = slots[i];
+                    consecutiveCount = 1;
+                }
+
+                if (consecutiveCount < 3 || IsFixedSlot(week, i))
+                {
+                    continue;
+                }
+
+                int swapIndex = FindSwappableDifferentSlot(slots, week, i, previousType);
+                if (swapIndex < 0)
+                {
+                    Debug.Log("[GameFlow] Event-type restriction relaxed because no slot can be swapped.");
+                    continue;
+                }
+
+                (slots[i], slots[swapIndex]) = (slots[swapIndex], slots[i]);
+                previousType = slots[i];
+                consecutiveCount = 1;
+            }
+        }
+
+        private static int FindSwappableDifferentSlot(IReadOnlyList<EEventType> slots,
+                                                      int week,
+                                                      int currentIndex,
+                                                      EEventType repeatedType)
+        {
+            for (int i = currentIndex + 1; i < slots.Count; i++)
+            {
+                if (!IsFixedSlot(week, i) && slots[i] != repeatedType)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private static bool IsFixedSlot(int week, int slotIndex)
+        {
+            bool suddenSlot = (week == 2 || week == 3) && slotIndex == 2;
+            bool finalActionSlot = week == 3 && slotIndex == 3;
+            return suddenSlot || finalActionSlot;
+        }
+
+        private List<EventData> FilterConsecutiveRisk(IReadOnlyList<EventData> candidates)
+        {
+            EventData previousEvent = _runtimeState.LastCompletedEvent;
+            if (previousEvent == null)
+            {
+                return new List<EventData>(candidates);
+            }
+
+            HashSet<EKingdomStatType> previousRiskStats = GetRiskStats(previousEvent);
+            if (previousRiskStats.Count == 0)
+            {
+                return new List<EventData>(candidates);
+            }
+
+            List<EventData> filtered = new();
+            foreach (EventData candidate in candidates)
+            {
+                if (!SharesRiskStat(previousRiskStats, GetRiskStats(candidate)))
+                {
+                    filtered.Add(candidate);
+                }
+            }
+
+            return filtered;
+        }
+
+        private static bool SharesRiskStat(IReadOnlyCollection<EKingdomStatType> left,
+                                           IReadOnlyCollection<EKingdomStatType> right)
+        {
+            foreach (EKingdomStatType leftStat in left)
+            {
+                foreach (EKingdomStatType rightStat in right)
+                {
+                    if (leftStat == rightStat)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private static HashSet<EKingdomStatType> GetRiskStats(EventData eventData)
+        {
+            HashSet<EKingdomStatType> result = new();
+            if (eventData == null)
+            {
+                return result;
+            }
+
+            AddRiskStats(result, eventData.actionSuccessModifier);
+            AddRiskStats(result, eventData.actionFailureModifier);
+
+            if (eventData.choices == null)
+            {
+                return result;
+            }
+
+            foreach (ChoiceData choice in eventData.choices)
+            {
+                if (choice == null)
+                {
+                    continue;
+                }
+
+                AddRiskStats(result, choice.baseModifier);
+                AddRiskStats(result, choice.randomSuccessModifier);
+                AddRiskStats(result, choice.randomFailureModifier);
+                AddRiskStats(result, choice.baseModifier + choice.actionSuccessModifier);
+                AddRiskStats(result, choice.baseModifier + choice.actionFailureModifier);
+            }
+
+            return result;
+        }
+
+        private static void AddRiskStats(ISet<EKingdomStatType> result, StatModifier modifier)
+        {
+            if (modifier.treasury <= LargeRiskDecreaseThreshold)
+            {
+                result.Add(EKingdomStatType.Treasury);
+            }
+
+            if (modifier.publicSentiment <= LargeRiskDecreaseThreshold)
+            {
+                result.Add(EKingdomStatType.PublicSentiment);
+            }
+
+            if (modifier.security <= LargeRiskDecreaseThreshold)
+            {
+                result.Add(EKingdomStatType.Security);
+            }
         }
 
         private bool CanAppear(EventData eventData, EEventType slotType)

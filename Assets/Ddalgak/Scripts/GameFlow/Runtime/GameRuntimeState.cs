@@ -19,6 +19,8 @@ namespace Ddalgak
         public bool EmergencyRecoverySucceeded { get; private set; }
         public int ActionSuccessCount { get; private set; }
         public int ActionFailureCount { get; private set; }
+        public EventData LastCompletedEvent { get; private set; }
+        public int ConsecutiveSameEventTypeCount { get; private set; }
 
         public int EventsCompletedThisWeek => CurrentSlotIndex;
         public bool IsWeekCompleted => CurrentSlotIndex >= _currentWeekSlots.Count;
@@ -52,6 +54,8 @@ namespace Ddalgak
             EmergencyRecoverySucceeded = false;
             ActionSuccessCount = 0;
             ActionFailureCount = 0;
+            LastCompletedEvent = null;
+            ConsecutiveSameEventTypeCount = 0;
             _currentWeekSlots.Clear();
             _completedEventIds.Clear();
         }
@@ -88,6 +92,12 @@ namespace Ddalgak
             {
                 return;
             }
+
+            ConsecutiveSameEventTypeCount = LastCompletedEvent != null &&
+                                            LastCompletedEvent.eventType == eventData.eventType
+                ? ConsecutiveSameEventTypeCount + 1
+                : 1;
+            LastCompletedEvent = eventData;
 
             _completedEventIds.Add(eventData.eventId);
         }
