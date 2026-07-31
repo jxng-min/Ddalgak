@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 1639049089}
   - component: {fileID: 1639049092}
   - component: {fileID: 1639049091}
+  - component: {fileID: 1639049093}
   m_Layer: 0
   m_Name: Game Flow System
   m_TagString: Untagged
@@ -511,7 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b0f0353507cfa47a5c751704ed6046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventRepository
-  events: []
 --- !u!114 &1639049090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +551,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638a6723f5b5884dbf28e2c65a077af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DebugActionSequenceRunner
+--- !u!114 &1639049093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639049087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c83c6394d9bf841b27b32004629df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.GameFlowDebugPanel
+  controller: {fileID: 1639049090}
+  actionRunner: {fileID: 1639049092}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

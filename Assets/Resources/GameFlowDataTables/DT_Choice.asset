@@ -1,0 +1,1295 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9117916440254604636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A02_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A02_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uB9C8\uBC95\uC0AC\uC5D0\uAC8C \uBD88\uAE38\uC744 \uB9C9\uAC8C \uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -15 / \uBBFC\uC2EC +5 /
+    \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -20 / \uBBFC\uC2EC
+    -5 / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A02_P_ACTION_SUCCESS
+  actionFailureResultId: A02_P_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A02_P_TIMING
+--- !u!114 &-9048348678917893531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B04_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B04_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uB192\uC740 \uC138\uAE08\uC744 \uC870\uAC74\uC73C\uB85C \uC81C\uD55C\uC801\uC73C\uB85C
+    \uD5C8\uAC00\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 +10 / \uBBFC\uC2EC -5"
+  baseResultId: B04_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-8970134363793951189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A03_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A03_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC218\uB3C4\uC758 \uC131\uBB38\uC744 \uBD09\uC1C4\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 /
+    \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
+    -15 / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A03_P_ACTION_SUCCESS
+  actionFailureResultId: A03_P_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A03_P_TIMING
+--- !u!114 &-8824937395326774226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B10_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B10_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uBC29\uC5B4\uC120\uC744 \uC218\uB3C4 \uCABD\uC73C\uB85C \uCD95\uC18C\uD55C\uB2E4."
+  changePreview: "\uBBFC\uC2EC -5 / \uC548\uBCF4 -10"
+  baseResultId: B10_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-8620813672715329520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A04_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A04_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC81C\uC548\uC744 \uAC70\uBD80\uD558\uACE0 \uB3CC\uB824\uBCF4\uB0B8\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uBBFC\uC2EC -5 / \uC548\uBCF4 -5 |
+    \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -10 / \uC548\uBCF4
+    -15"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A04_P_ACTION_SUCCESS
+  actionFailureResultId: A04_P_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A04_P_HOLD
+--- !u!114 &-8576062908100608415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A01_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A01_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uD604\uC0C1\uAE08\uC744 \uAC78\uACE0 \uC6A9\uBCD1\uC744 \uBAA8\uC9D1\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uC548\uBCF4 +10 |
+    \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -5 / \uC548\uBCF4
+    -5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A01_SPACE_ACTION_SUCCESS
+  actionFailureResultId: A01_SPACE_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A01_SPACE_RAPID
+--- !u!114 &-8389645711359940310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B03_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B03_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC62C\uD574 \uCD95\uC81C\uB294 \uCDE8\uC18C\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 +5 / \uBBFC\uC2EC -15"
+  baseResultId: B03_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-8024395068693056298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A03_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A03_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uCE58\uB8CC\uC18C\uB97C \uAC74\uC124\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -15 / \uBBFC\uC2EC +15
+    / \uC548\uBCF4 +5 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -20 / \uBBFC\uC2EC
+    -5 / \uC548\uBCF4 -5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A03_Q_ACTION_SUCCESS
+  actionFailureResultId: A03_Q_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A03_Q_HOLD
+--- !u!114 &-7855472252645137629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B08_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B08_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC0C1\uD658 \uAE30\uD55C\uC744 \uBBF8\uB904 \uB2EC\uB77C\uACE0 \uD611\uC0C1\uD55C\uB2E4."
+  changePreview: "\uC131\uACF5 45%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -5 / \uC548\uBCF4
+    -5 | \uC2E4\uD328 55%: \uAD6D\uACE0 -25 / \uBBFC\uC2EC -10"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.45
+  randomSuccessResultId: B08_P_SUCCESS
+  randomFailureResultId: B08_P_FAILURE
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-7775853749808175288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B03_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B03_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC77C\uC8FC\uC77C \uB3D9\uC548 \uB300\uCD95\uC81C\uB97C \uC5F0\uB2E4."
+  changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +15 / \uC548\uBCF4 -5"
+  baseResultId: B03_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-7282868564752823954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B10_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B10_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC778\uADFC \uC8FC\uBBFC\uC744 \uBBFC\uBCD1\uB300\uB85C \uC9D5\uC9D1\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC -15 / \uC548\uBCF4 +15"
+  baseResultId: B10_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-6658409662951221794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B04_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B04_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uB3C5\uC810\uAD8C\uC744 \uD5C8\uAC00\uD55C\uB2E4."
+  changePreview: "\uC131\uACF5 60%: \uAD6D\uACE0 +20 / \uBBFC\uC2EC -5 / \uC548\uBCF4
+    -5 | \uC2E4\uD328 40%: \uAD6D\uACE0 +10 / \uBBFC\uC2EC -15 / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.6
+  randomSuccessResultId: B04_Q_SUCCESS
+  randomFailureResultId: B04_Q_FAILURE
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-6580942111283065773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B06_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B06_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC989\uC2DC \uB300\uADDC\uBAA8 \uCC44\uAD74\uC744 \uC2DC\uC791\uD55C\uB2E4."
+  changePreview: "\uC131\uACF5 55%: \uAD6D\uACE0 +20 / \uBBFC\uC2EC +5 | \uC2E4\uD328
+    45%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -10 / \uC548\uBCF4 -15"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.55
+  randomSuccessResultId: B06_Q_SUCCESS
+  randomFailureResultId: B06_Q_FAILURE
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-6539798640380496604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A05_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A05_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC81C\uBC29\uC744 \uBCF4\uAC15\uD574 \uC655\uC2E4 \uC2DC\uC124\uC744
+    \uC9C0\uD0A8\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uC548\uBCF4 +15
+    | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC -10 / \uC548\uBCF4
+    -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A05_Q_ACTION_SUCCESS
+  actionFailureResultId: A05_Q_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A05_Q_STEP_Q1
+  - A05_Q_STEP_SPACE1
+  - A05_Q_STEP_Q2
+  - A05_Q_STEP_SPACE2
+--- !u!114 &-6354279708459658071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B01_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B01_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC2DD\uB7C9 \uC18C\uBE44\uB97C \uC81C\uD55C\uD55C\uB2E4."
+  changePreview: "\uBBFC\uC2EC -10 / \uC548\uBCF4 +5"
+  baseResultId: B01_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-5877562565294518838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A03_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A03_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uAC10\uC5FC \uC9C0\uC5ED\uC744 \uACA9\uB9AC\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 /
+    \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
+    -15 / \uC548\uBCF4 +5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A03_SPACE_ACTION_SUCCESS
+  actionFailureResultId: A03_SPACE_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A03_SPACE_SINGLE
+--- !u!114 &-5606449212559901758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A04_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A04_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC870\uAC74\uC744 \uC870\uC728\uD574 \uB3D9\uB9F9 \uD611\uC0C1\uC744
+    \uC9C4\uD589\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
+    \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC
+    -5 / \uC548\uBCF4 +5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A04_SPACE_ACTION_SUCCESS
+  actionFailureResultId: A04_SPACE_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A04_SPACE_TIMING
+--- !u!114 &-4666551567541379148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B08_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B08_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uAD70\uC218 \uBB3C\uC790\uB97C \uB9E4\uAC01\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 +15 / \uC548\uBCF4 -15"
+  baseResultId: B08_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-3636686538170792830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A05_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A05_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC218\uBB38\uC744 \uC5F4\uC5B4 \uBB3C\uAE38\uC744 \uB3CC\uB9B0\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
+    \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
+    -15 / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A05_SPACE_ACTION_SUCCESS
+  actionFailureResultId: A05_SPACE_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A05_SPACE_TIMING
+--- !u!114 &-2101221181527910182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B05_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B05_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uACF5\uAC1C \uC7AC\uD310\uC744 \uC5F4\uC5B4 \uC5C4\uC911\uD788 \uCC98\uBC8C\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC +15 / \uC548\uBCF4 +5"
+  baseResultId: B05_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-1708656628149594028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B01_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B01_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uD55C\uB3D9\uC548 \uC138\uAE08\uC744 \uAC10\uBA74\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -10 / \uBBFC\uC2EC +10"
+  baseResultId: B01_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-1568976454528414405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A02_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A02_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uBC31\uC131\uB4E4\uC744 \uB3D9\uC6D0\uD574 \uBB3C\uC744 \uB098\uB974\uAC8C
+    \uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +10 /
+    \uC548\uBCF4 +5 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -15
+    / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A02_SPACE_ACTION_SUCCESS
+  actionFailureResultId: A02_SPACE_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A02_SPACE_RAPID
+--- !u!114 &-1162647143424627887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B09_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B09_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC655\uC2E4 \uC9C0\uC6D0\uAE08\uC744 \uC9C0\uAE09\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +20"
+  baseResultId: B09_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &-644548330825159700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A05_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A05_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC8FC\uBBFC\uB4E4\uC744 \uC6B0\uC120 \uB300\uD53C\uC2DC\uD0A8\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +15 /
+    \uC548\uBCF4 -5 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -15
+    / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A05_P_ACTION_SUCCESS
+  actionFailureResultId: A05_P_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A05_P_RAPID
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
+  m_Name: DT_Choice
+  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
+  dataTableCsv: {fileID: 4900000, guid: bf70e96ae76eed04da293938130d060f, type: 3}
+  dataTableRowName: Ddalgak.ChoiceDataTableRow, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  dataTableRows:
+  - {fileID: 5323720355129481275}
+  - {fileID: -1708656628149594028}
+  - {fileID: -6354279708459658071}
+  - {fileID: 3968990763134738846}
+  - {fileID: 7674501674568174334}
+  - {fileID: 2807639875149893068}
+  - {fileID: -7775853749808175288}
+  - {fileID: 843978088110161747}
+  - {fileID: -8389645711359940310}
+  - {fileID: -6658409662951221794}
+  - {fileID: -9048348678917893531}
+  - {fileID: 6357373488826167885}
+  - {fileID: -2101221181527910182}
+  - {fileID: 3300805206701175937}
+  - {fileID: 375531699338246355}
+  - {fileID: -6580942111283065773}
+  - {fileID: 5660578263376666620}
+  - {fileID: 505815575102472059}
+  - {fileID: 2607708706408564619}
+  - {fileID: 8885854983674596179}
+  - {fileID: 1965823162295782378}
+  - {fileID: 6108419322017165118}
+  - {fileID: -4666551567541379148}
+  - {fileID: -7855472252645137629}
+  - {fileID: -1162647143424627887}
+  - {fileID: 4686890571874883859}
+  - {fileID: 6393936479935479529}
+  - {fileID: 5414167464160263587}
+  - {fileID: -7282868564752823954}
+  - {fileID: -8824937395326774226}
+  - {fileID: 8496353337002871084}
+  - {fileID: -8576062908100608415}
+  - {fileID: 1797470247397012346}
+  - {fileID: 2167437265930796251}
+  - {fileID: -1568976454528414405}
+  - {fileID: -9117916440254604636}
+  - {fileID: -8024395068693056298}
+  - {fileID: -5877562565294518838}
+  - {fileID: -8970134363793951189}
+  - {fileID: 9019397531222652594}
+  - {fileID: -5606449212559901758}
+  - {fileID: -8620813672715329520}
+  - {fileID: -6539798640380496604}
+  - {fileID: -3636686538170792830}
+  - {fileID: -644548330825159700}
+  dataTableRowScript: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+--- !u!114 &375531699338246355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B05_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B05_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uB1CC\uBB3C\uC744 \uBC1B\uACE0 \uC0AC\uAC74\uC744 \uB36E\uB294\uB2E4."
+  changePreview: "\uAD6D\uACE0 +15 / \uBBFC\uC2EC -15 / \uC548\uBCF4 -5"
+  baseResultId: B05_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &505815575102472059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B06_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B06_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC704\uD5D8\uD558\uBBC0\uB85C \uAE08\uAD11\uC744 \uACC4\uC18D \uD3D0\uC1C4\uD55C\uB2E4."
+  changePreview: "\uBBFC\uC2EC -5 / \uC548\uBCF4 +5"
+  baseResultId: B06_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &843978088110161747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B03_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B03_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC655\uAD81 \uC55E\uC5D0\uC11C \uD558\uB8E8\uB9CC \uCD95\uD558\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC +5"
+  baseResultId: B03_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &1797470247397012346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A01_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A01_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uB3C4\uC801\uB2E8\uACFC \uAC70\uB798\uD574 \uBB3C\uB7EC\uB098\uAC8C
+    \uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uACB0\uACFC \uC801\uC6A9 \uD6C4 \uAD6D\uACE0 +10
+    \uB610\uB294 -10(\uAC01 50%)"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.5
+  randomSuccessResultId: A01_P_RANDOM_SUCCESS
+  randomFailureResultId: A01_P_RANDOM_FAILURE
+  actionSuccessResultId: A01_P_ACTION_SUCCESS
+  actionFailureResultId: A01_P_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A01_P_TIMING
+--- !u!114 &1965823162295782378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B07_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B07_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC704\uD5D8\uC744 \uB9C9\uAE30 \uC704\uD574 \uC54C\uC744 \uD30C\uAD34\uD55C\uB2E4."
+  changePreview: "\uBBFC\uC2EC -15 / \uC548\uBCF4 +10"
+  baseResultId: B07_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &2167437265930796251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A02_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A02_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uACBD\uBE44\uB300\uC5D0 \uC9C4\uD654 \uBA85\uB839\uC744 \uB0B4\uB9B0\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
+    \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -10 / \uBBFC\uC2EC
+    -5 / \uC548\uBCF4 -10"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A02_Q_ACTION_SUCCESS
+  actionFailureResultId: A02_Q_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A02_Q_STEP_Q
+  - A02_Q_STEP_SPACE
+  - A02_Q_STEP_P
+--- !u!114 &2607708706408564619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B07_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B07_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC655\uC2E4 \uC5F0\uAD6C\uC18C\uC5D0\uC11C \uC54C\uC744 \uBD80\uD654\uC2DC\uD0A8\uB2E4."
+  changePreview: "\uC131\uACF5 40%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +15 / \uC548\uBCF4
+    +15 | \uC2E4\uD328 60%: \uAD6D\uACE0 -15 / \uBBFC\uC2EC -10 / \uC548\uBCF4 -15"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.4
+  randomSuccessResultId: B07_Q_SUCCESS
+  randomFailureResultId: B07_Q_FAILURE
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &2807639875149893068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B02_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B02_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uB2F9\uBD84\uAC04 \uACBD\uBE44\uBCD1\uC744 \uCD94\uAC00 \uBC30\uCE58\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 / \uC548\uBCF4 +10"
+  baseResultId: B02_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &3300805206701175937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B05_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B05_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC7AC\uC0B0\uB9CC \uBAB0\uC218\uD558\uACE0 \uC870\uC6A9\uD788 \uD574\uC784\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 +10 / \uBBFC\uC2EC +5"
+  baseResultId: B05_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &3968990763134738846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B02_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B02_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC989\uC2DC \uC131\uBCBD \uC804\uCCB4\uB97C \uBCF4\uC218\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -15 / \uC548\uBCF4 +15"
+  baseResultId: B02_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &4686890571874883859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B09_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B09_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uAD11\uC7A5\uC758 \uACBD\uBE44\uB300\uB97C \uD574\uC0B0\uD55C\uB2E4."
+  changePreview: "\uBBFC\uC2EC +5 / \uC548\uBCF4 -10"
+  baseResultId: B09_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &5323720355129481275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B01_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B01_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uAD6D\uACE0\uB97C \uD480\uC5B4 \uC2DD\uB7C9\uC744 \uBC30\uAE09\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +15"
+  baseResultId: B01_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &5414167464160263587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B10_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B10_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uB300\uADDC\uBAA8 \uC9C0\uC6D0 \uBCD1\uB825\uC744 \uBCF4\uB0B8\uB2E4."
+  changePreview: "\uAD6D\uACE0 -15 / \uC548\uBCF4 +20"
+  baseResultId: B10_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &5660578263376666620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B06_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B06_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC870\uC0AC\uB300\uB97C \uBCF4\uB0B4 \uAD11\uB9E5\uACFC \uAC31\uB3C4\uB97C
+    \uD655\uC778\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uC548\uBCF4 +5"
+  baseResultId: B06_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &6108419322017165118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B08_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B08_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uBC31\uC131\uC5D0\uAC8C \uD2B9\uBCC4\uC138\uB97C \uAC77\uB294\uB2E4."
+  changePreview: "\uAD6D\uACE0 +20 / \uBBFC\uC2EC -15"
+  baseResultId: B08_Q_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &6357373488826167885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B04_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B04_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uAC70\uB798\uB97C \uAC70\uBD80\uD558\uACE0 \uAD6D\uACBD\uC5D0\uC11C
+    \uB3CC\uB824\uBCF4\uB0B8\uB2E4."
+  changePreview: "\uBBFC\uC2EC +5 / \uC548\uBCF4 +10"
+  baseResultId: B04_P_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &6393936479935479529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B09_P
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B09_P
+  isEnable: 1
+  inputKey: 112
+  description: "\uC655\uC774 \uC9C1\uC811 \uB098\uAC00 \uC0AC\uACFC\uD55C\uB2E4."
+  changePreview: "\uC131\uACF5 50%: \uBBFC\uC2EC +15 / \uC548\uBCF4 -5 | \uC2E4\uD328
+    50%: \uBBFC\uC2EC -25 / \uC548\uBCF4 -5"
+  baseResultId: 
+  hasRandomResult: 1
+  successProbability: 0.5
+  randomSuccessResultId: B09_P_SUCCESS
+  randomFailureResultId: B09_P_FAILURE
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &7674501674568174334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B02_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B02_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uC704\uD5D8\uD55C \uAD6C\uAC04\uB9CC \uC784\uC2DC\uB85C \uBCF4\uC218\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 -5 / \uC548\uBCF4 +5"
+  baseResultId: B02_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &8496353337002871084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A01_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A01_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC815\uADDC\uAD70\uC744 \uD30C\uACAC\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +5 /
+    \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC
+    -5 / \uC548\uBCF4 -5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A01_Q_ACTION_SUCCESS
+  actionFailureResultId: A01_Q_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A01_Q_HOLD
+--- !u!114 &8885854983674596179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: B07_SPACE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: B07_SPACE
+  isEnable: 1
+  inputKey: 32
+  description: "\uB2E4\uB978 \uC655\uAD6D\uC5D0 \uB192\uC740 \uAC12\uC73C\uB85C \uD310\uB9E4\uD55C\uB2E4."
+  changePreview: "\uAD6D\uACE0 +15 / \uBBFC\uC2EC -5 / \uC548\uBCF4 -5"
+  baseResultId: B07_SPACE_RESULT
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+  buttonActionIds: []
+--- !u!114 &9019397531222652594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3ee7c386f73bc4795273305a9e27a9, type: 3}
+  m_Name: A04_Q
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
+  rowID: A04_Q
+  isEnable: 1
+  inputKey: 113
+  description: "\uC131\uB300\uD55C \uC5F0\uD68C\uB97C \uC5F4\uC5B4 \uD658\uB300\uD55C\uB2E4."
+  changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +10
+    / \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC
+    -5"
+  baseResultId: 
+  hasRandomResult: 0
+  successProbability: 0
+  randomSuccessResultId: 
+  randomFailureResultId: 
+  actionSuccessResultId: A04_Q_ACTION_SUCCESS
+  actionFailureResultId: A04_Q_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+  buttonActionIds:
+  - A04_Q_RAPID
