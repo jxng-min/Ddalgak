@@ -35,4 +35,13 @@ namespace Ddalgak
         SecurityCollapsed,
         FatalEventFailure
     }
+
+    public enum EButtonActionType
+    {
+        None,
+        SinglePress,
+        Hold,
+        RapidPress,
+        Timing,
+    }
 }
