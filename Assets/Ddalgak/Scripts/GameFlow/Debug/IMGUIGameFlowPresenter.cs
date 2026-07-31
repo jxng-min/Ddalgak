@@ -22,6 +22,11 @@ namespace Ddalgak
         private EEventType _currentEventType;
         private IReadOnlyList<ChoiceData> _currentChoices;
         private TurnResult _currentResult;
+        private EmergencyRecoveryData _emergencyRecovery;
+        private GovernanceResultRecord _governanceResult;
+        private GameOverPresentationData _gameOverData;
+        private bool _hasEmergencyRecoveryResult;
+        private bool _emergencyRecoverySucceeded;
         private KingdomStatsSnapshot _displayedStats;
         private Vector2 _scrollPosition;
         private string _statusText;
@@ -39,6 +44,11 @@ namespace Ddalgak
             _currentEvent = null;
             _currentChoices = null;
             _currentResult = null;
+            _emergencyRecovery = null;
+            _governanceResult = null;
+            _gameOverData = null;
+            _hasEmergencyRecoveryResult = false;
+            _emergencyRecoverySucceeded = false;
             _showChoices = false;
             _showResult = false;
             _isCancelled = false;
@@ -55,6 +65,8 @@ namespace Ddalgak
         public override IEnumerator ShowEvent(EventData eventData)
         {
             _currentEvent = eventData;
+            _emergencyRecovery = null;
+            _hasEmergencyRecoveryResult = false;
             _currentEventWeek = _runtimeState.CurrentWeek;
             _currentEventSlotIndex = _runtimeState.CurrentSlotIndex;
             _currentEventType = eventData.eventType;
@@ -166,10 +178,27 @@ namespace Ddalgak
             yield break;
         }
 
-        public override IEnumerator ShowGameOver(EGameOverReason reason)
+        public override IEnumerator ShowEmergencyRecovery(EmergencyRecoveryData data)
+        {
+            _emergencyRecovery = data;
+            _statusText = $"긴급 수습 발생: {data.title} (성공 {data.successProbability:P0})";
+            yield break;
+        }
+
+        public override IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data,
+                                                                  bool succeeded)
+        {
+            _hasEmergencyRecoveryResult = true;
+            _emergencyRecoverySucceeded = succeeded;
+            _statusText = succeeded ? data.successText : data.failureText;
+            yield break;
+        }
+
+        public override IEnumerator ShowGameOver(GameOverPresentationData data)
         {
             _showChoices = false;
-            _statusText = $"게임 오버: {reason}";
+            _gameOverData = data;
+            _statusText = $"게임 오버: {data.title}";
             yield break;
         }
 
@@ -177,6 +206,13 @@ namespace Ddalgak
         {
             _showChoices = false;
             _statusText = "게임 클리어";
+            yield break;
+        }
+
+        public override IEnumerator ShowGovernanceResult(GovernanceResultRecord record)
+        {
+            _governanceResult = record;
+            _statusText = "통치 결과";
             yield break;
         }
 
@@ -218,6 +254,7 @@ namespace Ddalgak
             DrawEvent();
             DrawChoices();
             DrawResult();
+            DrawEnding();
             DrawStatus();
 
             GUILayout.EndScrollView();
@@ -429,6 +466,52 @@ namespace Ddalgak
                 EEventType.SuddenChoice => "돌발 액션",
                 _ => eventType.ToString()
             };
+        }
+
+        private void DrawEnding()
+        {
+            if (_emergencyRecovery != null)
+            {
+                GUILayout.Label("[긴급 수습]", _headerStyle);
+                GUILayout.Label(_emergencyRecovery.title, _headerStyle);
+                GUILayout.Label(_emergencyRecovery.description, _bodyStyle);
+                GUILayout.Label($"성공 확률: {_emergencyRecovery.successProbability:P0}", _bodyStyle);
+                if (_hasEmergencyRecoveryResult)
+                {
+                    GUILayout.Label($"수습 결과: {(_emergencyRecoverySucceeded ? "성공" : "실패")}", _headerStyle);
+                    GUILayout.Label(_emergencyRecoverySucceeded
+                                        ? _emergencyRecovery.successText
+                                        : _emergencyRecovery.failureText,
+                                    _bodyStyle);
+                }
+                GUILayout.Space(16f);
+            }
+
+            if (_gameOverData != null)
+            {
+                GUILayout.Label("[게임 오버]", _headerStyle);
+                GUILayout.Label(_gameOverData.title, _headerStyle);
+                GUILayout.Label(_gameOverData.presentation, _bodyStyle);
+                GUILayout.Label(_gameOverData.message, _bodyStyle);
+                GUILayout.Space(16f);
+            }
+
+            if (_governanceResult == null)
+            {
+                return;
+            }
+
+            GUILayout.Label("[통치 결과]", _headerStyle);
+            GUILayout.Label($"결과: {(_governanceResult.IsClear ? "클리어" : "게임 오버")}", _bodyStyle);
+            GUILayout.Label($"통치 기간: {_governanceResult.ReignWeek}주차", _bodyStyle);
+            GUILayout.Label($"해결한 사건: {_governanceResult.ResolvedEventCount}", _bodyStyle);
+            GUILayout.Label($"최종 국고: {_governanceResult.FinalStats.Treasury}", _bodyStyle);
+            GUILayout.Label($"최종 민심: {_governanceResult.FinalStats.PublicSentiment}", _bodyStyle);
+            GUILayout.Label($"최종 안보: {_governanceResult.FinalStats.Security}", _bodyStyle);
+            GUILayout.Label($"액션 성공/실패: {_governanceResult.ActionSuccessCount} / {_governanceResult.ActionFailureCount}", _bodyStyle);
+            GUILayout.Label($"긴급 수습 발생: {_governanceResult.EmergencyOccurred}", _bodyStyle);
+            GUILayout.Label($"긴급 수습 성공: {_governanceResult.EmergencySucceeded}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private static string GetStatTypeText(EKingdomStatType statType)

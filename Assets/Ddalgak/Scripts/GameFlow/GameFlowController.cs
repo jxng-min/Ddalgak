@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JxModule;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 namespace Ddalgak
 {
@@ -107,13 +110,21 @@ namespace Ddalgak
             yield return ApplyStatChanges(context);
 
             ChangeState(EGameFlowState.GameOverCheck);
-            context.GameOverReason = CheckGameOver(context.Result);
-            if (context.GameOverReason != EGameOverReason.None)
+            if (context.Result?.IsFatalFailure == true)
             {
-                _runtimeState.SetGameOver(context.GameOverReason);
-                ChangeState(EGameFlowState.GameOver);
-                yield return presenter.ShowGameOver(context.GameOverReason);
+                yield return FinishGameOver(EGameOverReason.FatalEventFailure);
                 yield break;
+            }
+
+            List<EKingdomStatType> collapsedStats = GetCollapsedStats();
+            if (collapsedStats.Count > 0)
+            {
+                bool survived = false;
+                yield return ResolveCollapse(collapsedStats, result => survived = result);
+                if (!survived)
+                {
+                    yield break;
+                }
             }
 
             _runtimeState.CompleteEvent(context.Event);
@@ -124,6 +135,8 @@ namespace Ddalgak
                 _runtimeState.SetClear();
                 ChangeState(EGameFlowState.Clear);
                 yield return presenter.ShowClear();
+                ChangeState(EGameFlowState.GovernanceResult);
+                yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(true));
                 yield break;
             }
 
@@ -394,6 +407,7 @@ namespace Ddalgak
                                                   result => actionResult = result);
 
             context.ActionResult = actionResult ?? ActionSequenceResult.Failure(0, 0);
+            _runtimeState.RecordActionResult(context.ActionResult.IsSuccess);
         }
 
         private static TurnResult CalculateResult(TurnContext context)
@@ -479,29 +493,136 @@ namespace Ddalgak
                                                        context.Result.FinalModifier);
         }
 
-        private EGameOverReason CheckGameOver(TurnResult result)
+        private List<EKingdomStatType> GetCollapsedStats()
         {
-            if (result?.IsFatalFailure == true)
-            {
-                return EGameOverReason.FatalEventFailure;
-            }
+            List<EKingdomStatType> collapsedStats = new();
 
             if (_runtimeState.Stats.Treasury <= 0)
             {
-                return EGameOverReason.TreasuryDepleted;
+                collapsedStats.Add(EKingdomStatType.Treasury);
             }
 
             if (_runtimeState.Stats.PublicSentiment <= 0)
             {
-                return EGameOverReason.PublicSentimentCollapsed;
+                collapsedStats.Add(EKingdomStatType.PublicSentiment);
             }
 
             if (_runtimeState.Stats.Security <= 0)
             {
-                return EGameOverReason.SecurityCollapsed;
+                collapsedStats.Add(EKingdomStatType.Security);
             }
 
-            return EGameOverReason.None;
+            return collapsedStats;
+        }
+
+        private IEnumerator ResolveCollapse(IReadOnlyList<EKingdomStatType> collapsedStats,
+                                            Action<bool> onCompleted)
+        {
+            EKingdomStatType collapsedStat = collapsedStats[0];
+
+            if (collapsedStats.Count >= 2 || _runtimeState.HasUsedEmergencyRecovery)
+            {
+                yield return FinishGameOver(ToGameOverReason(collapsedStat));
+                onCompleted?.Invoke(false);
+                yield break;
+            }
+
+            EKingdomStatType? resourceStat = FindEmergencyResourceStat(collapsedStat);
+            if (!resourceStat.HasValue)
+            {
+                yield return FinishGameOver(ToGameOverReason(collapsedStat));
+                onCompleted?.Invoke(false);
+                yield break;
+            }
+
+            EmergencyRecoveryData recovery =
+                GameEndingDataCatalog.GetEmergency(collapsedStat, resourceStat.Value);
+            if (recovery == null)
+            {
+                yield return FinishGameOver(ToGameOverReason(collapsedStat));
+                onCompleted?.Invoke(false);
+                yield break;
+            }
+
+            ChangeState(EGameFlowState.EmergencyRecovery);
+            yield return presenter.ShowEmergencyRecovery(recovery);
+
+            bool succeeded = Random.value < Mathf.Clamp01(recovery.successProbability);
+            _runtimeState.RecordEmergencyRecovery(succeeded);
+            yield return presenter.ShowEmergencyRecoveryResult(recovery, succeeded);
+
+            if (!succeeded)
+            {
+                yield return FinishGameOver(ToGameOverReason(collapsedStat));
+                onCompleted?.Invoke(false);
+                yield break;
+            }
+
+            KingdomStatsSnapshot before = _runtimeState.Stats.CreateSnapshot();
+            _runtimeState.Stats.SetValue(collapsedStat, recovery.recoveryValue);
+            _runtimeState.Stats.Apply(recovery.successCost);
+            KingdomStatsSnapshot after = _runtimeState.Stats.CreateSnapshot();
+            yield return presenter.AnimateStatChanges(before, after, CreateModifier(before, after));
+
+            onCompleted?.Invoke(true);
+        }
+
+        private EKingdomStatType? FindEmergencyResourceStat(EKingdomStatType collapsedStat)
+        {
+            EKingdomStatType[] priority =
+            {
+                EKingdomStatType.Treasury,
+                EKingdomStatType.PublicSentiment,
+                EKingdomStatType.Security
+            };
+
+            EKingdomStatType? selected = null;
+            int selectedValue = 79;
+
+            foreach (EKingdomStatType statType in priority)
+            {
+                if (statType == collapsedStat)
+                {
+                    continue;
+                }
+
+                int value = GetStatValue(statType);
+                if (value > selectedValue)
+                {
+                    selected = statType;
+                    selectedValue = value;
+                }
+            }
+
+            return selected;
+        }
+
+        private IEnumerator FinishGameOver(EGameOverReason reason)
+        {
+            _runtimeState.SetGameOver(reason);
+            ChangeState(EGameFlowState.GameOver);
+            yield return presenter.ShowGameOver(GameEndingDataCatalog.GetGameOver(reason));
+            ChangeState(EGameFlowState.GovernanceResult);
+            yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(false));
+        }
+
+        private static EGameOverReason ToGameOverReason(EKingdomStatType statType)
+        {
+            return statType switch
+            {
+                EKingdomStatType.Treasury => EGameOverReason.TreasuryDepleted,
+                EKingdomStatType.PublicSentiment => EGameOverReason.PublicSentimentCollapsed,
+                EKingdomStatType.Security => EGameOverReason.SecurityCollapsed,
+                _ => EGameOverReason.FatalEventFailure
+            };
+        }
+
+        private static StatModifier CreateModifier(KingdomStatsSnapshot before,
+                                                   KingdomStatsSnapshot after)
+        {
+            return new StatModifier(after.Treasury - before.Treasury,
+                                    after.PublicSentiment - before.PublicSentiment,
+                                    after.Security - before.Security);
         }
 
         private bool CheckClear()

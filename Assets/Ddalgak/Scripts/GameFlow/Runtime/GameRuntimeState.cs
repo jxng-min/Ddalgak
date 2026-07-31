@@ -14,6 +14,11 @@ namespace Ddalgak
         public bool IsGameFinished { get; private set; }
         public EGameOverReason GameOverReason { get; private set; }
         public bool HasConditionalEventThisWeek { get; private set; }
+        public bool HasUsedEmergencyRecovery { get; private set; }
+        public bool EmergencyRecoveryOccurred { get; private set; }
+        public bool EmergencyRecoverySucceeded { get; private set; }
+        public int ActionSuccessCount { get; private set; }
+        public int ActionFailureCount { get; private set; }
 
         public int EventsCompletedThisWeek => CurrentSlotIndex;
         public bool IsWeekCompleted => CurrentSlotIndex >= _currentWeekSlots.Count;
@@ -42,6 +47,11 @@ namespace Ddalgak
             IsGameFinished = false;
             GameOverReason = EGameOverReason.None;
             HasConditionalEventThisWeek = false;
+            HasUsedEmergencyRecovery = false;
+            EmergencyRecoveryOccurred = false;
+            EmergencyRecoverySucceeded = false;
+            ActionSuccessCount = 0;
+            ActionFailureCount = 0;
             _currentWeekSlots.Clear();
             _completedEventIds.Clear();
         }
@@ -85,6 +95,38 @@ namespace Ddalgak
         public bool HasCompletedEvent(string eventId)
         {
             return _completedEventIds.Contains(eventId);
+        }
+
+        public void RecordActionResult(bool succeeded)
+        {
+            if (succeeded)
+            {
+                ActionSuccessCount++;
+            }
+            else
+            {
+                ActionFailureCount++;
+            }
+        }
+
+        public void RecordEmergencyRecovery(bool succeeded)
+        {
+            HasUsedEmergencyRecovery = true;
+            EmergencyRecoveryOccurred = true;
+            EmergencyRecoverySucceeded = succeeded;
+        }
+
+        public GovernanceResultRecord CreateGovernanceResult(bool isClear)
+        {
+            return new GovernanceResultRecord(isClear,
+                                              CurrentWeek,
+                                              ProcessedEventCount,
+                                              Stats.CreateSnapshot(),
+                                              ActionSuccessCount,
+                                              ActionFailureCount,
+                                              EmergencyRecoveryOccurred,
+                                              EmergencyRecoverySucceeded,
+                                              GameOverReason);
         }
 
         public void SetGameOver(EGameOverReason reason)

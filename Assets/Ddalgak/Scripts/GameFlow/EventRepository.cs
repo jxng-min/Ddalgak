@@ -247,7 +247,7 @@ namespace Ddalgak
             {
                 KeyCode.Q => new StatModifier(-15, 0, 0),
                 KeyCode.Space => new StatModifier(0, -15, 0),
-                KeyCode.P => new StatModifier(0, 0, -15),
+                KeyCode.P => new StatModifier(0, 0, 15),
                 _ => StatModifier.Zero
             };
 
@@ -255,7 +255,7 @@ namespace Ddalgak
             {
                 KeyCode.Q => "국고 -15",
                 KeyCode.Space => "민심 -15",
-                KeyCode.P => "안보 -15",
+                KeyCode.P => "안보 +15",
                 _ => "변화 없음"
             };
 
@@ -268,7 +268,9 @@ namespace Ddalgak
                 baseModifier = modifier,
                 actionSuccessModifier = StatModifier.Zero,
                 actionFailureModifier = StatModifier.Zero,
-                successResultText = "선택한 왕국 수치가 15 감소했습니다.",
+                successResultText = inputKey == KeyCode.P
+                    ? "안보가 15 증가했습니다."
+                    : "선택한 왕국 수치가 15 감소했습니다.",
                 failureResultText = "테스트 액션이 실패했습니다."
             };
 

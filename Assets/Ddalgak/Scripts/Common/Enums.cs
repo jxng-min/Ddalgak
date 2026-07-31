@@ -14,11 +14,13 @@ namespace Ddalgak
         ResultPresentation,
         StatUpdate,
         GameOverCheck,
+        EmergencyRecovery,
         WeekSettlement,
         ClearCheck,
         TurnEnd,
         GameOver,
-        Clear
+        Clear,
+        GovernanceResult
     }
 
     public enum EEventType
