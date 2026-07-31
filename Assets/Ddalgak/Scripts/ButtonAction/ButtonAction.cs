@@ -21,6 +21,8 @@ namespace Ddalgak
         [Header("È¦µå ½Ã°£")]
         [SerializeField]
         private float holdDuration;
+        [SerializeField]
+        private float addDuration;
 
         [Header("¸ñÇ¥ È½¼ö")]
         [SerializeField]
@@ -41,6 +43,7 @@ namespace Ddalgak
         public KeyCode Key => key;
         public float Duration => duration;
         public float HoldedDuration => holdDuration;
+        public float AddDuration => addDuration;
         public int TargetPressCount => targetPressCount;
         public float TimingSpeed => timingSpeed;
         public float SuccessRangeStart => successRangeStart;
