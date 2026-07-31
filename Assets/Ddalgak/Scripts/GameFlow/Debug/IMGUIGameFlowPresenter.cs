@@ -8,11 +8,18 @@ namespace Ddalgak
 {
     public sealed class IMGUIGameFlowPresenter : GameFlowPresenterBase
     {
-        private const float PanelWidth = 420f;
-        private const float PanelMargin = 20f;
+        private const float ReferenceWidth = 1920f;
+        private const float ReferenceHeight = 1080f;
+        private const float PanelWidth = 1080f;
+        private const float PanelMargin = 30f;
+        private const int BodyFontSize = 24;
+        private const int HeaderFontSize = 30;
 
         private GameRuntimeState _runtimeState;
         private EventData _currentEvent;
+        private int _currentEventWeek;
+        private int _currentEventSlotIndex;
+        private EEventType _currentEventType;
         private IReadOnlyList<ChoiceData> _currentChoices;
         private TurnResult _currentResult;
         private KingdomStatsSnapshot _displayedStats;
@@ -21,6 +28,9 @@ namespace Ddalgak
         private bool _showChoices;
         private bool _showResult;
         private bool _isCancelled;
+        private GUIStyle _bodyStyle;
+        private GUIStyle _headerStyle;
+        private GUIStyle _panelStyle;
 
         public override IEnumerator ShowGameStart(GameRuntimeState state)
         {
@@ -36,9 +46,18 @@ namespace Ddalgak
             yield break;
         }
 
+        public override IEnumerator ShowWeekStart(GameRuntimeState runtimeState)
+        {
+            _statusText = $"{runtimeState.CurrentWeek}주차 시작";
+            yield break;
+        }
+
         public override IEnumerator ShowEvent(EventData eventData)
         {
             _currentEvent = eventData;
+            _currentEventWeek = _runtimeState.CurrentWeek;
+            _currentEventSlotIndex = _runtimeState.CurrentSlotIndex;
+            _currentEventType = eventData.eventType;
             _currentChoices = null;
             _currentResult = null;
             _showChoices = false;
@@ -141,9 +160,9 @@ namespace Ddalgak
             }
         }
 
-        public override IEnumerator ShowProcedureLevelUp(int previousLevel, int currentLevel)
+        public override IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState)
         {
-            _statusText = $"절차 복잡도 상승: {previousLevel} → {currentLevel}";
+            _statusText = $"{runtimeState.CurrentWeek}주차 정산 완료";
             yield break;
         }
 
@@ -174,12 +193,24 @@ namespace Ddalgak
                 return;
             }
 
-            Rect area = new(Screen.width - PanelWidth - PanelMargin,
+            EnsureStyles();
+
+            float scale = Mathf.Min(Screen.width / ReferenceWidth,
+                                    Screen.height / ReferenceHeight);
+            scale = Mathf.Max(scale, 0.01f);
+
+            Matrix4x4 previousMatrix = GUI.matrix;
+            GUI.matrix = Matrix4x4.Scale(new Vector3(scale, scale, 1f));
+
+            float scaledScreenWidth = Screen.width / scale;
+            float scaledScreenHeight = Screen.height / scale;
+
+            Rect area = new(scaledScreenWidth - PanelWidth - PanelMargin,
                             PanelMargin,
                             PanelWidth,
-                            Screen.height - PanelMargin * 2f);
+                            scaledScreenHeight - PanelMargin * 2f);
 
-            GUILayout.BeginArea(area, GUI.skin.box);
+            GUILayout.BeginArea(area, _panelStyle);
             _scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
 
             DrawGameState();
@@ -191,24 +222,28 @@ namespace Ddalgak
 
             GUILayout.EndScrollView();
             GUILayout.EndArea();
+
+            GUI.matrix = previousMatrix;
         }
 
         private void DrawGameState()
         {
-            GUILayout.Label("<b>[Game Flow]</b>", CreateRichTextStyle());
-            GUILayout.Label($"State: {GetCurrentStateText()}");
-            GUILayout.Label($"처리 이벤트: {_runtimeState.ProcessedEventCount}");
-            GUILayout.Label($"절차 복잡도: {_runtimeState.ProcedureLevel}");
-            GUILayout.Space(8f);
+            GUILayout.Label("[Game Flow]", _headerStyle);
+            GUILayout.Label($"State: {GetCurrentStateText()}", _bodyStyle);
+            GUILayout.Label($"현재 주차: {_runtimeState.CurrentWeek}주차", _bodyStyle);
+            GUILayout.Label($"주차 진행: {Mathf.Min(_runtimeState.EventsCompletedThisWeek + 1, 4)} / 4", _bodyStyle);
+            GUILayout.Label($"전체 진행: {_runtimeState.ProcessedEventCount} / 12", _bodyStyle);
+            GUILayout.Label($"이번 주 슬롯: {FormatWeekSlots()}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawStats()
         {
-            GUILayout.Label("<b>[왕국 수치]</b>", CreateRichTextStyle());
-            GUILayout.Label($"국고: {_displayedStats.Treasury}");
-            GUILayout.Label($"민심: {_displayedStats.PublicSentiment}");
-            GUILayout.Label($"안보: {_displayedStats.Security}");
-            GUILayout.Space(8f);
+            GUILayout.Label("[왕국 수치]", _headerStyle);
+            GUILayout.Label($"국고: {_displayedStats.Treasury}", _bodyStyle);
+            GUILayout.Label($"민심: {_displayedStats.PublicSentiment}", _bodyStyle);
+            GUILayout.Label($"안보: {_displayedStats.Security}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawEvent()
@@ -218,10 +253,12 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[이벤트]</b>", CreateRichTextStyle());
-            GUILayout.Label(_currentEvent.title);
-            GUILayout.Label(_currentEvent.description, GUI.skin.label);
-            GUILayout.Space(8f);
+            GUILayout.Label("[이벤트]", _headerStyle);
+            GUILayout.Label($"위치: {_currentEventWeek}주차 {_currentEventSlotIndex + 1}번째", _bodyStyle);
+            GUILayout.Label($"유형: {GetEventTypeText(_currentEventType)}", _headerStyle);
+            GUILayout.Label(_currentEvent.title, _bodyStyle);
+            GUILayout.Label(_currentEvent.description, _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawChoices()
@@ -231,7 +268,7 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[선택지]</b>", CreateRichTextStyle());
+            GUILayout.Label("[선택지]", _headerStyle);
             foreach (ChoiceData choice in _currentChoices)
             {
                 if (choice == null)
@@ -239,14 +276,14 @@ namespace Ddalgak
                     continue;
                 }
 
-                GUILayout.Label($"[{choice.inputKey}] {choice.description}");
+                GUILayout.Label($"[{choice.inputKey}] {choice.description}", _bodyStyle);
                 if (!string.IsNullOrWhiteSpace(choice.changePreview))
                 {
-                    GUILayout.Label($"    {choice.changePreview}");
+                    GUILayout.Label($"    {choice.changePreview}", _bodyStyle);
                 }
             }
 
-            GUILayout.Space(8f);
+            GUILayout.Space(16f);
         }
 
         private void DrawResult()
@@ -256,18 +293,18 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[결과]</b>", CreateRichTextStyle());
-            GUILayout.Label(_currentResult.ResultText);
+            GUILayout.Label("[결과]", _headerStyle);
+            GUILayout.Label(_currentResult.ResultText, _bodyStyle);
             GUILayout.Label($"국고 {FormatModifier(_currentResult.FinalModifier.treasury)} / " +
                             $"민심 {FormatModifier(_currentResult.FinalModifier.publicSentiment)} / " +
-                            $"안보 {FormatModifier(_currentResult.FinalModifier.security)}");
-            GUILayout.Space(8f);
+                            $"안보 {FormatModifier(_currentResult.FinalModifier.security)}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawStatus()
         {
-            GUILayout.Label("<b>[상태]</b>", CreateRichTextStyle());
-            GUILayout.Label(_statusText ?? string.Empty);
+            GUILayout.Label("[상태]", _headerStyle);
+            GUILayout.Label(_statusText ?? string.Empty, _bodyStyle);
         }
 
         private string GetCurrentStateText()
@@ -276,12 +313,33 @@ namespace Ddalgak
             return controller != null ? controller.CurrentState.ToString() : "Unknown";
         }
 
-        private static GUIStyle CreateRichTextStyle()
+        private void EnsureStyles()
         {
-            return new GUIStyle(GUI.skin.label)
+            if (_bodyStyle != null)
             {
+                return;
+            }
+
+            _bodyStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = BodyFontSize,
+                wordWrap = true,
                 richText = true,
-                wordWrap = true
+                normal =
+                {
+                    textColor = Color.white
+                }
+            };
+
+            _headerStyle = new GUIStyle(_bodyStyle)
+            {
+                fontSize = HeaderFontSize,
+                fontStyle = FontStyle.Bold
+            };
+
+            _panelStyle = new GUIStyle(GUI.skin.box)
+            {
+                padding = new RectOffset(24, 24, 24, 24)
             };
         }
 
@@ -335,6 +393,38 @@ namespace Ddalgak
         private static string FormatModifier(int value)
         {
             return value > 0 ? $"+{value}" : value.ToString();
+        }
+
+        private string FormatWeekSlots()
+        {
+            IReadOnlyList<EEventType> slots = _runtimeState.CurrentWeekSlots;
+            if (slots == null || slots.Count == 0)
+            {
+                return "없음";
+            }
+
+            var slotTexts = new string[slots.Count];
+            for (int i = 0; i < slots.Count; i++)
+            {
+                string slotText = $"{i + 1}.{GetEventTypeText(slots[i])}";
+                slotTexts[i] = i == _currentEventSlotIndex &&
+                               _currentEventWeek == _runtimeState.CurrentWeek
+                    ? $"<b>[{slotText}]</b>"
+                    : slotText;
+            }
+
+            return string.Join("  |  ", slotTexts);
+        }
+
+        private static string GetEventTypeText(EEventType eventType)
+        {
+            return eventType switch
+            {
+                EEventType.NormalChoice => "기본 선택",
+                EEventType.ActionChoice => "실행형 액션",
+                EEventType.SuddenChoice => "돌발 액션",
+                _ => eventType.ToString()
+            };
         }
     }
 }

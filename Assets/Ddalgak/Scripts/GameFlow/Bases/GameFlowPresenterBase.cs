@@ -8,6 +8,7 @@ namespace Ddalgak
     public abstract class GameFlowPresenterBase : MonoBehaviour
     {
         public abstract IEnumerator ShowGameStart(GameRuntimeState runtimeState);
+        public abstract IEnumerator ShowWeekStart(GameRuntimeState runtimeState);
         public abstract IEnumerator ShowEvent(EventData eventData);
         public abstract IEnumerator ShowChoices(IReadOnlyList<ChoiceData> choices,
                                                 Action<ChoiceData> onSelected);
@@ -17,7 +18,7 @@ namespace Ddalgak
                                                         KingdomStatsSnapshot after,
                                                         StatModifier modifier);
         public abstract IEnumerator WaitForNextTurnInput();
-        public abstract IEnumerator ShowProcedureLevelUp(int previousLevel, int currentLevel);
+        public abstract IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState);
         public abstract IEnumerator ShowGameOver(EGameOverReason reason);
         public abstract IEnumerator ShowClear();
         public abstract void Cancel();

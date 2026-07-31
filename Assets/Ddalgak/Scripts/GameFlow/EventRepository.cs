@@ -22,6 +22,100 @@ namespace Ddalgak
                 CreateAssassinEvent(),
                 CreateMerchantEvent()
             };
+
+            for (int i = 1; i <= 4; i++)
+            {
+                events.Add(CreateAdditionalNormalEvent(i));
+            }
+
+            for (int i = 1; i <= 3; i++)
+            {
+                events.Add(CreateAdditionalActionEvent(i));
+            }
+
+            events.Add(CreateAdditionalSuddenEvent());
+        }
+
+        private static EventData CreateAdditionalNormalEvent(int index)
+        {
+            return new EventData
+            {
+                eventId = $"test_normal_{index}",
+                eventName = $"Test Normal {index}",
+                title = $"테스트 기본 선택 이벤트 {index}",
+                description = "주차 슬롯과 중복 방지 흐름을 확인하기 위한 테스트 이벤트입니다.",
+                eventType = EEventType.NormalChoice,
+                weight = 1f,
+                choices = CreateTestChoices($"normal_{index}", false)
+            };
+        }
+
+        private static EventData CreateAdditionalActionEvent(int index)
+        {
+            return new EventData
+            {
+                eventId = $"test_action_{index}",
+                eventName = $"Test Action {index}",
+                title = $"테스트 실행형 이벤트 {index}",
+                description = "실행형 슬롯과 액션 성공 흐름을 확인하기 위한 테스트 이벤트입니다.",
+                eventType = EEventType.ActionChoice,
+                weight = 1f,
+                choices = CreateTestChoices($"action_{index}", true)
+            };
+        }
+
+        private static EventData CreateAdditionalSuddenEvent()
+        {
+            return new EventData
+            {
+                eventId = "test_sudden_1",
+                eventName = "Test Sudden 1",
+                title = "테스트 돌발 액션 이벤트",
+                description = "돌발 액션 슬롯 위치를 확인하기 위한 테스트 이벤트입니다.",
+                eventType = EEventType.SuddenChoice,
+                weight = 1f,
+                buttonActions = new List<ButtonAction> { new() },
+                actionSuccessModifier = StatModifier.Zero,
+                actionFailureModifier = StatModifier.Zero,
+                successResultText = "돌발 액션 테스트에 성공했습니다.",
+                failureResultText = "돌발 액션 테스트에 실패했습니다."
+            };
+        }
+
+        private static List<ChoiceData> CreateTestChoices(string idPrefix, bool hasAction)
+        {
+            return new List<ChoiceData>
+            {
+                CreateTestChoice($"{idPrefix}_q", KeyCode.Q, "첫 번째 테스트 선택지", hasAction),
+                CreateTestChoice($"{idPrefix}_space", KeyCode.Space, "두 번째 테스트 선택지", hasAction),
+                CreateTestChoice($"{idPrefix}_p", KeyCode.P, "세 번째 테스트 선택지", hasAction)
+            };
+        }
+
+        private static ChoiceData CreateTestChoice(string choiceId,
+                                                   KeyCode inputKey,
+                                                   string description,
+                                                   bool hasAction)
+        {
+            ChoiceData choice = new()
+            {
+                choiceId = choiceId,
+                inputKey = inputKey,
+                description = description,
+                changePreview = "변화 없음",
+                baseModifier = StatModifier.Zero,
+                actionSuccessModifier = StatModifier.Zero,
+                actionFailureModifier = StatModifier.Zero,
+                successResultText = "테스트 선택 결과가 적용되었습니다.",
+                failureResultText = "테스트 액션이 실패했습니다."
+            };
+
+            if (hasAction)
+            {
+                choice.buttonActions.Add(new ButtonAction());
+            }
+
+            return choice;
         }
 
         private static EventData CreateHarvestEvent()
@@ -33,8 +127,6 @@ namespace Ddalgak
                 title = "흉년이 찾아왔습니다",
                 description = "올해 수확량이 크게 줄었습니다. 백성들이 왕의 결정을 기다립니다.",
                 eventType = EEventType.NormalChoice,
-                minProcedureLevel = 0,
-                maxProcedureLevel = 4,
                 weight = 1f,
                 choices = new List<ChoiceData>
                 {
@@ -78,8 +170,6 @@ namespace Ddalgak
                 title = "북쪽 마을에 도적이 나타났습니다",
                 description = "도적 떼가 창고를 노리고 있습니다. 병력을 보내야 합니다.",
                 eventType = EEventType.ActionChoice,
-                minProcedureLevel = 0,
-                maxProcedureLevel = 4,
                 weight = 1f,
                 choices = new List<ChoiceData>
                 {
@@ -135,8 +225,6 @@ namespace Ddalgak
                 title = "암살자가 나타났습니다!",
                 description = "왕좌 뒤에서 암살자가 뛰쳐나왔습니다. 즉시 대응하십시오.",
                 eventType = EEventType.SuddenChoice,
-                minProcedureLevel = 0,
-                maxProcedureLevel = 4,
                 weight = 1f,
                 buttonActions = new List<ButtonAction> { new() },
                 actionSuccessModifier = new StatModifier(0, 0, -5),
@@ -156,8 +244,6 @@ namespace Ddalgak
                 title = "이국의 상인이 찾아왔습니다",
                 description = "상인이 새로운 교역 계약을 제안했습니다.",
                 eventType = EEventType.NormalChoice,
-                minProcedureLevel = 0,
-                maxProcedureLevel = 4,
                 weight = 1f,
                 choices = new List<ChoiceData>
                 {

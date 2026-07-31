@@ -4,52 +4,80 @@ namespace Ddalgak
 {
     public sealed class GameRuntimeState
     {
-        private const int RecentEventCapacity = 3;
-
-        private readonly Queue<string> _recentEventIds = new();
         private readonly HashSet<string> _completedEventIds = new();
+        private readonly List<EEventType> _currentWeekSlots = new();
 
         public KingdomStats Stats { get; } = new();
+        public int CurrentWeek { get; private set; }
+        public int CurrentSlotIndex { get; private set; }
         public int ProcessedEventCount { get; private set; }
-        public int ProcedureLevel { get; private set; }
         public bool IsGameFinished { get; private set; }
         public EGameOverReason GameOverReason { get; private set; }
 
-        public IReadOnlyCollection<string> RecentEventIds => _recentEventIds;
+        public int EventsCompletedThisWeek => CurrentSlotIndex;
+        public bool IsWeekCompleted => CurrentSlotIndex >= _currentWeekSlots.Count;
+        public IReadOnlyList<EEventType> CurrentWeekSlots => _currentWeekSlots;
         public IReadOnlyCollection<string> CompletedEventIds => _completedEventIds;
+
+        public EEventType CurrentSlotType
+        {
+            get
+            {
+                if (CurrentSlotIndex < 0 || CurrentSlotIndex >= _currentWeekSlots.Count)
+                {
+                    return default;
+                }
+
+                return _currentWeekSlots[CurrentSlotIndex];
+            }
+        }
 
         public void Initialize()
         {
             Stats.Initialize();
+            CurrentWeek = 0;
+            CurrentSlotIndex = 0;
             ProcessedEventCount = 0;
-            ProcedureLevel = 0;
             IsGameFinished = false;
             GameOverReason = EGameOverReason.None;
-            _recentEventIds.Clear();
+            _currentWeekSlots.Clear();
             _completedEventIds.Clear();
         }
 
-        public void CompleteEvent(string eventId)
+        public void StartWeek(int week, IReadOnlyList<EEventType> slots)
         {
-            ProcessedEventCount++;
+            CurrentWeek = week;
+            CurrentSlotIndex = 0;
+            _currentWeekSlots.Clear();
 
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (slots == null)
             {
                 return;
             }
 
-            _completedEventIds.Add(eventId);
-            _recentEventIds.Enqueue(eventId);
-
-            while (_recentEventIds.Count > RecentEventCapacity)
+            foreach (EEventType slot in slots)
             {
-                _recentEventIds.Dequeue();
+                _currentWeekSlots.Add(slot);
             }
         }
 
-        public void SetProcedureLevel(int level) => ProcedureLevel = level;
-        public bool HasCompletedEvent(string eventId) => _completedEventIds.Contains(eventId);
-        public bool IsRecentEvent(string eventId) => _recentEventIds.Contains(eventId);
+        public void CompleteEvent(EventData eventData)
+        {
+            ProcessedEventCount++;
+            CurrentSlotIndex++;
+
+            if (eventData == null || string.IsNullOrWhiteSpace(eventData.eventId))
+            {
+                return;
+            }
+
+            _completedEventIds.Add(eventData.eventId);
+        }
+
+        public bool HasCompletedEvent(string eventId)
+        {
+            return _completedEventIds.Contains(eventId);
+        }
 
         public void SetGameOver(EGameOverReason reason)
         {

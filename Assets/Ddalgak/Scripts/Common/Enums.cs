@@ -4,6 +4,7 @@ namespace Ddalgak
     {
         None,
         Initializing,
+        WeekStart,
         TurnStart,
         EventSelection,
         EventPresentation,
@@ -13,7 +14,7 @@ namespace Ddalgak
         ResultPresentation,
         StatUpdate,
         GameOverCheck,
-        ProcedureCheck,
+        WeekSettlement,
         ClearCheck,
         TurnEnd,
         GameOver,

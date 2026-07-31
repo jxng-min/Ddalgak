@@ -7,7 +7,9 @@ namespace Ddalgak
 {
     public sealed class GameFlowController : MonoBehaviour
     {
-        private const int RequiredClearEventCount = 20;
+        private const int EventsPerWeek = 4;
+        private const int FinalWeek = 3;
+        private const int RequiredClearEventCount = EventsPerWeek * FinalWeek;
 
         [Header("Dependencies")]
         [SerializeField] private EventRepositoryBase eventRepository;
@@ -37,7 +39,7 @@ namespace Ddalgak
 
             _gameLoopCoroutine = StartCoroutine(RunGameLoop());
         }
-        
+
         public void StopGame()
         {
             if (_gameLoopCoroutine != null)
@@ -57,6 +59,8 @@ namespace Ddalgak
             _runtimeState.Initialize();
             yield return presenter.ShowGameStart(_runtimeState);
 
+            yield return StartWeek(1);
+
             while (!_runtimeState.IsGameFinished)
             {
                 yield return RunTurn();
@@ -73,7 +77,7 @@ namespace Ddalgak
             context.Event = SelectEvent();
             if (context.Event == null)
             {
-                Debug.LogError("No event satisfying the current conditions.");
+                Debug.LogError($"No unused { _runtimeState.CurrentSlotType } event is available.");
                 StopGame();
                 yield break;
             }
@@ -109,8 +113,7 @@ namespace Ddalgak
                 yield break;
             }
 
-            _runtimeState.CompleteEvent(context.Event.eventId);
-            yield return UpdateProcedureLevel();
+            _runtimeState.CompleteEvent(context.Event);
 
             ChangeState(EGameFlowState.ClearCheck);
             if (CheckClear())
@@ -121,8 +124,78 @@ namespace Ddalgak
                 yield break;
             }
 
+            if (_runtimeState.IsWeekCompleted)
+            {
+                ChangeState(EGameFlowState.WeekSettlement);
+                yield return presenter.ShowWeekSettlement(_runtimeState);
+                yield return StartWeek(_runtimeState.CurrentWeek + 1);
+            }
+
             ChangeState(EGameFlowState.TurnEnd);
             yield return presenter.WaitForNextTurnInput();
+        }
+
+        private IEnumerator StartWeek(int week)
+        {
+            _runtimeState.StartWeek(week, CreateWeekSlots(week));
+            ChangeState(EGameFlowState.WeekStart);
+            yield return presenter.ShowWeekStart(_runtimeState);
+        }
+
+        private static List<EEventType> CreateWeekSlots(int week)
+        {
+            switch (week)
+            {
+                case 1:
+                {
+                    int actionIndex = Random.Range(1, 3);
+                    List<EEventType> slots = new(EventsPerWeek);
+
+                    for (int i = 0; i < EventsPerWeek; i++)
+                    {
+                        slots.Add(i == actionIndex
+                            ? EEventType.ActionChoice
+                            : EEventType.NormalChoice);
+                    }
+
+                    return slots;
+                }
+
+                case 2:
+                {
+                    List<EEventType> remainingSlots = new()
+                    {
+                        EEventType.NormalChoice,
+                        EEventType.NormalChoice,
+                        EEventType.ActionChoice
+                    };
+                    RandomUtility.Shuffle(remainingSlots);
+
+                    return new List<EEventType>
+                    {
+                        remainingSlots[0],
+                        remainingSlots[1],
+                        EEventType.SuddenChoice,
+                        remainingSlots[2]
+                    };
+                }
+
+                case 3:
+                {
+                    bool normalFirst = Random.value < 0.5f;
+
+                    return new List<EEventType>
+                    {
+                        normalFirst ? EEventType.NormalChoice : EEventType.ActionChoice,
+                        normalFirst ? EEventType.ActionChoice : EEventType.NormalChoice,
+                        EEventType.SuddenChoice,
+                        EEventType.ActionChoice
+                    };
+                }
+
+                default:
+                    return new List<EEventType>();
+            }
         }
 
         private EventData SelectEvent()
@@ -135,10 +208,12 @@ namespace Ddalgak
                 return null;
             }
 
+            EEventType slotType = _runtimeState.CurrentSlotType;
             List<EventData> candidates = new();
+
             foreach (EventData eventData in allEvents)
             {
-                if (CanAppear(eventData))
+                if (CanAppear(eventData, slotType))
                 {
                     candidates.Add(eventData);
                 }
@@ -147,15 +222,14 @@ namespace Ddalgak
             return RandomUtility.GetWeightedRandom(candidates, eventData => eventData.weight);
         }
 
-        private bool CanAppear(EventData eventData)
+        private bool CanAppear(EventData eventData, EEventType slotType)
         {
-            if (eventData == null || _runtimeState.IsRecentEvent(eventData.eventId))
+            if (eventData == null || eventData.eventType != slotType)
             {
                 return false;
             }
 
-            if (_runtimeState.ProcedureLevel < eventData.minProcedureLevel ||
-                _runtimeState.ProcedureLevel > eventData.maxProcedureLevel)
+            if (_runtimeState.HasCompletedEvent(eventData.eventId))
             {
                 return false;
             }
@@ -298,52 +372,15 @@ namespace Ddalgak
             {
                 return EGameOverReason.SecurityCollapsed;
             }
-            
+
             return EGameOverReason.None;
-        }
-
-        private IEnumerator UpdateProcedureLevel()
-        {
-            ChangeState(EGameFlowState.ProcedureCheck);
-
-            var previousLevel = _runtimeState.ProcedureLevel;
-            var currentLevel = CalculateProcedureLevel(_runtimeState.ProcessedEventCount);
-            _runtimeState.SetProcedureLevel(currentLevel);
-
-            if (currentLevel > previousLevel)
-            {
-                yield return presenter.ShowProcedureLevelUp(previousLevel, currentLevel);
-            }
-        }
-
-        private static int CalculateProcedureLevel(int processedEventCount)
-        {
-            if (processedEventCount >= 18)
-            {
-                return 4;
-            }
-
-            if (processedEventCount >= 13)
-            {
-                return 3;
-            }
-
-            if (processedEventCount >= 8)
-            {
-                return 2;
-            }
-
-            if (processedEventCount >= 4)
-            {
-                return 1;
-            }
-            
-            return 0;
         }
 
         private bool CheckClear()
         {
             return _runtimeState.ProcessedEventCount >= RequiredClearEventCount &&
+                   _runtimeState.CurrentWeek == FinalWeek &&
+                   _runtimeState.IsWeekCompleted &&
                    _runtimeState.Stats.Treasury > 0 &&
                    _runtimeState.Stats.PublicSentiment > 0 &&
                    _runtimeState.Stats.Security > 0;
