@@ -21,6 +21,7 @@ namespace Ddalgak
         public GameRuntimeState RuntimeState => _runtimeState;
         public bool IsRunning => _gameLoopCoroutine != null;
 
+        [Button("테스트")]
         public void StartGame()
         {
             if (IsRunning)
@@ -36,7 +37,7 @@ namespace Ddalgak
 
             _gameLoopCoroutine = StartCoroutine(RunGameLoop());
         }
-
+        
         public void StopGame()
         {
             if (_gameLoopCoroutine != null)
