@@ -12,6 +12,8 @@ namespace Ddalgak
         public string description;
         public EEventType eventType;
         public float weight = 1f;
+        public bool isConditional;
+        public EKingdomStatType conditionalStat;
         public int minTreasury;
         public int maxTreasury = 100;
         public int minPublicSentiment;

@@ -34,6 +34,152 @@ namespace Ddalgak
             }
 
             events.Add(CreateAdditionalSuddenEvent());
+            events.Add(CreateRoyalDebtEvent());
+            events.Add(CreateProtestEvent());
+            events.Add(CreateBorderPostEvent());
+        }
+
+        private static EventData CreateRoyalDebtEvent()
+        {
+            return new EventData
+            {
+                eventId = "B08",
+                eventName = "Royal Debt Repayment Demand",
+                title = "왕실 채무 상환 독촉",
+                description = "왕실이 빌린 돈의 상환 기한이 다가왔습니다. 채권자들은 오늘 안으로 빚을 갚지 않으면 왕실의 재산을 압류하겠다고 통보했습니다.",
+                eventType = EEventType.NormalChoice,
+                weight = 1f,
+                isConditional = true,
+                conditionalStat = EKingdomStatType.Treasury,
+                choices = new List<ChoiceData>
+                {
+                    new()
+                    {
+                        choiceId = "B08_Q",
+                        inputKey = KeyCode.Q,
+                        description = "백성에게 특별세를 걷는다.",
+                        changePreview = "국고 +20 / 민심 -15",
+                        baseModifier = new StatModifier(20, -15, 0),
+                        successResultText = "백성들에게 급하게 특별세를 거두어 채무 일부를 상환했습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B08_SPACE",
+                        inputKey = KeyCode.Space,
+                        description = "군수 물자를 매각한다.",
+                        changePreview = "국고 +15 / 안보 -15",
+                        baseModifier = new StatModifier(15, 0, -15),
+                        successResultText = "비축해 둔 무기와 군량을 주변 왕국에 판매했습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B08_P",
+                        inputKey = KeyCode.P,
+                        description = "상환 기한을 미뤄 달라고 협상한다.",
+                        changePreview = "성공 45% / 실패 55%",
+                        hasRandomResult = true,
+                        successProbability = 0.45f,
+                        randomSuccessModifier = new StatModifier(-10, -5, -5),
+                        randomFailureModifier = new StatModifier(-25, -10, 0),
+                        successResultText = "채권자들은 당장의 압류를 미루는 대신 다른 것들을 요구했습니다.",
+                        failureResultText = "설득에 실패했고 채권자들이 결국 국고를 거의 털어갔습니다."
+                    }
+                }
+            };
+        }
+
+        private static EventData CreateProtestEvent()
+        {
+            return new EventData
+            {
+                eventId = "B09",
+                eventName = "Protesters in the Square",
+                title = "광장에 모인 시위대",
+                description = "왕궁 앞 광장에 분노한 백성들이 모였습니다. 시위대는 최근 왕실의 정책에 항의하며 즉각적인 대책을 요구하고 있습니다.",
+                eventType = EEventType.NormalChoice,
+                weight = 1f,
+                isConditional = true,
+                conditionalStat = EKingdomStatType.PublicSentiment,
+                choices = new List<ChoiceData>
+                {
+                    new()
+                    {
+                        choiceId = "B09_Q",
+                        inputKey = KeyCode.Q,
+                        description = "왕실 지원금을 지급한다.",
+                        changePreview = "국고 -15 / 민심 +20",
+                        baseModifier = new StatModifier(-15, 20, 0),
+                        successResultText = "왕실은 백성들에게 긴급 지원금을 나누어 주고 불만을 달랬습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B09_SPACE",
+                        inputKey = KeyCode.Space,
+                        description = "경비대를 동원해 해산시킨다.",
+                        changePreview = "민심 +5 / 안보 -10",
+                        baseModifier = new StatModifier(0, 5, -10),
+                        successResultText = "경비대가 광장을 비웠지만 백성들의 불만은 완전히 사라지지 않았습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B09_P",
+                        inputKey = KeyCode.P,
+                        description = "광장에 나가 직접 사과한다.",
+                        changePreview = "성공 50% / 실패 50%",
+                        hasRandomResult = true,
+                        successProbability = 0.5f,
+                        randomSuccessModifier = new StatModifier(0, 15, -5),
+                        randomFailureModifier = new StatModifier(0, -25, -5),
+                        successResultText = "왕실은 백성들 앞에서 잘못을 인정했고 국민들은 그 말을 믿는 듯합니다.",
+                        failureResultText = "국민들이 사과를 납득하지 않았고 불만이 더욱 커졌습니다."
+                    }
+                }
+            };
+        }
+
+        private static EventData CreateBorderPostEvent()
+        {
+            return new EventData
+            {
+                eventId = "B10",
+                eventName = "Crumbling Border Post",
+                title = "무너져 가는 국경 초소",
+                description = "국경을 지키는 병사들이 장비와 인력 부족을 호소하고 있습니다. 이대로 방치하면 주변 세력이 왕국의 약해진 방어선을 눈치챌 수 있습니다.",
+                eventType = EEventType.NormalChoice,
+                weight = 1f,
+                isConditional = true,
+                conditionalStat = EKingdomStatType.Security,
+                choices = new List<ChoiceData>
+                {
+                    new()
+                    {
+                        choiceId = "B10_Q",
+                        inputKey = KeyCode.Q,
+                        description = "대규모 지원 병력을 보낸다.",
+                        changePreview = "국고 -15 / 안보 +20",
+                        baseModifier = new StatModifier(-15, 0, 20),
+                        successResultText = "왕실은 많은 비용을 들여 병력과 장비를 국경으로 보냈습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B10_SPACE",
+                        inputKey = KeyCode.Space,
+                        description = "백성들을 민병대로 징집한다.",
+                        changePreview = "국고 -5 / 민심 -15 / 안보 +15",
+                        baseModifier = new StatModifier(-5, -15, 15),
+                        successResultText = "급하게 병력을 확보했지만 강제 징집에 대한 백성들의 불만이 커졌습니다."
+                    },
+                    new()
+                    {
+                        choiceId = "B10_P",
+                        inputKey = KeyCode.P,
+                        description = "초소를 줄이고 핵심 지역만 지킨다.",
+                        changePreview = "민심 -5 / 안보 -10",
+                        baseModifier = new StatModifier(0, -5, -10),
+                        successResultText = "방어선을 축소해 남은 병력을 중요한 지역에 집중했습니다."
+                    }
+                }
+            };
         }
 
         private static EventData CreateAdditionalNormalEvent(int index)
@@ -97,16 +243,32 @@ namespace Ddalgak
                                                    string description,
                                                    bool hasAction)
         {
+            StatModifier modifier = inputKey switch
+            {
+                KeyCode.Q => new StatModifier(-15, 0, 0),
+                KeyCode.Space => new StatModifier(0, -15, 0),
+                KeyCode.P => new StatModifier(0, 0, -15),
+                _ => StatModifier.Zero
+            };
+
+            string changePreview = inputKey switch
+            {
+                KeyCode.Q => "국고 -15",
+                KeyCode.Space => "민심 -15",
+                KeyCode.P => "안보 -15",
+                _ => "변화 없음"
+            };
+
             ChoiceData choice = new()
             {
                 choiceId = choiceId,
                 inputKey = inputKey,
                 description = description,
-                changePreview = "변화 없음",
-                baseModifier = StatModifier.Zero,
+                changePreview = changePreview,
+                baseModifier = modifier,
                 actionSuccessModifier = StatModifier.Zero,
                 actionFailureModifier = StatModifier.Zero,
-                successResultText = "테스트 선택 결과가 적용되었습니다.",
+                successResultText = "선택한 왕국 수치가 15 감소했습니다.",
                 failureResultText = "테스트 액션이 실패했습니다."
             };
 

@@ -28,6 +28,13 @@ namespace Ddalgak
         SuddenChoice
     }
 
+    public enum EKingdomStatType
+    {
+        Treasury,
+        PublicSentiment,
+        Security
+    }
+
     public enum EGameOverReason
     {
         None,

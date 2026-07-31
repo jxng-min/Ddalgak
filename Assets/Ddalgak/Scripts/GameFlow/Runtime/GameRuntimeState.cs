@@ -13,6 +13,7 @@ namespace Ddalgak
         public int ProcessedEventCount { get; private set; }
         public bool IsGameFinished { get; private set; }
         public EGameOverReason GameOverReason { get; private set; }
+        public bool HasConditionalEventThisWeek { get; private set; }
 
         public int EventsCompletedThisWeek => CurrentSlotIndex;
         public bool IsWeekCompleted => CurrentSlotIndex >= _currentWeekSlots.Count;
@@ -40,6 +41,7 @@ namespace Ddalgak
             ProcessedEventCount = 0;
             IsGameFinished = false;
             GameOverReason = EGameOverReason.None;
+            HasConditionalEventThisWeek = false;
             _currentWeekSlots.Clear();
             _completedEventIds.Clear();
         }
@@ -48,6 +50,7 @@ namespace Ddalgak
         {
             CurrentWeek = week;
             CurrentSlotIndex = 0;
+            HasConditionalEventThisWeek = false;
             _currentWeekSlots.Clear();
 
             if (slots == null)
@@ -65,6 +68,11 @@ namespace Ddalgak
         {
             ProcessedEventCount++;
             CurrentSlotIndex++;
+
+            if (eventData?.isConditional == true)
+            {
+                HasConditionalEventThisWeek = true;
+            }
 
             if (eventData == null || string.IsNullOrWhiteSpace(eventData.eventId))
             {

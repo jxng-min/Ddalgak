@@ -10,6 +10,9 @@ namespace Ddalgak
         private const int EventsPerWeek = 4;
         private const int FinalWeek = 3;
         private const int RequiredClearEventCount = EventsPerWeek * FinalWeek;
+        private const int ConditionalActivationThreshold = 30;
+        private const int ConditionalCriticalThreshold = 15;
+        private const float ConditionalCriticalWeightMultiplier = 2f;
 
         [Header("Dependencies")]
         [SerializeField] private EventRepositoryBase eventRepository;
@@ -209,17 +212,26 @@ namespace Ddalgak
             }
 
             EEventType slotType = _runtimeState.CurrentSlotType;
+            EKingdomStatType? conditionalStat = FindConditionalStat(allEvents, slotType);
             List<EventData> candidates = new();
 
             foreach (EventData eventData in allEvents)
             {
-                if (CanAppear(eventData, slotType))
+                if (!CanAppear(eventData, slotType))
                 {
-                    candidates.Add(eventData);
+                    continue;
                 }
+
+                if (eventData.isConditional &&
+                    (!conditionalStat.HasValue || eventData.conditionalStat != conditionalStat.Value))
+                {
+                    continue;
+                }
+
+                candidates.Add(eventData);
             }
 
-            return RandomUtility.GetWeightedRandom(candidates, eventData => eventData.weight);
+            return RandomUtility.GetWeightedRandom(candidates, GetEventWeight);
         }
 
         private bool CanAppear(EventData eventData, EEventType slotType)
@@ -230,6 +242,11 @@ namespace Ddalgak
             }
 
             if (_runtimeState.HasCompletedEvent(eventData.eventId))
+            {
+                return false;
+            }
+
+            if (eventData.isConditional && _runtimeState.HasConditionalEventThisWeek)
             {
                 return false;
             }
@@ -257,6 +274,102 @@ namespace Ddalgak
             }
 
             return true;
+        }
+
+        private EKingdomStatType? FindConditionalStat(IReadOnlyList<EventData> allEvents,
+                                                       EEventType slotType)
+        {
+            if (_runtimeState.HasConditionalEventThisWeek)
+            {
+                return null;
+            }
+
+            List<EKingdomStatType> remainingStats = new()
+            {
+                EKingdomStatType.Treasury,
+                EKingdomStatType.PublicSentiment,
+                EKingdomStatType.Security
+            };
+
+            while (remainingStats.Count > 0)
+            {
+                int lowestValue = int.MaxValue;
+                List<EKingdomStatType> lowestStats = new();
+
+                foreach (EKingdomStatType statType in remainingStats)
+                {
+                    int value = GetStatValue(statType);
+                    if (value < lowestValue)
+                    {
+                        lowestValue = value;
+                        lowestStats.Clear();
+                        lowestStats.Add(statType);
+                    }
+                    else if (value == lowestValue)
+                    {
+                        lowestStats.Add(statType);
+                    }
+                }
+
+                if (lowestValue > ConditionalActivationThreshold)
+                {
+                    return null;
+                }
+
+                RandomUtility.Shuffle(lowestStats);
+                foreach (EKingdomStatType statType in lowestStats)
+                {
+                    if (HasConditionalCandidate(allEvents, slotType, statType))
+                    {
+                        return statType;
+                    }
+
+                    remainingStats.Remove(statType);
+                }
+            }
+
+            return null;
+        }
+
+        private bool HasConditionalCandidate(IReadOnlyList<EventData> allEvents,
+                                             EEventType slotType,
+                                             EKingdomStatType statType)
+        {
+            foreach (EventData eventData in allEvents)
+            {
+                if (eventData != null &&
+                    eventData.isConditional &&
+                    eventData.conditionalStat == statType &&
+                    CanAppear(eventData, slotType))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private float GetEventWeight(EventData eventData)
+        {
+            if (eventData == null || !eventData.isConditional)
+            {
+                return eventData?.weight ?? 0f;
+            }
+
+            return GetStatValue(eventData.conditionalStat) <= ConditionalCriticalThreshold
+                ? eventData.weight * ConditionalCriticalWeightMultiplier
+                : eventData.weight;
+        }
+
+        private int GetStatValue(EKingdomStatType statType)
+        {
+            return statType switch
+            {
+                EKingdomStatType.Treasury => _runtimeState.Stats.Treasury,
+                EKingdomStatType.PublicSentiment => _runtimeState.Stats.PublicSentiment,
+                EKingdomStatType.Security => _runtimeState.Stats.Security,
+                _ => int.MaxValue
+            };
         }
 
         private IEnumerator WaitForChoice(TurnContext context)
@@ -296,9 +409,24 @@ namespace Ddalgak
 
         private static TurnResult CalculateNormalChoiceResult(ChoiceData choice)
         {
-            return choice == null
-                ? EmptyResult()
-                : new TurnResult(choice.baseModifier, choice.successResultText, false);
+            if (choice == null)
+            {
+                return EmptyResult();
+            }
+
+            if (!choice.hasRandomResult)
+            {
+                return new TurnResult(choice.baseModifier, choice.successResultText, false);
+            }
+
+            bool succeeded = Random.value < Mathf.Clamp01(choice.successProbability);
+            return new TurnResult(succeeded
+                                      ? choice.randomSuccessModifier
+                                      : choice.randomFailureModifier,
+                                  succeeded
+                                      ? choice.successResultText
+                                      : choice.failureResultText,
+                                  false);
         }
 
         private static TurnResult CalculateActionChoiceResult(TurnContext context)

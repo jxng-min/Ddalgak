@@ -256,6 +256,10 @@ namespace Ddalgak
             GUILayout.Label("[이벤트]", _headerStyle);
             GUILayout.Label($"위치: {_currentEventWeek}주차 {_currentEventSlotIndex + 1}번째", _bodyStyle);
             GUILayout.Label($"유형: {GetEventTypeText(_currentEventType)}", _headerStyle);
+            if (_currentEvent.isConditional)
+            {
+                GUILayout.Label($"[조건부] 대상: {GetStatTypeText(_currentEvent.conditionalStat)}", _headerStyle);
+            }
             GUILayout.Label(_currentEvent.title, _bodyStyle);
             GUILayout.Label(_currentEvent.description, _bodyStyle);
             GUILayout.Space(16f);
@@ -424,6 +428,17 @@ namespace Ddalgak
                 EEventType.ActionChoice => "실행형 액션",
                 EEventType.SuddenChoice => "돌발 액션",
                 _ => eventType.ToString()
+            };
+        }
+
+        private static string GetStatTypeText(EKingdomStatType statType)
+        {
+            return statType switch
+            {
+                EKingdomStatType.Treasury => "국고",
+                EKingdomStatType.PublicSentiment => "민심",
+                EKingdomStatType.Security => "안보",
+                _ => statType.ToString()
             };
         }
     }
