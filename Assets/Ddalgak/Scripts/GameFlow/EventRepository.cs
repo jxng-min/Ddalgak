@@ -81,8 +81,8 @@ namespace Ddalgak
                         successProbability = 0.45f,
                         randomSuccessModifier = new StatModifier(-10, -5, -5),
                         randomFailureModifier = new StatModifier(-25, -10, 0),
-                        successResultText = "채권자들은 당장의 압류를 미루는 대신 다른 것들을 요구했습니다.",
-                        failureResultText = "설득에 실패했고 채권자들이 결국 국고를 거의 털어갔습니다."
+                        randomSuccessResultText = "채권자들은 당장의 압류를 미루는 대신 다른 것들을 요구했습니다.",
+                        randomFailureResultText = "설득에 실패했고 채권자들이 결국 국고를 거의 털어갔습니다."
                     }
                 }
             };
@@ -130,8 +130,8 @@ namespace Ddalgak
                         successProbability = 0.5f,
                         randomSuccessModifier = new StatModifier(0, 15, -5),
                         randomFailureModifier = new StatModifier(0, -25, -5),
-                        successResultText = "왕실은 백성들 앞에서 잘못을 인정했고 국민들은 그 말을 믿는 듯합니다.",
-                        failureResultText = "국민들이 사과를 납득하지 않았고 불만이 더욱 커졌습니다."
+                        randomSuccessResultText = "왕실은 백성들 앞에서 잘못을 인정했고 국민들은 그 말을 믿는 듯합니다.",
+                        randomFailureResultText = "국민들이 사과를 납득하지 않았고 불만이 더욱 커졌습니다."
                     }
                 }
             };
@@ -198,7 +198,7 @@ namespace Ddalgak
 
         private static EventData CreateAdditionalActionEvent(int index)
         {
-            return new EventData
+            EventData eventData = new()
             {
                 eventId = $"test_action_{index}",
                 eventName = $"Test Action {index}",
@@ -208,6 +208,20 @@ namespace Ddalgak
                 weight = 1f,
                 choices = CreateTestChoices($"action_{index}", true)
             };
+
+            if (index == 1)
+            {
+                ChoiceData probabilityChoice = eventData.choices[2];
+                probabilityChoice.hasRandomResult = true;
+                probabilityChoice.successProbability = 0.5f;
+                probabilityChoice.randomSuccessModifier = new StatModifier(10, 0, 0);
+                probabilityChoice.randomFailureModifier = new StatModifier(-10, 0, 0);
+                probabilityChoice.randomSuccessResultText = "확률 판정에 성공해 국고가 10 증가했습니다.";
+                probabilityChoice.randomFailureResultText = "확률 판정에 실패해 국고가 10 감소했습니다.";
+                probabilityChoice.changePreview = "안보 +15 / 액션 후 국고 ±10 (50%)";
+            }
+
+            return eventData;
         }
 
         private static EventData CreateAdditionalSuddenEvent()

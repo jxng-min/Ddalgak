@@ -603,14 +603,13 @@ namespace Ddalgak
                 return new TurnResult(choice.baseModifier, choice.successResultText, false);
             }
 
-            bool succeeded = Random.value < Mathf.Clamp01(choice.successProbability);
-            return new TurnResult(succeeded
-                                      ? choice.randomSuccessModifier
-                                      : choice.randomFailureModifier,
-                                  succeeded
-                                      ? choice.successResultText
-                                      : choice.failureResultText,
-                                  false);
+            bool randomSucceeded = RollRandomResult(choice);
+            StatModifier randomModifier = GetRandomModifier(choice, randomSucceeded);
+            return new TurnResult(choice.baseModifier + randomModifier,
+                                  GetRandomResultText(choice, randomSucceeded),
+                                  false,
+                                  hasRandomResult: true,
+                                  randomResultSucceeded: randomSucceeded);
         }
 
         private static TurnResult CalculateActionChoiceResult(TurnContext context)
@@ -621,14 +620,76 @@ namespace Ddalgak
                 return EmptyResult();
             }
 
-            bool succeeded = context.ActionResult?.IsSuccess == true;
-            StatModifier actionModifier = succeeded
+            bool actionSucceeded = context.ActionResult?.IsSuccess == true;
+            StatModifier actionModifier = actionSucceeded
                 ? choice.actionSuccessModifier
                 : choice.actionFailureModifier;
+            StatModifier finalModifier = choice.baseModifier + actionModifier;
+            string resultText = actionSucceeded
+                ? choice.successResultText
+                : choice.failureResultText;
+            bool fatalFailure = !actionSucceeded && choice.isFatalOnActionFailure;
 
-            return new TurnResult(choice.baseModifier + actionModifier,
-                                  succeeded ? choice.successResultText : choice.failureResultText,
-                                  !succeeded && choice.isFatalOnActionFailure);
+            if (fatalFailure || !choice.hasRandomResult)
+            {
+                return new TurnResult(finalModifier,
+                                      resultText,
+                                      fatalFailure,
+                                      hasActionResult: true,
+                                      actionSucceeded: actionSucceeded);
+            }
+
+            bool randomSucceeded = RollRandomResult(choice);
+            finalModifier += GetRandomModifier(choice, randomSucceeded);
+            resultText = CombineResultText(resultText,
+                                           GetRandomResultText(choice, randomSucceeded));
+
+            return new TurnResult(finalModifier,
+                                  resultText,
+                                  false,
+                                  hasActionResult: true,
+                                  actionSucceeded: actionSucceeded,
+                                  hasRandomResult: true,
+                                  randomResultSucceeded: randomSucceeded);
+        }
+
+        private static bool RollRandomResult(ChoiceData choice)
+        {
+            return Random.value < Mathf.Clamp01(choice.successProbability);
+        }
+
+        private static StatModifier GetRandomModifier(ChoiceData choice, bool succeeded)
+        {
+            return succeeded ? choice.randomSuccessModifier : choice.randomFailureModifier;
+        }
+
+        private static string GetRandomResultText(ChoiceData choice, bool succeeded)
+        {
+            string randomText = succeeded
+                ? choice.randomSuccessResultText
+                : choice.randomFailureResultText;
+
+            if (!string.IsNullOrWhiteSpace(randomText))
+            {
+                return randomText;
+            }
+
+            return succeeded ? choice.successResultText : choice.failureResultText;
+        }
+
+        private static string CombineResultText(string first, string second)
+        {
+            if (string.IsNullOrWhiteSpace(first))
+            {
+                return second ?? string.Empty;
+            }
+
+            if (string.IsNullOrWhiteSpace(second))
+            {
+                return first;
+            }
+
+            return $"{first}\n{second}";
         }
 
         private static TurnResult CalculateSuddenChoiceResult(TurnContext context)
@@ -642,7 +703,9 @@ namespace Ddalgak
                                   succeeded
                                       ? eventData.successResultText
                                       : eventData.failureResultText,
-                                  !succeeded && eventData.isFatalOnActionFailure);
+                                  !succeeded && eventData.isFatalOnActionFailure,
+                                  hasActionResult: true,
+                                  actionSucceeded: succeeded);
         }
 
         private static TurnResult EmptyResult()

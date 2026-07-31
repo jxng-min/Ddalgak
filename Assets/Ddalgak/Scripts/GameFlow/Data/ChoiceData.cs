@@ -16,6 +16,8 @@ namespace Ddalgak
         [Range(0f, 1f)] public float successProbability = 0.5f;
         public StatModifier randomSuccessModifier;
         public StatModifier randomFailureModifier;
+        public string randomSuccessResultText;
+        public string randomFailureResultText;
         public StatModifier actionSuccessModifier;
         public StatModifier actionFailureModifier;
         public string successResultText;

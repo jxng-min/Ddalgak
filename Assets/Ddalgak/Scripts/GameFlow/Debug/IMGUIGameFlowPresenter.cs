@@ -336,6 +336,14 @@ namespace Ddalgak
 
             GUILayout.Label("[결과]", _headerStyle);
             GUILayout.Label(_currentResult.ResultText, _bodyStyle);
+            if (_currentResult.HasActionResult)
+            {
+                GUILayout.Label($"액션 결과: {(_currentResult.ActionSucceeded ? "성공" : "실패")}", _bodyStyle);
+            }
+            if (_currentResult.HasRandomResult)
+            {
+                GUILayout.Label($"확률 결과: {(_currentResult.RandomResultSucceeded ? "성공" : "실패")}", _bodyStyle);
+            }
             GUILayout.Label($"국고 {FormatModifier(_currentResult.FinalModifier.treasury)} / " +
                             $"민심 {FormatModifier(_currentResult.FinalModifier.publicSentiment)} / " +
                             $"안보 {FormatModifier(_currentResult.FinalModifier.security)}", _bodyStyle);
