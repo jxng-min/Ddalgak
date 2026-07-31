@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using JxModule;
 using UnityEngine;
 
-using Random = UnityEngine.Random;
-
 namespace Ddalgak
 {
     public sealed class GameFlowController : MonoBehaviour
@@ -13,10 +11,6 @@ namespace Ddalgak
         private const int EventsPerWeek = 4;
         private const int FinalWeek = 3;
         private const int RequiredClearEventCount = EventsPerWeek * FinalWeek;
-        private const int ConditionalActivationThreshold = 30;
-        private const int ConditionalCriticalThreshold = 15;
-        private const float ConditionalCriticalWeightMultiplier = 2f;
-        private const int LargeRiskDecreaseThreshold = -10;
 
         [Header("Dependencies")]
         [SerializeField] private EventRepositoryBase eventRepository;
@@ -24,6 +18,9 @@ namespace Ddalgak
         [SerializeField] private ActionSequenceRunnerBase actionSequenceRunner;
 
         private readonly GameRuntimeState _runtimeState = new();
+        private readonly WeekSlotPlanner _weekSlotPlanner = new();
+        private readonly EventSelector _eventSelector = new();
+        private readonly TurnResultCalculator _turnResultCalculator = new();
         private Coroutine _gameLoopCoroutine;
 
         public EGameFlowState CurrentState { get; private set; }
@@ -80,7 +77,6 @@ namespace Ddalgak
             ChangeState(EGameFlowState.Initializing);
             _runtimeState.Initialize();
             yield return presenter.ShowGameStart(_runtimeState);
-
             yield return StartWeek(1);
 
             while (!_runtimeState.IsGameFinished)
@@ -96,10 +92,13 @@ namespace Ddalgak
             ChangeState(EGameFlowState.TurnStart);
             TurnContext context = new();
 
-            context.Event = SelectEvent();
+            ChangeState(EGameFlowState.EventSelection);
+            context.Event = _eventSelector.Select(eventRepository.GetAllEvents(),
+                                                  _runtimeState,
+                                                  DebugForceConditionalEvent);
             if (context.Event == null)
             {
-                Debug.LogError($"No unused { _runtimeState.CurrentSlotType } event is available.");
+                Debug.LogError($"No unused {_runtimeState.CurrentSlotType} event is available.");
                 StopGame();
                 yield break;
             }
@@ -118,11 +117,10 @@ namespace Ddalgak
             }
 
             ChangeState(EGameFlowState.ResultCalculation);
-            context.Result = CalculateResult(context);
+            context.Result = _turnResultCalculator.Calculate(context, DebugProbabilityMode);
 
             ChangeState(EGameFlowState.ResultPresentation);
             yield return presenter.ShowResult(context.Result);
-
             yield return ApplyStatChanges(context);
 
             ChangeState(EGameFlowState.GameOverCheck);
@@ -169,425 +167,18 @@ namespace Ddalgak
 
         private IEnumerator StartWeek(int week)
         {
-            List<EEventType> slots = CreateWeekSlots(week);
-            PreventThreeConsecutiveTypes(slots, week);
-            _runtimeState.StartWeek(week, slots);
+            _runtimeState.StartWeek(week, _weekSlotPlanner.Create(week, _runtimeState));
             ChangeState(EGameFlowState.WeekStart);
             yield return presenter.ShowWeekStart(_runtimeState);
-        }
-
-        private static List<EEventType> CreateWeekSlots(int week)
-        {
-            switch (week)
-            {
-                case 1:
-                {
-                    int actionIndex = Random.Range(1, 3);
-                    List<EEventType> slots = new(EventsPerWeek);
-
-                    for (int i = 0; i < EventsPerWeek; i++)
-                    {
-                        slots.Add(i == actionIndex
-                            ? EEventType.ActionChoice
-                            : EEventType.NormalChoice);
-                    }
-
-                    return slots;
-                }
-
-                case 2:
-                {
-                    List<EEventType> remainingSlots = new()
-                    {
-                        EEventType.NormalChoice,
-                        EEventType.NormalChoice,
-                        EEventType.ActionChoice
-                    };
-                    RandomUtility.Shuffle(remainingSlots);
-
-                    return new List<EEventType>
-                    {
-                        remainingSlots[0],
-                        remainingSlots[1],
-                        EEventType.SuddenChoice,
-                        remainingSlots[2]
-                    };
-                }
-
-                case 3:
-                {
-                    bool normalFirst = Random.value < 0.5f;
-
-                    return new List<EEventType>
-                    {
-                        normalFirst ? EEventType.NormalChoice : EEventType.ActionChoice,
-                        normalFirst ? EEventType.ActionChoice : EEventType.NormalChoice,
-                        EEventType.SuddenChoice,
-                        EEventType.ActionChoice
-                    };
-                }
-
-                default:
-                    return new List<EEventType>();
-            }
-        }
-
-        private EventData SelectEvent()
-        {
-            ChangeState(EGameFlowState.EventSelection);
-
-            IReadOnlyList<EventData> allEvents = eventRepository.GetAllEvents();
-            if (allEvents == null)
-            {
-                return null;
-            }
-
-            EEventType slotType = _runtimeState.CurrentSlotType;
-            EKingdomStatType? conditionalStat = FindConditionalStat(allEvents, slotType);
-            List<EventData> candidates = new();
-
-            foreach (EventData eventData in allEvents)
-            {
-                if (!CanAppear(eventData, slotType))
-                {
-                    continue;
-                }
-
-                if (eventData.isConditional &&
-                    (!conditionalStat.HasValue || eventData.conditionalStat != conditionalStat.Value))
-                {
-                    continue;
-                }
-
-                candidates.Add(eventData);
-            }
-
-            if (DebugForceConditionalEvent)
-            {
-                List<EventData> conditionalCandidates = candidates.FindAll(eventData => eventData.isConditional);
-                if (conditionalCandidates.Count > 0)
-                {
-                    return RandomUtility.GetWeightedRandom(conditionalCandidates, GetEventWeight);
-                }
-            }
-
-            List<EventData> riskFilteredCandidates = FilterConsecutiveRisk(candidates);
-            if (riskFilteredCandidates.Count > 0)
-            {
-                candidates = riskFilteredCandidates;
-            }
-            else if (candidates.Count > 0 && _runtimeState.LastCompletedEvent != null)
-            {
-                Debug.Log("[GameFlow] Risk-stat restriction relaxed because no candidate remains.");
-            }
-
-            return RandomUtility.GetWeightedRandom(candidates, GetEventWeight);
-        }
-
-        private void PreventThreeConsecutiveTypes(List<EEventType> slots, int week)
-        {
-            if (slots == null || slots.Count == 0 || _runtimeState.LastCompletedEvent == null)
-            {
-                return;
-            }
-
-            EEventType previousType = _runtimeState.LastCompletedEvent.eventType;
-            int consecutiveCount = _runtimeState.ConsecutiveSameEventTypeCount;
-
-            for (int i = 0; i < slots.Count; i++)
-            {
-                if (slots[i] == previousType)
-                {
-                    consecutiveCount++;
-                }
-                else
-                {
-                    previousType = slots[i];
-                    consecutiveCount = 1;
-                }
-
-                if (consecutiveCount < 3 || IsFixedSlot(week, i))
-                {
-                    continue;
-                }
-
-                int swapIndex = FindSwappableDifferentSlot(slots, week, i, previousType);
-                if (swapIndex < 0)
-                {
-                    Debug.Log("[GameFlow] Event-type restriction relaxed because no slot can be swapped.");
-                    continue;
-                }
-
-                (slots[i], slots[swapIndex]) = (slots[swapIndex], slots[i]);
-                previousType = slots[i];
-                consecutiveCount = 1;
-            }
-        }
-
-        private static int FindSwappableDifferentSlot(IReadOnlyList<EEventType> slots,
-                                                      int week,
-                                                      int currentIndex,
-                                                      EEventType repeatedType)
-        {
-            for (int i = currentIndex + 1; i < slots.Count; i++)
-            {
-                if (!IsFixedSlot(week, i) && slots[i] != repeatedType)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        private static bool IsFixedSlot(int week, int slotIndex)
-        {
-            bool suddenSlot = (week == 2 || week == 3) && slotIndex == 2;
-            bool finalActionSlot = week == 3 && slotIndex == 3;
-            return suddenSlot || finalActionSlot;
-        }
-
-        private List<EventData> FilterConsecutiveRisk(IReadOnlyList<EventData> candidates)
-        {
-            EventData previousEvent = _runtimeState.LastCompletedEvent;
-            if (previousEvent == null)
-            {
-                return new List<EventData>(candidates);
-            }
-
-            HashSet<EKingdomStatType> previousRiskStats = GetRiskStats(previousEvent);
-            if (previousRiskStats.Count == 0)
-            {
-                return new List<EventData>(candidates);
-            }
-
-            List<EventData> filtered = new();
-            foreach (EventData candidate in candidates)
-            {
-                if (!SharesRiskStat(previousRiskStats, GetRiskStats(candidate)))
-                {
-                    filtered.Add(candidate);
-                }
-            }
-
-            return filtered;
-        }
-
-        private static bool SharesRiskStat(IReadOnlyCollection<EKingdomStatType> left,
-                                           IReadOnlyCollection<EKingdomStatType> right)
-        {
-            foreach (EKingdomStatType leftStat in left)
-            {
-                foreach (EKingdomStatType rightStat in right)
-                {
-                    if (leftStat == rightStat)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        private static HashSet<EKingdomStatType> GetRiskStats(EventData eventData)
-        {
-            HashSet<EKingdomStatType> result = new();
-            if (eventData == null)
-            {
-                return result;
-            }
-
-            AddRiskStats(result, eventData.actionSuccessModifier);
-            AddRiskStats(result, eventData.actionFailureModifier);
-
-            if (eventData.choices == null)
-            {
-                return result;
-            }
-
-            foreach (ChoiceData choice in eventData.choices)
-            {
-                if (choice == null)
-                {
-                    continue;
-                }
-
-                AddRiskStats(result, choice.baseModifier);
-                AddRiskStats(result, choice.randomSuccessModifier);
-                AddRiskStats(result, choice.randomFailureModifier);
-                AddRiskStats(result, choice.baseModifier + choice.actionSuccessModifier);
-                AddRiskStats(result, choice.baseModifier + choice.actionFailureModifier);
-            }
-
-            return result;
-        }
-
-        private static void AddRiskStats(ISet<EKingdomStatType> result, StatModifier modifier)
-        {
-            if (modifier.treasury <= LargeRiskDecreaseThreshold)
-            {
-                result.Add(EKingdomStatType.Treasury);
-            }
-
-            if (modifier.publicSentiment <= LargeRiskDecreaseThreshold)
-            {
-                result.Add(EKingdomStatType.PublicSentiment);
-            }
-
-            if (modifier.security <= LargeRiskDecreaseThreshold)
-            {
-                result.Add(EKingdomStatType.Security);
-            }
-        }
-
-        private bool CanAppear(EventData eventData, EEventType slotType)
-        {
-            if (eventData == null || eventData.eventType != slotType)
-            {
-                return false;
-            }
-
-            if (_runtimeState.HasCompletedEvent(eventData.eventId))
-            {
-                return false;
-            }
-
-            if (eventData.isConditional && _runtimeState.HasConditionalEventThisWeek)
-            {
-                return false;
-            }
-
-            KingdomStats stats = _runtimeState.Stats;
-            if (stats.Treasury < eventData.minTreasury || stats.Treasury > eventData.maxTreasury ||
-                stats.PublicSentiment < eventData.minPublicSentiment ||
-                stats.PublicSentiment > eventData.maxPublicSentiment ||
-                stats.Security < eventData.minSecurity || stats.Security > eventData.maxSecurity)
-            {
-                return false;
-            }
-
-            if (eventData.requiredEventIds == null)
-            {
-                return true;
-            }
-
-            foreach (string requiredEventId in eventData.requiredEventIds)
-            {
-                if (!_runtimeState.HasCompletedEvent(requiredEventId))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        private EKingdomStatType? FindConditionalStat(IReadOnlyList<EventData> allEvents,
-                                                       EEventType slotType)
-        {
-            if (_runtimeState.HasConditionalEventThisWeek)
-            {
-                return null;
-            }
-
-            List<EKingdomStatType> remainingStats = new()
-            {
-                EKingdomStatType.Treasury,
-                EKingdomStatType.PublicSentiment,
-                EKingdomStatType.Security
-            };
-
-            while (remainingStats.Count > 0)
-            {
-                int lowestValue = int.MaxValue;
-                List<EKingdomStatType> lowestStats = new();
-
-                foreach (EKingdomStatType statType in remainingStats)
-                {
-                    int value = GetStatValue(statType);
-                    if (value < lowestValue)
-                    {
-                        lowestValue = value;
-                        lowestStats.Clear();
-                        lowestStats.Add(statType);
-                    }
-                    else if (value == lowestValue)
-                    {
-                        lowestStats.Add(statType);
-                    }
-                }
-
-                if (lowestValue > ConditionalActivationThreshold)
-                {
-                    return null;
-                }
-
-                RandomUtility.Shuffle(lowestStats);
-                foreach (EKingdomStatType statType in lowestStats)
-                {
-                    if (HasConditionalCandidate(allEvents, slotType, statType))
-                    {
-                        return statType;
-                    }
-
-                    remainingStats.Remove(statType);
-                }
-            }
-
-            return null;
-        }
-
-        private bool HasConditionalCandidate(IReadOnlyList<EventData> allEvents,
-                                             EEventType slotType,
-                                             EKingdomStatType statType)
-        {
-            foreach (EventData eventData in allEvents)
-            {
-                if (eventData != null &&
-                    eventData.isConditional &&
-                    eventData.conditionalStat == statType &&
-                    CanAppear(eventData, slotType))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private float GetEventWeight(EventData eventData)
-        {
-            if (eventData == null || !eventData.isConditional)
-            {
-                return eventData?.weight ?? 0f;
-            }
-
-            return GetStatValue(eventData.conditionalStat) <= ConditionalCriticalThreshold
-                ? eventData.weight * ConditionalCriticalWeightMultiplier
-                : eventData.weight;
-        }
-
-        private int GetStatValue(EKingdomStatType statType)
-        {
-            return statType switch
-            {
-                EKingdomStatType.Treasury => _runtimeState.Stats.Treasury,
-                EKingdomStatType.PublicSentiment => _runtimeState.Stats.PublicSentiment,
-                EKingdomStatType.Security => _runtimeState.Stats.Security,
-                _ => int.MaxValue
-            };
         }
 
         private IEnumerator WaitForChoice(TurnContext context)
         {
             ChangeState(EGameFlowState.Choice);
-
             ChoiceData selectedChoice = null;
             yield return presenter.ShowChoices(context.Event.choices,
                                                choice => selectedChoice = choice);
             yield return new WaitUntil(() => selectedChoice != null);
-
             context.SelectedChoice = selectedChoice;
             yield return presenter.HideChoices();
         }
@@ -595,166 +186,19 @@ namespace Ddalgak
         private IEnumerator RunActionSequence(TurnContext context)
         {
             ChangeState(EGameFlowState.Action);
-
             ActionSequenceResult actionResult = null;
             yield return actionSequenceRunner.Run(context.GetButtonActions(),
                                                   result => actionResult = result);
-
             context.ActionResult = actionResult ?? ActionSequenceResult.Failure(0, 0);
             _runtimeState.RecordActionResult(context.ActionResult.IsSuccess);
-        }
-
-        private TurnResult CalculateResult(TurnContext context)
-        {
-            return context.Event.eventType switch
-            {
-                EEventType.NormalChoice => CalculateNormalChoiceResult(context.SelectedChoice),
-                EEventType.ActionChoice => CalculateActionChoiceResult(context),
-                EEventType.SuddenChoice => CalculateSuddenChoiceResult(context),
-                _ => EmptyResult()
-            };
-        }
-
-        private TurnResult CalculateNormalChoiceResult(ChoiceData choice)
-        {
-            if (choice == null)
-            {
-                return EmptyResult();
-            }
-
-            if (!choice.hasRandomResult)
-            {
-                return new TurnResult(choice.baseModifier, choice.successResultText, false);
-            }
-
-            bool randomSucceeded = RollRandomResult(choice);
-            StatModifier randomModifier = GetRandomModifier(choice, randomSucceeded);
-            return new TurnResult(choice.baseModifier + randomModifier,
-                                  GetRandomResultText(choice, randomSucceeded),
-                                  false,
-                                  hasRandomResult: true,
-                                  randomResultSucceeded: randomSucceeded);
-        }
-
-        private TurnResult CalculateActionChoiceResult(TurnContext context)
-        {
-            ChoiceData choice = context.SelectedChoice;
-            if (choice == null)
-            {
-                return EmptyResult();
-            }
-
-            bool actionSucceeded = context.ActionResult?.IsSuccess == true;
-            StatModifier actionModifier = actionSucceeded
-                ? choice.actionSuccessModifier
-                : choice.actionFailureModifier;
-            StatModifier finalModifier = choice.baseModifier + actionModifier;
-            string resultText = actionSucceeded
-                ? choice.successResultText
-                : choice.failureResultText;
-            bool fatalFailure = !actionSucceeded && choice.isFatalOnActionFailure;
-
-            if (fatalFailure || !choice.hasRandomResult)
-            {
-                return new TurnResult(finalModifier,
-                                      resultText,
-                                      fatalFailure,
-                                      hasActionResult: true,
-                                      actionSucceeded: actionSucceeded);
-            }
-
-            bool randomSucceeded = RollRandomResult(choice);
-            finalModifier += GetRandomModifier(choice, randomSucceeded);
-            resultText = CombineResultText(resultText,
-                                           GetRandomResultText(choice, randomSucceeded));
-
-            return new TurnResult(finalModifier,
-                                  resultText,
-                                  false,
-                                  hasActionResult: true,
-                                  actionSucceeded: actionSucceeded,
-                                  hasRandomResult: true,
-                                  randomResultSucceeded: randomSucceeded);
-        }
-
-        private bool RollRandomResult(ChoiceData choice)
-        {
-            return RollProbability(choice.successProbability);
-        }
-
-        private bool RollProbability(float probability)
-        {
-            return DebugProbabilityMode switch
-            {
-                EDebugOutcomeMode.ForceSuccess => true,
-                EDebugOutcomeMode.ForceFailure => false,
-                _ => Random.value < Mathf.Clamp01(probability)
-            };
-        }
-
-        private static StatModifier GetRandomModifier(ChoiceData choice, bool succeeded)
-        {
-            return succeeded ? choice.randomSuccessModifier : choice.randomFailureModifier;
-        }
-
-        private static string GetRandomResultText(ChoiceData choice, bool succeeded)
-        {
-            string randomText = succeeded
-                ? choice.randomSuccessResultText
-                : choice.randomFailureResultText;
-
-            if (!string.IsNullOrWhiteSpace(randomText))
-            {
-                return randomText;
-            }
-
-            return succeeded ? choice.successResultText : choice.failureResultText;
-        }
-
-        private static string CombineResultText(string first, string second)
-        {
-            if (string.IsNullOrWhiteSpace(first))
-            {
-                return second ?? string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(second))
-            {
-                return first;
-            }
-
-            return $"{first}\n{second}";
-        }
-
-        private static TurnResult CalculateSuddenChoiceResult(TurnContext context)
-        {
-            bool succeeded = context.ActionResult?.IsSuccess == true;
-            EventData eventData = context.Event;
-
-            return new TurnResult(succeeded
-                                      ? eventData.actionSuccessModifier
-                                      : eventData.actionFailureModifier,
-                                  succeeded
-                                      ? eventData.successResultText
-                                      : eventData.failureResultText,
-                                  !succeeded && eventData.isFatalOnActionFailure,
-                                  hasActionResult: true,
-                                  actionSucceeded: succeeded);
-        }
-
-        private static TurnResult EmptyResult()
-        {
-            return new TurnResult(StatModifier.Zero, string.Empty, false);
         }
 
         private IEnumerator ApplyStatChanges(TurnContext context)
         {
             ChangeState(EGameFlowState.StatUpdate);
-
             context.StatsBeforeUpdate = _runtimeState.Stats.CreateSnapshot();
             _runtimeState.Stats.Apply(context.Result.FinalModifier);
             context.StatsAfterUpdate = _runtimeState.Stats.CreateSnapshot();
-
             yield return presenter.AnimateStatChanges(context.StatsBeforeUpdate,
                                                        context.StatsAfterUpdate,
                                                        context.Result.FinalModifier);
@@ -763,7 +207,6 @@ namespace Ddalgak
         private List<EKingdomStatType> GetCollapsedStats()
         {
             List<EKingdomStatType> collapsedStats = new();
-
             if (_runtimeState.Stats.Treasury <= 0)
             {
                 collapsedStats.Add(EKingdomStatType.Treasury);
@@ -785,8 +228,7 @@ namespace Ddalgak
         private IEnumerator ResolveCollapse(IReadOnlyList<EKingdomStatType> collapsedStats,
                                             Action<bool> onCompleted)
         {
-            EKingdomStatType collapsedStat = collapsedStats[0];
-
+            var collapsedStat = collapsedStats[0];
             if (collapsedStats.Count >= 2 || _runtimeState.HasUsedEmergencyRecovery)
             {
                 yield return FinishGameOver(ToGameOverReason(collapsedStat));
@@ -794,7 +236,7 @@ namespace Ddalgak
                 yield break;
             }
 
-            EKingdomStatType? resourceStat = FindEmergencyResourceStat(collapsedStat);
+            var resourceStat = FindEmergencyResourceStat(collapsedStat);
             if (!resourceStat.HasValue)
             {
                 yield return FinishGameOver(ToGameOverReason(collapsedStat));
@@ -802,8 +244,7 @@ namespace Ddalgak
                 yield break;
             }
 
-            EmergencyRecoveryData recovery =
-                GameEndingDataCatalog.GetEmergency(collapsedStat, resourceStat.Value);
+            var recovery = GameEndingDataCatalog.GetEmergency(collapsedStat, resourceStat.Value);
             if (recovery == null)
             {
                 yield return FinishGameOver(ToGameOverReason(collapsedStat));
@@ -814,7 +255,8 @@ namespace Ddalgak
             ChangeState(EGameFlowState.EmergencyRecovery);
             yield return presenter.ShowEmergencyRecovery(recovery);
 
-            bool succeeded = RollProbability(recovery.successProbability);
+            var succeeded = _turnResultCalculator.RollProbability(recovery.successProbability,
+                                                                       DebugProbabilityMode);
             _runtimeState.RecordEmergencyRecovery(succeeded);
             yield return presenter.ShowEmergencyRecoveryResult(recovery, succeeded);
 
@@ -825,12 +267,13 @@ namespace Ddalgak
                 yield break;
             }
 
-            KingdomStatsSnapshot before = _runtimeState.Stats.CreateSnapshot();
+            var before = _runtimeState.Stats.CreateSnapshot();
             _runtimeState.Stats.SetValue(collapsedStat, recovery.recoveryValue);
             _runtimeState.Stats.Apply(recovery.successCost);
-            KingdomStatsSnapshot after = _runtimeState.Stats.CreateSnapshot();
+            
+            var after = _runtimeState.Stats.CreateSnapshot();
+            
             yield return presenter.AnimateStatChanges(before, after, CreateModifier(before, after));
-
             onCompleted?.Invoke(true);
         }
 
@@ -842,9 +285,8 @@ namespace Ddalgak
                 EKingdomStatType.PublicSentiment,
                 EKingdomStatType.Security
             };
-
             EKingdomStatType? selected = null;
-            int selectedValue = 79;
+            var selectedValue = 79;
 
             foreach (EKingdomStatType statType in priority)
             {
@@ -853,7 +295,7 @@ namespace Ddalgak
                     continue;
                 }
 
-                int value = GetStatValue(statType);
+                var value = GetStatValue(statType);
                 if (value > selectedValue)
                 {
                     selected = statType;
@@ -862,6 +304,17 @@ namespace Ddalgak
             }
 
             return selected;
+        }
+
+        private int GetStatValue(EKingdomStatType statType)
+        {
+            return statType switch
+            {
+                EKingdomStatType.Treasury => _runtimeState.Stats.Treasury,
+                EKingdomStatType.PublicSentiment => _runtimeState.Stats.PublicSentiment,
+                EKingdomStatType.Security => _runtimeState.Stats.Security,
+                _ => int.MaxValue
+            };
         }
 
         private IEnumerator FinishGameOver(EGameOverReason reason)
