@@ -45,4 +45,11 @@ namespace Ddalgak
         SecurityCollapsed,
         FatalEventFailure
     }
+
+    public enum EDebugOutcomeMode
+    {
+        Default,
+        ForceSuccess,
+        ForceFailure
+    }
 }

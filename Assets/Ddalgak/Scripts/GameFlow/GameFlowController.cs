@@ -29,6 +29,8 @@ namespace Ddalgak
         public EGameFlowState CurrentState { get; private set; }
         public GameRuntimeState RuntimeState => _runtimeState;
         public bool IsRunning => _gameLoopCoroutine != null;
+        public EDebugOutcomeMode DebugProbabilityMode { get; set; }
+        public bool DebugForceConditionalEvent { get; set; }
 
         [Button("테스트")]
         public void StartGame()
@@ -58,6 +60,19 @@ namespace Ddalgak
             actionSequenceRunner?.Cancel();
             presenter?.Cancel();
             ChangeState(EGameFlowState.None);
+        }
+
+        public void RestartGame()
+        {
+            StopGame();
+            StartGame();
+        }
+
+        public void DebugSetStats(int treasury, int publicSentiment, int security)
+        {
+            _runtimeState.Stats.SetValue(EKingdomStatType.Treasury, treasury);
+            _runtimeState.Stats.SetValue(EKingdomStatType.PublicSentiment, publicSentiment);
+            _runtimeState.Stats.SetValue(EKingdomStatType.Security, security);
         }
 
         private IEnumerator RunGameLoop()
@@ -245,6 +260,15 @@ namespace Ddalgak
                 }
 
                 candidates.Add(eventData);
+            }
+
+            if (DebugForceConditionalEvent)
+            {
+                List<EventData> conditionalCandidates = candidates.FindAll(eventData => eventData.isConditional);
+                if (conditionalCandidates.Count > 0)
+                {
+                    return RandomUtility.GetWeightedRandom(conditionalCandidates, GetEventWeight);
+                }
             }
 
             List<EventData> riskFilteredCandidates = FilterConsecutiveRisk(candidates);
@@ -580,7 +604,7 @@ namespace Ddalgak
             _runtimeState.RecordActionResult(context.ActionResult.IsSuccess);
         }
 
-        private static TurnResult CalculateResult(TurnContext context)
+        private TurnResult CalculateResult(TurnContext context)
         {
             return context.Event.eventType switch
             {
@@ -591,7 +615,7 @@ namespace Ddalgak
             };
         }
 
-        private static TurnResult CalculateNormalChoiceResult(ChoiceData choice)
+        private TurnResult CalculateNormalChoiceResult(ChoiceData choice)
         {
             if (choice == null)
             {
@@ -612,7 +636,7 @@ namespace Ddalgak
                                   randomResultSucceeded: randomSucceeded);
         }
 
-        private static TurnResult CalculateActionChoiceResult(TurnContext context)
+        private TurnResult CalculateActionChoiceResult(TurnContext context)
         {
             ChoiceData choice = context.SelectedChoice;
             if (choice == null)
@@ -653,9 +677,19 @@ namespace Ddalgak
                                   randomResultSucceeded: randomSucceeded);
         }
 
-        private static bool RollRandomResult(ChoiceData choice)
+        private bool RollRandomResult(ChoiceData choice)
         {
-            return Random.value < Mathf.Clamp01(choice.successProbability);
+            return RollProbability(choice.successProbability);
+        }
+
+        private bool RollProbability(float probability)
+        {
+            return DebugProbabilityMode switch
+            {
+                EDebugOutcomeMode.ForceSuccess => true,
+                EDebugOutcomeMode.ForceFailure => false,
+                _ => Random.value < Mathf.Clamp01(probability)
+            };
         }
 
         private static StatModifier GetRandomModifier(ChoiceData choice, bool succeeded)
@@ -780,7 +814,7 @@ namespace Ddalgak
             ChangeState(EGameFlowState.EmergencyRecovery);
             yield return presenter.ShowEmergencyRecovery(recovery);
 
-            bool succeeded = Random.value < Mathf.Clamp01(recovery.successProbability);
+            bool succeeded = RollProbability(recovery.successProbability);
             _runtimeState.RecordEmergencyRecovery(succeeded);
             yield return presenter.ShowEmergencyRecoveryResult(recovery, succeeded);
 
