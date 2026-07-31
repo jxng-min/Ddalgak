@@ -4,52 +4,140 @@ namespace Ddalgak
 {
     public sealed class GameRuntimeState
     {
-        private const int RecentEventCapacity = 3;
-
-        private readonly Queue<string> _recentEventIds = new();
         private readonly HashSet<string> _completedEventIds = new();
+        private readonly List<EEventType> _currentWeekSlots = new();
 
         public KingdomStats Stats { get; } = new();
+        public int CurrentWeek { get; private set; }
+        public int CurrentSlotIndex { get; private set; }
         public int ProcessedEventCount { get; private set; }
-        public int ProcedureLevel { get; private set; }
         public bool IsGameFinished { get; private set; }
         public EGameOverReason GameOverReason { get; private set; }
+        public bool HasConditionalEventThisWeek { get; private set; }
+        public bool HasUsedEmergencyRecovery { get; private set; }
+        public bool EmergencyRecoveryOccurred { get; private set; }
+        public bool EmergencyRecoverySucceeded { get; private set; }
+        public int ActionSuccessCount { get; private set; }
+        public int ActionFailureCount { get; private set; }
+        public EventData LastCompletedEvent { get; private set; }
+        public int ConsecutiveSameEventTypeCount { get; private set; }
 
-        public IReadOnlyCollection<string> RecentEventIds => _recentEventIds;
+        public int EventsCompletedThisWeek => CurrentSlotIndex;
+        public bool IsWeekCompleted => CurrentSlotIndex >= _currentWeekSlots.Count;
+        public IReadOnlyList<EEventType> CurrentWeekSlots => _currentWeekSlots;
         public IReadOnlyCollection<string> CompletedEventIds => _completedEventIds;
+
+        public EEventType CurrentSlotType
+        {
+            get
+            {
+                if (CurrentSlotIndex < 0 || CurrentSlotIndex >= _currentWeekSlots.Count)
+                {
+                    return default;
+                }
+
+                return _currentWeekSlots[CurrentSlotIndex];
+            }
+        }
 
         public void Initialize()
         {
             Stats.Initialize();
+            CurrentWeek = 0;
+            CurrentSlotIndex = 0;
             ProcessedEventCount = 0;
-            ProcedureLevel = 0;
             IsGameFinished = false;
             GameOverReason = EGameOverReason.None;
-            _recentEventIds.Clear();
+            HasConditionalEventThisWeek = false;
+            HasUsedEmergencyRecovery = false;
+            EmergencyRecoveryOccurred = false;
+            EmergencyRecoverySucceeded = false;
+            ActionSuccessCount = 0;
+            ActionFailureCount = 0;
+            LastCompletedEvent = null;
+            ConsecutiveSameEventTypeCount = 0;
+            _currentWeekSlots.Clear();
             _completedEventIds.Clear();
         }
 
-        public void CompleteEvent(string eventId)
+        public void StartWeek(int week, IReadOnlyList<EEventType> slots)
         {
-            ProcessedEventCount++;
+            CurrentWeek = week;
+            CurrentSlotIndex = 0;
+            HasConditionalEventThisWeek = false;
+            _currentWeekSlots.Clear();
 
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (slots == null)
             {
                 return;
             }
 
-            _completedEventIds.Add(eventId);
-            _recentEventIds.Enqueue(eventId);
-
-            while (_recentEventIds.Count > RecentEventCapacity)
+            foreach (EEventType slot in slots)
             {
-                _recentEventIds.Dequeue();
+                _currentWeekSlots.Add(slot);
             }
         }
 
-        public void SetProcedureLevel(int level) => ProcedureLevel = level;
-        public bool HasCompletedEvent(string eventId) => _completedEventIds.Contains(eventId);
-        public bool IsRecentEvent(string eventId) => _recentEventIds.Contains(eventId);
+        public void CompleteEvent(EventData eventData)
+        {
+            ProcessedEventCount++;
+            CurrentSlotIndex++;
+
+            if (eventData?.isConditional == true)
+            {
+                HasConditionalEventThisWeek = true;
+            }
+
+            if (eventData == null || string.IsNullOrWhiteSpace(eventData.eventId))
+            {
+                return;
+            }
+
+            ConsecutiveSameEventTypeCount = LastCompletedEvent != null &&
+                                            LastCompletedEvent.eventType == eventData.eventType
+                ? ConsecutiveSameEventTypeCount + 1
+                : 1;
+            LastCompletedEvent = eventData;
+
+            _completedEventIds.Add(eventData.eventId);
+        }
+
+        public bool HasCompletedEvent(string eventId)
+        {
+            return _completedEventIds.Contains(eventId);
+        }
+
+        public void RecordActionResult(bool succeeded)
+        {
+            if (succeeded)
+            {
+                ActionSuccessCount++;
+            }
+            else
+            {
+                ActionFailureCount++;
+            }
+        }
+
+        public void RecordEmergencyRecovery(bool succeeded)
+        {
+            HasUsedEmergencyRecovery = true;
+            EmergencyRecoveryOccurred = true;
+            EmergencyRecoverySucceeded = succeeded;
+        }
+
+        public GovernanceResultRecord CreateGovernanceResult(bool isClear)
+        {
+            return new GovernanceResultRecord(isClear,
+                                              CurrentWeek,
+                                              ProcessedEventCount,
+                                              Stats.CreateSnapshot(),
+                                              ActionSuccessCount,
+                                              ActionFailureCount,
+                                              EmergencyRecoveryOccurred,
+                                              EmergencyRecoverySucceeded,
+                                              GameOverReason);
+        }
 
         public void SetGameOver(EGameOverReason reason)
         {

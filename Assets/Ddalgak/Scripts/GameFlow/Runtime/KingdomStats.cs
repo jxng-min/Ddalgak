@@ -34,6 +34,23 @@ namespace Ddalgak
             security = Clamp(security + modifier.security);
         }
 
+        public void SetValue(EKingdomStatType statType, int value)
+        {
+            int clampedValue = Clamp(value);
+            switch (statType)
+            {
+                case EKingdomStatType.Treasury:
+                    treasury = clampedValue;
+                    break;
+                case EKingdomStatType.PublicSentiment:
+                    publicSentiment = clampedValue;
+                    break;
+                case EKingdomStatType.Security:
+                    security = clampedValue;
+                    break;
+            }
+        }
+
         public KingdomStatsSnapshot CreateSnapshot()
         {
             return new KingdomStatsSnapshot(treasury, publicSentiment, security);

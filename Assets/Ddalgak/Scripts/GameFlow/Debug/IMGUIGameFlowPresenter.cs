@@ -8,19 +8,34 @@ namespace Ddalgak
 {
     public sealed class IMGUIGameFlowPresenter : GameFlowPresenterBase
     {
-        private const float PanelWidth = 420f;
-        private const float PanelMargin = 20f;
+        private const float ReferenceWidth = 1920f;
+        private const float ReferenceHeight = 1080f;
+        private const float PanelWidth = 1080f;
+        private const float PanelMargin = 30f;
+        private const int BodyFontSize = 24;
+        private const int HeaderFontSize = 30;
 
         private GameRuntimeState _runtimeState;
         private EventData _currentEvent;
+        private int _currentEventWeek;
+        private int _currentEventSlotIndex;
+        private EEventType _currentEventType;
         private IReadOnlyList<ChoiceData> _currentChoices;
         private TurnResult _currentResult;
+        private EmergencyRecoveryData _emergencyRecovery;
+        private GovernanceResultRecord _governanceResult;
+        private GameOverPresentationData _gameOverData;
+        private bool _hasEmergencyRecoveryResult;
+        private bool _emergencyRecoverySucceeded;
         private KingdomStatsSnapshot _displayedStats;
         private Vector2 _scrollPosition;
         private string _statusText;
         private bool _showChoices;
         private bool _showResult;
         private bool _isCancelled;
+        private GUIStyle _bodyStyle;
+        private GUIStyle _headerStyle;
+        private GUIStyle _panelStyle;
 
         public override IEnumerator ShowGameStart(GameRuntimeState state)
         {
@@ -29,6 +44,11 @@ namespace Ddalgak
             _currentEvent = null;
             _currentChoices = null;
             _currentResult = null;
+            _emergencyRecovery = null;
+            _governanceResult = null;
+            _gameOverData = null;
+            _hasEmergencyRecoveryResult = false;
+            _emergencyRecoverySucceeded = false;
             _showChoices = false;
             _showResult = false;
             _isCancelled = false;
@@ -36,9 +56,20 @@ namespace Ddalgak
             yield break;
         }
 
+        public override IEnumerator ShowWeekStart(GameRuntimeState runtimeState)
+        {
+            _statusText = $"{runtimeState.CurrentWeek}주차 시작";
+            yield break;
+        }
+
         public override IEnumerator ShowEvent(EventData eventData)
         {
             _currentEvent = eventData;
+            _emergencyRecovery = null;
+            _hasEmergencyRecoveryResult = false;
+            _currentEventWeek = _runtimeState.CurrentWeek;
+            _currentEventSlotIndex = _runtimeState.CurrentSlotIndex;
+            _currentEventType = eventData.eventType;
             _currentChoices = null;
             _currentResult = null;
             _showChoices = false;
@@ -141,16 +172,33 @@ namespace Ddalgak
             }
         }
 
-        public override IEnumerator ShowProcedureLevelUp(int previousLevel, int currentLevel)
+        public override IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState)
         {
-            _statusText = $"절차 복잡도 상승: {previousLevel} → {currentLevel}";
+            _statusText = $"{runtimeState.CurrentWeek}주차 정산 완료";
             yield break;
         }
 
-        public override IEnumerator ShowGameOver(EGameOverReason reason)
+        public override IEnumerator ShowEmergencyRecovery(EmergencyRecoveryData data)
+        {
+            _emergencyRecovery = data;
+            _statusText = $"긴급 수습 발생: {data.title} (성공 {data.successProbability:P0})";
+            yield break;
+        }
+
+        public override IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data,
+                                                                  bool succeeded)
+        {
+            _hasEmergencyRecoveryResult = true;
+            _emergencyRecoverySucceeded = succeeded;
+            _statusText = succeeded ? data.successText : data.failureText;
+            yield break;
+        }
+
+        public override IEnumerator ShowGameOver(GameOverPresentationData data)
         {
             _showChoices = false;
-            _statusText = $"게임 오버: {reason}";
+            _gameOverData = data;
+            _statusText = $"게임 오버: {data.title}";
             yield break;
         }
 
@@ -158,6 +206,13 @@ namespace Ddalgak
         {
             _showChoices = false;
             _statusText = "게임 클리어";
+            yield break;
+        }
+
+        public override IEnumerator ShowGovernanceResult(GovernanceResultRecord record)
+        {
+            _governanceResult = record;
+            _statusText = "통치 결과";
             yield break;
         }
 
@@ -174,12 +229,24 @@ namespace Ddalgak
                 return;
             }
 
-            Rect area = new(Screen.width - PanelWidth - PanelMargin,
+            EnsureStyles();
+
+            float scale = Mathf.Min(Screen.width / ReferenceWidth,
+                                    Screen.height / ReferenceHeight);
+            scale = Mathf.Max(scale, 0.01f);
+
+            Matrix4x4 previousMatrix = GUI.matrix;
+            GUI.matrix = Matrix4x4.Scale(new Vector3(scale, scale, 1f));
+
+            float scaledScreenWidth = Screen.width / scale;
+            float scaledScreenHeight = Screen.height / scale;
+
+            Rect area = new(scaledScreenWidth - PanelWidth - PanelMargin,
                             PanelMargin,
                             PanelWidth,
-                            Screen.height - PanelMargin * 2f);
+                            scaledScreenHeight - PanelMargin * 2f);
 
-            GUILayout.BeginArea(area, GUI.skin.box);
+            GUILayout.BeginArea(area, _panelStyle);
             _scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
 
             DrawGameState();
@@ -187,28 +254,33 @@ namespace Ddalgak
             DrawEvent();
             DrawChoices();
             DrawResult();
+            DrawEnding();
             DrawStatus();
 
             GUILayout.EndScrollView();
             GUILayout.EndArea();
+
+            GUI.matrix = previousMatrix;
         }
 
         private void DrawGameState()
         {
-            GUILayout.Label("<b>[Game Flow]</b>", CreateRichTextStyle());
-            GUILayout.Label($"State: {GetCurrentStateText()}");
-            GUILayout.Label($"처리 이벤트: {_runtimeState.ProcessedEventCount}");
-            GUILayout.Label($"절차 복잡도: {_runtimeState.ProcedureLevel}");
-            GUILayout.Space(8f);
+            GUILayout.Label("[Game Flow]", _headerStyle);
+            GUILayout.Label($"State: {GetCurrentStateText()}", _bodyStyle);
+            GUILayout.Label($"현재 주차: {_runtimeState.CurrentWeek}주차", _bodyStyle);
+            GUILayout.Label($"주차 진행: {Mathf.Min(_runtimeState.EventsCompletedThisWeek + 1, 4)} / 4", _bodyStyle);
+            GUILayout.Label($"전체 진행: {_runtimeState.ProcessedEventCount} / 12", _bodyStyle);
+            GUILayout.Label($"이번 주 슬롯: {FormatWeekSlots()}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawStats()
         {
-            GUILayout.Label("<b>[왕국 수치]</b>", CreateRichTextStyle());
-            GUILayout.Label($"국고: {_displayedStats.Treasury}");
-            GUILayout.Label($"민심: {_displayedStats.PublicSentiment}");
-            GUILayout.Label($"안보: {_displayedStats.Security}");
-            GUILayout.Space(8f);
+            GUILayout.Label("[왕국 수치]", _headerStyle);
+            GUILayout.Label($"국고: {_displayedStats.Treasury}", _bodyStyle);
+            GUILayout.Label($"민심: {_displayedStats.PublicSentiment}", _bodyStyle);
+            GUILayout.Label($"안보: {_displayedStats.Security}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawEvent()
@@ -218,10 +290,16 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[이벤트]</b>", CreateRichTextStyle());
-            GUILayout.Label(_currentEvent.title);
-            GUILayout.Label(_currentEvent.description, GUI.skin.label);
-            GUILayout.Space(8f);
+            GUILayout.Label("[이벤트]", _headerStyle);
+            GUILayout.Label($"위치: {_currentEventWeek}주차 {_currentEventSlotIndex + 1}번째", _bodyStyle);
+            GUILayout.Label($"유형: {GetEventTypeText(_currentEventType)}", _headerStyle);
+            if (_currentEvent.isConditional)
+            {
+                GUILayout.Label($"[조건부] 대상: {GetStatTypeText(_currentEvent.conditionalStat)}", _headerStyle);
+            }
+            GUILayout.Label(_currentEvent.title, _bodyStyle);
+            GUILayout.Label(_currentEvent.description, _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawChoices()
@@ -231,7 +309,7 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[선택지]</b>", CreateRichTextStyle());
+            GUILayout.Label("[선택지]", _headerStyle);
             foreach (ChoiceData choice in _currentChoices)
             {
                 if (choice == null)
@@ -239,14 +317,14 @@ namespace Ddalgak
                     continue;
                 }
 
-                GUILayout.Label($"[{choice.inputKey}] {choice.description}");
+                GUILayout.Label($"[{choice.inputKey}] {choice.description}", _bodyStyle);
                 if (!string.IsNullOrWhiteSpace(choice.changePreview))
                 {
-                    GUILayout.Label($"    {choice.changePreview}");
+                    GUILayout.Label($"    {choice.changePreview}", _bodyStyle);
                 }
             }
 
-            GUILayout.Space(8f);
+            GUILayout.Space(16f);
         }
 
         private void DrawResult()
@@ -256,18 +334,26 @@ namespace Ddalgak
                 return;
             }
 
-            GUILayout.Label("<b>[결과]</b>", CreateRichTextStyle());
-            GUILayout.Label(_currentResult.ResultText);
+            GUILayout.Label("[결과]", _headerStyle);
+            GUILayout.Label(_currentResult.ResultText, _bodyStyle);
+            if (_currentResult.HasActionResult)
+            {
+                GUILayout.Label($"액션 결과: {(_currentResult.ActionSucceeded ? "성공" : "실패")}", _bodyStyle);
+            }
+            if (_currentResult.HasRandomResult)
+            {
+                GUILayout.Label($"확률 결과: {(_currentResult.RandomResultSucceeded ? "성공" : "실패")}", _bodyStyle);
+            }
             GUILayout.Label($"국고 {FormatModifier(_currentResult.FinalModifier.treasury)} / " +
                             $"민심 {FormatModifier(_currentResult.FinalModifier.publicSentiment)} / " +
-                            $"안보 {FormatModifier(_currentResult.FinalModifier.security)}");
-            GUILayout.Space(8f);
+                            $"안보 {FormatModifier(_currentResult.FinalModifier.security)}", _bodyStyle);
+            GUILayout.Space(16f);
         }
 
         private void DrawStatus()
         {
-            GUILayout.Label("<b>[상태]</b>", CreateRichTextStyle());
-            GUILayout.Label(_statusText ?? string.Empty);
+            GUILayout.Label("[상태]", _headerStyle);
+            GUILayout.Label(_statusText ?? string.Empty, _bodyStyle);
         }
 
         private string GetCurrentStateText()
@@ -276,12 +362,33 @@ namespace Ddalgak
             return controller != null ? controller.CurrentState.ToString() : "Unknown";
         }
 
-        private static GUIStyle CreateRichTextStyle()
+        private void EnsureStyles()
         {
-            return new GUIStyle(GUI.skin.label)
+            if (_bodyStyle != null)
             {
+                return;
+            }
+
+            _bodyStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = BodyFontSize,
+                wordWrap = true,
                 richText = true,
-                wordWrap = true
+                normal =
+                {
+                    textColor = Color.white
+                }
+            };
+
+            _headerStyle = new GUIStyle(_bodyStyle)
+            {
+                fontSize = HeaderFontSize,
+                fontStyle = FontStyle.Bold
+            };
+
+            _panelStyle = new GUIStyle(GUI.skin.box)
+            {
+                padding = new RectOffset(24, 24, 24, 24)
             };
         }
 
@@ -335,6 +442,95 @@ namespace Ddalgak
         private static string FormatModifier(int value)
         {
             return value > 0 ? $"+{value}" : value.ToString();
+        }
+
+        private string FormatWeekSlots()
+        {
+            IReadOnlyList<EEventType> slots = _runtimeState.CurrentWeekSlots;
+            if (slots == null || slots.Count == 0)
+            {
+                return "없음";
+            }
+
+            var slotTexts = new string[slots.Count];
+            for (int i = 0; i < slots.Count; i++)
+            {
+                string slotText = $"{i + 1}.{GetEventTypeText(slots[i])}";
+                slotTexts[i] = i == _currentEventSlotIndex &&
+                               _currentEventWeek == _runtimeState.CurrentWeek
+                    ? $"<b>[{slotText}]</b>"
+                    : slotText;
+            }
+
+            return string.Join("  |  ", slotTexts);
+        }
+
+        private static string GetEventTypeText(EEventType eventType)
+        {
+            return eventType switch
+            {
+                EEventType.NormalChoice => "기본 선택",
+                EEventType.ActionChoice => "실행형 액션",
+                EEventType.SuddenChoice => "돌발 액션",
+                _ => eventType.ToString()
+            };
+        }
+
+        private void DrawEnding()
+        {
+            if (_emergencyRecovery != null)
+            {
+                GUILayout.Label("[긴급 수습]", _headerStyle);
+                GUILayout.Label(_emergencyRecovery.title, _headerStyle);
+                GUILayout.Label(_emergencyRecovery.description, _bodyStyle);
+                GUILayout.Label($"성공 확률: {_emergencyRecovery.successProbability:P0}", _bodyStyle);
+                if (_hasEmergencyRecoveryResult)
+                {
+                    GUILayout.Label($"수습 결과: {(_emergencyRecoverySucceeded ? "성공" : "실패")}", _headerStyle);
+                    GUILayout.Label(_emergencyRecoverySucceeded
+                                        ? _emergencyRecovery.successText
+                                        : _emergencyRecovery.failureText,
+                                    _bodyStyle);
+                }
+                GUILayout.Space(16f);
+            }
+
+            if (_gameOverData != null)
+            {
+                GUILayout.Label("[게임 오버]", _headerStyle);
+                GUILayout.Label(_gameOverData.title, _headerStyle);
+                GUILayout.Label(_gameOverData.presentation, _bodyStyle);
+                GUILayout.Label(_gameOverData.message, _bodyStyle);
+                GUILayout.Space(16f);
+            }
+
+            if (_governanceResult == null)
+            {
+                return;
+            }
+
+            GUILayout.Label("[통치 결과]", _headerStyle);
+            GUILayout.Label($"결과: {(_governanceResult.IsClear ? "클리어" : "게임 오버")}", _bodyStyle);
+            GUILayout.Label($"통치 기간: {_governanceResult.ReignWeek}주차", _bodyStyle);
+            GUILayout.Label($"해결한 사건: {_governanceResult.ResolvedEventCount}", _bodyStyle);
+            GUILayout.Label($"최종 국고: {_governanceResult.FinalStats.Treasury}", _bodyStyle);
+            GUILayout.Label($"최종 민심: {_governanceResult.FinalStats.PublicSentiment}", _bodyStyle);
+            GUILayout.Label($"최종 안보: {_governanceResult.FinalStats.Security}", _bodyStyle);
+            GUILayout.Label($"액션 성공/실패: {_governanceResult.ActionSuccessCount} / {_governanceResult.ActionFailureCount}", _bodyStyle);
+            GUILayout.Label($"긴급 수습 발생: {_governanceResult.EmergencyOccurred}", _bodyStyle);
+            GUILayout.Label($"긴급 수습 성공: {_governanceResult.EmergencySucceeded}", _bodyStyle);
+            GUILayout.Space(16f);
+        }
+
+        private static string GetStatTypeText(EKingdomStatType statType)
+        {
+            return statType switch
+            {
+                EKingdomStatType.Treasury => "국고",
+                EKingdomStatType.PublicSentiment => "민심",
+                EKingdomStatType.Security => "안보",
+                _ => statType.ToString()
+            };
         }
     }
 }

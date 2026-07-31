@@ -4,6 +4,7 @@ namespace Ddalgak
     {
         None,
         Initializing,
+        WeekStart,
         TurnStart,
         EventSelection,
         EventPresentation,
@@ -13,11 +14,13 @@ namespace Ddalgak
         ResultPresentation,
         StatUpdate,
         GameOverCheck,
-        ProcedureCheck,
+        EmergencyRecovery,
+        WeekSettlement,
         ClearCheck,
         TurnEnd,
         GameOver,
-        Clear
+        Clear,
+        GovernanceResult
     }
 
     public enum EEventType
@@ -25,6 +28,13 @@ namespace Ddalgak
         NormalChoice,
         ActionChoice,
         SuddenChoice
+    }
+
+    public enum EKingdomStatType
+    {
+        Treasury,
+        PublicSentiment,
+        Security
     }
 
     public enum EGameOverReason
@@ -36,6 +46,13 @@ namespace Ddalgak
         FatalEventFailure
     }
 
+    public enum EDebugOutcomeMode
+    {
+        Default,
+        ForceSuccess,
+        ForceFailure
+    }
+    
     public enum EButtonActionType
     {
         None,
