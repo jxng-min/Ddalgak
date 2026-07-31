@@ -105,8 +105,12 @@ namespace Ddalgak
 
         private IEnumerator ProcessSinglePress(ButtonAction action, Action<bool> onStepFinished)
         {
-            while (!_isCancelled)
+            float timer = 0f;
+
+            while (timer < action.Duration && !_isCancelled)
             {
+                timer += Time.deltaTime;
+
                 if (Input.GetKeyDown(action.Key))
                 {
                     onStepFinished?.Invoke(true);
@@ -119,14 +123,17 @@ namespace Ddalgak
 
         private IEnumerator ProcessHold(ButtonAction action, Action<bool> onStepFinished)
         {
+            float timer = 0f;
             float holdTimer = 0f;
 
-            while (!_isCancelled)
+            while (timer < action.Duration && !_isCancelled)
             {
+                timer += Time.deltaTime;
+
                 if (Input.GetKey(action.Key))
                 {
                     holdTimer += Time.deltaTime;
-                    if (holdTimer >= action.Duration)
+                    if (holdTimer >= action.HoldedDuration)
                     {
                         onStepFinished?.Invoke(true);
                         yield break;
@@ -169,11 +176,14 @@ namespace Ddalgak
 
         private IEnumerator ProcessTiming(ButtonAction action, Action<bool> onStepFinished)
         {
+            float timer = 0;
             float progress = 0f;
             bool movingForward = true;
 
-            while (!_isCancelled)
+            while (timer < action.Duration && !_isCancelled)
             {
+                timer += Time.deltaTime;
+
                 if (movingForward)
                 {
                     progress += Time.deltaTime * action.TimingSpeed;
