@@ -54,6 +54,7 @@ namespace Ddalgak
                                       EEventType slotType)
         {
             if (eventData == null || eventData.eventType != slotType ||
+                !CanAppearInWeek(eventData, state.CurrentWeek) ||
                 state.HasCompletedEvent(eventData.eventId))
             {
                 return false;
@@ -87,6 +88,12 @@ namespace Ddalgak
             }
 
             return true;
+        }
+
+        private static bool CanAppearInWeek(EventData eventData, int currentWeek)
+        {
+            const int AnyWeek = 0;
+            return eventData.week == AnyWeek || eventData.week == currentWeek;
         }
 
         private static EKingdomStatType? FindConditionalStat(IReadOnlyList<EventData> allEvents,

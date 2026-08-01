@@ -29,6 +29,11 @@ namespace Ddalgak
         public EDebugOutcomeMode DebugProbabilityMode { get; set; }
         public bool DebugForceConditionalEvent { get; set; }
 
+        private void Start()
+        {
+            StartGame();
+        }
+        
         [Button("테스트")]
         public void StartGame()
         {

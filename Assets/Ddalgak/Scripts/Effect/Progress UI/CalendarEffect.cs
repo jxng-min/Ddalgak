@@ -31,7 +31,7 @@ namespace Ddalgak
             var sequence = DOTween.Sequence();
 
             sequence.Join(
-                calendarRect.DOAnchorPosX(originAnchoredPosition.x - updateXOffset, updateDuration)
+                calendarRect.DOAnchorPosX(originAnchoredPosition.x - updateXOffset - initXOffset, updateDuration)
                             .SetEase(updateEase)
             );
 
@@ -39,6 +39,7 @@ namespace Ddalgak
 
             sequence.Append(
                 calendarRect.DOAnchorPosX(originAnchoredPosition.x - initXOffset, updateDuration)
+                            .SetEase(updateEase)
             );
 
             return sequence;
