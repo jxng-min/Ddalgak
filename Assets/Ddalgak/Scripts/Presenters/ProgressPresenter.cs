@@ -14,17 +14,17 @@ namespace Ddalgak
         public override IEnumerator ShowGameStart(GameRuntimeState runtimeState)
         {
             yield return backgroundView.DrawKingdom();
+            yield return statView.InitStat();
         }
 
         public override IEnumerator ShowWeekStart(GameRuntimeState runtimeState)
         {
-            yield return statView.InitStat();
-            yield return calendarView.InitWeek();
+            yield return calendarView.UpdateWeek(runtimeState);
         }
 
         public override IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState)
         {
-            yield return calendarView.UpdateWeek(runtimeState);
+            yield break;
         }
 
         public override void Cancel() {}

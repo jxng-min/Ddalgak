@@ -18,14 +18,9 @@ namespace Ddalgak
             _originAnchoredPosition = RectTransform.anchoredPosition;
         }
         
-        public IEnumerator InitWeek()
-        {
-            yield return calendarEffect.PlayInitCalendarEffect(RectTransform, _originAnchoredPosition).WaitForCompletion();
-        }
-        
         public IEnumerator UpdateWeek(GameRuntimeState runtimeState)
         {
-            Label.text = $"{runtimeState.CurrentWeek + 1}";
+            Label.text = $"{runtimeState.CurrentWeek}";
             yield return calendarEffect.PlayUpdateCalendarEffect(RectTransform, _originAnchoredPosition).WaitForCompletion();;
         }
     }
