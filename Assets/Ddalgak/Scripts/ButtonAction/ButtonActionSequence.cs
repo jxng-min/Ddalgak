@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
     public class ButtonActionSequence : ActionSequenceRunnerBase
     {
+        [SerializeField] private ButtonActionView actionView;
+
         private Coroutine _activeStepCoroutine;
         private bool _isCancelled;
 
@@ -73,6 +76,8 @@ namespace Ddalgak
                 StopCoroutine(_activeStepCoroutine);
                 _activeStepCoroutine = null;
             }
+
+            actionView?.Hide();
         }
 
         private IEnumerator ExecuteActionStep(ButtonAction action, Action<bool> onStepFinished)
@@ -105,19 +110,24 @@ namespace Ddalgak
 
         private IEnumerator ProcessSinglePress(ButtonAction action, Action<bool> onStepFinished)
         {
+            actionView?.Show(action.ActionType);
+
             float timer = 0f;
 
             while (timer < action.Duration && !_isCancelled)
             {
                 timer += Time.deltaTime;
 
-                if (Input.GetKeyDown(action.Key))
+                if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
+                    actionView?.Hide();
                     onStepFinished?.Invoke(true);
                     yield break;
                 }
                 yield return null;
             }
+
+            actionView?.Hide();
             onStepFinished?.Invoke(false);
         }
 
@@ -131,7 +141,7 @@ namespace Ddalgak
                 timer += Time.deltaTime;
                 float totalDuration = 0;
 
-                if (Input.GetKey(action.Key))
+                if (Keyboard.current[action.Key].isPressed)
                 {
                     timer = 0;
                     totalDuration = action.Duration;
@@ -142,23 +152,25 @@ namespace Ddalgak
                         yield break;
                     }
                 }
-                else if (Input.GetKeyUp(action.Key) && holdTimer < totalDuration)
+                else if (Keyboard.current[action.Key].wasReleasedThisFrame && holdTimer < totalDuration)
                 {
                     onStepFinished?.Invoke(false);
                     yield break;
                 }
-                else if (!Input.GetKey(action.Key))
+                else if (!Keyboard.current[action.Key].isPressed)
                 {
                     totalDuration += action.AddDuration;
                 }
 
-                    yield return null;
+                yield return null;
             }
             onStepFinished?.Invoke(false);
         }
 
         private IEnumerator ProcessRapidPress(ButtonAction action, Action<bool> onStepFinished)
         {
+            actionView?.Show(action.ActionType);
+
             float timer = 0f;
             int pressCount = 0;
 
@@ -166,11 +178,12 @@ namespace Ddalgak
             {
                 timer += Time.deltaTime;
 
-                if (Input.GetKeyDown(action.Key))
+                if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
                     pressCount++;
                     if (pressCount >= action.TargetPressCount)
                     {
+                        actionView?.Hide();
                         onStepFinished?.Invoke(true);
                         yield break;
                     }
@@ -178,33 +191,25 @@ namespace Ddalgak
                 yield return null;
             }
 
+            actionView?.Hide();
             onStepFinished?.Invoke(false);
         }
 
         private IEnumerator ProcessTiming(ButtonAction action, Action<bool> onStepFinished)
         {
-            float timer = 0;
-            float progress = 0f;
-            bool movingForward = true;
+            actionView?.Show(action.ActionType, action.Duration);
+
+            float timer = 0f;
 
             while (timer < action.Duration && !_isCancelled)
             {
                 timer += Time.deltaTime;
+                float progress = timer / action.Duration;
 
-                if (movingForward)
-                {
-                    progress += Time.deltaTime * action.TimingSpeed;
-                    if (progress >= 1f) { progress = 1f; movingForward = false; }
-                }
-                else
-                {
-                    progress -= Time.deltaTime * action.TimingSpeed;
-                    if (progress <= 0f) { progress = 0f; movingForward = true; }
-                }
-
-                if (Input.GetKeyDown(action.Key))
+                if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
                     bool isSuccess = progress >= action.SuccessRangeStart && progress <= action.SuccessRangeEnd;
+                    actionView?.Hide();
                     onStepFinished?.Invoke(isSuccess);
                     yield break;
                 }
@@ -212,6 +217,7 @@ namespace Ddalgak
                 yield return null;
             }
 
+            actionView?.Hide();
             onStepFinished?.Invoke(false);
         }
     }
