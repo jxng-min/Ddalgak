@@ -61,4 +61,11 @@ namespace Ddalgak
         RapidPress,
         Timing,
     }
+
+    public enum ESceneType
+    {
+        TitleScene = 0,
+        GameScene = 1,
+
+    }
 }
