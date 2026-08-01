@@ -12,6 +12,7 @@ namespace Ddalgak
         public string title;
         public string description;
         public Sprite eventImage;
+        public int week;
         public EEventType eventType;
         public float weight = 1f;
         public bool isConditional;
