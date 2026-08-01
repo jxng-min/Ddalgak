@@ -48,18 +48,12 @@ namespace Ddalgak
 
         public IEnumerator HideChoices()
         {
-            List<Tween> tweens = new();
             foreach (ChoiceButtonView view in _activeViews)
             {
-                tweens.Add(view.PlayHide());
+                view.ResetSelectionVisual();
             }
 
-            foreach (Tween tween in tweens)
-            {
-                yield return tween.WaitForCompletion();
-            }
-
-            _activeViews.Clear();
+            yield break;
         }
 
         public void Cancel()
@@ -162,6 +156,7 @@ namespace Ddalgak
 
         private IEnumerator PlaySelectSequence(ChoiceButtonView selectedView)
         {
+
             Tween selectTween = null;
             foreach (ChoiceButtonView view in _activeViews)
             {

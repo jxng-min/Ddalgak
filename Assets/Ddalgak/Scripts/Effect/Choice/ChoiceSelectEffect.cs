@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Ddalgak
 {
-    [ManagedEffect("Choice", "ChoiceSelectEffect", 1)]
+    [ManagedEffect("Choice", "선택 확정 효과", 1)]
     public sealed class ChoiceSelectEffect : MonoBehaviour
     {
         [Header("Scale Punch")]
@@ -76,6 +76,9 @@ namespace Ddalgak
 
         public void ResetVisual()
         {
+            DOTween.Kill(_rectTransform);
+            DOTween.Kill(_canvasGroup);
+
             if (borderHighlight != null)
             {
                 borderHighlight.enabled = false;
@@ -89,6 +92,11 @@ namespace Ddalgak
             if (_rectTransform != null)
             {
                 _rectTransform.localScale = Vector3.one;
+            }
+
+            if (_canvasGroup != null)
+            {
+                _canvasGroup.alpha = 1f;
             }
         }
 

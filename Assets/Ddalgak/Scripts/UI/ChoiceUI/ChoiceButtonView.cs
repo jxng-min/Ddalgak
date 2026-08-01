@@ -6,7 +6,6 @@ namespace Ddalgak
 {
     public sealed class ChoiceButtonView : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private ChoiceShowEffect showEffect;
         [SerializeField] private ChoiceSelectEffect selectEffect;
@@ -19,18 +18,17 @@ namespace Ddalgak
         {
             Data = data;
             descriptionText.text = data?.description ?? string.Empty;
+            ResetSelectionVisual();
+        }
+
+        public void ResetSelectionVisual()
+        {
             selectEffect.ResetVisual();
-            canvasGroup.alpha = 0f;
         }
 
         public Tween PlayShow()
         {
             return showEffect.Play();
-        }
-
-        public Tween PlayHide()
-        {
-            return showEffect.PlayHide();
         }
 
         public Tween PlayDim()
