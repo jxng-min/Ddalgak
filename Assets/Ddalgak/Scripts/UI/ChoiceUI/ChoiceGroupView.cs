@@ -72,6 +72,7 @@ namespace Ddalgak
             foreach (ChoiceButtonView view in _activeViews)
             {
                 view.ResetSelectionVisual();
+                view.HideDescription();
             }
 
             yield break;

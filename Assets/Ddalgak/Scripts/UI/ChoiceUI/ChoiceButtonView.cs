@@ -32,7 +32,7 @@ namespace Ddalgak
         public void Bind(ChoiceData data)
         {
             Data = data;
-            SetDescriptionText(data?.description);
+            ShowDescription(data?.description);
             ResetSelectionVisual();
         }
 
