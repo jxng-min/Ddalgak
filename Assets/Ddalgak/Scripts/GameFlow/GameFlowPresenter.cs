@@ -14,6 +14,7 @@ namespace Ddalgak
 
         public override IEnumerator ShowGameStart(GameRuntimeState runtimeState)
         {
+            statPresenter.SetStats(runtimeState.Stats.CreateSnapshot());
             return progressPresenter.ShowGameStart(runtimeState);
         }
 
