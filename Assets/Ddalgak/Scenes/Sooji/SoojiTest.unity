@@ -388,10 +388,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_ChoiceButtonCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6321256751602149851, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -706,14 +702,6 @@ PrefabInstance:
     - target: {fileID: 2542083167034547654, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
       propertyPath: m_Name
       value: PF_EventPaperCavas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542083167034547654, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4140620651137024662, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 9080651939979571467, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
       propertyPath: m_Pivot.x

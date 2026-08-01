@@ -18,12 +18,16 @@ namespace Ddalgak
         [Header("Timing")]
         [SerializeField] private float showStaggerInterval = 0.1f;
 
+        [Header("Result Stamp")]
+        [SerializeField] private StampEffect stampEffect;
+
         private readonly List<ChoiceButtonView> _activeViews = new();
         private bool _inputLocked;
 
         public IEnumerator ShowChoices(IReadOnlyList<ChoiceData> choices, Action<ChoiceData> onSelected)
         {
             _inputLocked = false;
+            stampEffect.Reset();
             BindActiveViews(choices);
 
             if (_activeViews.Count == 0)
@@ -64,6 +68,28 @@ namespace Ddalgak
             {
                 view.KillTweens();
             }
+
+            stampEffect.Kill();
+        }
+
+        public Tween ShowResultStamp(TurnResult result)
+        {
+            return stampEffect.Play(IsSuccess(result));
+        }
+
+        private static bool IsSuccess(TurnResult result)
+        {
+            if (result.HasActionResult)
+            {
+                return result.ActionSucceeded;
+            }
+
+            if (result.HasRandomResult)
+            {
+                return result.RandomResultSucceeded;
+            }
+
+            return true;
         }
 
         private void BindActiveViews(IReadOnlyList<ChoiceData> choices)
