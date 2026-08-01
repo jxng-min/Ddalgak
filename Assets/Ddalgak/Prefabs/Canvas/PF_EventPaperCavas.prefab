@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 8915744216373795253}
   - component: {fileID: 6615558033198938016}
   - component: {fileID: 6693743707804444663}
+  - component: {fileID: 8198326570438412885}
   m_Layer: 5
   m_Name: PF_EventPaperCavas
   m_TagString: Untagged
@@ -476,6 +477,21 @@ MonoBehaviour:
   fadeImage: {fileID: 1621557780735667161}
   fadeInDuration: 0.3
   fadeInEase: 6
+  koreanTyper: {fileID: 8198326570438412885}
+  typingInterval: 0.035
+  typingStartDelay: 0
+--- !u!114 &8198326570438412885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542083167034547654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
 --- !u!1 &5992883547747807975
 GameObject:
   m_ObjectHideFlags: 0

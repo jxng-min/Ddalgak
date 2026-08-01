@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 3517525449306954499}
   - component: {fileID: 5080799131268276869}
   - component: {fileID: 3795398548241595659}
+  - component: {fileID: 6053238872506116035}
   m_Layer: 5
   m_Name: SpaceButton
   m_TagString: Untagged
@@ -461,6 +462,9 @@ MonoBehaviour:
   showEffect: {fileID: 5080799131268276869}
   selectEffect: {fileID: 3517525449306954499}
   textImage: {fileID: 1454950969042089292}
+  koreanTyper: {fileID: 6053238872506116035}
+  typingInterval: 0.035
+  typingStartDelay: 0
 --- !u!114 &3517525449306954499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +519,18 @@ MonoBehaviour:
   startOffsetY: 1000
   duration: 0.45
   ease: 27
+--- !u!114 &6053238872506116035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441464879281073923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
 --- !u!1 &1454950969042089292
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +759,7 @@ GameObject:
   - component: {fileID: 7238472917802289410}
   - component: {fileID: 9208671780224322593}
   - component: {fileID: 3157152634978906313}
+  - component: {fileID: 8338204283613864607}
   m_Layer: 5
   m_Name: PButton
   m_TagString: Untagged
@@ -825,6 +842,9 @@ MonoBehaviour:
   showEffect: {fileID: 7238472917802289410}
   selectEffect: {fileID: 9208671780224322593}
   textImage: {fileID: 896038055685537905}
+  koreanTyper: {fileID: 8338204283613864607}
+  typingInterval: 0.035
+  typingStartDelay: 0
 --- !u!114 &7238472917802289410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +899,18 @@ MonoBehaviour:
   startOffsetY: 1000
   duration: 0.45
   ease: 27
+--- !u!114 &8338204283613864607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308708563648384787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
 --- !u!1 &3391191595514999737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1280,7 @@ GameObject:
   - component: {fileID: 4203796135015637066}
   - component: {fileID: 914907382184805010}
   - component: {fileID: 2327175698991102852}
+  - component: {fileID: 2966245873182655047}
   m_Layer: 5
   m_Name: QButton
   m_TagString: Untagged
@@ -1330,6 +1363,9 @@ MonoBehaviour:
   showEffect: {fileID: 914907382184805010}
   selectEffect: {fileID: 2327175698991102852}
   textImage: {fileID: 970677786364417901}
+  koreanTyper: {fileID: 2966245873182655047}
+  typingInterval: 0.035
+  typingStartDelay: 0
 --- !u!114 &4203796135015637066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,3 +1420,15 @@ MonoBehaviour:
   highlightTextColor: {r: 1, g: 1, b: 1, a: 1}
   dimAlpha: 0.45
   dimDuration: 0.2
+--- !u!114 &2966245873182655047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303636864565353419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper

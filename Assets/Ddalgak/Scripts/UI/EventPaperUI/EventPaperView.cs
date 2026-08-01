@@ -16,7 +16,13 @@ namespace Ddalgak
         [SerializeField] private float fadeInDuration = 0.3f;
         [SerializeField] private Ease fadeInEase = Ease.OutQuad;
 
+        [Header("Typing")]
+        [SerializeField] private KoreanTyper koreanTyper;
+        [SerializeField, Min(0f)] private float typingInterval = 0.035f;
+        [SerializeField, Min(0f)] private float typingStartDelay = 0f;
+
         private CanvasGroup _fadeCanvasGroup;
+        private Coroutine _typingCoroutine;
 
         public bool IsAnimating { get; private set; }
 
@@ -39,18 +45,20 @@ namespace Ddalgak
 
         public void ShowDescriptionText(string description)
         {
-            descriptionText.text = description ?? string.Empty;
             descriptionText.gameObject.SetActive(true);
+            StartTyping(description);
         }
 
         public void HideDescriptionText()
         {
+            StopTyping();
             descriptionText.gameObject.SetActive(false);
         }
 
         public void Cancel()
         {
             IsAnimating = false;
+            StopTyping();
             enterEffect.Kill();
             DOTween.Kill(_fadeCanvasGroup);
         }
@@ -60,6 +68,31 @@ namespace Ddalgak
             DOTween.Kill(_fadeCanvasGroup);
             _fadeCanvasGroup.alpha = 0f;
             return _fadeCanvasGroup.DOFade(1f, fadeInDuration).SetEase(fadeInEase);
+        }
+
+        private void StartTyping(string text)
+        {
+            StopTyping();
+
+            text ??= string.Empty;
+            if (koreanTyper == null)
+            {
+                descriptionText.text = text;
+                return;
+            }
+
+            _typingCoroutine = StartCoroutine(koreanTyper.TypeByInterval(descriptionText, text, typingInterval, typingStartDelay));
+        }
+
+        private void StopTyping()
+        {
+            if (_typingCoroutine == null)
+            {
+                return;
+            }
+
+            StopCoroutine(_typingCoroutine);
+            _typingCoroutine = null;
         }
     }
 }

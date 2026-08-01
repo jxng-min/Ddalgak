@@ -13,6 +13,13 @@ namespace Ddalgak
         [SerializeField] private ChoiceSelectEffect selectEffect;
         [SerializeField] private GameObject textImage;
 
+        [Header("Typing")]
+        [SerializeField] private KoreanTyper koreanTyper;
+        [SerializeField, Min(0f)] private float typingInterval = 0.035f;
+        [SerializeField, Min(0f)] private float typingStartDelay = 0f;
+
+        private Coroutine _typingCoroutine;
+
         public ChoiceData Data { get; private set; }
         public Key InputKey => Data?.inputKey ?? Key.None;
 
@@ -49,23 +56,45 @@ namespace Ddalgak
         public void ShowDescription(string text)
         {
             textImage.SetActive(true);
-            descriptionText.text = text;
+            SetDescriptionText(text);
         }
 
         public void HideDescription()
         {
+            StopTyping();
             textImage.SetActive(false);
         }
 
         public void SetDescriptionText(string text)
         {
-            descriptionText.text = text ?? string.Empty;
+            StopTyping();
+
+            text ??= string.Empty;
+            if (koreanTyper == null)
+            {
+                descriptionText.text = text;
+                return;
+            }
+
+            _typingCoroutine = StartCoroutine(koreanTyper.TypeByInterval(descriptionText, text, typingInterval, typingStartDelay));
         }
 
         public void KillTweens()
         {
+            StopTyping();
             showEffect.Kill();
             selectEffect.Kill();
+        }
+
+        private void StopTyping()
+        {
+            if (_typingCoroutine == null)
+            {
+                return;
+            }
+
+            StopCoroutine(_typingCoroutine);
+            _typingCoroutine = null;
         }
     }
 }
