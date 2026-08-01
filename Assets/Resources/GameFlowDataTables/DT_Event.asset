@@ -1,47 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8605626291967001460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B10
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B10
-  isEnable: 1
-  eventName: COLLAPSING_BORDER_OUTPOST
-  title: "\uBB34\uB108\uC838 \uAC00\uB294 \uAD6D\uACBD \uCD08\uC18C"
-  description: "\uAD6D\uACBD\uC744 \uC9C0\uD0A4\uB294 \uC624\uB798\uB41C \uCD08\uC18C\uAC00
-    \uBB34\uB108\uC9C8 \uC704\uAE30\uC5D0 \uB193\uC600\uC2B5\uB2C8\uB2E4.\n\uBCD1\uB825\uACFC
-    \uBB3C\uC790\uAC00 \uBD80\uC871\uD574 \uC989\uC2DC \uB300\uC751\uD558\uC9C0 \uC54A\uC73C\uBA74
-    \uBC29\uC5B4\uC120\uC774 \uBE44\uAC8C \uB429\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 695a9f1831b90a344b80b158744b16eb, type: 3}
-  week: 0
-  eventType: 0
-  weight: 1
-  isConditional: 1
-  conditionalStat: 2
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 30
-  requiredEventIds: []
-  choiceIds:
-  - B10_Q
-  - B10_SPACE
-  - B10_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &-7766725895537734505
+--- !u!114 &-8636804904720723571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,10 +36,12 @@ MonoBehaviour:
   choiceIds: []
   buttonActionIds:
   - S02_SPACE_HOLD
+  - S02_SPACE_HOLD
+  - S02_SPACE_HOLD
   actionSuccessResultId: S02_ACTION_SUCCESS
   actionFailureResultId: S02_ACTION_FAILURE
   isFatalOnActionFailure: 0
---- !u!114 &-5655215895199864486
+--- !u!114 &-8339032577746439934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,480 +51,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B03
+  m_Name: B09
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B03
+  rowID: B09
   isEnable: 1
-  eventName: FOUNDING_FESTIVAL
-  title: "\uC655\uAD6D \uAC74\uAD6D \uCD95\uC81C"
-  description: "\uACE7 \uC655\uAD6D\uC758 \uAC74\uAD6D \uAE30\uB150\uC77C\uC785\uB2C8\uB2E4.\n\uBC31\uC131\uB4E4\uC740
-    \uC131\uB300\uD55C \uCD95\uC81C\uAC00 \uC5F4\uB9AC\uAE30\uB97C \uAE30\uB300\uD558\uACE0
-    \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: bee700ad546a1e64681c96385cc742b6, type: 3}
-  week: 1
-  eventType: 0
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - B03_Q
-  - B03_SPACE
-  - B03_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &-2755341669087980566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B04
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B04
-  isEnable: 1
-  eventName: SUSPICIOUS_MERCHANT_GUILD
-  title: "\uC218\uC0C1\uD55C \uC0C1\uB2E8"
-  description: "\uCD9C\uCC98\uB97C \uC54C \uC218 \uC5C6\uB294 \uAC70\uB300 \uC0C1\uB2E8\uC774
-    \uC655\uAD6D\uC5D0\uC11C \uB3C5\uC810\uC801\uC73C\uB85C \uC7A5\uC0AC\uD560 \uAD8C\uB9AC\uB97C
-    \uC694\uCCAD\uD588\uC2B5\uB2C8\uB2E4.\n\uC0C1\uB2E8\uC740 \uADF8 \uB300\uAC00\uB85C
-    \uC0C1\uB2F9\uD55C \uAE08\uC561\uC744 \uC655\uC2E4\uC5D0 \uC57D\uC18D\uD588\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 12558db698942364993e1b6167e7d37f, type: 3}
-  week: 2
-  eventType: 0
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - B04_Q
-  - B04_SPACE
-  - B04_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &-701035168879450171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: S01
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: S01
-  isEnable: 1
-  eventName: ROYAL_ASSASSIN
-  title: "\uC655\uC2E4 \uC554\uC0B4\uC790"
-  description: "\uC655\uC88C \uB4A4\uC758 \uCEE4\uD2BC\uC774 \uAC11\uC790\uAE30 \uD754\uB4E4\uB9BD\uB2C8\uB2E4.\n\uC228\uC5B4
-    \uC788\uB358 \uC554\uC0B4\uC790\uAC00 \uB2E8\uAC80\uC744 \uB4E4\uACE0 \uC655\uC5D0\uAC8C
-    \uB2EC\uB824\uB4ED\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 0e87cc907e3731f459127c486a9856bf, type: 3}
-  week: 3
-  eventType: 2
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds: []
-  buttonActionIds:
-  - S01_Q_RAPID
-  - S01_SPACE_RAPID
-  - S01_P_RAPID
-  actionSuccessResultId: S01_ACTION_SUCCESS
-  actionFailureResultId: S01_ACTION_FAILURE
-  isFatalOnActionFailure: 1
---- !u!114 &-108257409568542771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: A02
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: A02
-  isEnable: 1
-  eventName: MARKET_FIRE
-  title: "\uC2DC\uC7A5 \uB300\uD654\uC7AC"
-  description: "\uC2DC\uC7A5 \uD55C\uBCF5\uD310\uC5D0\uC11C \uD070\uBD88\uC774 \uBC88\uC9C0\uAE30
-    \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4.\n\uAC15\uD55C \uBC14\uB78C \uD0D3\uC5D0
-    \uBD88\uAE38\uC774 \uC8FC\uBCC0 \uC8FC\uD0DD\uC73C\uB85C \uC62E\uACA8\uBD99\uACE0
-    \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 2001ea86a8ea49a4eb748a63a954bb92, type: 3}
-  week: 2
-  eventType: 1
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - A02_Q
-  - A02_SPACE
-  - A02_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
-  m_Name: DT_Event
-  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
-  dataTableCsv: {fileID: 4900000, guid: f93c83d02951db14db9641e6824fcb7e, type: 3}
-  dataTableRowName: Ddalgak.EventDataTableRow, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  dataTableRows:
-  - {fileID: 7124958348529510477}
-  - {fileID: 6953168611263899294}
-  - {fileID: -5655215895199864486}
-  - {fileID: -2755341669087980566}
-  - {fileID: 2931313112055971152}
-  - {fileID: 6301421991076313540}
-  - {fileID: 6280571486648560263}
-  - {fileID: 6059063085459600431}
-  - {fileID: 7727560022314702774}
-  - {fileID: -8605626291967001460}
-  - {fileID: 8573982266725207757}
-  - {fileID: -108257409568542771}
-  - {fileID: 195018161368296897}
-  - {fileID: 2616578170499450586}
-  - {fileID: 2623061791768492030}
-  - {fileID: -701035168879450171}
-  - {fileID: -7766725895537734505}
-  - {fileID: 2475015190165183292}
-  dataTableRowScript: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
---- !u!114 &195018161368296897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: A03
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: A03
-  isEnable: 1
-  eventName: PLAGUE_OUTBREAK
-  title: "\uC804\uC5FC\uBCD1 \uBC1C\uC0DD"
-  description: "\uB0A8\uCABD \uC9C0\uBC29\uC5D0\uC11C \uC815\uCCB4\uBD88\uBA85\uC758
-    \uC804\uC5FC\uBCD1\uC774 \uBE60\uB974\uAC8C \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\n\uC218\uB3C4\uAE4C\uC9C0
-    \uBC88\uC9C0\uAE30 \uC804\uC5D0 \uB300\uC751 \uBC29\uC2DD\uC744 \uC815\uD574\uC57C
-    \uD569\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 1ad3cbda84bdc53499485a9b5e4be2be, type: 3}
-  week: 2
-  eventType: 1
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - A03_Q
-  - A03_SPACE
-  - A03_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &2475015190165183292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: S03
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: S03
-  isEnable: 1
-  eventName: FALLING_CROWN
-  title: "\uC655\uAD00 \uB099\uD558 \uC0AC\uACE0"
-  description: "\uB300\uAD00\uC2DD \uC5F0\uC124 \uB3C4\uC911 \uC655\uAD00\uC774 \uC655\uC758
-    \uBA38\uB9AC\uC5D0\uC11C \uBBF8\uB044\uB7EC\uC84C\uC2B5\uB2C8\uB2E4.\n\uC655\uAD00\uC774
-    \uBC14\uB2E5\uC5D0 \uB5A8\uC5B4\uC9C0\uAE30 \uC804\uC5D0 \uBD99\uC7A1\uC544\uC57C
-    \uD569\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: c82aee94813c3194b917d4a143a8c259, type: 3}
-  week: 2
-  eventType: 2
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds: []
-  buttonActionIds:
-  - S03_P_TIMING
-  actionSuccessResultId: S03_ACTION_SUCCESS
-  actionFailureResultId: S03_ACTION_FAILURE
-  isFatalOnActionFailure: 0
---- !u!114 &2616578170499450586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: A04
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: A04
-  isEnable: 1
-  eventName: NEIGHBORING_KINGDOM_ENVOY
-  title: "\uC774\uC6C3 \uC655\uAD6D\uC758 \uC0AC\uC808"
-  description: "\uC774\uC6C3 \uC655\uAD6D\uC758 \uC0AC\uC808\uB2E8\uC774 \uB3D9\uB9F9\uACFC
-    \uD1B5\uC0C1 \uD611\uC815\uC744 \uC81C\uC548\uD588\uC2B5\uB2C8\uB2E4.\n\uD658\uB300\uC640
-    \uD611\uC0C1 \uBC29\uC2DD\uC5D0 \uB530\uB77C \uAD00\uACC4\uAC00 \uD06C\uAC8C
-    \uB2EC\uB77C\uC9C8 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 4cd24ccd6dbe8c54dafa34d7f4d58942, type: 3}
-  week: 3
-  eventType: 1
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - A04_Q
-  - A04_SPACE
-  - A04_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &2623061791768492030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: A05
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: A05
-  isEnable: 1
-  eventName: RIVER_FLOOD_RISK
-  title: "\uAC15\uC758 \uBC94\uB78C \uC704\uAE30"
-  description: "\uBA70\uCE60\uC9F8 \uC774\uC5B4\uC9C4 \uD3ED\uC6B0\uB85C \uAC15\uBB3C\uC774
-    \uC81C\uBC29 \uC704\uAE4C\uC9C0 \uCC28\uC62C\uB790\uC2B5\uB2C8\uB2E4.\n\uC81C\uBC29\uC774
-    \uBB34\uB108\uC9C0\uBA74 \uC778\uADFC \uB9C8\uC744\uACFC \uC655\uC2E4 \uC2DC\uC124\uC774
-    \uD568\uAED8 \uCE68\uC218\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 1c924b1e7a4b8ce4d959baa5e8fd8153, type: 3}
-  week: 3
-  eventType: 1
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - A05_Q
-  - A05_SPACE
-  - A05_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &2931313112055971152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B05
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B05
-  isEnable: 1
-  eventName: CORRUPT_TAX_OFFICIAL
-  title: "\uBD80\uD328\uD55C \uC138\uAE08 \uAD00\uB9AC"
-  description: "\uD55C \uC138\uAE08 \uAD00\uB9AC\uAC00 \uBC31\uC131\uB4E4\uC5D0\uAC8C
-    \uC815\uD574\uC9C4 \uC591\uBCF4\uB2E4 \uB9CE\uC740 \uC138\uAE08\uC744 \uAC77\uC5C8\uB2E4\uB294
-    \uACE0\uBC1C\uC774 \uC811\uC218\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uAD00\uB9AC\uAC00
-    \uBE7C\uB3CC\uB9B0 \uC7AC\uC0B0\uB3C4 \uC0C1\uB2F9\uD55C \uAC83\uC73C\uB85C \uBCF4\uC785\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: c0834d5188a3fb44eb4da11973af4871, type: 3}
-  week: 2
-  eventType: 0
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 100
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - B05_Q
-  - B05_SPACE
-  - B05_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &6059063085459600431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B08
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B08
-  isEnable: 1
-  eventName: ROYAL_DEBT_COLLECTION
-  title: "\uC655\uC2E4 \uCC44\uBB34 \uC0C1\uD658 \uB3C5\uCD09"
-  description: "\uC655\uC2E4\uC774 \uBE4C\uB9B0 \uCC44\uBB34\uC758 \uC0C1\uD658 \uAE30\uD55C\uC774
-    \uB2E4\uAC00\uC654\uC2B5\uB2C8\uB2E4.\n\uCC44\uAD8C\uB2E8\uC740 \uC624\uB298
-    \uC548\uC5D0 \uB300\uCC45\uC744 \uB0B4\uB193\uC73C\uB77C\uBA70 \uC655\uAD81\uC744
-    \uC555\uBC15\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 5dea60cc86d940a43a668cfc4f766bf6, type: 3}
+  eventName: PALACE_SQUARE_PROTEST
+  title: "\uAD11\uC7A5\uC5D0 \uBAA8\uC778 \uC2DC\uC704\uB300"
+  description: "\uC655\uAD81 \uC55E \uAD11\uC7A5\uC5D0 \uBD88\uB9CC\uC744 \uD488\uC740
+    \uBC31\uC131\uB4E4\uC774 \uBAA8\uC600\uC2B5\uB2C8\uB2E4.\n\uC2DC\uC704\uB300\uB294
+    \uC655\uC758 \uC9C1\uC811 \uC0AC\uACFC\uC640 \uC989\uAC01\uC801\uC778 \uB300\uCC45\uC744
+    \uC694\uAD6C\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 0e8aec784148a5648bf531fea221961e, type: 3}
   week: 0
   eventType: 0
   weight: 1
   isConditional: 1
-  conditionalStat: 0
-  minTreasury: 0
-  maxTreasury: 30
-  minPublicSentiment: 0
-  maxPublicSentiment: 100
-  minSecurity: 0
-  maxSecurity: 100
-  requiredEventIds: []
-  choiceIds:
-  - B08_Q
-  - B08_SPACE
-  - B08_P
-  buttonActionIds: []
-  actionSuccessResultId: 
-  actionFailureResultId: 
-  isFatalOnActionFailure: 0
---- !u!114 &6280571486648560263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B07
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B07
-  isEnable: 1
-  eventName: DRAGON_EGG_FOUND
-  title: "\uC6A9\uC758 \uC54C \uBC1C\uACAC"
-  description: "\uAE4A\uC740 \uC0B0\uC18D \uB3D9\uAD74\uC5D0\uC11C \uAC70\uB300\uD55C
-    \uC6A9\uC758 \uC54C\uC774 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uD559\uC790\uB4E4\uC740
-    \uD76C\uADC0\uD55C \uBC1C\uACAC\uC774\uB77C\uBA70 \uC5F0\uAD6C\uB97C \uC694\uCCAD\uD558\uC9C0\uB9CC,
-    \uBD80\uD654\uD560 \uACBD\uC6B0 \uC655\uAD6D\uC5D0 \uD070 \uC704\uD611\uC774
-    \uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 5507ddea0ddeb1f45ad68f62de0bcb9b, type: 3}
-  week: 3
-  eventType: 0
-  weight: 1
-  isConditional: 0
-  conditionalStat: 0
+  conditionalStat: 1
   minTreasury: 0
   maxTreasury: 100
   minPublicSentiment: 0
-  maxPublicSentiment: 100
+  maxPublicSentiment: 30
   minSecurity: 0
   maxSecurity: 100
   requiredEventIds: []
   choiceIds:
-  - B07_Q
-  - B07_SPACE
-  - B07_P
+  - B09_Q
+  - B09_SPACE
+  - B09_P
   buttonActionIds: []
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
---- !u!114 &6301421991076313540
+--- !u!114 &-8178932853767142459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -605,7 +124,7 @@ MonoBehaviour:
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
---- !u!114 &6953168611263899294
+--- !u!114 &-7705742149972929659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,18 +134,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B02
+  m_Name: B08
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B02
+  rowID: B08
   isEnable: 1
-  eventName: COLLAPSED_WALL
-  title: "\uBB34\uB108\uC9C4 \uC131\uBCBD"
-  description: "\uC218\uB3C4 \uC678\uACFD\uC758 \uC624\uB798\uB41C \uC131\uBCBD\uC5D0\uC11C
-    \uCEE4\uB2E4\uB780 \uADE0\uC5F4\uC774 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uC544\uC9C1
-    \uC801\uAD70\uC758 \uC6C0\uC9C1\uC784\uC740 \uBCF4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 1712073e9b9805c4bb2b39de31b5bba8, type: 3}
-  week: 1
+  eventName: ROYAL_DEBT_COLLECTION
+  title: "\uC655\uC2E4 \uCC44\uBB34 \uC0C1\uD658 \uB3C5\uCD09"
+  description: "\uC655\uC2E4\uC774 \uBE4C\uB9B0 \uCC44\uBB34\uC758 \uC0C1\uD658 \uAE30\uD55C\uC774
+    \uB2E4\uAC00\uC654\uC2B5\uB2C8\uB2E4.\n\uCC44\uAD8C\uB2E8\uC740 \uC624\uB298
+    \uC548\uC5D0 \uB300\uCC45\uC744 \uB0B4\uB193\uC73C\uB77C\uBA70 \uC655\uAD81\uC744
+    \uC555\uBC15\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 5dea60cc86d940a43a668cfc4f766bf6, type: 3}
+  week: 0
   eventType: 0
+  weight: 1
+  isConditional: 1
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 30
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B08_Q
+  - B08_SPACE
+  - B08_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &-6807869675810115690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: A04
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: A04
+  isEnable: 1
+  eventName: NEIGHBORING_KINGDOM_ENVOY
+  title: "\uC774\uC6C3 \uC655\uAD6D\uC758 \uC0AC\uC808"
+  description: "\uC774\uC6C3 \uC655\uAD6D\uC758 \uC0AC\uC808\uB2E8\uC774 \uB3D9\uB9F9\uC744
+    \uC81C\uC548\uD558\uAE30 \uC704\uD574 \uC218\uB3C4\uC5D0 \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4.\n\uADF8\uB7EC\uB098
+    \uADF8\uB4E4\uC774 \uC694\uAD6C\uD558\uB294 \uC870\uAC74\uC740 \uC655\uAD6D\uC5D0
+    \uC801\uC9C0 \uC54A\uC740 \uBD80\uB2F4\uC774 \uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 4cd24ccd6dbe8c54dafa34d7f4d58942, type: 3}
+  week: 3
+  eventType: 1
   weight: 1
   isConditional: 0
   conditionalStat: 0
@@ -638,14 +199,55 @@ MonoBehaviour:
   maxSecurity: 100
   requiredEventIds: []
   choiceIds:
-  - B02_Q
-  - B02_SPACE
-  - B02_P
+  - A04_Q
+  - A04_SPACE
+  - A04_P
   buttonActionIds: []
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
---- !u!114 &7124958348529510477
+--- !u!114 &-6694768644385619226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: A03
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: A03
+  isEnable: 1
+  eventName: PLAGUE_OUTBREAK
+  title: "\uC804\uC5FC\uBCD1 \uBC1C\uC0DD"
+  description: "\uB0A8\uCABD \uB9C8\uC744\uC5D0\uC11C \uC6D0\uC778\uC744 \uC54C \uC218
+    \uC5C6\uB294 \uC804\uC5FC\uBCD1\uC774 \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\n\uC218\uB3C4\uAE4C\uC9C0
+    \uBC88\uC9C0\uAE30 \uC804\uC5D0 \uB300\uC751 \uBC29\uC2DD\uC744 \uC815\uD574\uC57C
+    \uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 1ad3cbda84bdc53499485a9b5e4be2be, type: 3}
+  week: 2
+  eventType: 1
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - A03_Q
+  - A03_SPACE
+  - A03_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &-6525372683233104370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,7 +288,7 @@ MonoBehaviour:
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
---- !u!114 &7727560022314702774
+--- !u!114 &-5061217641879976966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -696,38 +298,359 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
-  m_Name: B09
+  m_Name: B10
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
-  rowID: B09
+  rowID: B10
   isEnable: 1
-  eventName: PALACE_SQUARE_PROTEST
-  title: "\uAD11\uC7A5\uC5D0 \uBAA8\uC778 \uC2DC\uC704\uB300"
-  description: "\uC655\uAD81 \uC55E \uAD11\uC7A5\uC5D0 \uBD88\uB9CC\uC744 \uD488\uC740
-    \uBC31\uC131\uB4E4\uC774 \uBAA8\uC600\uC2B5\uB2C8\uB2E4.\n\uC2DC\uC704\uB300\uB294
-    \uC655\uC758 \uC9C1\uC811 \uC0AC\uACFC\uC640 \uC989\uAC01\uC801\uC778 \uB300\uCC45\uC744
-    \uC694\uAD6C\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
-  eventTexture: {fileID: 2800000, guid: 0e8aec784148a5648bf531fea221961e, type: 3}
+  eventName: COLLAPSING_BORDER_OUTPOST
+  title: "\uBB34\uB108\uC838 \uAC00\uB294 \uAD6D\uACBD \uCD08\uC18C"
+  description: "\uAD6D\uACBD\uC744 \uC9C0\uD0A4\uB294 \uC624\uB798\uB41C \uCD08\uC18C\uAC00
+    \uBB34\uB108\uC9C8 \uC704\uAE30\uC5D0 \uB193\uC600\uC2B5\uB2C8\uB2E4.\n\uBCD1\uB825\uACFC
+    \uBB3C\uC790\uAC00 \uBD80\uC871\uD574 \uC989\uC2DC \uB300\uC751\uD558\uC9C0 \uC54A\uC73C\uBA74
+    \uBC29\uC5B4\uC120\uC774 \uBE44\uAC8C \uB429\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 695a9f1831b90a344b80b158744b16eb, type: 3}
   week: 0
   eventType: 0
   weight: 1
   isConditional: 1
-  conditionalStat: 1
+  conditionalStat: 2
   minTreasury: 0
   maxTreasury: 100
   minPublicSentiment: 0
-  maxPublicSentiment: 30
+  maxPublicSentiment: 100
   minSecurity: 0
-  maxSecurity: 100
+  maxSecurity: 30
   requiredEventIds: []
   choiceIds:
-  - B09_Q
-  - B09_SPACE
-  - B09_P
+  - B10_Q
+  - B10_SPACE
+  - B10_P
   buttonActionIds: []
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
---- !u!114 &8573982266725207757
+--- !u!114 &-4776503166115965322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: B05
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: B05
+  isEnable: 1
+  eventName: CORRUPT_TAX_OFFICIAL
+  title: "\uBD80\uD328\uD55C \uC138\uAE08 \uAD00\uB9AC"
+  description: "\uD55C \uC138\uAE08 \uAD00\uB9AC\uAC00 \uBC31\uC131\uB4E4\uC5D0\uAC8C
+    \uC815\uD574\uC9C4 \uC591\uBCF4\uB2E4 \uB9CE\uC740 \uC138\uAE08\uC744 \uAC77\uC5C8\uB2E4\uB294
+    \uACE0\uBC1C\uC774 \uC811\uC218\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uAD00\uB9AC\uAC00
+    \uBE7C\uB3CC\uB9B0 \uC7AC\uC0B0\uB3C4 \uC0C1\uB2F9\uD55C \uAC83\uC73C\uB85C \uBCF4\uC785\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: c0834d5188a3fb44eb4da11973af4871, type: 3}
+  week: 2
+  eventType: 0
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B05_Q
+  - B05_SPACE
+  - B05_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &-1129606965193228901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: B02
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: B02
+  isEnable: 1
+  eventName: COLLAPSED_WALL
+  title: "\uBB34\uB108\uC9C4 \uC131\uBCBD"
+  description: "\uC218\uB3C4 \uC678\uACFD\uC758 \uC624\uB798\uB41C \uC131\uBCBD\uC5D0\uC11C
+    \uCEE4\uB2E4\uB780 \uADE0\uC5F4\uC774 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uC544\uC9C1
+    \uC801\uAD70\uC758 \uC6C0\uC9C1\uC784\uC740 \uBCF4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 1712073e9b9805c4bb2b39de31b5bba8, type: 3}
+  week: 1
+  eventType: 0
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B02_Q
+  - B02_SPACE
+  - B02_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
+  m_Name: DT_Event
+  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
+  dataTableCsv: {fileID: 4900000, guid: f93c83d02951db14db9641e6824fcb7e, type: 3}
+  dataTableRowName: Ddalgak.EventDataTableRow, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  dataTableRows:
+  - {fileID: -6525372683233104370}
+  - {fileID: -1129606965193228901}
+  - {fileID: 7281699013849421940}
+  - {fileID: 4858322786859928156}
+  - {fileID: -4776503166115965322}
+  - {fileID: -8178932853767142459}
+  - {fileID: 3996758567770740679}
+  - {fileID: -7705742149972929659}
+  - {fileID: -8339032577746439934}
+  - {fileID: -5061217641879976966}
+  - {fileID: 7270836241798881799}
+  - {fileID: 5743212575707105201}
+  - {fileID: -6694768644385619226}
+  - {fileID: -6807869675810115690}
+  - {fileID: 6702717970722497889}
+  - {fileID: 7374823625904579485}
+  - {fileID: -8636804904720723571}
+  - {fileID: 5511411721764667454}
+  dataTableRowScript: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+--- !u!114 &3996758567770740679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: B07
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: B07
+  isEnable: 1
+  eventName: DRAGON_EGG_FOUND
+  title: "\uC6A9\uC758 \uC54C \uBC1C\uACAC"
+  description: "\uC655\uAD6D \uBD81\uBD80\uC758 \uB3D9\uAD74\uC5D0\uC11C \uAC70\uB300\uD55C
+    \uC54C \uD558\uB098\uAC00 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uAD81\uC815
+    \uD559\uC790\uB4E4\uC740 \uC624\uB798\uC804\uC5D0 \uC790\uCDE8\uB97C \uAC10\uCD98
+    \uC6A9\uC758 \uC54C\uC77C \uAC00\uB2A5\uC131\uC774 \uB192\uB2E4\uACE0 \uBCF4\uACE0\uD588\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 5507ddea0ddeb1f45ad68f62de0bcb9b, type: 3}
+  week: 3
+  eventType: 0
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B07_Q
+  - B07_SPACE
+  - B07_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &4858322786859928156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: B04
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: B04
+  isEnable: 1
+  eventName: SUSPICIOUS_MERCHANT_GUILD
+  title: "\uC218\uC0C1\uD55C \uC0C1\uB2E8"
+  description: "\uCD9C\uCC98\uB97C \uC54C \uC218 \uC5C6\uB294 \uAC70\uB300 \uC0C1\uB2E8\uC774
+    \uC655\uAD6D\uC5D0\uC11C \uB3C5\uC810\uC801\uC73C\uB85C \uC7A5\uC0AC\uD560 \uAD8C\uB9AC\uB97C
+    \uC694\uCCAD\uD588\uC2B5\uB2C8\uB2E4.\n\uC0C1\uB2E8\uC740 \uADF8 \uB300\uAC00\uB85C
+    \uC0C1\uB2F9\uD55C \uAE08\uC561\uC744 \uC655\uC2E4\uC5D0 \uC57D\uC18D\uD588\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 12558db698942364993e1b6167e7d37f, type: 3}
+  week: 2
+  eventType: 0
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B04_Q
+  - B04_SPACE
+  - B04_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &5511411721764667454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: S03
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: S03
+  isEnable: 1
+  eventName: FALLING_CROWN
+  title: "\uC655\uAD00 \uB099\uD558 \uC0AC\uACE0"
+  description: "\uC655\uC774 \uBC31\uC131\uB4E4 \uC55E\uC5D0\uC11C \uC5F0\uC124\uD558\uB358
+    \uC911 \uC655\uAD00\uC774 \uBA38\uB9AC\uC5D0\uC11C \uBBF8\uB044\uB7EC\uC84C\uC2B5\uB2C8\uB2E4.\n\uC655\uAD00\uC774
+    \uACC4\uB2E8 \uC544\uB798\uB85C \uAD74\uB7EC \uB5A8\uC5B4\uC9C0\uAE30 \uC804\uC5D0
+    \uBD99\uC7A1\uC544\uC57C \uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: c82aee94813c3194b917d4a143a8c259, type: 3}
+  week: 2
+  eventType: 2
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds: []
+  buttonActionIds:
+  - S03_TIMING_Q
+  - S03_TIMING_SPACE
+  - S03_TIMING_P
+  - S03_TIMING_P
+  actionSuccessResultId: S03_ACTION_SUCCESS
+  actionFailureResultId: S03_ACTION_FAILURE
+  isFatalOnActionFailure: 0
+--- !u!114 &5743212575707105201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: A02
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: A02
+  isEnable: 1
+  eventName: MARKET_FIRE
+  title: "\uC2DC\uC7A5 \uB300\uD654\uC7AC"
+  description: "\uC218\uB3C4\uC758 \uC2DC\uC7A5\uC5D0\uC11C \uD070\uBD88\uC774 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4.\n\uBD88\uAE38\uC774
+    \uC8FC\uBCC0 \uC8FC\uD0DD\uAC00\uC640 \uC655\uC2E4 \uCC3D\uACE0\uAE4C\uC9C0 \uBC88\uC9C0\uACE0
+    \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 2001ea86a8ea49a4eb748a63a954bb92, type: 3}
+  week: 2
+  eventType: 1
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - A02_Q
+  - A02_SPACE
+  - A02_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &6702717970722497889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: A05
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: A05
+  isEnable: 1
+  eventName: RIVER_FLOOD_RISK
+  title: "\uAC15\uC758 \uBC94\uB78C \uC704\uAE30"
+  description: "\uBA70\uCE60\uC9F8 \uC774\uC5B4\uC9C4 \uD3ED\uC6B0\uB85C \uC655\uAD6D\uC744
+    \uAC00\uB85C\uC9C0\uB974\uB294 \uAC15\uC758 \uC218\uC704\uAC00 \uAE09\uACA9\uD788
+    \uC0C1\uC2B9\uD588\uC2B5\uB2C8\uB2E4.\n\uC8FC\uBCC0 \uB9C8\uC744\uC774 \uBB3C\uC5D0
+    \uC7A0\uAE30\uAE30 \uC804\uC5D0 \uB300\uC751\uD574\uC57C \uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 1c924b1e7a4b8ce4d959baa5e8fd8153, type: 3}
+  week: 3
+  eventType: 1
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - A05_Q
+  - A05_SPACE
+  - A05_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &7270836241798881799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,8 +667,8 @@ MonoBehaviour:
   eventName: BANDIT_RAID
   title: "\uB3C4\uC801 \uB5BC \uCD9C\uD604"
   description: "\uBD81\uCABD \uB9C8\uC744 \uC8FC\uBCC0\uC5D0 \uB3C4\uC801 \uB5BC\uAC00
-    \uB098\uD0C0\uB0AC\uC2B5\uB2C8\uB2E4.\n\uC0C1\uB2E8\uACFC \uB18D\uAC00\uAC00
-    \uACF5\uACA9\uBC1B\uACE0 \uC788\uC5B4 \uC2E0\uC18D\uD55C \uB300\uC751\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."
+    \uB098\uD0C0\uB0AC\uC2B5\uB2C8\uB2E4.\n\uB9C8\uC744\uC758 \uCC3D\uACE0\uAC00
+    \uC57D\uD0C8\uB2F9\uD558\uAE30 \uC804\uC5D0 \uB300\uC751\uD574\uC57C \uD569\uB2C8\uB2E4."
   eventTexture: {fileID: 2800000, guid: bc29da789d4a7284db9c6443982e8fc0, type: 3}
   week: 1
   eventType: 1
@@ -767,3 +690,92 @@ MonoBehaviour:
   actionSuccessResultId: 
   actionFailureResultId: 
   isFatalOnActionFailure: 0
+--- !u!114 &7281699013849421940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: B03
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: B03
+  isEnable: 1
+  eventName: FOUNDING_FESTIVAL
+  title: "\uC655\uAD6D \uAC74\uAD6D \uCD95\uC81C"
+  description: "\uACE7 \uC655\uAD6D\uC758 \uAC74\uAD6D \uAE30\uB150\uC77C\uC785\uB2C8\uB2E4.\n\uBC31\uC131\uB4E4\uC740
+    \uC131\uB300\uD55C \uCD95\uC81C\uAC00 \uC5F4\uB9AC\uAE30\uB97C \uAE30\uB300\uD558\uACE0
+    \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: bee700ad546a1e64681c96385cc742b6, type: 3}
+  week: 1
+  eventType: 0
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds:
+  - B03_Q
+  - B03_SPACE
+  - B03_P
+  buttonActionIds: []
+  actionSuccessResultId: 
+  actionFailureResultId: 
+  isFatalOnActionFailure: 0
+--- !u!114 &7374823625904579485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e23bde3e28adf4cb5e9dfa354e1eba, type: 3}
+  m_Name: S01
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EventDataTableRow
+  rowID: S01
+  isEnable: 1
+  eventName: ROYAL_ASSASSIN
+  title: "\uC655\uC2E4 \uC554\uC0B4\uC790"
+  description: "\uC655\uC88C \uB4A4\uC758 \uCEE4\uD2BC\uC774 \uAC11\uC790\uAE30 \uD754\uB4E4\uB9BD\uB2C8\uB2E4.\n\uC228\uC5B4
+    \uC788\uB358 \uC554\uC0B4\uC790\uAC00 \uB2E8\uAC80\uC744 \uB4E4\uACE0 \uC655\uC5D0\uAC8C
+    \uB2EC\uB824\uB4ED\uB2C8\uB2E4."
+  eventTexture: {fileID: 2800000, guid: 0e87cc907e3731f459127c486a9856bf, type: 3}
+  week: 3
+  eventType: 2
+  weight: 1
+  isConditional: 0
+  conditionalStat: 0
+  minTreasury: 0
+  maxTreasury: 100
+  minPublicSentiment: 0
+  maxPublicSentiment: 100
+  minSecurity: 0
+  maxSecurity: 100
+  requiredEventIds: []
+  choiceIds: []
+  buttonActionIds:
+  - S01_PRESS_Q
+  - S01_PRESS_Q
+  - S01_PRESS_P
+  - S01_PRESS_SPACE
+  - S01_PRESS_Q
+  - S01_PRESS_SPACE
+  - S01_PRESS_P
+  - S01_PRESS_SPACE
+  - S01_PRESS_P
+  - S01_PRESS_Q
+  - S01_PRESS_Q
+  - S01_PRESS_SPACE
+  actionSuccessResultId: S01_ACTION_SUCCESS
+  actionFailureResultId: S01_ACTION_FAILURE
+  isFatalOnActionFailure: 1

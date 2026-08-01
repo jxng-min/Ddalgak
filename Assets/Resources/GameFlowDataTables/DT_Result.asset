@@ -17,8 +17,8 @@ MonoBehaviour:
   treasury: -5
   publicSentiment: 10
   security: 5
-  resultText: "\uBC31\uC131\uB4E4\uC774 \uD798\uC744 \uD569\uCCD0 \uBB3C\uC744 \uB098\uB974\uBA70
-    \uC2DC\uC7A5\uACFC \uC8FC\uBBFC\uB4E4\uC744 \uAD6C\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uBC31\uC131\uB4E4\uC774 \uD798\uC744 \uD569\uCCD0 \uC2DC\uC7A5\uC758
+    \uBD88\uC744 \uAED0\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-8402211875402228296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_SPACE_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
+  treasury: 10
   publicSentiment: 5
   security: 15
   resultText: "\uC655\uAD6D\uC5D0 \uC720\uB9AC\uD55C \uC870\uAC74\uC73C\uB85C \uB3D9\uB9F9
@@ -52,11 +52,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_Q_ACTION_FAILURE
   isEnable: 1
-  treasury: -15
+  treasury: -20
   publicSentiment: -5
-  security: 0
-  resultText: "\uC5F0\uD68C \uC900\uBE44\uAC00 \uC5C9\uCF1C \uD070 \uBE44\uC6A9\uB9CC
-    \uB4E4\uACE0 \uC0AC\uC808\uB2E8\uC758 \uC778\uC0C1\uB3C4 \uB098\uBE60\uC84C\uC2B5\uB2C8\uB2E4."
+  security: -30
+  resultText: "\uC5F0\uD68C \uC900\uBE44\uAC00 \uC5C9\uB9DD\uC774 \uB418\uC5B4 \uC0AC\uC808\uB2E8\uC774
+    \uBAA8\uC695\uC744 \uBC1B\uC558\uB2E4\uACE0 \uB290\uAF08\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-7934493854531791717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,11 +72,10 @@ MonoBehaviour:
   rowID: B03_P_RESULT
   isEnable: 1
   treasury: 5
-  publicSentiment: -15
+  publicSentiment: -25
   security: 0
-  resultText: "\uCD95\uC81C \uC608\uC0B0\uC740 \uC808\uC57D\uD588\uC9C0\uB9CC \uBC31\uC131\uB4E4\uC740
-    \uAC74\uAD6D \uAE30\uB150\uC77C\uB9C8\uC800 \uC678\uBA74\uD55C \uACB0\uC815\uC5D0
-    \uC2E4\uB9DD\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC655\uC2E4\uC740 \uBE44\uC6A9\uC744 \uC544\uAF08\uC9C0\uB9CC \uBC31\uC131\uB4E4\uC740
+    \uD145 \uBE48 \uAD11\uC7A5\uC744 \uBC14\uB77C\uBD10\uC57C \uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-7685580295212104420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,10 +91,10 @@ MonoBehaviour:
   rowID: A05_SPACE_ACTION_SUCCESS
   isEnable: 1
   treasury: -5
-  publicSentiment: 5
-  security: 10
-  resultText: "\uC218\uBB38\uC744 \uC815\uD655\uD55C \uC2DC\uC810\uC5D0 \uC5F4\uC5B4
-    \uBB3C\uAE38\uC744 \uC548\uC804\uD55C \uBC29\uD5A5\uC73C\uB85C \uB3CC\uB838\uC2B5\uB2C8\uB2E4."
+  publicSentiment: 10
+  security: 15
+  resultText: "\uBD88\uC5B4\uB09C \uAC15\uBB3C\uC774 \uBE48 \uB4E4\uD310\uC73C\uB85C
+    \uBE60\uC9C0\uBA70 \uB9C8\uC744\uC774 \uCE68\uC218\uB97C \uD53C\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-7409136342890112288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B04_SPACE_RESULT
   isEnable: 1
-  treasury: 10
+  treasury: 15
   publicSentiment: -5
   security: 0
   resultText: "\uC0C1\uB2E8\uC740 \uBD88\uD3C9\uD558\uBA74\uC11C\uB3C4 \uC655\uAD6D\uC5D0
@@ -132,8 +131,8 @@ MonoBehaviour:
   treasury: 10
   publicSentiment: 5
   security: 0
-  resultText: "\uAD00\uB9AC\uC758 \uC7AC\uC0B0\uC744 \uBAB0\uC218\uD558\uACE0 \uC870\uC6A9\uD788
-    \uD574\uC784\uD574 \uAD6D\uACE0\uB97C \uBCF4\uCDA9\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uBE7C\uB3CC\uB9B0 \uC7AC\uC0B0\uC740 \uC655\uC2E4\uB85C \uB3CC\uC544\uC654\uC9C0\uB9CC
+    \uC0AC\uAC74\uC740 \uBE60\uB974\uAC8C \uC78A\uD614\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-7034152447305332465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,9 +187,10 @@ MonoBehaviour:
   isEnable: 1
   treasury: 0
   publicSentiment: 5
-  security: 5
-  resultText: "\uD638\uC704\uB300\uAC00 \uC554\uC0B4\uC790\uB97C \uC81C\uC555\uD588\uACE0
-    \uC655\uC740 \uBB34\uC0AC\uD788 \uC0B4\uC544\uB0A8\uC558\uC2B5\uB2C8\uB2E4."
+  security: -5
+  resultText: "\uC655\uC774 \uAC00\uAE4C\uC2A4\uB85C \uC554\uC0B4\uC790\uC758 \uACF5\uACA9\uC744
+    \uB9C9\uC544\uB0C8\uC2B5\uB2C8\uB2E4. \uADFC\uC704\uBCD1\uB4E4\uC774 \uB4A4\uB2A6\uAC8C
+    \uB2EC\uB824\uC640 \uC554\uC0B4\uC790\uB97C \uC81C\uC555\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-6044271270194836955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +205,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B01_P_RESULT
   isEnable: 1
-  treasury: 0
+  treasury: 5
   publicSentiment: -10
-  security: 5
-  resultText: "\uC2DD\uB7C9\uC740 \uC544\uAF08\uC9C0\uB9CC \uAC15\uC81C \uC18C\uBE44
-    \uC81C\uD55C\uC5D0 \uBC31\uC131\uB4E4\uC758 \uBD88\uB9CC\uC774 \uCEE4\uC84C\uC2B5\uB2C8\uB2E4."
+  security: 0
+  resultText: "\uC2DD\uB7C9\uC740 \uC544\uB084 \uC218 \uC788\uC5C8\uC9C0\uB9CC \uBC31\uC131\uB4E4\uC758
+    \uC2DD\uD0C1\uC740 \uB354\uC6B1 \uCD08\uB77C\uD574\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-5663798188431265765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,11 +224,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A03_P_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
-  publicSentiment: -5
+  treasury: 0
+  publicSentiment: -10
   security: 10
-  resultText: "\uC218\uB3C4 \uC131\uBB38\uC744 \uC81C\uB54C \uBD09\uC1C4\uD574 \uC911\uC2EC\uC9C0\uB85C\uC758
-    \uD655\uC0B0\uC744 \uB9C9\uC558\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC218\uB3C4\uB294 \uC548\uC804\uD574\uC84C\uC9C0\uB9CC \uC9C0\uBC29\uC758
+    \uBC31\uC131\uB4E4\uC740 \uACE0\uB9BD\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-5447850528275185652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,11 +243,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A03_Q_ACTION_FAILURE
   isEnable: 1
-  treasury: -20
-  publicSentiment: -5
-  security: -5
-  resultText: "\uC608\uC0B0 \uC2B9\uC778\uC774 \uB2A6\uC5B4 \uCE58\uB8CC\uC18C \uAC74\uC124\uC774
-    \uC9C0\uC5F0\uB418\uACE0 \uD658\uC790\uAC00 \uB298\uC5C8\uC2B5\uB2C8\uB2E4."
+  treasury: -10
+  publicSentiment: -25
+  security: -15
+  resultText: "\uC608\uC0B0 \uC2B9\uC778\uC774 \uC9C0\uC5F0\uB418\uC5B4 \uCE58\uB8CC\uC18C\uAC00
+    \uC644\uC131\uB418\uAE30 \uC804\uC5D0 \uD658\uC790\uAC00 \uB298\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-5328360039752519177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ MonoBehaviour:
   treasury: -10
   publicSentiment: 10
   security: 0
-  resultText: "\uC138\uAE08 \uBD80\uB2F4\uC774 \uC904\uC5B4 \uBC31\uC131\uB4E4\uC774
-    \uD55C\uC228\uC744 \uB3CC\uB838\uC9C0\uB9CC \uC655\uC2E4 \uC218\uC785\uB3C4 \uAC10\uC18C\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC138\uAE08 \uBD80\uB2F4\uC740 \uC904\uC5C8\uC9C0\uB9CC \uC655\uAD6D\uC758
+    \uC218\uC785\uB3C4 \uD568\uAED8 \uAC10\uC18C\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-5150218729906362473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,11 +300,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B07_Q_FAILURE
   isEnable: 1
-  treasury: -15
+  treasury: -30
   publicSentiment: -10
-  security: -15
-  resultText: "\uC54C\uC5D0\uC11C \uB09C\uD3ED\uD55C \uC0C8\uB07C \uC6A9\uC774 \uAE68\uC5B4\uB098
-    \uC5F0\uAD6C\uC18C\uC640 \uC8FC\uBCC0 \uC2DC\uC124\uC744 \uD30C\uAD34\uD588\uC2B5\uB2C8\uB2E4."
+  security: -20
+  resultText: "\uC54C\uC5D0\uC11C \uAE68\uC5B4\uB09C \uC6A9\uC774 \uD1B5\uC81C\uB97C
+    \uBC97\uC5B4\uB098 \uC655\uAD81 \uC77C\uBD80\uB97C \uBD88\uD0DC\uC6B0\uACE0 \uB2EC\uC544\uB0AC\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-5030381079152992821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,10 +320,10 @@ MonoBehaviour:
   rowID: B06_SPACE_RESULT
   isEnable: 1
   treasury: -5
-  publicSentiment: 0
-  security: 5
-  resultText: "\uC870\uC0AC\uB300\uAC00 \uAC31\uB3C4\uC758 \uC704\uD5D8 \uAD6C\uAC04\uC744
-    \uD655\uC778\uD574 \uC548\uC804\uD55C \uCC44\uAD74 \uACC4\uD68D\uC744 \uC138\uC6E0\uC2B5\uB2C8\uB2E4."
+  publicSentiment: 10
+  security: 0
+  resultText: "\uC870\uC0AC\uB300\uB294 \uAC31\uB3C4\uC758 \uC704\uD5D8 \uAD6C\uAC04\uC744
+    \uD655\uC778\uD558\uACE0 \uC548\uC804\uD55C \uCC44\uAD74 \uACC4\uD68D\uC744 \uC138\uC6E0\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-4628119336310499885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,12 +338,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_P_ACTION_SUCCESS
   isEnable: 1
-  treasury: 0
-  publicSentiment: -5
-  security: -5
-  resultText: "\uAC70\uC808 \uBB38\uC11C\uAC00 \uC815\uC2DD\uC73C\uB85C \uC804\uB2EC\uB418\uC5B4
-    \uC0AC\uC808\uB2E8\uC740 \uBD88\uCF8C\uD574\uD588\uC9C0\uB9CC \uD070 \uCDA9\uB3CC
-    \uC5C6\uC774 \uB3CC\uC544\uAC14\uC2B5\uB2C8\uB2E4."
+  treasury: 5
+  publicSentiment: 5
+  security: -10
+  resultText: "\uC0AC\uC808\uB2E8\uC740 \uBD88\uCF8C\uD574\uD588\uC9C0\uB9CC \uC655\uAD6D\uC758
+    \uB3C5\uB9BD\uC801\uC778 \uD0DC\uB3C4\uB294 \uC720\uC9C0\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-3873590556551565495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,10 +359,10 @@ MonoBehaviour:
   isEnable: 1
   treasury: 0
   publicSentiment: -5
-  security: 5
-  resultText: "\uAE08\uAD11\uC744 \uACC4\uC18D \uD3D0\uC1C4\uD574 \uC0AC\uACE0 \uC704\uD5D8\uC740
-    \uB9C9\uC558\uC9C0\uB9CC \uAD11\uBD80\uB4E4\uC740 \uC77C\uC790\uB9AC \uC0C1\uC2E4\uC5D0
-    \uBD88\uB9CC\uC744 \uBCF4\uC600\uC2B5\uB2C8\uB2E4."
+  security: 0
+  resultText: "\uC0AC\uACE0 \uC704\uD5D8\uC740 \uC0AC\uB77C\uC84C\uC9C0\uB9CC \uAD11\uBD80\uB4E4\uC740
+    \uC655\uC2E4\uC774 \uAE30\uD68C\uB97C \uD3EC\uAE30\uD588\uB2E4\uBA70 \uBD88\uB9CC\uC744
+    \uB4DC\uB7EC\uB0C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-3750349962449381729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,11 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A03_P_ACTION_FAILURE
   isEnable: 1
-  treasury: -5
-  publicSentiment: -15
-  security: -10
-  resultText: "\uBD09\uC1C4 \uC2DC\uC810\uC744 \uB193\uCCD0 \uAC10\uC5FC\uC790\uAC00
-    \uC218\uB3C4 \uC548\uC73C\uB85C \uB4E4\uC5B4\uC654\uC2B5\uB2C8\uB2E4."
+  treasury: 0
+  publicSentiment: -10
+  security: -15
+  resultText: "\uC131\uBB38\uC744 \uB2EB\uB294 \uACFC\uC815\uC5D0\uC11C \uD63C\uB780\uC774
+    \uBC1C\uC0DD\uD574 \uAC10\uC5FC\uC790\uAC00 \uC218\uB3C4 \uC548\uC73C\uB85C \uB4E4\uC5B4\uC654\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-3717193028890891623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,11 +396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_P_RANDOM_SUCCESS
   isEnable: 1
-  treasury: 10
-  publicSentiment: 0
-  security: 0
-  resultText: "\uB3C4\uC801\uB4E4\uC774 \uC57D\uC18D\uD55C \uBB3C\uC790\uB97C \uB0A8\uACA8
-    \uC655\uC2E4\uC774 \uC77C\uBD80 \uC190\uC2E4\uC744 \uB9CC\uD68C\uD588\uC2B5\uB2C8\uB2E4."
+  treasury: -5
+  publicSentiment: 10
+  security: 10
+  resultText: "\uB9C8\uC744 \uACBD\uBE44\uB300\uAC00 \uC9C0\uD615\uC744 \uD65C\uC6A9\uD55C
+    \uAE30\uC2B5\uC5D0 \uC131\uACF5\uD574 \uB3C4\uC801 \uB5BC\uB97C \uCAD3\uC544\uB0C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-3625273041308254904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_SPACE_ACTION_FAILURE
   isEnable: 1
-  treasury: -15
+  treasury: -25
   publicSentiment: -5
   security: 5
   resultText: "\uD611\uC0C1 \uC911 \uC798\uBABB\uB41C \uC870\uAC74\uC744 \uC2B9\uC778\uD574
@@ -435,11 +434,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B06_Q_SUCCESS
   isEnable: 1
-  treasury: 20
-  publicSentiment: 5
-  security: 0
-  resultText: "\uD48D\uBD80\uD55C \uAE08\uB9E5\uC774 \uBC1C\uACAC\uB418\uC5B4 \uC655\uC2E4\uACFC
-    \uAD11\uBD80\uB4E4\uC774 \uD070 \uC774\uC775\uC744 \uC5BB\uC5C8\uC2B5\uB2C8\uB2E4."
+  treasury: 35
+  publicSentiment: 15
+  security: -5
+  resultText: "\uAD11\uBD80\uB4E4\uC740 \uAC70\uB300\uD55C \uAE08\uB9E5\uC744 \uBC1C\uACAC\uD588\uACE0
+    \uC655\uC2E4\uC5D0\uB294 \uB9C9\uB300\uD55C \uCC44\uAD74 \uC218\uC775\uC774 \uB4E4\uC5B4\uC654\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-3092559345384775528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,10 +454,10 @@ MonoBehaviour:
   rowID: B07_P_RESULT
   isEnable: 1
   treasury: 0
-  publicSentiment: -15
-  security: 10
+  publicSentiment: -30
+  security: 15
   resultText: "\uC655\uAD6D\uC758 \uC704\uD611\uC774 \uB420 \uAC00\uB2A5\uC131\uC740
-    \uC0AC\uB77C\uC84C\uC9C0\uB9CC \uD559\uC790\uB4E4\uACFC \uBC31\uC131\uB4E4\uC740
+    \uC0AC\uB77C\uC84C\uC9C0\uB9CC, \uD559\uC790\uB4E4\uACFC \uBC31\uC131\uB4E4\uC740
     \uC804\uC124\uC801\uC778 \uBC1C\uACAC\uC744 \uC5C6\uC564 \uACB0\uC815\uC5D0 \uBC18\uBC1C\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-2998463874320494548
 MonoBehaviour:
@@ -475,11 +474,11 @@ MonoBehaviour:
   rowID: B03_Q_RESULT
   isEnable: 1
   treasury: -15
-  publicSentiment: 15
+  publicSentiment: 25
   security: -5
-  resultText: "\uC77C\uC8FC\uC77C \uB3D9\uC548 \uC774\uC5B4\uC9C4 \uB300\uCD95\uC81C\uB85C
-    \uBC31\uC131\uB4E4\uC740 \uAE30\uBED0\uD588\uC9C0\uB9CC \uAD6D\uACE0\uC640 \uACBD\uBE44
-    \uC778\uB825\uC774 \uD06C\uAC8C \uC18C\uBAA8\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC218\uB3C4 \uC804\uCCB4\uAC00 \uBC24\uC0C8 \uB5A0\uB4E4\uC369\uD588\uC9C0\uB9CC
+    \uACBD\uBE44\uBCD1\uB4E4\uAE4C\uC9C0 \uCD95\uC81C\uB97C \uC990\uACA8 \uACBD\uACC4\uAC00
+    \uB290\uC2A8\uD574\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-2876232587403785252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,9 +494,50 @@ MonoBehaviour:
   rowID: S01_ACTION_FAILURE
   isEnable: 1
   treasury: 0
+  publicSentiment: -10
+  security: -30
+  resultText: "\uC655\uC774 \uC554\uC0B4\uC790\uC758 \uACF5\uACA9\uC744 \uD53C\uD558\uC9C0
+    \uBABB\uD558\uACE0 \uBD80\uC0C1\uC744 \uC785\uC5C8\uC2B5\uB2C8\uB2E4. \uC655\uAD81\uC758
+    \uACBD\uBE44 \uCCB4\uACC4\uC5D0 \uB300\uD55C \uBD88\uC2E0\uC774 \uC655\uAD6D
+    \uC804\uCCB4\uB85C \uD37C\uC84C\uC2B5\uB2C8\uB2E4."
+--- !u!114 &-2847823966544487096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4ac4da2256c6d4cb7b2090b79c2cb7, type: 3}
+  m_Name: A01_SPACE_RANDOM_FAILURE
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
+  rowID: A01_SPACE_RANDOM_FAILURE
+  isEnable: 1
+  treasury: -20
+  publicSentiment: -5
+  security: 5
+  resultText: "\uC6A9\uBCD1\uB4E4\uC740 \uB3C4\uC801 \uC77C\uBD80\uB97C \uB193\uC544\uC8FC\uB294
+    \uC870\uAC74\uC73C\uB85C \uCD94\uAC00 \uBCF4\uC218\uB97C \uC694\uAD6C\uD588\uC2B5\uB2C8\uB2E4."
+--- !u!114 &-2615038408280217063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4ac4da2256c6d4cb7b2090b79c2cb7, type: 3}
+  m_Name: A01_SPACE_RANDOM_SUCCESS
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
+  rowID: A01_SPACE_RANDOM_SUCCESS
+  isEnable: 1
+  treasury: -15
   publicSentiment: 0
-  security: 0
-  resultText: "\uC554\uC0B4\uC790\uC758 \uACF5\uACA9\uC744 \uD53C\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4."
+  security: 15
+  resultText: "\uC6A9\uBCD1\uB4E4\uC740 \uC57D\uC18D\uD55C \uBCF4\uC218\uB97C \uBC1B\uACE0
+    \uC2E0\uC18D\uD558\uAC8C \uB3C4\uC801\uB4E4\uC744 \uC81C\uC555\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-2517064458450006564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,8 +555,8 @@ MonoBehaviour:
   treasury: -10
   publicSentiment: 5
   security: 15
-  resultText: "\uC815\uADDC\uAD70\uC774 \uB3C4\uC801\uC744 \uBAB0\uC544\uB0B4\uACE0
-    \uBD81\uCABD \uAE38\uC744 \uD655\uBCF4\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uAE30\uC0AC\uB2E8\uC774 \uC81C\uC2DC\uAC04\uC5D0 \uB3C4\uCC29\uD574
+    \uB3C4\uC801 \uB5BC\uB97C \uBAB0\uC544\uB0C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-1907707148214050662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,10 +572,11 @@ MonoBehaviour:
   rowID: B06_Q_FAILURE
   isEnable: 1
   treasury: -10
-  publicSentiment: -10
-  security: -15
-  resultText: "\uAC31\uB3C4\uAC00 \uB2E4\uC2DC \uBB34\uB108\uC838 \uC778\uBA85 \uD53C\uD574\uC640
-    \uBCF5\uAD6C \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4."
+  publicSentiment: -15
+  security: -10
+  resultText: "\uB0A1\uC740 \uAC31\uB3C4\uAC00 \uBB34\uB108\uC9C0\uBA70 \uAD11\uBD80\uB4E4\uC774
+    \uB9E4\uBAB0\uB418\uC5C8\uACE0 \uAD6C\uC870 \uC791\uC5C5\uC5D0 \uD070 \uBE44\uC6A9\uC774
+    \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-1543560948287292060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,11 +591,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: S02_ACTION_FAILURE
   isEnable: 1
-  treasury: -15
-  publicSentiment: -5
+  treasury: -20
+  publicSentiment: 0
   security: -10
-  resultText: "\uCC3D\uACE0\uAC00 \uBB34\uB108\uC838 \uBCF4\uAE09\uD488\uACFC \uC2DC\uC124\uC774
-    \uD06C\uAC8C \uD30C\uC190\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uAE30\uB465\uC744 \uB193\uCE58\uB294 \uC21C\uAC04 \uCC3D\uACE0 \uCC9C\uC7A5\uC774
+    \uBB34\uB108\uC84C\uC2B5\uB2C8\uB2E4. \uBCF4\uAD00 \uC911\uC774\uB358 \uC2DD\uB7C9\uACFC
+    \uAD70\uC218\uD488\uC774 \uC794\uD574\uC5D0 \uD30C\uBB3B\uD614\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-1429075913363521868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,11 +611,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_P_ACTION_FAILURE
   isEnable: 1
-  treasury: -5
-  publicSentiment: -10
-  security: -15
-  resultText: "\uC655\uC2E4 \uC778\uC7A5\uC774 \uC798\uBABB \uCC0D\uD78C \uBB38\uC11C\uAC00
-    \uC804\uB2EC\uB418\uC5B4 \uC678\uAD50\uC801 \uBAA8\uC695\uC73C\uB85C \uBC1B\uC544\uB4E4\uC5EC\uC84C\uC2B5\uB2C8\uB2E4."
+  treasury: 0
+  publicSentiment: -5
+  security: -25
+  resultText: "\uC778\uC7A5\uC774 \uBE44\uB6A4\uAC8C \uCC0D\uD600 \uAC70\uC808 \uBB38\uC11C\uAC00
+    \uBAA8\uC695\uC801\uC778 \uC11C\uC2E0\uC73C\uB85C \uC624\uD574\uBC1B\uC558\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-1344458503133671308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,11 +668,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_P_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
-  publicSentiment: -5
-  security: 5
-  resultText: "\uB3C4\uC801\uB2E8\uACFC\uC758 \uAC70\uB798\uAC00 \uC131\uB9BD\uB418\uC5B4
-    \uB2F9\uC7A5\uC758 \uACF5\uACA9\uC740 \uBA48\uCDC4\uC2B5\uB2C8\uB2E4."
+  treasury: 0
+  publicSentiment: 0
+  security: 0
+  resultText: "\uB9C8\uC744 \uACBD\uBE44\uB300\uC5D0 \uBC18\uACA9 \uBA85\uB839\uC774
+    \uC804\uB2EC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-778964673610121247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,11 +687,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_P_ACTION_FAILURE
   isEnable: 1
-  treasury: -10
-  publicSentiment: -10
-  security: -5
-  resultText: "\uAD50\uC12D\uC774 \uD2C0\uC5B4\uC838 \uB3C4\uC801\uB2E8\uC774 \uBCF4\uBCF5
-    \uC57D\uD0C8\uC744 \uBC8C\uC600\uC2B5\uB2C8\uB2E4."
+  treasury: -5
+  publicSentiment: -5
+  security: -10
+  resultText: "\uBC18\uACA9 \uBA85\uB839\uC774 \uB108\uBB34 \uB2A6\uAC8C \uC804\uB2EC\uB418\uC5B4
+    \uACBD\uBE44\uB300\uAC00 \uD070 \uD53C\uD574\uB97C \uC785\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-712881955320968635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,12 +706,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B04_Q_FAILURE
   isEnable: 1
-  treasury: 10
-  publicSentiment: -15
-  security: -10
-  resultText: "\uC0C1\uB2E8\uC774 \uC2DC\uC7A5\uC744 \uC7A5\uC545\uD574 \uBB3C\uAC00\uC640
-    \uCE58\uC548\uC774 \uD754\uB4E4\uB838\uACE0 \uBC31\uC131\uB4E4\uC758 \uBD88\uB9CC\uC774
-    \uCEE4\uC84C\uC2B5\uB2C8\uB2E4."
+  treasury: -5
+  publicSentiment: -20
+  security: 0
+  resultText: "\uC0C1\uB2E8\uC740 \uC2DC\uC7A5\uC744 \uC7A5\uC545\uD558\uC790 \uC0C1\uD488
+    \uAC00\uACA9\uC744 \uD06C\uAC8C \uC62C\uB838\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-600661446872695500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,11 +744,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_P_RANDOM_FAILURE
   isEnable: 1
-  treasury: -10
-  publicSentiment: 0
-  security: 0
-  resultText: "\uB3C4\uC801\uB4E4\uC774 \uC57D\uC18D\uC744 \uC5B4\uAE30\uACE0 \uC655\uC2E4
-    \uBCF4\uAE09\uD488\uAE4C\uC9C0 \uD6D4\uCCD0 \uAC14\uC2B5\uB2C8\uB2E4."
+  treasury: -5
+  publicSentiment: -10
+  security: -10
+  resultText: "\uB9C8\uC744 \uACBD\uBE44\uB300\uB294 \uB3C4\uC801\uB4E4\uC758 \uC218\uB97C
+    \uAC10\uB2F9\uD558\uC9C0 \uBABB\uD588\uACE0 \uCC3D\uACE0 \uC77C\uBD80\uB97C \uBE7C\uC557\uACBC\uC2B5\uB2C8\uB2E4."
 --- !u!114 &-275861385084125093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,12 +763,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B03_SPACE_RESULT
   isEnable: 1
-  treasury: -5
-  publicSentiment: 5
+  treasury: -10
+  publicSentiment: 10
   security: 0
-  resultText: "\uC655\uAD81 \uC55E\uC5D0\uC11C \uC18C\uBC15\uD55C \uCD95\uD558 \uD589\uC0AC\uAC00
-    \uC5F4\uB838\uACE0 \uD070 \uBD80\uB2F4 \uC5C6\uC774 \uAE30\uB150\uC77C\uC744
-    \uBCF4\uB0C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uD06C\uC9C0\uB294 \uC54A\uC558\uC9C0\uB9CC \uBC31\uC131\uB4E4\uACFC
+    \uD568\uAED8 \uBB34\uB09C\uD55C \uAE30\uB150\uD589\uC0AC\uB97C \uC5F4\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,79 +784,81 @@ MonoBehaviour:
   dataTableRowName: Ddalgak.ResultDataTableRow, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   dataTableRows:
+  - {fileID: -6044271270194836955}
   - {fileID: 3546154195015479510}
   - {fileID: -5328360039752519177}
-  - {fileID: -6044271270194836955}
+  - {fileID: 3317898301357865287}
   - {fileID: 3345096013821835913}
   - {fileID: 6370573290577045021}
-  - {fileID: 3317898301357865287}
+  - {fileID: -7934493854531791717}
   - {fileID: -2998463874320494548}
   - {fileID: -275861385084125093}
-  - {fileID: -7934493854531791717}
-  - {fileID: 1920705559907622119}
-  - {fileID: -712881955320968635}
-  - {fileID: -7409136342890112288}
   - {fileID: 6357467681562281517}
+  - {fileID: -712881955320968635}
+  - {fileID: 1920705559907622119}
+  - {fileID: -7409136342890112288}
+  - {fileID: 2756863549937699254}
   - {fileID: 1076740248435754338}
   - {fileID: -7362144409301305905}
-  - {fileID: 2756863549937699254}
-  - {fileID: -3556095391407535139}
-  - {fileID: -1907707148214050662}
-  - {fileID: -5030381079152992821}
   - {fileID: -3873590556551565495}
-  - {fileID: 1204818248962428528}
-  - {fileID: -5080802317648967661}
-  - {fileID: 6689541681349363909}
+  - {fileID: -1907707148214050662}
+  - {fileID: -3556095391407535139}
+  - {fileID: -5030381079152992821}
   - {fileID: -3092559345384775528}
+  - {fileID: -5080802317648967661}
+  - {fileID: 1204818248962428528}
+  - {fileID: 6689541681349363909}
+  - {fileID: 7747033124401682093}
+  - {fileID: -600661446872695500}
   - {fileID: 7126272935483238820}
   - {fileID: 2464540102556694140}
-  - {fileID: -600661446872695500}
-  - {fileID: 7747033124401682093}
+  - {fileID: -6679902118209107122}
+  - {fileID: 373726332822482317}
   - {fileID: -1344458503133671308}
   - {fileID: -7034152447305332465}
-  - {fileID: 373726332822482317}
-  - {fileID: -6679902118209107122}
+  - {fileID: -5150218729906362473}
   - {fileID: -1292506209592489019}
   - {fileID: 6665952998905972112}
-  - {fileID: -5150218729906362473}
-  - {fileID: -2517064458450006564}
-  - {fileID: 5032900731726369564}
-  - {fileID: 128662148291895574}
-  - {fileID: 2490005304519806428}
-  - {fileID: -1138978731521979370}
   - {fileID: -778964673610121247}
-  - {fileID: -3717193028890891623}
+  - {fileID: -1138978731521979370}
   - {fileID: -338396956649895760}
-  - {fileID: 4807031537532756634}
-  - {fileID: 8161997417353692468}
-  - {fileID: -8723927513090146056}
-  - {fileID: 8898813847872747671}
-  - {fileID: 2280561454265695601}
+  - {fileID: -3717193028890891623}
+  - {fileID: 5032900731726369564}
+  - {fileID: -2517064458450006564}
+  - {fileID: 2490005304519806428}
+  - {fileID: 128662148291895574}
+  - {fileID: -2847823966544487096}
+  - {fileID: -2615038408280217063}
   - {fileID: 3706941257512736818}
-  - {fileID: 3228473046082093670}
-  - {fileID: -5447850528275185652}
-  - {fileID: 8764388343539661684}
-  - {fileID: 7127115604141406619}
-  - {fileID: -5663798188431265765}
+  - {fileID: 2280561454265695601}
+  - {fileID: 8161997417353692468}
+  - {fileID: 4807031537532756634}
+  - {fileID: 8898813847872747671}
+  - {fileID: -8723927513090146056}
   - {fileID: -3750349962449381729}
-  - {fileID: 1414048865574784930}
-  - {fileID: -7963385006995810349}
-  - {fileID: -8402211875402228296}
-  - {fileID: -3625273041308254904}
-  - {fileID: -4628119336310499885}
+  - {fileID: -5663798188431265765}
+  - {fileID: -5447850528275185652}
+  - {fileID: 3228473046082093670}
+  - {fileID: 7127115604141406619}
+  - {fileID: 8764388343539661684}
   - {fileID: -1429075913363521868}
-  - {fileID: 222403697186026366}
-  - {fileID: 1781804976221869211}
-  - {fileID: -7685580295212104420}
-  - {fileID: 5344670108920494998}
-  - {fileID: 3541017908239519721}
+  - {fileID: -4628119336310499885}
+  - {fileID: -7963385006995810349}
+  - {fileID: 1414048865574784930}
+  - {fileID: -3625273041308254904}
+  - {fileID: -8402211875402228296}
   - {fileID: 4045198886441124605}
-  - {fileID: -6281739604243970762}
+  - {fileID: 3541017908239519721}
+  - {fileID: 1781804976221869211}
+  - {fileID: 222403697186026366}
+  - {fileID: 5344670108920494998}
+  - {fileID: -7685580295212104420}
   - {fileID: -2876232587403785252}
-  - {fileID: 987645290577750072}
+  - {fileID: -6281739604243970762}
   - {fileID: -1543560948287292060}
-  - {fileID: 7297206224928008092}
+  - {fileID: 987645290577750072}
   - {fileID: 5341334009691795542}
+  - {fileID: 7297206224928008092}
   dataTableRowScript: {fileID: 11500000, guid: 0e4ac4da2256c6d4cb7b2090b79c2cb7, type: 3}
 --- !u!114 &128662148291895574
 MonoBehaviour:
@@ -832,11 +874,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_SPACE_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
+  treasury: 0
   publicSentiment: 0
-  security: 10
-  resultText: "\uBAA8\uC778 \uC6A9\uBCD1\uB4E4\uC774 \uB3C4\uC801\uB2E8\uC758 \uADFC\uAC70\uC9C0\uB97C
-    \uACF5\uACA9\uD574 \uC0C1\uB2E8\uC758 \uAE38\uC744 \uB418\uCC3E\uC558\uC2B5\uB2C8\uB2E4."
+  security: 0
+  resultText: "\uC6A9\uBCD1\uB2E8 \uC18C\uC9D1\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &222403697186026366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,10 +893,10 @@ MonoBehaviour:
   rowID: A05_Q_ACTION_SUCCESS
   isEnable: 1
   treasury: -10
-  publicSentiment: 0
+  publicSentiment: 10
   security: 15
-  resultText: "\uC81C\uBC29 \uBCF4\uAC15\uC774 \uC644\uB8CC\uB418\uC5B4 \uC655\uC2E4
-    \uC2DC\uC124\uACFC \uC778\uADFC \uC9C0\uC5ED\uC744 \uC9C0\uCF1C\uB0C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC81C\uBC29\uC774 \uBB34\uB108\uC9C0\uAE30 \uC804\uC5D0 \uBCF4\uC218
+    \uC791\uC5C5\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &373726332822482317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,11 +930,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: S02_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
-  publicSentiment: 0
-  security: 5
-  resultText: "\uC9C0\uC9C0\uB300\uB97C \uBD99\uC7A1\uB294 \uB3D9\uC548 \uC778\uBD80\uB4E4\uC774
-    \uAE30\uB465\uC744 \uBCF4\uAC15\uD574 \uCC3D\uACE0\uC758 \uBD95\uAD34\uB97C \uB9C9\uC558\uC2B5\uB2C8\uB2E4."
+  treasury: 5
+  publicSentiment: 5
+  security: 0
+  resultText: "\uBCD1\uC0AC\uB4E4\uC774 \uC0C8\uB85C\uC6B4 \uC9C0\uC9C0\uB300\uB97C
+    \uC124\uCE58\uD560 \uB54C\uAE4C\uC9C0 \uC655\uC774 \uAE30\uB465\uC744 \uBD99\uC7A1\uC558\uC2B5\uB2C8\uB2E4.
+    \uC655\uC2E4 \uCC3D\uACE0\uC758 \uBCF4\uAE09\uD488 \uB300\uBD80\uBD84\uC744 \uC9C0\uCF1C\uB0C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &1076740248435754338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,9 +953,9 @@ MonoBehaviour:
   treasury: -5
   publicSentiment: 15
   security: 5
-  resultText: "\uACF5\uAC1C \uC7AC\uD310\uC5D0\uC11C \uBE44\uB9AC\uAC00 \uB4DC\uB7EC\uB0AC\uACE0
-    \uC5C4\uC911\uD55C \uCC98\uBC8C\uC5D0 \uBC31\uC131\uB4E4\uC758 \uC2E0\uB8B0\uAC00
-    \uD68C\uBCF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uB9CE\uC740 \uBC31\uC131\uC774 \uC7AC\uD310\uC744 \uC9C0\uCF1C\uBD24\uACE0,
+    \uC655\uAD6D\uC758 \uAD00\uB9AC\uB4E4\uC740 \uC655\uC758 \uB208\uCE58\uB97C \uBCF4\uAE30
+    \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &1204818248962428528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,11 +970,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B07_Q_SUCCESS
   isEnable: 1
-  treasury: -10
-  publicSentiment: 15
-  security: 15
-  resultText: "\uC0C8\uB07C \uC6A9\uC774 \uC655\uAD6D\uC744 \uB530\uB974\uBA70 \uBC31\uC131\uB4E4\uC758
-    \uC790\uBD80\uC2EC\uACFC \uC655\uAD6D\uC758 \uC804\uB825\uC774 \uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  treasury: 30
+  publicSentiment: 30
+  security: 0
+  resultText: "\uC54C\uC5D0\uC11C \uAE68\uC5B4\uB09C \uC5B4\uB9B0 \uC6A9\uC774 \uC655\uC2E4\uC744
+    \uB530\uB974\uAE30 \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4. \uC655\uAD6D\uC5D0\uB294
+    \uC6A9\uC744 \uBCF4\uAE30 \uC704\uD55C \uBC29\uBB38\uAC1D\uACFC \uC0C1\uC778\uB4E4\uC774
+    \uBAB0\uB824\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &1414048865574784930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,11 +991,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A04_Q_ACTION_SUCCESS
   isEnable: 1
-  treasury: -10
-  publicSentiment: 10
-  security: 10
-  resultText: "\uC131\uB300\uD55C \uD658\uB300\uAC00 \uC0AC\uC808\uB2E8\uC758 \uD638\uAC10\uC744
-    \uC5BB\uC5B4 \uC591\uAD6D \uAD00\uACC4\uAC00 \uC88B\uC544\uC84C\uC2B5\uB2C8\uB2E4."
+  treasury: -15
+  publicSentiment: 5
+  security: 15
+  resultText: "\uD654\uB824\uD55C \uC5F0\uD68C\uC5D0 \uB9CC\uC871\uD55C \uC0AC\uC808\uB2E8\uC774
+    \uC6B0\uD638\uC801\uC778 \uB3D9\uB9F9 \uC870\uAC74\uC744 \uC81C\uC2DC\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &1781804976221869211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,11 +1010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A05_Q_ACTION_FAILURE
   isEnable: 1
-  treasury: -15
-  publicSentiment: -10
-  security: -10
-  resultText: "\uBCF4\uAC15 \uC21C\uC11C\uAC00 \uC5B4\uAE0B\uB098 \uC81C\uBC29 \uC77C\uBD80\uAC00
-    \uBB34\uB108\uC9C0\uACE0 \uD070 \uD53C\uD574\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4."
+  treasury: -10
+  publicSentiment: -15
+  security: -30
+  resultText: "\uBCF4\uC218 \uC791\uC5C5\uC774 \uB05D\uB098\uAE30 \uC804\uC5D0 \uC81C\uBC29
+    \uC77C\uBD80\uAC00 \uBB34\uB108\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &1920705559907622119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,12 +1029,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B04_Q_SUCCESS
   isEnable: 1
-  treasury: 20
-  publicSentiment: -5
-  security: -5
-  resultText: "\uC0C1\uB2E8\uC758 \uB9C9\uB300\uD55C \uC790\uAE08\uC774 \uC655\uC2E4\uB85C
-    \uB4E4\uC5B4\uC654\uC9C0\uB9CC \uAD6D\uB0B4 \uC0C1\uC778\uB4E4\uC758 \uBC18\uBC1C\uC774
-    \uC2DC\uC791\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  treasury: 25
+  publicSentiment: -10
+  security: 0
+  resultText: "\uC0C1\uB2E8\uC740 \uC57D\uC18D\uB300\uB85C \uC0C8\uB85C\uC6B4 \uC0C1\uD488\uACFC
+    \uB9CE\uC740 \uC138\uAE08\uC744 \uC655\uAD6D\uC5D0 \uAC00\uC838\uC654\uC2B5\uB2C8\uB2E4."
 --- !u!114 &2280561454265695601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,11 +1048,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A02_P_ACTION_SUCCESS
   isEnable: 1
-  treasury: -15
-  publicSentiment: 5
-  security: 15
-  resultText: "\uB9C8\uBC95\uC0AC\uAC00 \uC815\uD655\uD788 \uBD88\uAE38\uC744 \uAC00\uB46C
-    \uC2DC\uC7A5\uC758 \uB300\uBD80\uBD84\uC744 \uC9C0\uCF1C\uB0C8\uC2B5\uB2C8\uB2E4."
+  treasury: -5
+  publicSentiment: 15
+  security: 10
+  resultText: "\uAC70\uB300\uD55C \uBB3C\uAE30\uB465\uC774 \uC2DC\uC7A5\uC744 \uB36E\uC73C\uBA70
+    \uBD88\uAE38\uC744 \uD55C \uBC88\uC5D0 \uAED0\uC2B5\uB2C8\uB2E4."
 --- !u!114 &2464540102556694140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,11 +1086,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_SPACE_ACTION_FAILURE
   isEnable: 1
-  treasury: -10
+  treasury: -15
   publicSentiment: -5
-  security: -5
-  resultText: "\uC6A9\uBCD1 \uBAA8\uC9D1\uC774 \uB2A6\uC5B4 \uBCF4\uC0C1\uAE08\uB9CC
-    \uC18C\uBAA8\uD558\uACE0 \uB3C4\uC801\uB2E8\uC744 \uB193\uCCE4\uC2B5\uB2C8\uB2E4."
+  security: 0
+  resultText: "\uC6A9\uBCD1 \uBAA8\uC9D1\uC774 \uB2A6\uC5B4\uC838 \uC77C\uBD80 \uCC3D\uACE0\uAC00
+    \uC57D\uD0C8\uB2F9\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &2756863549937699254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,12 +1105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B05_P_RESULT
   isEnable: 1
-  treasury: 15
+  treasury: 5
   publicSentiment: -15
   security: -5
-  resultText: "\uC0AC\uAC74\uC744 \uB36E\uB294 \uB300\uAC00\uB85C \uC7AC\uC0B0\uC744
-    \uBC1B\uC558\uC9C0\uB9CC \uC18C\uBB38\uC774 \uD37C\uC838 \uC655\uC2E4\uC758 \uC2E0\uB8B0\uAC00
-    \uBB34\uB108\uC84C\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC655\uC2E4\uC758 \uC138\uC785\uC740 \uC720\uC9C0\uB418\uC5C8\uC9C0\uB9CC
+    \uBC31\uC131\uB4E4\uC758 \uBD84\uB178\uAC00 \uCEE4\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3228473046082093670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,11 +1124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A03_Q_ACTION_SUCCESS
   isEnable: 1
-  treasury: -15
+  treasury: -25
   publicSentiment: 15
   security: 5
-  resultText: "\uCE58\uB8CC\uC18C\uAC00 \uBE60\uB974\uAC8C \uC138\uC6CC\uC838 \uD658\uC790\uB4E4\uC774
-    \uCE58\uB8CC\uBC1B\uACE0 \uD655\uC0B0\uC138\uAC00 \uAEBE\uC600\uC2B5\uB2C8\uB2E4."
+  resultText: "\uCE58\uB8CC\uC18C\uAC00 \uBE60\uB974\uAC8C \uC644\uC131\uB418\uC5B4
+    \uB9CE\uC740 \uD658\uC790\uAC00 \uCE58\uB8CC\uBC1B\uC558\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3317898301357865287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,10 +1144,11 @@ MonoBehaviour:
   rowID: B02_P_RESULT
   isEnable: 1
   treasury: -5
-  publicSentiment: -5
+  publicSentiment: -10
   security: 10
-  resultText: "\uACBD\uBE44\uBCD1\uC774 \uADE0\uC5F4 \uAD6C\uAC04\uC744 \uC9C0\uCF30\uC9C0\uB9CC
-    \uC7A5\uAE30 \uADFC\uBB34\uC5D0 \uB300\uD55C \uBD88\uB9CC\uC774 \uC0DD\uACBC\uC2B5\uB2C8\uB2E4."
+  resultText: "\uACBD\uBE44\uBCD1\uB4E4\uC774 \uBC24\uB0AE\uC5C6\uC774 \uC131\uBCBD\uC744
+    \uC9C0\uD0A4\uAE30 \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4. \uACFC\uB3C4\uD55C \uADFC\uBB34\uC5D0
+    \uBCD1\uC0AC\uB4E4\uC758 \uBD88\uB9CC\uB3C4 \uCEE4\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3345096013821835913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,8 +1166,8 @@ MonoBehaviour:
   treasury: -15
   publicSentiment: 0
   security: 15
-  resultText: "\uC131\uBCBD \uC804\uCCB4\uB97C \uBCF4\uC218\uD574 \uC218\uB3C4\uC758
-    \uBC29\uC5B4\uC120\uC774 \uB2E4\uC2DC \uD2BC\uD2BC\uD574\uC84C\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC131\uBCBD\uC740 \uC0C8\uAC83\uCC98\uB7FC \uD2BC\uD2BC\uD574\uC84C\uC9C0\uB9CC
+    \uB9CE\uC740 \uC790\uC7AC\uC640 \uC778\uB825\uC774 \uC18C\uBAA8\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3541017908239519721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,8 +1185,8 @@ MonoBehaviour:
   treasury: -5
   publicSentiment: 15
   security: -5
-  resultText: "\uC8FC\uBBFC \uB300\uBD80\uBD84\uC774 \uC81C\uB54C \uB300\uD53C\uD574
-    \uC778\uBA85 \uD53C\uD574\uB97C \uB9C9\uC558\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC8FC\uBBFC\uB4E4\uC740 \uBB34\uC0AC\uD788 \uB300\uD53C\uD588\uC9C0\uB9CC
+    \uB9C8\uC744\uC758 \uC77C\uBD80 \uAC74\uBB3C\uC740 \uBB3C\uC5D0 \uC7A0\uACBC\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3546154195015479510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,8 +1204,8 @@ MonoBehaviour:
   treasury: -15
   publicSentiment: 15
   security: 0
-  resultText: "\uC655\uC2E4\uC774 \uBE44\uCD95 \uC2DD\uB7C9\uC744 \uD480\uC5B4 \uAD76\uC8FC\uB9BC\uC744
-    \uB9C9\uC558\uACE0 \uBC31\uC131\uB4E4\uC758 \uBD88\uB9CC\uC774 \uB204\uADF8\uB7EC\uC84C\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC655\uC2E4 \uCC3D\uACE0\uAC00 \uC5F4\uB9AC\uC790 \uAD76\uC8FC\uB9B0
+    \uBC31\uC131\uB4E4\uC774 \uD55C\uC228\uC744 \uB3CC\uB838\uC2B5\uB2C8\uB2E4."
 --- !u!114 &3706941257512736818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,11 +1220,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A02_P_ACTION_FAILURE
   isEnable: 1
-  treasury: -20
-  publicSentiment: -5
+  treasury: -25
+  publicSentiment: -20
   security: -10
-  resultText: "\uB9C8\uBC95\uC774 \uBE57\uB098\uAC00 \uBD88\uAE38\uC774 \uB354 \uD06C\uAC8C
-    \uBC88\uC84C\uACE0 \uBCF5\uAD6C \uBE44\uC6A9\uC774 \uB298\uC5C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uB9C8\uBC95\uC774 \uB108\uBB34 \uAC15\uD558\uAC8C \uBC1C\uB3D9\uB418\uC5B4
+    \uBD88\uACFC \uD568\uAED8 \uC2DC\uC7A5\uC758 \uC9C0\uBD95\uB3C4 \uB0A0\uC544\uAC14\uC2B5\uB2C8\uB2E4."
 --- !u!114 &4045198886441124605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,10 +1240,10 @@ MonoBehaviour:
   rowID: A05_P_ACTION_FAILURE
   isEnable: 1
   treasury: -5
-  publicSentiment: -15
-  security: -10
-  resultText: "\uB300\uD53C \uBA85\uB839 \uC804\uB2EC\uC774 \uB2A6\uC5B4 \uC8FC\uBBFC\uACFC
-    \uBB3C\uC790\uAC00 \uD64D\uC218\uC5D0 \uD729\uC4F8\uB838\uC2B5\uB2C8\uB2E4."
+  publicSentiment: -25
+  security: -15
+  resultText: "\uB300\uD53C \uBA85\uB839\uC774 \uC81C\uB300\uB85C \uC804\uB2EC\uB418\uC9C0
+    \uC54A\uC544 \uC8FC\uBBFC\uB4E4\uC774 \uD63C\uB780\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &4807031537532756634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,11 +1258,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A02_Q_ACTION_SUCCESS
   isEnable: 1
-  treasury: -5
-  publicSentiment: 5
-  security: 10
-  resultText: "\uACBD\uBE44\uB300\uAC00 \uBA85\uB839\uC5D0 \uB9DE\uCDB0 \uBC29\uD654\uC120\uC744
-    \uB9CC\uB4E4\uACE0 \uC2DC\uC7A5\uC758 \uBD88\uAE38\uC744 \uC7A1\uC558\uC2B5\uB2C8\uB2E4."
+  treasury: -10
+  publicSentiment: 10
+  security: 20
+  resultText: "\uC18C\uBC29\uB300\uAC00 \uC2E0\uC18D\uD558\uAC8C \uBC30\uCE58\uB418\uC5B4
+    \uBD88\uAE38\uC744 \uC9C4\uC555\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &5032900731726369564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,11 +1277,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A01_Q_ACTION_FAILURE
   isEnable: 1
-  treasury: -15
+  treasury: -10
   publicSentiment: -5
-  security: -5
-  resultText: "\uBA85\uB839 \uC804\uB2EC\uC774 \uB2A6\uC5B4 \uAD70\uC774 \uB3C4\uCC29\uD558\uAE30
-    \uC804\uC5D0 \uB9C8\uC744\uC774 \uC57D\uD0C8\uB2F9\uD588\uC2B5\uB2C8\uB2E4."
+  security: 5
+  resultText: "\uC11C\uBA85\uC774 \uC81C\uB300\uB85C \uC644\uB8CC\uB418\uC9C0 \uC54A\uC544
+    \uAE30\uC0AC\uB2E8\uC758 \uCD9C\uBC1C\uC774 \uB2A6\uC5B4\uC84C\uC2B5\uB2C8\uB2E4."
 --- !u!114 &5341334009691795542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,11 +1296,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: S03_ACTION_FAILURE
   isEnable: 1
-  treasury: -5
-  publicSentiment: -10
+  treasury: 0
+  publicSentiment: -30
   security: 0
-  resultText: "\uC655\uAD00\uC774 \uBC14\uB2E5\uC744 \uAD6C\uB974\uBA70 \uAE68\uC84C\uACE0
-    \uD589\uC0AC\uB294 \uC6C3\uC74C\uAC70\uB9AC\uAC00 \uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC655\uAD00\uC740 \uACC4\uB2E8\uC744 \uAD74\uB7EC \uBC31\uC131\uB4E4
+    \uC55E\uC5D0 \uB5A8\uC5B4\uC84C\uC2B5\uB2C8\uB2E4. \uC5F0\uC124\uBCF4\uB2E4 \uC655\uAD00\uC744
+    \uCAD3\uC544 \uB6F0\uC5B4\uAC00\uB294 \uC655\uC758 \uBAA8\uC2B5\uC774 \uB354
+    \uC624\uB798 \uAE30\uC5B5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &5344670108920494998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,11 +1317,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A05_SPACE_ACTION_FAILURE
   isEnable: 1
-  treasury: -5
-  publicSentiment: -15
+  treasury: -20
+  publicSentiment: -20
   security: -10
-  resultText: "\uC218\uBB38 \uAC1C\uBC29 \uC2DC\uC810\uC744 \uB193\uCCD0 \uBB3C\uC774
-    \uBBFC\uAC00 \uCABD\uC73C\uB85C \uC3DF\uC544\uC84C\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC218\uBB38\uC744 \uB108\uBB34 \uB2A6\uAC8C \uC5F4\uC5B4 \uBB3C\uC0B4\uC774
+    \uC8FC\uBCC0 \uB18D\uACBD\uC9C0\uB97C \uD729\uC4F8\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!114 &6357467681562281517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,7 +1337,7 @@ MonoBehaviour:
   rowID: B04_P_RESULT
   isEnable: 1
   treasury: 0
-  publicSentiment: 5
+  publicSentiment: 10
   security: 10
   resultText: "\uC0C1\uB2E8\uC740 \uC655\uAD6D\uC744 \uB5A0\uB0AC\uACE0 \uAD6D\uB0B4
     \uC0C1\uC778\uB4E4\uC740 \uC655\uC758 \uACB0\uC815\uC744 \uD658\uC601\uD588\uC2B5\uB2C8\uB2E4."
@@ -1313,8 +1358,8 @@ MonoBehaviour:
   treasury: -5
   publicSentiment: 0
   security: 5
-  resultText: "\uC704\uD5D8\uD55C \uAD6C\uAC04\uB9CC \uC784\uC2DC\uB85C \uB9C9\uC544
-    \uB2F9\uC7A5\uC758 \uBD95\uAD34\uB97C \uD53C\uD588\uC2B5\uB2C8\uB2E4."
+  resultText: "\uADE0\uC5F4\uC740 \uAC00\uB824\uC84C\uC9C0\uB9CC \uC624\uB798 \uBC84\uD2F8
+    \uC218 \uC788\uC744\uC9C0\uB294 \uC54C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
 --- !u!114 &6665952998905972112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,9 +1393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: B07_SPACE_RESULT
   isEnable: 1
-  treasury: 15
-  publicSentiment: -5
-  security: -5
+  treasury: 20
+  publicSentiment: -10
+  security: 0
   resultText: "\uC774\uC6C3 \uC655\uAD6D\uC740 \uAC70\uC561\uC744 \uC9C0\uBD88\uD558\uACE0
     \uC54C\uC744 \uAC00\uC838\uAC14\uC9C0\uB9CC, \uBC31\uC131\uB4E4\uC740 \uADC0\uC911\uD55C
     \uBC1C\uACAC\uC744 \uD314\uC544\uB118\uACBC\uB2E4\uBA70 \uC544\uC26C\uC6CC\uD588\uC2B5\uB2C8\uB2E4."
@@ -1389,9 +1434,9 @@ MonoBehaviour:
   isEnable: 1
   treasury: -5
   publicSentiment: -15
-  security: 5
-  resultText: "\uACA9\uB9AC \uBA85\uB839\uC774 \uD63C\uC120 \uC18D\uC5D0 \uC804\uB2EC\uB418\uC5B4
-    \uC8FC\uBBFC \uBC18\uBC1C\uACFC \uCD94\uAC00 \uAC10\uC5FC\uC774 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4."
+  security: -15
+  resultText: "\uBD09\uC1C4\uC120\uC5D0 \uBE48\uD2C8\uC774 \uC0DD\uACA8 \uC77C\uBD80
+    \uAC10\uC5FC\uC790\uAC00 \uB2E4\uB978 \uC9C0\uC5ED\uC73C\uB85C \uC774\uB3D9\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &7297206224928008092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1407,10 +1452,12 @@ MonoBehaviour:
   rowID: S03_ACTION_SUCCESS
   isEnable: 1
   treasury: 0
-  publicSentiment: 5
+  publicSentiment: 10
   security: 0
-  resultText: "\uC655\uAD00\uC744 \uBC14\uB2E5\uC5D0 \uB5A8\uC5B4\uC9C0\uAE30 \uC804\uC5D0
-    \uBD99\uC7A1\uC544 \uC704\uC5C4\uC744 \uC9C0\uCF30\uC2B5\uB2C8\uB2E4."
+  resultText: "\uC655\uC740 \uC544\uBB34 \uC77C\uB3C4 \uC5C6\uC5C8\uB2E4\uB294 \uB4EF
+    \uC655\uAD00\uC744 \uBD99\uC7A1\uC544 \uB2E4\uC2DC \uBA38\uB9AC\uC5D0 \uC37C\uC2B5\uB2C8\uB2E4.
+    \uBC31\uC131\uB4E4\uC740 \uC774\uB97C \uC5F0\uC124\uC758 \uC77C\uBD80\uB77C\uACE0
+    \uC0DD\uAC01\uD558\uBA70 \uD658\uD638\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &7747033124401682093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,11 +1491,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A02_Q_ACTION_FAILURE
   isEnable: 1
-  treasury: -10
-  publicSentiment: -5
-  security: -10
-  resultText: "\uBA85\uB839 \uC21C\uC11C\uAC00 \uAF2C\uC5EC \uC9C4\uD654\uAC00 \uB2A6\uC5B4\uC84C\uACE0
-    \uBD88\uAE38\uC774 \uC8FC\uBCC0 \uAC74\uBB3C\uB85C \uBC88\uC84C\uC2B5\uB2C8\uB2E4."
+  treasury: -20
+  publicSentiment: -10
+  security: -15
+  resultText: "\uCD9C\uB3D9 \uC21C\uC11C\uAC00 \uAF2C\uC5EC \uC18C\uBC29\uB300\uAC00
+    \uC11C\uB85C \uB2E4\uB978 \uC7A5\uC18C\uB85C \uC774\uB3D9\uD588\uC2B5\uB2C8\uB2E4."
 --- !u!114 &8764388343539661684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,10 +1511,10 @@ MonoBehaviour:
   rowID: A03_SPACE_ACTION_SUCCESS
   isEnable: 1
   treasury: -5
-  publicSentiment: -5
+  publicSentiment: 5
   security: 15
-  resultText: "\uAC10\uC5FC \uC9C0\uC5ED\uC744 \uC2E0\uC18D\uD788 \uACA9\uB9AC\uD574
-    \uC804\uC5FC\uBCD1\uC758 \uD655\uC0B0\uC744 \uB9C9\uC558\uC2B5\uB2C8\uB2E4."
+  resultText: "\uAC10\uC5FC \uC9C0\uC5ED\uC774 \uC2E0\uC18D\uD558\uAC8C \uBD09\uC1C4\uB418\uC5B4
+    \uC804\uC5FC\uBCD1\uC758 \uD655\uC0B0\uC774 \uBA48\uCDC4\uC2B5\uB2C8\uB2E4."
 --- !u!114 &8898813847872747671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,8 +1529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ResultDataTableRow
   rowID: A02_SPACE_ACTION_FAILURE
   isEnable: 1
-  treasury: -5
+  treasury: -15
   publicSentiment: -15
   security: -10
-  resultText: "\uB3D9\uC6D0\uC774 \uC81C\uB300\uB85C \uC774\uB8E8\uC5B4\uC9C0\uC9C0
-    \uC54A\uC544 \uC8FC\uBBFC \uD53C\uD574\uC640 \uD63C\uB780\uC774 \uCEE4\uC84C\uC2B5\uB2C8\uB2E4."
+  resultText: "\uB3D9\uC6D0\uB41C \uBC31\uC131\uB4E4\uC774 \uC81C\uB300\uB85C \uD1B5\uC81C\uB418\uC9C0
+    \uC54A\uC544 \uD604\uC7A5\uC774 \uB354 \uD63C\uB780\uC2A4\uB7EC\uC6CC\uC84C\uC2B5\uB2C8\uB2E4."

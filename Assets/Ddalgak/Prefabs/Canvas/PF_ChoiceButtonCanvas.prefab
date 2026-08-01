@@ -406,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -420}
+  m_AnchoredPosition: {x: 0, y: 650}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3013924161519004096
@@ -874,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 605, y: -420}
+  m_AnchoredPosition: {x: 605, y: 650}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6662602296682687351
@@ -1345,8 +1345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f3a33bfd623744b3d5c92dcf4c48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceGroupView
-  leftView: {fileID: 8803626577899833283}
-  rightView: {fileID: 7723670038915399803}
+  leftView: {fileID: 7723670038915399803}
+  rightView: {fileID: 8803626577899833283}
   centerView: {fileID: 653676600169392940}
   showStaggerInterval: 0.1
   stampEffect: {fileID: 4586032332482641044}
@@ -1438,7 +1438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -613, y: -420}
+  m_AnchoredPosition: {x: -613, y: 650}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5348326751480845207

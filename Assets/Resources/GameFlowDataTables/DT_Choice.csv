@@ -1,25 +1,25 @@
 rowID,isEnable,inputKey,description,changePreview,baseResultId,hasRandomResult,successProbability,randomSuccessResultId,randomFailureResultId,actionSuccessResultId,actionFailureResultId,isFatalOnActionFailure,buttonActionIds
 B01_Q,True,Q,국고를 풀어 식량을 배급한다.,국고 -15 / 민심 +15,B01_Q_RESULT,False,0,,,,,False,
 B01_SPACE,True,Space,한동안 세금을 감면한다.,국고 -10 / 민심 +10,B01_SPACE_RESULT,False,0,,,,,False,
-B01_P,True,P,식량 소비를 제한한다.,민심 -10 / 안보 +5,B01_P_RESULT,False,0,,,,,False,
+B01_P,True,P,식량 소비를 제한한다.,국고 +5 / 민심 -10,B01_P_RESULT,False,0,,,,,False,
 B02_Q,True,Q,즉시 성벽 전체를 보수한다.,국고 -15 / 안보 +15,B02_Q_RESULT,False,0,,,,,False,
 B02_SPACE,True,Space,위험한 구간만 임시로 보수한다.,국고 -5 / 안보 +5,B02_SPACE_RESULT,False,0,,,,,False,
-B02_P,True,P,당분간 경비병을 추가 배치한다.,국고 -5 / 민심 -5 / 안보 +10,B02_P_RESULT,False,0,,,,,False,
-B03_Q,True,Q,일주일 동안 대축제를 연다.,국고 -15 / 민심 +15 / 안보 -5,B03_Q_RESULT,False,0,,,,,False,
-B03_SPACE,True,Space,왕궁 앞에서 하루만 축하한다.,국고 -5 / 민심 +5,B03_SPACE_RESULT,False,0,,,,,False,
-B03_P,True,P,올해 축제는 취소한다.,국고 +5 / 민심 -15,B03_P_RESULT,False,0,,,,,False,
-B04_Q,True,Q,독점권을 허가한다.,성공 60%: 국고 +20 / 민심 -5 / 안보 -5 | 실패 40%: 국고 +10 / 민심 -15 / 안보 -10,,True,0.6,B04_Q_SUCCESS,B04_Q_FAILURE,,,False,
-B04_SPACE,True,Space,높은 세금을 조건으로 제한적으로 허가한다.,국고 +10 / 민심 -5,B04_SPACE_RESULT,False,0,,,,,False,
-B04_P,True,P,거래를 거부하고 국경에서 돌려보낸다.,민심 +5 / 안보 +10,B04_P_RESULT,False,0,,,,,False,
+B02_P,True,P,당분간 경비병을 추가 배치한다.,국고 -5 / 민심 -10 / 안보 +10,B02_P_RESULT,False,0,,,,,False,
+B03_Q,True,Q,일주일 동안 대축제를 연다.,국고 -15 / 민심 +25 / 안보 -5,B03_Q_RESULT,False,0,,,,,False,
+B03_SPACE,True,Space,왕궁 앞에서 하루만 축하한다.,국고 -10 / 민심 +10,B03_SPACE_RESULT,False,0,,,,,False,
+B03_P,True,P,올해 축제는 취소한다.,국고 +5 / 민심 -25,B03_P_RESULT,False,0,,,,,False,
+B04_Q,True,Q,독점권을 허가한다.,성공 60%: 국고 +25 / 민심 -10 | 실패 40%: 국고 -5 / 민심 -20,,True,0.6,B04_Q_SUCCESS,B04_Q_FAILURE,,,False,
+B04_SPACE,True,Space,높은 세금을 조건으로 제한적으로 허가한다.,국고 +15 / 민심 -5,B04_SPACE_RESULT,False,0,,,,,False,
+B04_P,True,P,거래를 거부하고 국경에서 돌려보낸다.,민심 +10 / 안보 +10,B04_P_RESULT,False,0,,,,,False,
 B05_Q,True,Q,공개 재판을 열어 엄중히 처벌한다.,국고 -5 / 민심 +15 / 안보 +5,B05_Q_RESULT,False,0,,,,,False,
 B05_SPACE,True,Space,재산만 몰수하고 조용히 해임한다.,국고 +10 / 민심 +5,B05_SPACE_RESULT,False,0,,,,,False,
-B05_P,True,P,뇌물을 받고 사건을 덮는다.,국고 +15 / 민심 -15 / 안보 -5,B05_P_RESULT,False,0,,,,,False,
-B06_Q,True,Q,즉시 대규모 채굴을 시작한다.,성공 55%: 국고 +20 / 민심 +5 | 실패 45%: 국고 -10 / 민심 -10 / 안보 -15,,True,0.55,B06_Q_SUCCESS,B06_Q_FAILURE,,,False,
-B06_SPACE,True,Space,조사대를 보내 광맥과 갱도를 확인한다.,국고 -5 / 안보 +5,B06_SPACE_RESULT,False,0,,,,,False,
-B06_P,True,P,위험하므로 금광을 계속 폐쇄한다.,민심 -5 / 안보 +5,B06_P_RESULT,False,0,,,,,False,
-B07_Q,True,Q,왕실 연구소에서 알을 부화시킨다.,성공 40%: 국고 -10 / 민심 +15 / 안보 +15 | 실패 60%: 국고 -15 / 민심 -10 / 안보 -15,,True,0.4,B07_Q_SUCCESS,B07_Q_FAILURE,,,False,
-B07_SPACE,True,Space,다른 왕국에 높은 값으로 판매한다.,국고 +15 / 민심 -5 / 안보 -5,B07_SPACE_RESULT,False,0,,,,,False,
-B07_P,True,P,위험을 막기 위해 알을 파괴한다.,민심 -15 / 안보 +10,B07_P_RESULT,False,0,,,,,False,
+B05_P,True,P,부족한 세수를 이유로 사건을 덮는다.,국고 +5 / 민심 -15 / 안보 -5,B05_P_RESULT,False,0,,,,,False,
+B06_Q,True,Q,즉시 대규모 채굴을 시작한다.,성공 60%: 국고 +35 / 민심 +15 / 안보 -5 | 실패 40%: 국고 -10 / 민심 -15 / 안보 -10,,True,0.6,B06_Q_SUCCESS,B06_Q_FAILURE,,,False,
+B06_SPACE,True,Space,조사대를 보내 광맥과 갱도를 확인한다.,국고 -5 / 민심 +10,B06_SPACE_RESULT,False,0,,,,,False,
+B06_P,True,P,금광을 계속 폐쇄한다.,민심 -5,B06_P_RESULT,False,0,,,,,False,
+B07_Q,True,Q,왕실에서 직접 부화시킨다.,성공 60%: 국고 +30 / 민심 +30 | 실패 40%: 국고 -30 / 민심 -10 / 안보 -20,,True,0.6,B07_Q_SUCCESS,B07_Q_FAILURE,,,False,
+B07_SPACE,True,Space,다른 왕국에 높은 값으로 판매한다.,국고 +20 / 민심 -10,B07_SPACE_RESULT,False,0,,,,,False,
+B07_P,True,P,위험을 막기 위해 알을 파괴한다.,민심 -30 / 안보 +15,B07_P_RESULT,False,0,,,,,False,
 B08_Q,True,Q,백성에게 특별세를 걷는다.,국고 +20 / 민심 -15,B08_Q_RESULT,False,0,,,,,False,
 B08_SPACE,True,Space,군수 물자를 매각한다.,국고 +15 / 안보 -15,B08_SPACE_RESULT,False,0,,,,,False,
 B08_P,True,P,상환 기한을 미뤄 달라고 협상한다.,성공 45%: 국고 -10 / 민심 -5 / 안보 -5 | 실패 55%: 국고 -25 / 민심 -10,,True,0.45,B08_P_SUCCESS,B08_P_FAILURE,,,False,
@@ -29,18 +29,18 @@ B09_P,True,P,왕이 직접 나가 사과한다.,성공 50%: 민심 +15 / 안보 
 B10_Q,True,Q,대규모 지원 병력을 보낸다.,국고 -15 / 안보 +20,B10_Q_RESULT,False,0,,,,,False,
 B10_SPACE,True,Space,인근 주민을 민병대로 징집한다.,국고 -5 / 민심 -15 / 안보 +15,B10_SPACE_RESULT,False,0,,,,,False,
 B10_P,True,P,방어선을 수도 쪽으로 축소한다.,민심 -5 / 안보 -10,B10_P_RESULT,False,0,,,,,False,
-A01_Q,True,Q,정규군을 파견한다.,액션 성공: 국고 -10 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -15 / 민심 -5 / 안보 -5,,False,0,,,A01_Q_ACTION_SUCCESS,A01_Q_ACTION_FAILURE,False,A01_Q_HOLD
-A01_SPACE,True,Space,현상금을 걸고 용병을 모집한다.,액션 성공: 국고 -5 / 안보 +10 | 액션 실패: 국고 -10 / 민심 -5 / 안보 -5,,False,0,,,A01_SPACE_ACTION_SUCCESS,A01_SPACE_ACTION_FAILURE,False,A01_SPACE_RAPID
-A01_P,True,P,도적단과 거래해 물러나게 한다.,액션 결과 적용 후 국고 +10 또는 -10(각 50%),,True,0.5,A01_P_RANDOM_SUCCESS,A01_P_RANDOM_FAILURE,A01_P_ACTION_SUCCESS,A01_P_ACTION_FAILURE,False,A01_P_TIMING
-A02_Q,True,Q,경비대에 진화 명령을 내린다.,액션 성공: 국고 -5 / 민심 +5 / 안보 +10 | 액션 실패: 국고 -10 / 민심 -5 / 안보 -10,,False,0,,,A02_Q_ACTION_SUCCESS,A02_Q_ACTION_FAILURE,False,A02_Q_STEP_Q|A02_Q_STEP_SPACE|A02_Q_STEP_P
-A02_SPACE,True,Space,백성들을 동원해 물을 나르게 한다.,액션 성공: 국고 -5 / 민심 +10 / 안보 +5 | 액션 실패: 국고 -5 / 민심 -15 / 안보 -10,,False,0,,,A02_SPACE_ACTION_SUCCESS,A02_SPACE_ACTION_FAILURE,False,A02_SPACE_RAPID
-A02_P,True,P,마법사에게 불길을 막게 한다.,액션 성공: 국고 -15 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -20 / 민심 -5 / 안보 -10,,False,0,,,A02_P_ACTION_SUCCESS,A02_P_ACTION_FAILURE,False,A02_P_TIMING
-A03_Q,True,Q,치료소를 건설한다.,액션 성공: 국고 -15 / 민심 +15 / 안보 +5 | 액션 실패: 국고 -20 / 민심 -5 / 안보 -5,,False,0,,,A03_Q_ACTION_SUCCESS,A03_Q_ACTION_FAILURE,False,A03_Q_HOLD
-A03_SPACE,True,Space,감염 지역을 격리한다.,액션 성공: 국고 -5 / 민심 -5 / 안보 +15 | 액션 실패: 국고 -5 / 민심 -15 / 안보 +5,,False,0,,,A03_SPACE_ACTION_SUCCESS,A03_SPACE_ACTION_FAILURE,False,A03_SPACE_SINGLE
-A03_P,True,P,수도의 성문을 봉쇄한다.,액션 성공: 국고 -5 / 민심 -5 / 안보 +10 | 액션 실패: 국고 -5 / 민심 -15 / 안보 -10,,False,0,,,A03_P_ACTION_SUCCESS,A03_P_ACTION_FAILURE,False,A03_P_TIMING
-A04_Q,True,Q,성대한 연회를 열어 환대한다.,액션 성공: 국고 -10 / 민심 +10 / 안보 +10 | 액션 실패: 국고 -15 / 민심 -5,,False,0,,,A04_Q_ACTION_SUCCESS,A04_Q_ACTION_FAILURE,False,A04_Q_RAPID
-A04_SPACE,True,Space,조건을 조율해 동맹 협상을 진행한다.,액션 성공: 국고 -5 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -15 / 민심 -5 / 안보 +5,,False,0,,,A04_SPACE_ACTION_SUCCESS,A04_SPACE_ACTION_FAILURE,False,A04_SPACE_TIMING
-A04_P,True,P,제안을 거부하고 돌려보낸다.,액션 성공: 민심 -5 / 안보 -5 | 액션 실패: 국고 -5 / 민심 -10 / 안보 -15,,False,0,,,A04_P_ACTION_SUCCESS,A04_P_ACTION_FAILURE,False,A04_P_HOLD
-A05_Q,True,Q,제방을 보강해 왕실 시설을 지킨다.,액션 성공: 국고 -10 / 안보 +15 | 액션 실패: 국고 -15 / 민심 -10 / 안보 -10,,False,0,,,A05_Q_ACTION_SUCCESS,A05_Q_ACTION_FAILURE,False,A05_Q_STEP_Q1|A05_Q_STEP_SPACE1|A05_Q_STEP_Q2|A05_Q_STEP_SPACE2
-A05_SPACE,True,Space,수문을 열어 물길을 돌린다.,액션 성공: 국고 -5 / 민심 +5 / 안보 +10 | 액션 실패: 국고 -5 / 민심 -15 / 안보 -10,,False,0,,,A05_SPACE_ACTION_SUCCESS,A05_SPACE_ACTION_FAILURE,False,A05_SPACE_TIMING
-A05_P,True,P,주민들을 우선 대피시킨다.,액션 성공: 국고 -5 / 민심 +15 / 안보 -5 | 액션 실패: 국고 -5 / 민심 -15 / 안보 -10,,False,0,,,A05_P_ACTION_SUCCESS,A05_P_ACTION_FAILURE,False,A05_P_RAPID
+A01_Q,True,Q,기사단을 파견한다.,액션 성공: 국고 -10 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -10 / 민심 -5 / 안보 +5,,False,0,,,A01_Q_ACTION_SUCCESS,A01_Q_ACTION_FAILURE,False,A01_Q_HOLD
+A01_SPACE,True,Space,용병을 고용한다.,액션 성공 후 70%: 국고 -15 / 안보 +15 | 30%: 국고 -20 / 민심 -5 / 안보 +5 | 액션 실패: 국고 -15 / 민심 -5,,True,0.7,A01_SPACE_RANDOM_SUCCESS,A01_SPACE_RANDOM_FAILURE,A01_SPACE_ACTION_SUCCESS,A01_SPACE_ACTION_FAILURE,False,A01_SPACE_RAPID
+A01_P,True,P,마을 경비대에 맡긴다.,액션 성공 후 50%: 국고 -5 / 민심 +10 / 안보 +10 | 50%: 국고 -5 / 민심 -10 / 안보 -10 | 액션 실패: 국고 -5 / 민심 -5 / 안보 -10,,True,0.5,A01_P_RANDOM_SUCCESS,A01_P_RANDOM_FAILURE,A01_P_ACTION_SUCCESS,A01_P_ACTION_FAILURE,False,A01_P_TIMING
+A02_Q,True,Q,왕실 소방대를 출동시킨다.,액션 성공: 국고 -10 / 민심 +10 / 안보 +20 | 액션 실패: 국고 -20 / 민심 -10 / 안보 -15,,False,0,,,A02_Q_ACTION_SUCCESS,A02_Q_ACTION_FAILURE,False,A02_Q_PRESS_Q|A02_Q_PRESS_SPACE|A02_Q_PRESS_P|A02_Q_PRESS_Q|A02_Q_PRESS_P
+A02_SPACE,True,Space,백성들을 동원해 물을 나르게 한다.,액션 성공: 국고 -5 / 민심 +10 / 안보 +5 | 액션 실패: 국고 -15 / 민심 -15 / 안보 -10,,False,0,,,A02_SPACE_ACTION_SUCCESS,A02_SPACE_ACTION_FAILURE,False,A02_SPACE_RAPID
+A02_P,True,P,궁정 마법사에게 진압을 맡긴다.,액션 성공: 국고 -5 / 민심 +15 / 안보 +10 | 액션 실패: 국고 -25 / 민심 -20 / 안보 -10,,False,0,,,A02_P_ACTION_SUCCESS,A02_P_ACTION_FAILURE,False,A02_P_TIMING|A02_P_TIMING
+A03_Q,True,Q,치료소를 건설한다.,액션 성공: 국고 -25 / 민심 +15 / 안보 +5 | 액션 실패: 국고 -10 / 민심 -25 / 안보 -15,,False,0,,,A03_Q_ACTION_SUCCESS,A03_Q_ACTION_FAILURE,False,A03_Q_HOLD_Q|A03_Q_HOLD_SPACE
+A03_SPACE,True,Space,감염 지역을 격리한다.,액션 성공: 국고 -5 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -5 / 민심 -15 / 안보 -15,,False,0,,,A03_SPACE_ACTION_SUCCESS,A03_SPACE_ACTION_FAILURE,False,A03_SPACE_RAPID
+A03_P,True,P,수도의 성문을 봉쇄한다.,액션 성공: 국고 0 / 민심 -10 / 안보 +10 | 액션 실패: 국고 0 / 민심 -10 / 안보 -15,,False,0,,,A03_P_ACTION_SUCCESS,A03_P_ACTION_FAILURE,False,A03_P_TIMING_P|A03_P_TIMING_Q|A03_P_TIMING_SPACE|A03_P_TIMING_Q
+A04_Q,True,Q,성대한 연회를 열어 환대한다.,액션 성공: 국고 -15 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -20 / 민심 -5 / 안보 -30,,False,0,,,A04_Q_ACTION_SUCCESS,A04_Q_ACTION_FAILURE,False,A04_Q_RAPID
+A04_SPACE,True,Space,조건을 조정하며 협상한다.,액션 성공: 국고 +10 / 민심 +5 / 안보 +15 | 액션 실패: 국고 -25 / 민심 -5 / 안보 +5,,False,0,,,A04_SPACE_ACTION_SUCCESS,A04_SPACE_ACTION_FAILURE,False,A04_SPACE_TIMING_SPACE|A04_SPACE_TIMING_SPACE|A04_SPACE_TIMING_P|A04_SPACE_TIMING_Q
+A04_P,True,P,제안을 거부하고 돌려보낸다.,액션 성공: 국고 +5 / 민심 +5 / 안보 -10 | 액션 실패: 국고 0 / 민심 -5 / 안보 -25,,False,0,,,A04_P_ACTION_SUCCESS,A04_P_ACTION_FAILURE,False,A04_P_HOLD_P|A04_P_HOLD_Q|A04_P_HOLD_SPACE
+A05_Q,True,Q,제방을 긴급 보수한다.,액션 성공: 국고 -10 / 민심 +10 / 안보 +15 | 액션 실패: 국고 -10 / 민심 -15 / 안보 -30,,False,0,,,A05_Q_ACTION_SUCCESS,A05_Q_ACTION_FAILURE,False,A05_Q_PRESS_Q|A05_Q_PRESS_SPACE|A05_Q_PRESS_Q|A05_Q_PRESS_SPACE|A05_Q_PRESS_P|A05_Q_PRESS_SPACE|A05_Q_PRESS_Q|A05_Q_PRESS_Q|A05_Q_PRESS_P
+A05_SPACE,True,Space,수문을 열어 물길을 돌린다.,액션 성공: 국고 -5 / 민심 +10 / 안보 +15 | 액션 실패: 국고 -20 / 민심 -20 / 안보 -10,,False,0,,,A05_SPACE_ACTION_SUCCESS,A05_SPACE_ACTION_FAILURE,False,A05_SPACE_TIMING_SPACE|A05_SPACE_TIMING_Q|A05_SPACE_TIMING_SPACE|A05_SPACE_TIMING_P|A05_SPACE_TIMING_Q
+A05_P,True,P,주민들을 높은 지대로 대피시킨다.,액션 성공: 국고 -5 / 민심 +15 / 안보 -5 | 액션 실패: 국고 -5 / 민심 -25 / 안보 -15,,False,0,,,A05_P_ACTION_SUCCESS,A05_P_ACTION_FAILURE,False,A05_P_RAPID_P|A05_P_RAPID_SPACE

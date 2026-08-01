@@ -28,22 +28,18 @@ namespace Ddalgak
         public IEnumerator ShowInitialButtons()
         {
             ChoiceButtonView[] views = { leftView, rightView, centerView };
-            List<Tween> tweens = new(views.Length);
+            Sequence sequence = DOTween.Sequence();
 
             for (var i = 0; i < views.Length; i++)
             {
-                if (i > 0)
+                Tween tween = views[i].PlayInitialDrop();
+                if (tween != null)
                 {
-                    yield return new WaitForSeconds(showStaggerInterval);
+                    sequence.Insert(i * showStaggerInterval, tween);
                 }
-
-                tweens.Add(views[i].PlayInitialDrop());
             }
 
-            foreach (Tween tween in tweens)
-            {
-                yield return tween.WaitForCompletion();
-            }
+            yield return sequence.WaitForCompletion();
         }
 
         public IEnumerator ShowChoices(IReadOnlyList<ChoiceData> choices, Action<ChoiceData> onSelected)
@@ -172,21 +168,17 @@ namespace Ddalgak
 
         private IEnumerator PlayShowSequence()
         {
-            List<Tween> tweens = new();
+            Sequence sequence = DOTween.Sequence();
             for (int i = 0; i < _activeViews.Count; i++)
             {
-                if (i > 0)
+                Tween tween = _activeViews[i].PlayShow();
+                if (tween != null)
                 {
-                    yield return new WaitForSeconds(showStaggerInterval);
+                    sequence.Insert(i * showStaggerInterval, tween);
                 }
-
-                tweens.Add(_activeViews[i].PlayShow());
             }
 
-            foreach (Tween tween in tweens)
-            {
-                yield return tween.WaitForCompletion();
-            }
+            yield return sequence.WaitForCompletion();
         }
 
         private IEnumerator WaitForInput(Action<ChoiceButtonView> onSelected)
