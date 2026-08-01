@@ -120,6 +120,7 @@ namespace Ddalgak
             context.Result = _turnResultCalculator.Calculate(context, DebugProbabilityMode);
 
             ChangeState(EGameFlowState.ResultPresentation);
+            yield return presenter.HideEvent();
             yield return presenter.ShowResult(context.Result);
             yield return ApplyStatChanges(context);
 

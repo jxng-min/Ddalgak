@@ -15,13 +15,13 @@ namespace Ddalgak
         public abstract IEnumerator HideChoices();
         public abstract IEnumerator ShowResult(TurnResult result);
         public abstract IEnumerator AnimateStatChanges(KingdomStatsSnapshot before,
-                                                        KingdomStatsSnapshot after,
-                                                        StatModifier modifier);
+                                                       KingdomStatsSnapshot after,
+                                                       StatModifier modifier);
         public abstract IEnumerator WaitForNextTurnInput();
+        public abstract IEnumerator HideEvent();
         public abstract IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState);
         public abstract IEnumerator ShowEmergencyRecovery(EmergencyRecoveryData data);
-        public abstract IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data,
-                                                                 bool succeeded);
+        public abstract IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data, bool succeeded);
         public abstract IEnumerator ShowGameOver(GameOverPresentationData data);
         public abstract IEnumerator ShowClear();
         public abstract IEnumerator ShowGovernanceResult(GovernanceResultRecord record);
