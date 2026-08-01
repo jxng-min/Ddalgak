@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JxModule;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
@@ -11,9 +12,12 @@ namespace Ddalgak
         [BigHeader("UI")]
         [SerializeField] private EventPaperView eventPaperView;
         [SerializeField] private ChoiceGroupView choiceGroupView;
+
+        private bool _cancelRequested;
         
         public override IEnumerator ShowEvent(EventData eventData)
         {
+            _cancelRequested = false;
             eventPaperView.ShowTitle(eventData.title);
             yield return eventPaperView.ShowImage(eventData.eventImage);
             yield return eventPaperView.ShowDescription(eventData.description);
@@ -36,9 +40,25 @@ namespace Ddalgak
 
         public override IEnumerator WaitForNextTurnInput()
         {
-            yield break;
+            while (!_cancelRequested)
+            {
+                var keyboard = Keyboard.current;
+                if (keyboard != null &&
+                    (keyboard.qKey.wasPressedThisFrame ||
+                     keyboard.pKey.wasPressedThisFrame ||
+                     keyboard.spaceKey.wasPressedThisFrame))
+                {
+                    choiceGroupView.ResetResultStamp();
+                    yield break;
+                }
+
+                yield return null;
+            }
         }
 
-        public override void Cancel() {}
+        public override void Cancel()
+        {
+            _cancelRequested = true;
+        }
     }
 }

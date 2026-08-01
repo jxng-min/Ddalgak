@@ -49,7 +49,6 @@ namespace Ddalgak
         public IEnumerator ShowChoices(IReadOnlyList<ChoiceData> choices, Action<ChoiceData> onSelected)
         {
             _inputLocked = false;
-            stampEffect.Reset();
             BindActiveViews(choices);
 
             if (_activeViews.Count == 0)
@@ -98,6 +97,11 @@ namespace Ddalgak
         public IEnumerator ShowResultStamp(TurnResult result)
         {
             yield return stampEffect.Play(IsSuccess(result)).WaitForCompletion();
+        }
+
+        public void ResetResultStamp()
+        {
+            stampEffect.Reset();
         }
 
         private static bool IsSuccess(TurnResult result)
