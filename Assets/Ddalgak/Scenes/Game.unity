@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 1639049089}
   - component: {fileID: 1639049094}
   - component: {fileID: 1639049095}
+  - component: {fileID: 1639049096}
   m_Layer: 0
   m_Name: Game Flow System
   m_TagString: Untagged
@@ -632,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab09fdbf8034bd3b4ad78940a4cdce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.GameFlowPresenter
-  eventPresenter: {fileID: 0}
+  eventPresenter: {fileID: 1639049096}
   statPresenter: {fileID: 1350739659}
   progressPresenter: {fileID: 1333057087}
   endingPresenter: {fileID: 0}
@@ -648,6 +649,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98d970ea2772f54dbc5fb2af76a7778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionSequence
+--- !u!114 &1639049096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639049087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236b1af36285b224cb57a195215804a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.IMGUIEventPresenter
+  koreanTyper: {fileID: 1713631623}
+  typingInterval: 0.05
+  typingStartDelay: 0.2
+  guiSkin: {fileID: 0}
+  panelWidth: 720
+  imageHeight: 320
+  descriptionHeight: 120
+  titleFontSize: 40
+  descriptionFontSize: 26
+  buttonFontSize: 24
+  resultFontSize: 26
+  buttonHeight: 58
 --- !u!1 &1713631620
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 133828033}
     - target: {fileID: 5744826178468871607, guid: 7a4a56253b3541049bb4ae8219b6fe5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -239.99994
+      value: -239.99997
       objectReference: {fileID: 0}
     - target: {fileID: 6138257166745018308, guid: 7a4a56253b3541049bb4ae8219b6fe5f, type: 3}
       propertyPath: m_AnchoredPosition.x

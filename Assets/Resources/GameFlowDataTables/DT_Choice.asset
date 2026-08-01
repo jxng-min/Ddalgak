@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A02_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uB9C8\uBC95\uC0AC\uC5D0\uAC8C \uBD88\uAE38\uC744 \uB9C9\uAC8C \uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -15 / \uBBFC\uC2EC +5 /
     \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -20 / \uBBFC\uC2EC
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B04_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uB192\uC740 \uC138\uAE08\uC744 \uC870\uAC74\uC73C\uB85C \uC81C\uD55C\uC801\uC73C\uB85C
     \uD5C8\uAC00\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 +10 / \uBBFC\uC2EC -5"
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A03_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC218\uB3C4\uC758 \uC131\uBB38\uC744 \uBD09\uC1C4\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 /
     \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B10_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uBC29\uC5B4\uC120\uC744 \uC218\uB3C4 \uCABD\uC73C\uB85C \uCD95\uC18C\uD55C\uB2E4."
   changePreview: "\uBBFC\uC2EC -5 / \uC548\uBCF4 -10"
   baseResultId: B10_P_RESULT
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A04_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC81C\uC548\uC744 \uAC70\uBD80\uD558\uACE0 \uB3CC\uB824\uBCF4\uB0B8\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uBBFC\uC2EC -5 / \uC548\uBCF4 -5 |
     \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -10 / \uC548\uBCF4
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A01_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uD604\uC0C1\uAE08\uC744 \uAC78\uACE0 \uC6A9\uBCD1\uC744 \uBAA8\uC9D1\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uC548\uBCF4 +10 |
     \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -5 / \uC548\uBCF4
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B03_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC62C\uD574 \uCD95\uC81C\uB294 \uCDE8\uC18C\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 +5 / \uBBFC\uC2EC -15"
   baseResultId: B03_P_RESULT
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A03_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uCE58\uB8CC\uC18C\uB97C \uAC74\uC124\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -15 / \uBBFC\uC2EC +15
     / \uC548\uBCF4 +5 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -20 / \uBBFC\uC2EC
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B08_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC0C1\uD658 \uAE30\uD55C\uC744 \uBBF8\uB904 \uB2EC\uB77C\uACE0 \uD611\uC0C1\uD55C\uB2E4."
   changePreview: "\uC131\uACF5 45%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -5 / \uC548\uBCF4
     -5 | \uC2E4\uD328 55%: \uAD6D\uACE0 -25 / \uBBFC\uC2EC -10"
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B03_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC77C\uC8FC\uC77C \uB3D9\uC548 \uB300\uCD95\uC81C\uB97C \uC5F0\uB2E4."
   changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +15 / \uC548\uBCF4 -5"
   baseResultId: B03_Q_RESULT
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B10_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC778\uADFC \uC8FC\uBBFC\uC744 \uBBFC\uBCD1\uB300\uB85C \uC9D5\uC9D1\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC -15 / \uC548\uBCF4 +15"
   baseResultId: B10_SPACE_RESULT
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B04_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uB3C5\uC810\uAD8C\uC744 \uD5C8\uAC00\uD55C\uB2E4."
   changePreview: "\uC131\uACF5 60%: \uAD6D\uACE0 +20 / \uBBFC\uC2EC -5 / \uC548\uBCF4
     -5 | \uC2E4\uD328 40%: \uAD6D\uACE0 +10 / \uBBFC\uC2EC -15 / \uC548\uBCF4 -10"
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B06_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC989\uC2DC \uB300\uADDC\uBAA8 \uCC44\uAD74\uC744 \uC2DC\uC791\uD55C\uB2E4."
   changePreview: "\uC131\uACF5 55%: \uAD6D\uACE0 +20 / \uBBFC\uC2EC +5 | \uC2E4\uD328
     45%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC -10 / \uC548\uBCF4 -15"
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A05_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC81C\uBC29\uC744 \uBCF4\uAC15\uD574 \uC655\uC2E4 \uC2DC\uC124\uC744
     \uC9C0\uD0A8\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uC548\uBCF4 +15
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B01_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC2DD\uB7C9 \uC18C\uBE44\uB97C \uC81C\uD55C\uD55C\uB2E4."
   changePreview: "\uBBFC\uC2EC -10 / \uC548\uBCF4 +5"
   baseResultId: B01_P_RESULT
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A03_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uAC10\uC5FC \uC9C0\uC5ED\uC744 \uACA9\uB9AC\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 /
     \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A04_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC870\uAC74\uC744 \uC870\uC728\uD574 \uB3D9\uB9F9 \uD611\uC0C1\uC744
     \uC9C4\uD589\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B08_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uAD70\uC218 \uBB3C\uC790\uB97C \uB9E4\uAC01\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 +15 / \uC548\uBCF4 -15"
   baseResultId: B08_SPACE_RESULT
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A05_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC218\uBB38\uC744 \uC5F4\uC5B4 \uBB3C\uAE38\uC744 \uB3CC\uB9B0\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
     \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B05_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uACF5\uAC1C \uC7AC\uD310\uC744 \uC5F4\uC5B4 \uC5C4\uC911\uD788 \uCC98\uBC8C\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC +15 / \uC548\uBCF4 +5"
   baseResultId: B05_Q_RESULT
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B01_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uD55C\uB3D9\uC548 \uC138\uAE08\uC744 \uAC10\uBA74\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -10 / \uBBFC\uC2EC +10"
   baseResultId: B01_SPACE_RESULT
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A02_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uBC31\uC131\uB4E4\uC744 \uB3D9\uC6D0\uD574 \uBB3C\uC744 \uB098\uB974\uAC8C
     \uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +10 /
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B09_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC655\uC2E4 \uC9C0\uC6D0\uAE08\uC744 \uC9C0\uAE09\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +20"
   baseResultId: B09_Q_RESULT
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A05_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC8FC\uBBFC\uB4E4\uC744 \uC6B0\uC120 \uB300\uD53C\uC2DC\uD0A8\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +15 /
     \uC548\uBCF4 -5 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -5 / \uBBFC\uC2EC -15
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B05_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uB1CC\uBB3C\uC744 \uBC1B\uACE0 \uC0AC\uAC74\uC744 \uB36E\uB294\uB2E4."
   changePreview: "\uAD6D\uACE0 +15 / \uBBFC\uC2EC -15 / \uC548\uBCF4 -5"
   baseResultId: B05_P_RESULT
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B06_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC704\uD5D8\uD558\uBBC0\uB85C \uAE08\uAD11\uC744 \uACC4\uC18D \uD3D0\uC1C4\uD55C\uB2E4."
   changePreview: "\uBBFC\uC2EC -5 / \uC548\uBCF4 +5"
   baseResultId: B06_P_RESULT
@@ -795,7 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B03_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC655\uAD81 \uC55E\uC5D0\uC11C \uD558\uB8E8\uB9CC \uCD95\uD558\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC +5"
   baseResultId: B03_SPACE_RESULT
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A01_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uB3C4\uC801\uB2E8\uACFC \uAC70\uB798\uD574 \uBB3C\uB7EC\uB098\uAC8C
     \uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uACB0\uACFC \uC801\uC6A9 \uD6C4 \uAD6D\uACE0 +10
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B07_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC704\uD5D8\uC744 \uB9C9\uAE30 \uC704\uD574 \uC54C\uC744 \uD30C\uAD34\uD55C\uB2E4."
   changePreview: "\uBBFC\uC2EC -15 / \uC548\uBCF4 +10"
   baseResultId: B07_P_RESULT
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A02_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uACBD\uBE44\uB300\uC5D0 \uC9C4\uD654 \uBA85\uB839\uC744 \uB0B4\uB9B0\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -5 / \uBBFC\uC2EC +5 /
     \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -10 / \uBBFC\uC2EC
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B07_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC655\uC2E4 \uC5F0\uAD6C\uC18C\uC5D0\uC11C \uC54C\uC744 \uBD80\uD654\uC2DC\uD0A8\uB2E4."
   changePreview: "\uC131\uACF5 40%: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +15 / \uC548\uBCF4
     +15 | \uC2E4\uD328 60%: \uAD6D\uACE0 -15 / \uBBFC\uC2EC -10 / \uC548\uBCF4 -15"
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B02_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uB2F9\uBD84\uAC04 \uACBD\uBE44\uBCD1\uC744 \uCD94\uAC00 \uBC30\uCE58\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uBBFC\uC2EC -5 / \uC548\uBCF4 +10"
   baseResultId: B02_P_RESULT
@@ -960,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B05_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC7AC\uC0B0\uB9CC \uBAB0\uC218\uD558\uACE0 \uC870\uC6A9\uD788 \uD574\uC784\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 +10 / \uBBFC\uC2EC +5"
   baseResultId: B05_SPACE_RESULT
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B02_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC989\uC2DC \uC131\uBCBD \uC804\uCCB4\uB97C \uBCF4\uC218\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -15 / \uC548\uBCF4 +15"
   baseResultId: B02_Q_RESULT
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B09_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uAD11\uC7A5\uC758 \uACBD\uBE44\uB300\uB97C \uD574\uC0B0\uD55C\uB2E4."
   changePreview: "\uBBFC\uC2EC +5 / \uC548\uBCF4 -10"
   baseResultId: B09_SPACE_RESULT
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B01_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uAD6D\uACE0\uB97C \uD480\uC5B4 \uC2DD\uB7C9\uC744 \uBC30\uAE09\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -15 / \uBBFC\uC2EC +15"
   baseResultId: B01_Q_RESULT
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B10_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uB300\uADDC\uBAA8 \uC9C0\uC6D0 \uBCD1\uB825\uC744 \uBCF4\uB0B8\uB2E4."
   changePreview: "\uAD6D\uACE0 -15 / \uC548\uBCF4 +20"
   baseResultId: B10_Q_RESULT
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B06_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC870\uC0AC\uB300\uB97C \uBCF4\uB0B4 \uAD11\uB9E5\uACFC \uAC31\uB3C4\uB97C
     \uD655\uC778\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uC548\uBCF4 +5"
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B08_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uBC31\uC131\uC5D0\uAC8C \uD2B9\uBCC4\uC138\uB97C \uAC77\uB294\uB2E4."
   changePreview: "\uAD6D\uACE0 +20 / \uBBFC\uC2EC -15"
   baseResultId: B08_Q_RESULT
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B04_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uAC70\uB798\uB97C \uAC70\uBD80\uD558\uACE0 \uAD6D\uACBD\uC5D0\uC11C
     \uB3CC\uB824\uBCF4\uB0B8\uB2E4."
   changePreview: "\uBBFC\uC2EC +5 / \uC548\uBCF4 +10"
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B09_P
   isEnable: 1
-  inputKey: 112
+  inputKey: 30
   description: "\uC655\uC774 \uC9C1\uC811 \uB098\uAC00 \uC0AC\uACFC\uD55C\uB2E4."
   changePreview: "\uC131\uACF5 50%: \uBBFC\uC2EC +15 / \uC548\uBCF4 -5 | \uC2E4\uD328
     50%: \uBBFC\uC2EC -25 / \uC548\uBCF4 -5"
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B02_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uC704\uD5D8\uD55C \uAD6C\uAC04\uB9CC \uC784\uC2DC\uB85C \uBCF4\uC218\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 -5 / \uC548\uBCF4 +5"
   baseResultId: B02_SPACE_RESULT
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A01_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC815\uADDC\uAD70\uC744 \uD30C\uACAC\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +5 /
     \uC548\uBCF4 +15 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: B07_SPACE
   isEnable: 1
-  inputKey: 32
+  inputKey: 1
   description: "\uB2E4\uB978 \uC655\uAD6D\uC5D0 \uB192\uC740 \uAC12\uC73C\uB85C \uD310\uB9E4\uD55C\uB2E4."
   changePreview: "\uAD6D\uACE0 +15 / \uBBFC\uC2EC -5 / \uC548\uBCF4 -5"
   baseResultId: B07_SPACE_RESULT
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceDataTableRow
   rowID: A04_Q
   isEnable: 1
-  inputKey: 113
+  inputKey: 31
   description: "\uC131\uB300\uD55C \uC5F0\uD68C\uB97C \uC5F4\uC5B4 \uD658\uB300\uD55C\uB2E4."
   changePreview: "\uC561\uC158 \uC131\uACF5: \uAD6D\uACE0 -10 / \uBBFC\uC2EC +10
     / \uC548\uBCF4 +10 | \uC561\uC158 \uC2E4\uD328: \uAD6D\uACE0 -15 / \uBBFC\uC2EC
