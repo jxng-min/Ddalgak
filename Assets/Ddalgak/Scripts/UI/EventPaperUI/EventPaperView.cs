@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Ddalgak
 {
@@ -9,6 +10,7 @@ namespace Ddalgak
     {
         [SerializeField] private DropInEffect enterEffect;
         [SerializeField] private TMP_Text descriptionText;
+        [SerializeField] private GameObject fadeImage;
 
         public bool IsAnimating { get; private set; }
 
