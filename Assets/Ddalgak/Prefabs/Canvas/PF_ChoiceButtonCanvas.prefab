@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 5080799131268276869}
   - component: {fileID: 3795398548241595659}
   - component: {fileID: 6053238872506116035}
-  - component: {fileID: 2510152310513264898}
+  - component: {fileID: 6251479927069918625}
   m_Layer: 5
   m_Name: SpaceButton
   m_TagString: Untagged
@@ -489,8 +489,6 @@ MonoBehaviour:
   borderHighlight: {fileID: 0}
   targetText: {fileID: 0}
   highlightTextColor: {r: 1, g: 1, b: 1, a: 1}
-  dimAlpha: 0.45
-  dimDuration: 0.2
 --- !u!114 &5080799131268276869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,33 +532,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
---- !u!114 &2510152310513264898
-MonoBehaviour:
+--- !u!225 &6251479927069918625
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441464879281073923}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48de044b42591fb4cb5d5ef9b40f8f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionView
-  actionImage: {fileID: 2460097365598692328}
-  singlePressFrames:
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  pressFrames:
-  - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
-  - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
-  - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
-  - {fileID: 21300000, guid: db91cb6946fe8224ea5468cd12f63a3d, type: 3}
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  - {fileID: 21300000, guid: 8dac1aac3d5d6d049af13cd39c81c3c3, type: 3}
-  - {fileID: 21300000, guid: 5c1a2bda586ab2746af8c2495cbce4a1, type: 3}
-  - {fileID: 21300000, guid: cccc9f07c0e549945ad61236d47a345f, type: 3}
-  frameInterval: 0.05
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1454950969042089292
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +848,7 @@ GameObject:
   - component: {fileID: 9208671780224322593}
   - component: {fileID: 3157152634978906313}
   - component: {fileID: 8338204283613864607}
-  - component: {fileID: 1463444245485127141}
+  - component: {fileID: 7966840977253351303}
   m_Layer: 5
   m_Name: PButton
   m_TagString: Untagged
@@ -989,8 +972,6 @@ MonoBehaviour:
   borderHighlight: {fileID: 0}
   targetText: {fileID: 0}
   highlightTextColor: {r: 1, g: 1, b: 1, a: 1}
-  dimAlpha: 0.45
-  dimDuration: 0.2
 --- !u!114 &3157152634978906313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,33 +1000,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
---- !u!114 &1463444245485127141
-MonoBehaviour:
+--- !u!225 &7966840977253351303
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3308708563648384787}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48de044b42591fb4cb5d5ef9b40f8f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionView
-  actionImage: {fileID: 6576030228124308697}
-  singlePressFrames:
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  pressFrames:
-  - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
-  - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
-  - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
-  - {fileID: 21300000, guid: db91cb6946fe8224ea5468cd12f63a3d, type: 3}
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  - {fileID: 21300000, guid: 8dac1aac3d5d6d049af13cd39c81c3c3, type: 3}
-  - {fileID: 21300000, guid: 5c1a2bda586ab2746af8c2495cbce4a1, type: 3}
-  - {fileID: 21300000, guid: cccc9f07c0e549945ad61236d47a345f, type: 3}
-  frameInterval: 0.05
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3391191595514999737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1238,7 @@ GameObject:
   - component: {fileID: 6169127086141435496}
   - component: {fileID: 3560553536081648807}
   - component: {fileID: 4586032332482641044}
+  - component: {fileID: 553839169167829458}
   m_Layer: 5
   m_Name: PF_ChoiceButtonCanvas
   m_TagString: Untagged
@@ -1400,6 +1367,35 @@ MonoBehaviour:
   startScale: 1.6
   duration: 0.25
   ease: 27
+--- !u!114 &553839169167829458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523096210246007337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de044b42591fb4cb5d5ef9b40f8f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionView
+  pActionImage: {fileID: 6576030228124308697}
+  qActionImage: {fileID: 6669674646473784515}
+  spaceActionImage: {fileID: 2460097365598692328}
+  singlePressFrames:
+  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
+  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
+  pressFrames:
+  - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
+  - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
+  - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
+  - {fileID: 21300000, guid: db91cb6946fe8224ea5468cd12f63a3d, type: 3}
+  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
+  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
+  - {fileID: 21300000, guid: 8dac1aac3d5d6d049af13cd39c81c3c3, type: 3}
+  - {fileID: 21300000, guid: 5c1a2bda586ab2746af8c2495cbce4a1, type: 3}
+  - {fileID: 21300000, guid: cccc9f07c0e549945ad61236d47a345f, type: 3}
+  frameInterval: 0.05
 --- !u!1 &5303636864565353419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1412,7 @@ GameObject:
   - component: {fileID: 914907382184805010}
   - component: {fileID: 2327175698991102852}
   - component: {fileID: 2966245873182655047}
-  - component: {fileID: 3873127092646513386}
+  - component: {fileID: 3638900045981893759}
   m_Layer: 5
   m_Name: QButton
   m_TagString: Untagged
@@ -1556,8 +1552,6 @@ MonoBehaviour:
   borderHighlight: {fileID: 0}
   targetText: {fileID: 0}
   highlightTextColor: {r: 1, g: 1, b: 1, a: 1}
-  dimAlpha: 0.45
-  dimDuration: 0.2
 --- !u!114 &2966245873182655047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,33 +1564,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f960836c8a408590a38f8247916f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.KoreanTyper
---- !u!114 &3873127092646513386
-MonoBehaviour:
+--- !u!225 &3638900045981893759
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5303636864565353419}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48de044b42591fb4cb5d5ef9b40f8f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionView
-  actionImage: {fileID: 6669674646473784515}
-  singlePressFrames:
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  pressFrames:
-  - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
-  - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
-  - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
-  - {fileID: 21300000, guid: db91cb6946fe8224ea5468cd12f63a3d, type: 3}
-  - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
-  - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  - {fileID: 21300000, guid: 8dac1aac3d5d6d049af13cd39c81c3c3, type: 3}
-  - {fileID: 21300000, guid: 5c1a2bda586ab2746af8c2495cbce4a1, type: 3}
-  - {fileID: 21300000, guid: cccc9f07c0e549945ad61236d47a345f, type: 3}
-  frameInterval: 0.05
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7912360950729746784
 GameObject:
   m_ObjectHideFlags: 0

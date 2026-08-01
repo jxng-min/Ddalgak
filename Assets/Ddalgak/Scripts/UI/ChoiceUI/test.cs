@@ -8,6 +8,5 @@ public class test : MonoBehaviour
 
     private void Start()
     {
-        buttonActionView.Show(EButtonActionType.Timing, 2f);
     }
 }
