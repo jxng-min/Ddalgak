@@ -197,28 +197,19 @@ namespace Ddalgak
 
         private IEnumerator ProcessTiming(ButtonAction action, Action<bool> onStepFinished)
         {
-            float timer = 0;
-            float progress = 0f;
-            bool movingForward = true;
+            actionView?.Show(action.ActionType, action.Duration);
+
+            float timer = 0f;
 
             while (timer < action.Duration && !_isCancelled)
             {
                 timer += Time.deltaTime;
-
-                if (movingForward)
-                {
-                    progress += Time.deltaTime * action.TimingSpeed;
-                    if (progress >= 1f) { progress = 1f; movingForward = false; }
-                }
-                else
-                {
-                    progress -= Time.deltaTime * action.TimingSpeed;
-                    if (progress <= 0f) { progress = 0f; movingForward = true; }
-                }
+                float progress = timer / action.Duration;
 
                 if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
                     bool isSuccess = progress >= action.SuccessRangeStart && progress <= action.SuccessRangeEnd;
+                    actionView?.Hide();
                     onStepFinished?.Invoke(isSuccess);
                     yield break;
                 }
@@ -226,6 +217,7 @@ namespace Ddalgak
                 yield return null;
             }
 
+            actionView?.Hide();
             onStepFinished?.Invoke(false);
         }
     }

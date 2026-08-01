@@ -8,6 +8,6 @@ public class test : MonoBehaviour
 
     private void Start()
     {
-        buttonActionView.Show(EButtonActionType.RapidPress);
+        buttonActionView.Show(EButtonActionType.Timing, 2f);
     }
 }

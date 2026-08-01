@@ -549,7 +549,7 @@ MonoBehaviour:
   singlePressFrames:
   - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
   - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  rapidPressFrames:
+  pressFrames:
   - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
   - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
   - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   singlePressFrames:
   - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
   - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  rapidPressFrames:
+  pressFrames:
   - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
   - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
   - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   singlePressFrames:
   - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
   - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}
-  rapidPressFrames:
+  pressFrames:
   - {fileID: 21300000, guid: 1b62015949f076c4cbdf346ecdeb7116, type: 3}
   - {fileID: 21300000, guid: edd52ae62da85e14ba7971f761c68519, type: 3}
   - {fileID: 21300000, guid: 5594be84c84a69843901893952527f8e, type: 3}
