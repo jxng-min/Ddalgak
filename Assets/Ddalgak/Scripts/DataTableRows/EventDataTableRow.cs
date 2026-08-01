@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JxModule;
 using JxModule.DataTable;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Ddalgak
         public string eventName;
         public string title;
         public string description;
+        public Texture2D eventTexture;
         public EEventType eventType;
         public float weight;
         public bool isConditional;
@@ -38,6 +40,7 @@ namespace Ddalgak
                 eventName = eventName,
                 title = title,
                 description = description,
+                eventImage = eventTexture.ToSprite(),
                 eventType = eventType,
                 weight = weight,
                 isConditional = isConditional,
