@@ -10,6 +10,7 @@ namespace Ddalgak
     {
         [BigHeader("Settings")]
         [Header("Value Change")]
+        [SerializeField] private float totalWidth = 220f;
         [SerializeField] private float valueChangeDuration = 0.2f;
         
         [Header("Value Increase")]
@@ -25,7 +26,7 @@ namespace Ddalgak
 
         public Tween PlayIncreaseValueEffect(RectTransform slotRect, 
                                              Vector2 originAnchoredPosition, 
-                                             Image sliderImage, 
+                                             RectTransform sliderRect, 
                                              float valueRate)
         {
             var sequence = DOTween.Sequence();
@@ -36,7 +37,7 @@ namespace Ddalgak
             );
 
             sequence.Append(
-                sliderImage.DOFillAmount(valueRate, valueChangeDuration)
+                sliderRect.DOAnchorPosX(-totalWidth * (1f - valueRate), valueChangeDuration)
             );
 
             sequence.Append(
@@ -47,7 +48,7 @@ namespace Ddalgak
             return sequence;
         }
 
-        public Tween PlayDecreaseValueEffect(RectTransform slotRect, Image sliderImage, float valueRate)
+        public Tween PlayDecreaseValueEffect(RectTransform slotRect, RectTransform sliderRect, float valueRate)
         {
             var sequence = DOTween.Sequence();
             
@@ -56,11 +57,16 @@ namespace Ddalgak
                     .SetEase(decreaseEase)
             );
 
-            sequence.Join(
-                sliderImage.DOFillAmount(valueRate, decreaseDuration)
+            sequence.Append(
+                sliderRect.DOAnchorPosX(-totalWidth * (1f - valueRate), valueChangeDuration)
             );
-
+            
             return sequence;
+        }
+
+        public void SetValueEffect(RectTransform sliderRect, float valueRate)
+        {
+            sliderRect.anchoredPosition = new Vector2(-totalWidth * (1f - valueRate), sliderRect.anchoredPosition.y);
         }
     }
 }
