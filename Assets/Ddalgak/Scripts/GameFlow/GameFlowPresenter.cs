@@ -62,27 +62,29 @@ namespace Ddalgak
 
         public override IEnumerator ShowEmergencyRecovery(EmergencyRecoveryData data)
         {
-            return endingPresenter.ShowEmergencyRecovery(data);
+            return eventPresenter.ShowEmergencyRecovery(data);
         }
 
         public override IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data, bool succeeded)
         {
-            return endingPresenter.ShowEmergencyRecoveryResult(data, succeeded);
+            return eventPresenter.ShowEmergencyRecoveryResult(data, succeeded);
         }
 
         public override IEnumerator ShowGameOver(GameOverPresentationData data)
         {
-            return endingPresenter.ShowGameOver(data);
+            return eventPresenter.ShowGameOver(data);
         }
 
-        public override IEnumerator ShowClear()
+        public override IEnumerator ShowClear(GameOverPresentationData data)
         {
-            return endingPresenter.ShowClear();
+            return eventPresenter.ShowClear(data);
         }
 
         public override IEnumerator ShowGovernanceResult(GovernanceResultRecord record)
         {
-            return endingPresenter.ShowGovernanceResult(record);
+            return endingPresenter != null
+                ? endingPresenter.ShowGovernanceResult(record)
+                : EmptyRoutine();
         }
 
         public override void Cancel()
@@ -90,7 +92,12 @@ namespace Ddalgak
             eventPresenter.Cancel();
             statPresenter.Cancel();
             progressPresenter.Cancel();
-            endingPresenter.Cancel();
+            endingPresenter?.Cancel();
+        }
+
+        private static IEnumerator EmptyRoutine()
+        {
+            yield break;
         }
     }
 }

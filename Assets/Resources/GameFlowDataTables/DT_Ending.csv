@@ -1,0 +1,6 @@
+rowID,gameOverReason,title,presentation,endingImage,endingText,isEnable
+ENDING_CLEAR,None,왕국은 오늘도 평화롭습니다,수많은 위기 속에서도 왕국은 평화를 지켜 냈습니다.,Event/C01.png,왕국의 백성들은 오래도록 이 평화로운 통치를 기억할 것입니다.,TRUE
+ENDING_TREASURY,TreasuryDepleted,텅 빈 왕실 금고,"왕이 왕실 금고의 문을 열지만 안에는 동전 한 닢도 남아 있지 않습니다.\n재무관이 쌓인 청구서와 빚 문서를 건넵니다.",Event/G01.png,"왕실의 금고가 완전히 바닥났습니다.\n왕국의 재산은 빚을 갚기 위해 하나씩 팔려 나갔고 마지막에는 왕좌와 왕관마저 경매에 넘어갔습니다.\n왕국이 먼저 팔렸을 뿐입니다.",TRUE
+ENDING_SENTIMENT,PublicSentimentCollapsed,왕궁으로 향한 행진,"성 밖에서 시작된 작은 시위가 거대한 군중으로 불어납니다.\n분노한 백성들은 왕궁을 향해 행진합니다.",Event/G02.png,"백성들은 더 이상 왕의 결정을 믿지 않았습니다.\n왕은 진정하라고 명령했지만 이미 명령을 들어 줄 사람은 남아 있지 않았습니다.\n이전까지 왕의 동상이 서 있던 자리에는 새로운 광장이 생겼습니다.",TRUE
+ENDING_SECURITY,SecurityCollapsed,활짝 열린 성문,"무너진 성벽과 텅 빈 경비 초소가 차례대로 나타납니다.\n성문 밖에서는 적군의 깃발이 가까워집니다.",Event/G03.png,"왕국을 지킬 병사도 성벽도 경비대도 남아 있지 않았습니다.\n적군은 아무런 방해도 받지 않고 성문을 통과했습니다.\n왕은 도망칠 길을 찾지 못했습니다.",TRUE
+ENDING_FATAL,FatalEventFailure,돌이킬 수 없는 실패,사건의 실패가 왕국에 돌이킬 수 없는 결과를 남겼습니다.,Event/G01.png,왕국은 다시 일어설 기회조차 얻지 못한 채 무너졌습니다.,TRUE
