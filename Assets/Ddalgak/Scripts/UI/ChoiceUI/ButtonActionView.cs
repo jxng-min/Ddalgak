@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Ddalgak
 {
     public sealed class ButtonActionView : MonoBehaviour
     {
-        [SerializeField] private Image actionImage;
+        [SerializeField] private Image pActionImage;
+        [SerializeField] private Image qActionImage;
+        [SerializeField] private Image spaceActionImage;
 
         [SerializeField] private Sprite[] singlePressFrames;
         [SerializeField] private Sprite[] pressFrames;
@@ -14,12 +17,21 @@ namespace Ddalgak
         [Header("Animation")]
         [SerializeField, Min(0f)] private float frameInterval = 0.05f;
 
+        private Image _activeImage;
         private Coroutine _animationCoroutine;
 
-        public void Show(EButtonActionType actionType, float duration = 0f)
+        public void Show(EButtonActionType actionType, Key key, float duration = 0f)
         {
-            actionImage.gameObject.SetActive(true);
             StopAnimation();
+            HideAllImages();
+
+            _activeImage = GetImageForKey(key);
+            if (_activeImage == null)
+            {
+                return;
+            }
+
+            _activeImage.gameObject.SetActive(true);
 
             switch (actionType)
             {
@@ -38,7 +50,26 @@ namespace Ddalgak
         public void Hide()
         {
             StopAnimation();
-            actionImage.gameObject.SetActive(false);
+            HideAllImages();
+            _activeImage = null;
+        }
+
+        private Image GetImageForKey(Key key)
+        {
+            return key switch
+            {
+                Key.P => pActionImage,
+                Key.Q => qActionImage,
+                Key.Space => spaceActionImage,
+                _ => null
+            };
+        }
+
+        private void HideAllImages()
+        {
+            pActionImage.gameObject.SetActive(false);
+            qActionImage.gameObject.SetActive(false);
+            spaceActionImage.gameObject.SetActive(false);
         }
 
         private void StopAnimation()
@@ -62,7 +93,7 @@ namespace Ddalgak
             int frameIndex = 0;
             while (true)
             {
-                actionImage.sprite = frames[frameIndex];
+                _activeImage.sprite = frames[frameIndex];
                 frameIndex = (frameIndex + 1) % frames.Length;
                 yield return new WaitForSeconds(frameInterval);
             }
@@ -78,7 +109,7 @@ namespace Ddalgak
             float perFrameDuration = duration / frames.Length;
             for (int frameIndex = 0; frameIndex < frames.Length; frameIndex++)
             {
-                actionImage.sprite = frames[frameIndex];
+                _activeImage.sprite = frames[frameIndex];
                 yield return new WaitForSeconds(perFrameDuration);
             }
         }

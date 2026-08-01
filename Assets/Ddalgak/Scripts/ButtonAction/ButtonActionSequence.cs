@@ -110,7 +110,7 @@ namespace Ddalgak
 
         private IEnumerator ProcessSinglePress(ButtonAction action, Action<bool> onStepFinished)
         {
-            actionView?.Show(action.ActionType);
+            actionView?.Show(action.ActionType, action.Key);
 
             float timer = 0f;
 
@@ -169,7 +169,7 @@ namespace Ddalgak
 
         private IEnumerator ProcessRapidPress(ButtonAction action, Action<bool> onStepFinished)
         {
-            actionView?.Show(action.ActionType);
+            actionView?.Show(action.ActionType, action.Key);
 
             float timer = 0f;
             int pressCount = 0;
@@ -197,7 +197,7 @@ namespace Ddalgak
 
         private IEnumerator ProcessTiming(ButtonAction action, Action<bool> onStepFinished)
         {
-            actionView?.Show(action.ActionType, action.Duration);
+            actionView?.Show(action.ActionType, action.Key, action.Duration);
 
             float timer = 0f;
 
