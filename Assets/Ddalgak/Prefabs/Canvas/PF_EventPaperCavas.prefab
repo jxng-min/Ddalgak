@@ -225,7 +225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26, y: 1100}
+  m_AnchoredPosition: {x: -26, y: 0}
   m_SizeDelta: {x: 1500, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8450709500653200693
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2848b7695450d504b8988afcfc8fcd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DropInEffect
-  startOffsetY: 1000
+  startOffsetY: 1100
   duration: 0.45
   ease: 27
 --- !u!1 &2495242025424728946
