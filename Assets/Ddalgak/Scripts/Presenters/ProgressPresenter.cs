@@ -23,7 +23,8 @@ namespace Ddalgak
 
         public override IEnumerator ShowWeekStart(GameRuntimeState runtimeState)
         {
-            yield return calendarView.UpdateWeek(runtimeState);
+            StartCoroutine(calendarView.UpdateWeek(runtimeState));
+            yield return null;
         }
 
         public override IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState)

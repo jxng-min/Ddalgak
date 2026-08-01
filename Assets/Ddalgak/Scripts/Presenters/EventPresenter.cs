@@ -18,6 +18,7 @@ namespace Ddalgak
         public override IEnumerator ShowEvent(EventData eventData)
         {
             _cancelRequested = false;
+            eventPaperView.ClearDescription();
             eventPaperView.ShowTitle(eventData.title);
             yield return eventPaperView.ShowImage(eventData.eventImage);
             yield return eventPaperView.ShowDescription(eventData.description);
