@@ -55,11 +55,6 @@ namespace Ddalgak
             return eventPresenter.WaitForNextTurnInput();
         }
 
-        public override IEnumerator HideEvent()
-        {
-            return eventPresenter.HideEvent();
-        }
-
         public override IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState)
         {
             return progressPresenter.ShowWeekSettlement(runtimeState);

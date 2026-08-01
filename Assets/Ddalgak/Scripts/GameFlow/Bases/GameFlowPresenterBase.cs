@@ -18,7 +18,6 @@ namespace Ddalgak
                                                        KingdomStatsSnapshot after,
                                                        StatModifier modifier);
         public abstract IEnumerator WaitForNextTurnInput();
-        public abstract IEnumerator HideEvent();
         public abstract IEnumerator ShowWeekSettlement(GameRuntimeState runtimeState);
         public abstract IEnumerator ShowEmergencyRecovery(EmergencyRecoveryData data);
         public abstract IEnumerator ShowEmergencyRecoveryResult(EmergencyRecoveryData data, bool succeeded);

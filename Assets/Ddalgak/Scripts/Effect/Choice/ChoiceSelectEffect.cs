@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Ddalgak
 {
-    [ManagedEffect("Choice", "º±≈√ »Æ¡§ »ø∞˙", 1)]
+    [ManagedEffect("Choice", "ÏÑ†ÌÉù ÌôïÏ†ï Ìö®Í≥º", 1)]
     public sealed class ChoiceSelectEffect : MonoBehaviour
     {
         [Header("Scale Punch")]
@@ -22,18 +22,12 @@ namespace Ddalgak
         [SerializeField] private TMP_Text targetText;
         [SerializeField] private Color highlightTextColor = Color.white;
 
-        [Header("Dim")]
-        [SerializeField] private float dimAlpha = 0.45f;
-        [SerializeField] private float dimDuration = 0.2f;
-
         private RectTransform _rectTransform;
-        private CanvasGroup _canvasGroup;
         private Color _originalTextColor;
 
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
-            _canvasGroup = GetComponent<CanvasGroup>();
 
             if (targetText != null)
             {
@@ -68,16 +62,9 @@ namespace Ddalgak
             return sequence;
         }
 
-        public Tween PlayDim()
-        {
-            DOTween.Kill(_canvasGroup);
-            return _canvasGroup.DOFade(dimAlpha, dimDuration);
-        }
-
         public void ResetVisual()
         {
             DOTween.Kill(_rectTransform);
-            DOTween.Kill(_canvasGroup);
 
             if (borderHighlight != null)
             {
@@ -94,16 +81,11 @@ namespace Ddalgak
                 _rectTransform.localScale = Vector3.one;
             }
 
-            if (_canvasGroup != null)
-            {
-                _canvasGroup.alpha = 1f;
-            }
         }
 
         public void Kill()
         {
             DOTween.Kill(_rectTransform);
-            DOTween.Kill(_canvasGroup);
         }
     }
 }

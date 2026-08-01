@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceButtonView
   descriptionText: {fileID: 291228563902822996}
-  dropEffect: {fileID: 3795398548241595659}
+  initialDropEffect: {fileID: 3795398548241595659}
   showEffect: {fileID: 5080799131268276869}
   selectEffect: {fileID: 3517525449306954499}
   textImage: {fileID: 1454950969042089292}
@@ -513,10 +513,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441464879281073923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2848b7695450d504b8988afcfc8fcd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ac7733fd009064ba945898a00d93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DropInEffect
-  startOffsetY: 1000
+  startAnchoredY: 650
+  targetAnchoredY: -420
   duration: 0.45
   ease: 27
 --- !u!114 &6053238872506116035
@@ -838,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceButtonView
   descriptionText: {fileID: 8194310651020154292}
-  dropEffect: {fileID: 3157152634978906313}
+  initialDropEffect: {fileID: 3157152634978906313}
   showEffect: {fileID: 7238472917802289410}
   selectEffect: {fileID: 9208671780224322593}
   textImage: {fileID: 896038055685537905}
@@ -893,10 +894,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3308708563648384787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2848b7695450d504b8988afcfc8fcd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ac7733fd009064ba945898a00d93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DropInEffect
-  startOffsetY: 1000
+  startAnchoredY: 650
+  targetAnchoredY: -420
   duration: 0.45
   ease: 27
 --- !u!114 &8338204283613864607
@@ -1360,7 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ChoiceButtonView
   descriptionText: {fileID: 5761264596871241789}
-  dropEffect: {fileID: 4203796135015637066}
+  initialDropEffect: {fileID: 4203796135015637066}
   showEffect: {fileID: 914907382184805010}
   selectEffect: {fileID: 2327175698991102852}
   textImage: {fileID: 970677786364417901}
@@ -1376,10 +1378,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5303636864565353419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2848b7695450d504b8988afcfc8fcd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ac7733fd009064ba945898a00d93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DropInEffect
-  startOffsetY: 1000
+  startAnchoredY: 650
+  targetAnchoredY: -420
   duration: 0.45
   ease: 27
 --- !u!114 &914907382184805010
