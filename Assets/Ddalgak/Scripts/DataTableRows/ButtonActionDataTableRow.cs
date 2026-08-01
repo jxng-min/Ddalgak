@@ -1,12 +1,13 @@
 using JxModule.DataTable;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
     public sealed class ButtonActionDataTableRow : DataTableRowBase
     {
         public EButtonActionType actionType;
-        public KeyCode key;
+        public Key key;
         public float duration;
         public float holdDuration;
         public float addDuration;

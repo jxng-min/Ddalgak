@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
@@ -8,7 +9,7 @@ namespace Ddalgak
     {
         public string actionID;
         public EButtonActionType actionType;
-        public KeyCode key;
+        public Key key;
         public float duration;
         public float holdDuration;
         public float addDuration;

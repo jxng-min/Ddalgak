@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Ddalgak
@@ -12,7 +13,7 @@ namespace Ddalgak
         [SerializeField]
         private EButtonActionType actionType;
         [SerializeField]
-        private KeyCode key;
+        private Key key;
 
         [Header("제한 시간")]
         [SerializeField]
@@ -40,7 +41,7 @@ namespace Ddalgak
 
         public string ActionID => actionID;
         public EButtonActionType ActionType => actionType;
-        public KeyCode Key => key;
+        public Key Key => key;
         public float Duration => duration;
         public float HoldedDuration => holdDuration;
         public float AddDuration => addDuration;

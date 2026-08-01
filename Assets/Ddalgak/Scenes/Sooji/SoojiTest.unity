@@ -759,10 +759,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_EventPaperCavas
       objectReference: {fileID: 0}
-    - target: {fileID: 2542083167034547654, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9080651939979571467, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
       propertyPath: m_Pivot.x
       value: 0
