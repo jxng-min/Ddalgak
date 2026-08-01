@@ -25,6 +25,27 @@ namespace Ddalgak
         private readonly List<ChoiceButtonView> _activeViews = new();
         private bool _inputLocked;
 
+        public IEnumerator ShowInitialButtons()
+        {
+            ChoiceButtonView[] views = { leftView, rightView, centerView };
+            List<Tween> tweens = new(views.Length);
+
+            for (var i = 0; i < views.Length; i++)
+            {
+                if (i > 0)
+                {
+                    yield return new WaitForSeconds(showStaggerInterval);
+                }
+
+                tweens.Add(views[i].PlayInitialDrop());
+            }
+
+            foreach (Tween tween in tweens)
+            {
+                yield return tween.WaitForCompletion();
+            }
+        }
+
         public IEnumerator ShowChoices(IReadOnlyList<ChoiceData> choices, Action<ChoiceData> onSelected)
         {
             _inputLocked = false;
@@ -65,7 +86,8 @@ namespace Ddalgak
         {
             _inputLocked = true;
 
-            foreach (ChoiceButtonView view in _activeViews)
+            ChoiceButtonView[] views = { leftView, rightView, centerView };
+            foreach (ChoiceButtonView view in views)
             {
                 view.KillTweens();
             }
@@ -73,9 +95,9 @@ namespace Ddalgak
             stampEffect.Kill();
         }
 
-        public Tween ShowResultStamp(TurnResult result)
+        public IEnumerator ShowResultStamp(TurnResult result)
         {
-            return stampEffect.Play(IsSuccess(result));
+            yield return stampEffect.Play(IsSuccess(result)).WaitForCompletion();
         }
 
         private static bool IsSuccess(TurnResult result)
@@ -190,10 +212,6 @@ namespace Ddalgak
                 if (view == selectedView)
                 {
                     selectTween = view.PlaySelect();
-                }
-                else
-                {
-                    view.PlayDim();
                 }
             }
 

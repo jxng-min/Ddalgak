@@ -112,16 +112,16 @@ namespace Ddalgak
             _isWaitingForNextTurn = false;
         }
 
-        public override IEnumerator HideEvent()
-        {
-            _isEventVisible = false;
-            _isChoicesVisible = false;
-            _eventData = null;
-            _description = string.Empty;
-            _choices.Clear();
-            _onSelected = null;
-            yield break;
-        }
+        // public override IEnumerator HideEvent()
+        // {
+        //     _isEventVisible = false;
+        //     _isChoicesVisible = false;
+        //     _eventData = null;
+        //     _description = string.Empty;
+        //     _choices.Clear();
+        //     _onSelected = null;
+        //     yield break;
+        // }
 
         public override void Cancel()
         {

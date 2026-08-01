@@ -12,14 +12,13 @@ namespace Ddalgak
         [SerializeField] private Ease ease = Ease.OutQuad;
 
         private RectTransform _rectTransform;
-        private CanvasGroup _canvasGroup;
+        private Tween _tween;
         private float _restingAnchoredY;
         private bool _hasRestingAnchoredY;
 
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
-            _canvasGroup = GetComponent<CanvasGroup>();
         }
 
         public Tween Play()
@@ -30,29 +29,19 @@ namespace Ddalgak
                 _hasRestingAnchoredY = true;
             }
 
-            DOTween.Kill(_rectTransform);
-            DOTween.Kill(_canvasGroup);
+            _tween?.Kill();
 
-            _canvasGroup.alpha = 0f;
             _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x,
                                                            _restingAnchoredY - moveDistance);
 
-            Sequence sequence = DOTween.Sequence();
-            sequence.Join(_canvasGroup.DOFade(1f, duration).SetEase(ease));
-            sequence.Join(_rectTransform.DOAnchorPosY(_restingAnchoredY, duration).SetEase(ease));
-            return sequence;
-        }
-
-        public Tween PlayHide(float? overrideDuration = null)
-        {
-            DOTween.Kill(_canvasGroup);
-            return _canvasGroup.DOFade(0f, overrideDuration ?? duration).SetEase(ease);
+            _tween = _rectTransform.DOAnchorPosY(_restingAnchoredY, duration).SetEase(ease);
+            return _tween;
         }
 
         public void Kill()
         {
-            DOTween.Kill(_rectTransform);
-            DOTween.Kill(_canvasGroup);
+            _tween?.Kill();
+            _tween = null;
         }
     }
 }

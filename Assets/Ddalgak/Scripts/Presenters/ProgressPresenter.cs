@@ -10,11 +10,15 @@ namespace Ddalgak
         [SerializeField] private BackgroundView backgroundView;
         [SerializeField] private CalendarView calendarView;
         [SerializeField] private StatView statView;
+        [SerializeField] private EventPaperView eventPaperView;
+        [SerializeField] private ChoiceGroupView choiceGroupView;
         
         public override IEnumerator ShowGameStart(GameRuntimeState runtimeState)
         {
             yield return backgroundView.DrawKingdom();
             yield return statView.InitStat();
+            yield return eventPaperView.ShowPaper();
+            yield return choiceGroupView.ShowInitialButtons();
         }
 
         public override IEnumerator ShowWeekStart(GameRuntimeState runtimeState)
@@ -27,6 +31,10 @@ namespace Ddalgak
             yield break;
         }
 
-        public override void Cancel() {}
+        public override void Cancel()
+        {
+            eventPaperView.Cancel();
+            choiceGroupView.Cancel();
+        }
     }
 }

@@ -1,14 +1,15 @@
 using DG.Tweening;
+using JxModule;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
-    public sealed class ChoiceButtonView : MonoBehaviour
+    public sealed class ChoiceButtonView : ViewBase
     {
         [SerializeField] private TMP_Text descriptionText;
-        [SerializeField] private DropInEffect dropEffect;
+        [SerializeField] private ChoiceButtonDropEffect initialDropEffect;
         [SerializeField] private ChoiceShowEffect showEffect;
         [SerializeField] private ChoiceSelectEffect selectEffect;
         [SerializeField] private GameObject textImage;
@@ -23,6 +24,11 @@ namespace Ddalgak
         public ChoiceData Data { get; private set; }
         public Key InputKey => Data?.inputKey ?? Key.None;
 
+        private void Awake()
+        {
+            initialDropEffect.Prepare(RectTransform);
+        }
+
         public void Bind(ChoiceData data)
         {
             Data = data;
@@ -35,15 +41,14 @@ namespace Ddalgak
             selectEffect.ResetVisual();
         }
 
-        public Tween PlayShow()
+        public Tween PlayInitialDrop()
         {
-            dropEffect.Play();
-            return showEffect.Play();
+            return initialDropEffect.Play(RectTransform);
         }
 
-        public Tween PlayDim()
+        public Tween PlayShow()
         {
-            return selectEffect.PlayDim();
+            return showEffect.Play();
         }
 
         public Sequence PlaySelect()
@@ -82,6 +87,7 @@ namespace Ddalgak
         public void KillTweens()
         {
             StopTyping();
+            initialDropEffect.Kill();
             showEffect.Kill();
             selectEffect.Kill();
         }
