@@ -159,16 +159,22 @@ namespace Ddalgak
                 yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(true));
                 yield break;
             }
+            
+            var isWeekCompleted = _runtimeState.IsWeekCompleted;
 
-            if (_runtimeState.IsWeekCompleted)
+            if (isWeekCompleted)
             {
                 ChangeState(EGameFlowState.WeekSettlement);
                 yield return presenter.ShowWeekSettlement(_runtimeState);
-                yield return StartWeek(_runtimeState.CurrentWeek + 1);
             }
 
             ChangeState(EGameFlowState.TurnEnd);
             yield return presenter.WaitForNextTurnInput();
+
+            if (isWeekCompleted)
+            {
+                yield return StartWeek(_runtimeState.CurrentWeek + 1);
+            }
         }
 
         private IEnumerator StartWeek(int week)
