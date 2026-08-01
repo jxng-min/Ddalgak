@@ -9,7 +9,6 @@ namespace Ddalgak
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private ChoiceShowEffect showEffect;
         [SerializeField] private ChoiceSelectEffect selectEffect;
-        [SerializeField] private ChoiceStampEffect stampEffect;
 
         public ChoiceData Data { get; private set; }
         public KeyCode InputKey => Data?.inputKey ?? KeyCode.None;
@@ -40,7 +39,6 @@ namespace Ddalgak
         {
             Sequence sequence = DOTween.Sequence();
             sequence.Join(selectEffect.PlaySelect());
-            sequence.Join(stampEffect.Play());
             return sequence;
         }
 
@@ -48,7 +46,6 @@ namespace Ddalgak
         {
             showEffect.Kill();
             selectEffect.Kill();
-            stampEffect.Kill();
         }
     }
 }
