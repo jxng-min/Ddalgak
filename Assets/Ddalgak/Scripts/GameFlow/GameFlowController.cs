@@ -153,7 +153,7 @@ namespace Ddalgak
             {
                 _runtimeState.SetClear();
                 ChangeState(EGameFlowState.Clear);
-                yield return presenter.ShowClear();
+                yield return presenter.ShowClear(GameEndingDataCatalog.GetClear());
                 ChangeState(EGameFlowState.GovernanceResult);
                 yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(true));
                 yield break;

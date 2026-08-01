@@ -33,7 +33,6 @@ namespace Ddalgak
 
         public Tween PlayShowImageEffect(CanvasGroup imageGroup)
         {
-            imageGroup.alpha = 0f;
             return imageGroup.DOFade(1f, showDuration);
         }
     }

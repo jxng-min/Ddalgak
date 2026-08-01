@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}
+  m_Name: ENDING_CLEAR
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EndingDataTableRow
+  rowID: ENDING_CLEAR
+  isEnable: 1
+  gameOverReason: 0
+  title: 왕국은 오늘도 평화롭습니다
+  presentation: 수많은 위기 속에서도 왕국은 평화를 지켜 냈습니다.
+  endingImage: {fileID: 2800000, guid: 06d46f96d825fa649bd2d5189debaa2d, type: 3}
+  endingText: 왕국의 백성들은 오래도록 이 평화로운 통치를 기억할 것입니다.
+--- !u!114 &1002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}
+  m_Name: ENDING_TREASURY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EndingDataTableRow
+  rowID: ENDING_TREASURY
+  isEnable: 1
+  gameOverReason: 1
+  title: 텅 빈 왕실 금고
+  presentation: 왕이 왕실 금고의 문을 열지만 안에는 동전 한 닢도 남아 있지 않습니다.
+  endingImage: {fileID: 2800000, guid: e53842c9986a06b4b817090fdbbf6939, type: 3}
+  endingText: 왕실의 금고가 완전히 바닥났습니다. 왕국이 먼저 팔렸을 뿐입니다.
+--- !u!114 &1003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}
+  m_Name: ENDING_SENTIMENT
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EndingDataTableRow
+  rowID: ENDING_SENTIMENT
+  isEnable: 1
+  gameOverReason: 2
+  title: 왕궁으로 향한 행진
+  presentation: 성 밖에서 시작된 작은 시위가 거대한 군중으로 불어납니다.
+  endingImage: {fileID: 2800000, guid: 4effa945b6332fb4a8ea5c5bdf4eed15, type: 3}
+  endingText: 백성들은 더 이상 왕의 결정을 믿지 않았습니다.
+--- !u!114 &1004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}
+  m_Name: ENDING_SECURITY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EndingDataTableRow
+  rowID: ENDING_SECURITY
+  isEnable: 1
+  gameOverReason: 3
+  title: 활짝 열린 성문
+  presentation: 무너진 성벽과 텅 빈 경비 초소가 차례대로 나타납니다.
+  endingImage: {fileID: 2800000, guid: b55bcc90ac307c441addcf72ebb969da, type: 3}
+  endingText: 왕국을 지킬 병사도 성벽도 경비대도 남아 있지 않았습니다.
+--- !u!114 &1005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}
+  m_Name: ENDING_FATAL
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EndingDataTableRow
+  rowID: ENDING_FATAL
+  isEnable: 1
+  gameOverReason: 4
+  title: 돌이킬 수 없는 실패
+  presentation: 사건의 실패가 왕국에 돌이킬 수 없는 결과를 남겼습니다.
+  endingImage: {fileID: 2800000, guid: e53842c9986a06b4b817090fdbbf6939, type: 3}
+  endingText: 왕국은 다시 일어설 기회조차 얻지 못한 채 무너졌습니다.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
+  m_Name: DT_Ending
+  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
+  dataTableCsv: {fileID: 4900000, guid: 67d3ada6015ae91489ffb39abc4e07d2, type: 3}
+  dataTableRowName: Ddalgak.EndingDataTableRow, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  dataTableRows:
+  - {fileID: 1001}
+  - {fileID: 1002}
+  - {fileID: 1003}
+  - {fileID: 1004}
+  - {fileID: 1005}
+  dataTableRowScript: {fileID: 11500000, guid: 3633e8782158457d9c51955f54d48dbf, type: 3}

@@ -10,6 +10,7 @@ namespace Ddalgak
         public string description;
         public string successText;
         public string failureText;
+        public UnityEngine.Sprite eventImage;
         public EKingdomStatType collapsedStat;
         public EKingdomStatType resourceStat;
         public float successProbability;

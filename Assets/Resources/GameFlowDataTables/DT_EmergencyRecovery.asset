@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_TREASURY_SECURITY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_TREASURY_SECURITY
+  isEnable: 1
+  title: 전리품으로 채운 금고
+  description: 왕실은 강한 군대를 이용해 전리품을 확보하기로 했습니다.
+  successText: 왕국군이 승리하고 많은 전리품을 가지고 돌아왔습니다.
+  failureText: 원정군은 성과를 얻지 못하고 마지막 보급품까지 소모했습니다.
+  eventTexture: {fileID: 2800000, guid: e53842c9986a06b4b817090fdbbf6939, type: 3}
+  collapsedStat: 0
+  resourceStat: 2
+  successProbability: 0.7
+  recoveryValue: 20
+  treasuryCost: 0
+  publicSentimentCost: -5
+  securityCost: -30
+--- !u!114 &2002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_TREASURY_SENTIMENT
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_TREASURY_SENTIMENT
+  isEnable: 1
+  title: 왕국 금붙이 모으기 운동
+  description: 백성들은 귀금속과 저축한 동전을 자발적으로 왕실에 내놓기 시작했습니다.
+  successText: 백성들의 도움으로 가까스로 재정 파탄을 피했습니다.
+  failureText: 무너진 왕실 재정을 되돌리기에는 부족했습니다.
+  eventTexture: {fileID: 2800000, guid: e53842c9986a06b4b817090fdbbf6939, type: 3}
+  collapsedStat: 0
+  resourceStat: 1
+  successProbability: 0.8
+  recoveryValue: 20
+  treasuryCost: 0
+  publicSentimentCost: -30
+  securityCost: 0
+--- !u!114 &2003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_SENTIMENT_SECURITY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_SENTIMENT_SECURITY
+  isEnable: 1
+  title: 왕궁 앞 강제 진압
+  description: 왕은 군대에 봉기를 진압하라고 명령했습니다.
+  successText: 군대가 군중을 해산시키며 왕은 가까스로 왕좌를 지켰습니다.
+  failureText: 진압군 일부가 명령을 거부하고 백성들의 편에 섰습니다.
+  eventTexture: {fileID: 2800000, guid: 4effa945b6332fb4a8ea5c5bdf4eed15, type: 3}
+  collapsedStat: 1
+  resourceStat: 2
+  successProbability: 0.7
+  recoveryValue: 20
+  treasuryCost: -5
+  publicSentimentCost: 0
+  securityCost: -30
+--- !u!114 &2004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_SENTIMENT_TREASURY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_SENTIMENT_TREASURY
+  isEnable: 1
+  title: 왕실 긴급 지원금
+  description: 왕실은 쌓아 둔 재화를 풀고 식량과 지원금을 전달했습니다.
+  successText: 지원 물자가 전달되며 거리의 분노가 조금씩 가라앉았습니다.
+  failureText: 지원 물자가 사라졌다는 소문이 퍼졌습니다.
+  eventTexture: {fileID: 2800000, guid: 4effa945b6332fb4a8ea5c5bdf4eed15, type: 3}
+  collapsedStat: 1
+  resourceStat: 0
+  successProbability: 0.75
+  recoveryValue: 20
+  treasuryCost: -30
+  publicSentimentCost: 0
+  securityCost: 0
+--- !u!114 &2005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_SECURITY_TREASURY
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_SECURITY_TREASURY
+  isEnable: 1
+  title: 왕실 용병대 소집
+  description: 왕실은 남은 재산을 쏟아부어 용병단을 불러 모았습니다.
+  successText: 용병단이 적군의 진격을 막고 방어선을 복구했습니다.
+  failureText: 용병들은 선금을 챙긴 뒤 왕국을 떠났습니다.
+  eventTexture: {fileID: 2800000, guid: b55bcc90ac307c441addcf72ebb969da, type: 3}
+  collapsedStat: 2
+  resourceStat: 0
+  successProbability: 0.7
+  recoveryValue: 20
+  treasuryCost: -30
+  publicSentimentCost: 0
+  securityCost: 0
+--- !u!114 &2006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}
+  m_Name: RECOVERY_SECURITY_SENTIMENT
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.EmergencyRecoveryDataTableRow
+  rowID: RECOVERY_SECURITY_SENTIMENT
+  isEnable: 1
+  title: 백성 자경단 결성
+  description: 백성들이 직접 농기구와 무기를 들고 자경단을 결성했습니다.
+  successText: 자경단이 적군의 진격을 늦추고 수도를 지켜냈습니다.
+  failureText: 훈련된 적군을 막기에는 역부족이었습니다.
+  eventTexture: {fileID: 2800000, guid: b55bcc90ac307c441addcf72ebb969da, type: 3}
+  collapsedStat: 2
+  resourceStat: 1
+  successProbability: 0.8
+  recoveryValue: 20
+  treasuryCost: 0
+  publicSentimentCost: -30
+  securityCost: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46e7f3d83ee4d15ab06220faf1fed1b, type: 3}
+  m_Name: DT_EmergencyRecovery
+  m_EditorClassIdentifier: Assembly-CSharp::JxModule.DataTable.DataTable
+  dataTableCsv: {fileID: 4900000, guid: 1d5b139d8352044cefb0bfe19c6c5029, type: 3}
+  dataTableRowName: Ddalgak.EmergencyRecoveryDataTableRow, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  dataTableRows:
+  - {fileID: 2001}
+  - {fileID: 2002}
+  - {fileID: 2003}
+  - {fileID: 2004}
+  - {fileID: 2005}
+  - {fileID: 2006}
+  dataTableRowScript: {fileID: 11500000, guid: 5b139d8352044cefb0bfe19c6c502927, type: 3}

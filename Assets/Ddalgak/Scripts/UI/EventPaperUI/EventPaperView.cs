@@ -34,10 +34,14 @@ namespace Ddalgak
         
         public IEnumerator ShowPaper()
         {
-            yield return eventPaperEffect.PlayShowPaperEffect(
+            _showTween?.Kill();
+            _showTween = eventPaperEffect.PlayShowPaperEffect(
                 RectTransform, 
                 _originAnchoredPosition, 
-                frameImage).WaitForCompletion();
+                frameImage);
+
+            yield return _showTween.WaitForCompletion();
+            _showTween = null;
         }
 
         public void ShowTitle(string eventTitle)
@@ -45,16 +49,34 @@ namespace Ddalgak
             titleLabel.text = eventTitle;
         }
 
+        public void ClearDescription()
+        {
+            StopTyping();
+            descriptionLabel.text = string.Empty;
+            descriptionLabel.gameObject.SetActive(true);
+        }
+
         public IEnumerator ShowImage(Sprite eventSprite)
         {
+            _showTween?.Kill();
+
+            CanvasGroup imageGroup = eventImage.CanvasGroup;
+            imageGroup.DOKill();
+            imageGroup.alpha = 0f;
             eventImage.Image.sprite = eventSprite;
-            yield return eventPaperEffect.PlayShowImageEffect(eventImage.CanvasGroup);
+
+            yield return null;
+
+            _showTween = eventPaperEffect.PlayShowImageEffect(imageGroup);
+
+            yield return _showTween.WaitForCompletion();
+            _showTween = null;
         }
 
         public IEnumerator ShowDescription(string description)
         {
             StopTyping();
-
+            descriptionLabel.gameObject.SetActive(true);
             description ??= string.Empty;
             if (koreanTyper == null)
             {
@@ -64,6 +86,7 @@ namespace Ddalgak
 
             _typingCoroutine = StartCoroutine(koreanTyper.TypeByInterval(descriptionLabel, description, typingInterval, typingStartDelay));
             yield return _typingCoroutine;
+            _typingCoroutine = null;
         }
         
         public void HideDescriptionText()
