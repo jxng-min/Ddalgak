@@ -192,7 +192,7 @@ MonoBehaviour:
   initXOffset: 220
   initDuration: 0.5
   initEase: 27
-  updateXOffset: 200
+  updateXOffset: 180
   updateDuration: 0.5
   waitDuration: 1
   updateEase: 27

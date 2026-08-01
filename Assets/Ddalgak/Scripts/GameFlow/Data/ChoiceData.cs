@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
@@ -8,7 +9,7 @@ namespace Ddalgak
     public sealed class ChoiceData
     {
         public string choiceId;
-        public KeyCode inputKey;
+        public Key inputKey;
         public string description;
         public string changePreview;
         public StatModifier baseModifier;

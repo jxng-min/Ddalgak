@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using JxModule.DataTable;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
     public sealed class ChoiceDataTableRow : DataTableRowBase
     {
-        public KeyCode inputKey;
+        public Key inputKey;
         public string description;
         public string changePreview;
         public string baseResultId;

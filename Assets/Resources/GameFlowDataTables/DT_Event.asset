@@ -20,6 +20,8 @@ MonoBehaviour:
     \uBB34\uB108\uC9C8 \uC704\uAE30\uC5D0 \uB193\uC600\uC2B5\uB2C8\uB2E4.\n\uBCD1\uB825\uACFC
     \uBB3C\uC790\uAC00 \uBD80\uC871\uD574 \uC989\uC2DC \uB300\uC751\uD558\uC9C0 \uC54A\uC73C\uBA74
     \uBC29\uC5B4\uC120\uC774 \uBE44\uAC8C \uB429\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 0
   eventType: 0
   weight: 1
   isConditional: 1
@@ -59,6 +61,8 @@ MonoBehaviour:
     \uB4E4\uB824\uC635\uB2C8\uB2E4.\n\uCC9C\uC7A5\uC744 \uBC1B\uCE58\uB358 \uAE30\uB465\uC774
     \uBB34\uB108\uC9C0\uBA70 \uC313\uC5EC \uC788\uB358 \uBCF4\uAE09\uD488\uC774 \uC3DF\uC544\uC9C0\uAE30
     \uC2DC\uC791\uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 2
   weight: 1
   isConditional: 0
@@ -95,6 +99,8 @@ MonoBehaviour:
   description: "\uACE7 \uC655\uAD6D\uC758 \uAC74\uAD6D \uAE30\uB150\uC77C\uC785\uB2C8\uB2E4.\n\uBC31\uC131\uB4E4\uC740
     \uC131\uB300\uD55C \uCD95\uC81C\uAC00 \uC5F4\uB9AC\uAE30\uB97C \uAE30\uB300\uD558\uACE0
     \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 1
   eventType: 0
   weight: 1
   isConditional: 0
@@ -134,6 +140,8 @@ MonoBehaviour:
     \uC655\uAD6D\uC5D0\uC11C \uB3C5\uC810\uC801\uC73C\uB85C \uC7A5\uC0AC\uD560 \uAD8C\uB9AC\uB97C
     \uC694\uCCAD\uD588\uC2B5\uB2C8\uB2E4.\n\uC0C1\uB2E8\uC740 \uADF8 \uB300\uAC00\uB85C
     \uC0C1\uB2F9\uD55C \uAE08\uC561\uC744 \uC655\uC2E4\uC5D0 \uC57D\uC18D\uD588\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 0
   weight: 1
   isConditional: 0
@@ -172,6 +180,8 @@ MonoBehaviour:
   description: "\uC655\uC88C \uB4A4\uC758 \uCEE4\uD2BC\uC774 \uAC11\uC790\uAE30 \uD754\uB4E4\uB9BD\uB2C8\uB2E4.\n\uC228\uC5B4
     \uC788\uB358 \uC554\uC0B4\uC790\uAC00 \uB2E8\uAC80\uC744 \uB4E4\uACE0 \uC655\uC5D0\uAC8C
     \uB2EC\uB824\uB4ED\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 3
   eventType: 2
   weight: 1
   isConditional: 0
@@ -211,6 +221,8 @@ MonoBehaviour:
     \uC2DC\uC791\uD588\uC2B5\uB2C8\uB2E4.\n\uAC15\uD55C \uBC14\uB78C \uD0D3\uC5D0
     \uBD88\uAE38\uC774 \uC8FC\uBCC0 \uC8FC\uD0DD\uC73C\uB85C \uC62E\uACA8\uBD99\uACE0
     \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 1
   weight: 1
   isConditional: 0
@@ -285,6 +297,8 @@ MonoBehaviour:
     \uC804\uC5FC\uBCD1\uC774 \uBE60\uB974\uAC8C \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\n\uC218\uB3C4\uAE4C\uC9C0
     \uBC88\uC9C0\uAE30 \uC804\uC5D0 \uB300\uC751 \uBC29\uC2DD\uC744 \uC815\uD574\uC57C
     \uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 1
   weight: 1
   isConditional: 0
@@ -324,6 +338,8 @@ MonoBehaviour:
     \uBA38\uB9AC\uC5D0\uC11C \uBBF8\uB044\uB7EC\uC84C\uC2B5\uB2C8\uB2E4.\n\uC655\uAD00\uC774
     \uBC14\uB2E5\uC5D0 \uB5A8\uC5B4\uC9C0\uAE30 \uC804\uC5D0 \uBD99\uC7A1\uC544\uC57C
     \uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 2
   weight: 1
   isConditional: 0
@@ -361,6 +377,8 @@ MonoBehaviour:
     \uD1B5\uC0C1 \uD611\uC815\uC744 \uC81C\uC548\uD588\uC2B5\uB2C8\uB2E4.\n\uD658\uB300\uC640
     \uD611\uC0C1 \uBC29\uC2DD\uC5D0 \uB530\uB77C \uAD00\uACC4\uAC00 \uD06C\uAC8C
     \uB2EC\uB77C\uC9C8 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 3
   eventType: 1
   weight: 1
   isConditional: 0
@@ -400,6 +418,8 @@ MonoBehaviour:
     \uC81C\uBC29 \uC704\uAE4C\uC9C0 \uCC28\uC62C\uB790\uC2B5\uB2C8\uB2E4.\n\uC81C\uBC29\uC774
     \uBB34\uB108\uC9C0\uBA74 \uC778\uADFC \uB9C8\uC744\uACFC \uC655\uC2E4 \uC2DC\uC124\uC774
     \uD568\uAED8 \uCE68\uC218\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 3
   eventType: 1
   weight: 1
   isConditional: 0
@@ -439,6 +459,8 @@ MonoBehaviour:
     \uC815\uD574\uC9C4 \uC591\uBCF4\uB2E4 \uB9CE\uC740 \uC138\uAE08\uC744 \uAC77\uC5C8\uB2E4\uB294
     \uACE0\uBC1C\uC774 \uC811\uC218\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uAD00\uB9AC\uAC00
     \uBE7C\uB3CC\uB9B0 \uC7AC\uC0B0\uB3C4 \uC0C1\uB2F9\uD55C \uAC83\uC73C\uB85C \uBCF4\uC785\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 2
   eventType: 0
   weight: 1
   isConditional: 0
@@ -478,6 +500,8 @@ MonoBehaviour:
     \uB2E4\uAC00\uC654\uC2B5\uB2C8\uB2E4.\n\uCC44\uAD8C\uB2E8\uC740 \uC624\uB298
     \uC548\uC5D0 \uB300\uCC45\uC744 \uB0B4\uB193\uC73C\uB77C\uBA70 \uC655\uAD81\uC744
     \uC555\uBC15\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 0
   eventType: 0
   weight: 1
   isConditional: 1
@@ -518,6 +542,8 @@ MonoBehaviour:
     \uD76C\uADC0\uD55C \uBC1C\uACAC\uC774\uB77C\uBA70 \uC5F0\uAD6C\uB97C \uC694\uCCAD\uD558\uC9C0\uB9CC,
     \uBD80\uD654\uD560 \uACBD\uC6B0 \uC655\uAD6D\uC5D0 \uD070 \uC704\uD611\uC774
     \uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 3
   eventType: 0
   weight: 1
   isConditional: 0
@@ -558,6 +584,8 @@ MonoBehaviour:
     \uD070\uB3C8\uC744 \uBC8C \uC218 \uC788\uB2E4\uBA70 \uCC44\uAD74 \uC7AC\uAC1C\uB97C
     \uC694\uCCAD\uD588\uC9C0\uB9CC, \uAC31\uB3C4\uC758 \uC548\uC804\uC740 \uD655\uC778\uB418\uC9C0
     \uC54A\uC558\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 3
   eventType: 0
   weight: 1
   isConditional: 0
@@ -596,6 +624,8 @@ MonoBehaviour:
   description: "\uC218\uB3C4 \uC678\uACFD\uC758 \uC624\uB798\uB41C \uC131\uBCBD\uC5D0\uC11C
     \uCEE4\uB2E4\uB780 \uADE0\uC5F4\uC774 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uC544\uC9C1
     \uC801\uAD70\uC758 \uC6C0\uC9C1\uC784\uC740 \uBCF4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 1
   eventType: 0
   weight: 1
   isConditional: 0
@@ -635,6 +665,8 @@ MonoBehaviour:
     \uD06C\uAC8C \uC904\uC5C8\uC2B5\uB2C8\uB2E4.\n\uC2DD\uB7C9 \uAC00\uACA9\uC774
     \uC624\uB974\uC790 \uBC31\uC131\uB4E4\uC758 \uBD88\uB9CC\uB3C4 \uCEE4\uC9C0\uACE0
     \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 1
   eventType: 0
   weight: 1
   isConditional: 0
@@ -674,6 +706,8 @@ MonoBehaviour:
     \uBC31\uC131\uB4E4\uC774 \uBAA8\uC600\uC2B5\uB2C8\uB2E4.\n\uC2DC\uC704\uB300\uB294
     \uC655\uC758 \uC9C1\uC811 \uC0AC\uACFC\uC640 \uC989\uAC01\uC801\uC778 \uB300\uCC45\uC744
     \uC694\uAD6C\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 0
   eventType: 0
   weight: 1
   isConditional: 1
@@ -712,6 +746,8 @@ MonoBehaviour:
   description: "\uBD81\uCABD \uB9C8\uC744 \uC8FC\uBCC0\uC5D0 \uB3C4\uC801 \uB5BC\uAC00
     \uB098\uD0C0\uB0AC\uC2B5\uB2C8\uB2E4.\n\uC0C1\uB2E8\uACFC \uB18D\uAC00\uAC00
     \uACF5\uACA9\uBC1B\uACE0 \uC788\uC5B4 \uC2E0\uC18D\uD55C \uB300\uC751\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."
+  eventTexture: {fileID: 0}
+  week: 1
   eventType: 1
   weight: 1
   isConditional: 0

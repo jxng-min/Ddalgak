@@ -25,7 +25,7 @@ namespace Ddalgak
         
         public IEnumerator UpdateWeek(GameRuntimeState runtimeState)
         {
-            Label.text = $"{runtimeState.CurrentWeek}";
+            Label.text = $"{runtimeState.CurrentWeek + 1}";
             yield return calendarEffect.PlayUpdateCalendarEffect(RectTransform, _originAnchoredPosition).WaitForCompletion();;
         }
     }
