@@ -10,7 +10,7 @@ namespace Ddalgak
     {
         [BigHeader("UI")]
         [SerializeField] private Image iconImage;
-        [SerializeField] private Image sliderImage;
+        [SerializeField] private ImageView sliderImageView;
 
         [Space(30f)]
         [BigHeader("Effect")]
@@ -27,20 +27,20 @@ namespace Ddalgak
         public IEnumerator IncreaseRate(float rate)
         {
             _valueChangeTween?.Kill();
-            _valueChangeTween = slotEffect.PlayIncreaseValueEffect(RectTransform, _originAnchoredPosition, sliderImage, rate);
+            _valueChangeTween = slotEffect.PlayIncreaseValueEffect(RectTransform, _originAnchoredPosition, sliderImageView.RectTransform, rate);
             yield return _valueChangeTween.WaitForCompletion();
         }
 
         public IEnumerator DecreaseRate(float rate)
         {
             _valueChangeTween?.Kill();
-            _valueChangeTween = slotEffect.PlayDecreaseValueEffect(RectTransform, sliderImage, rate);
+            _valueChangeTween = slotEffect.PlayDecreaseValueEffect(RectTransform, sliderImageView.RectTransform, rate);
             yield return _valueChangeTween.WaitForCompletion();
         }
 
         public void SetRate(float rate)
         {
-            sliderImage.fillAmount = rate;
+            slotEffect.SetValueEffect(sliderImageView.RectTransform, rate);
         }
 
         public void CancelUpdateRate()
