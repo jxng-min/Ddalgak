@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &599445806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +296,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &835518012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2510152310513264898, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+  m_PrefabInstance: {fileID: 929390591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de044b42591fb4cb5d5ef9b40f8f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.ButtonActionView
 --- !u!1001 &929390591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +404,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+--- !u!1 &1068799311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068799312}
+  - component: {fileID: 1068799313}
+  m_Layer: 0
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1068799312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068799311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068799313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068799311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311065c0c0db0e745ab5012123203c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::test
+  buttonActionView: {fileID: 835518012}
 --- !u!1 &1520146364
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_EventPaperCavas
       objectReference: {fileID: 0}
+    - target: {fileID: 2542083167034547654, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9080651939979571467, guid: 0db5d46d978722949bab2df1d03a4248, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -798,3 +858,4 @@ SceneRoots:
   - {fileID: 599445809}
   - {fileID: 929390591}
   - {fileID: 3719945979857689233}
+  - {fileID: 1068799312}
