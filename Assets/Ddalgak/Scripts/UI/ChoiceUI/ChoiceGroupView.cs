@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
     public sealed class ChoiceGroupView : MonoBehaviour
     {
-        private static readonly KeyCode[] SlotKeys = { KeyCode.P, KeyCode.Q, KeyCode.Space };
+        private static readonly Key[] SlotKeys = { Key.P, Key.Q, Key.Space };
 
         [Header("Slots (P / Q / Space)")]
         [SerializeField] private ChoiceButtonView leftView;
@@ -96,7 +97,7 @@ namespace Ddalgak
         {
             _activeViews.Clear();
 
-            Dictionary<KeyCode, ChoiceData> choiceByKey = new();
+            Dictionary<Key, ChoiceData> choiceByKey = new();
             if (choices != null)
             {
                 foreach (ChoiceData choice in choices)
@@ -113,7 +114,7 @@ namespace Ddalgak
                 }
             }
 
-            foreach (KeyCode key in SlotKeys)
+            foreach (Key key in SlotKeys)
             {
                 ChoiceButtonView view = GetViewForKey(key);
                 if (view == null)
@@ -132,13 +133,13 @@ namespace Ddalgak
             }
         }
 
-        private ChoiceButtonView GetViewForKey(KeyCode key)
+        private ChoiceButtonView GetViewForKey(Key key)
         {
             return key switch
             {
-                KeyCode.P => leftView,
-                KeyCode.Q => rightView,
-                KeyCode.Space => centerView,
+                Key.P => leftView,
+                Key.Q => rightView,
+                Key.Space => centerView,
                 _ => null
             };
         }
@@ -168,7 +169,7 @@ namespace Ddalgak
             {
                 foreach (ChoiceButtonView view in _activeViews)
                 {
-                    if (Input.GetKeyDown(view.InputKey))
+                    if (Keyboard.current[view.InputKey].wasPressedThisFrame)
                     {
                         _inputLocked = true;
                         onSelected(view);

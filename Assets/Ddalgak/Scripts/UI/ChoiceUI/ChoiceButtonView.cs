@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ddalgak
 {
@@ -13,7 +14,7 @@ namespace Ddalgak
         [SerializeField] private GameObject textImage;
 
         public ChoiceData Data { get; private set; }
-        public KeyCode InputKey => Data?.inputKey ?? KeyCode.None;
+        public Key InputKey => Data?.inputKey ?? Key.None;
 
         public void Bind(ChoiceData data)
         {
