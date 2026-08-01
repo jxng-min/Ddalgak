@@ -675,8 +675,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cef21479298d8d043b01f30687801c26, type: 2}
-  m_sharedMaterial: {fileID: 656801700195938633, guid: cef21479298d8d043b01f30687801c26, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1165,9 +1165,7 @@ GameObject:
   - component: {fileID: 1639049088}
   - component: {fileID: 1639049090}
   - component: {fileID: 1639049089}
-  - component: {fileID: 1639049092}
-  - component: {fileID: 1639049091}
-  - component: {fileID: 1639049093}
+  - component: {fileID: 1639049094}
   m_Layer: 0
   m_Name: Game Flow System
   m_TagString: Untagged
@@ -1215,9 +1213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.GameFlowController
   eventRepository: {fileID: 1639049089}
-  presenter: {fileID: 1639049091}
-  actionSequenceRunner: {fileID: 1639049092}
---- !u!114 &1639049091
+  presenter: {fileID: 1639049094}
+  actionSequenceRunner: {fileID: 0}
+--- !u!114 &1639049094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1226,35 +1224,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639049087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7abcd47a9bf1b30449ef19462dc2abc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab09fdbf8034bd3b4ad78940a4cdce7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DebugGameFlowPresenter
---- !u!114 &1639049092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639049087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6638a6723f5b5884dbf28e2c65a077af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.DebugActionSequenceRunner
---- !u!114 &1639049093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639049087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c83c6394d9bf841b27b32004629df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.GameFlowDebugPanel
-  controller: {fileID: 1639049090}
-  actionRunner: {fileID: 1639049092}
+  m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.GameFlowPresenter
+  eventPresenter: {fileID: 0}
+  statPresenter: {fileID: 0}
+  progressPresenter: {fileID: 0}
+  endingPresenter: {fileID: 0}
 --- !u!1 &1713631620
 GameObject:
   m_ObjectHideFlags: 0
