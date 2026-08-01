@@ -10,20 +10,12 @@ namespace Ddalgak
         [BigHeader("settings")]
         [Header("Initialize Settings")]
         [SerializeField] private float initXOffset;
-        [SerializeField] private float initDuration;
-        [SerializeField] private Ease initEase = Ease.OutBack;
         
         [Header("Update Settings")]
         [SerializeField] private float updateXOffset;
         [SerializeField] private float updateDuration;
         [SerializeField] private float waitDuration;
         [SerializeField] private Ease updateEase = Ease.OutBack;
-
-        public Tween PlayInitCalendarEffect(RectTransform calendarRect, Vector2 originAnchoredPosition)
-        {
-            return calendarRect.DOAnchorPosX(originAnchoredPosition.x - initXOffset, initDuration)
-                               .SetEase(initEase);
-        }
 
         public Tween PlayUpdateCalendarEffect(RectTransform calendarRect, Vector2 originAnchoredPosition)
         {

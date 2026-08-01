@@ -195,7 +195,7 @@ MonoBehaviour:
   updateXOffset: 180
   updateDuration: 0.5
   waitDuration: 1
-  updateEase: 27
+  updateEase: 0
 --- !u!1 &7201481236071956435
 GameObject:
   m_ObjectHideFlags: 0
