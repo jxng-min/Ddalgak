@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
@@ -40,16 +41,17 @@ namespace Ddalgak
                 return new TurnResult(choice.baseModifier,
                                       choice.successResultText,
                                       false,
-                                      changePreview: choice.changePreview);
+                                      changePreview: FormatModifier(choice.baseModifier));
             }
 
             var randomSucceeded = RollProbability(choice.successProbability, mode);
-            return new TurnResult(choice.baseModifier + GetRandomModifier(choice, randomSucceeded),
+            StatModifier finalModifier = choice.baseModifier + GetRandomModifier(choice, randomSucceeded);
+            return new TurnResult(finalModifier,
                                   GetRandomResultText(choice, randomSucceeded),
                                   false,
                                   hasRandomResult: true,
                                   randomResultSucceeded: randomSucceeded,
-                                  changePreview: choice.changePreview);
+                                  changePreview: FormatModifier(finalModifier));
         }
 
         private TurnResult CalculateActionChoice(TurnContext context, EDebugOutcomeMode mode)
@@ -73,7 +75,7 @@ namespace Ddalgak
                                       fatalFailure,
                                       hasActionResult: true,
                                       actionSucceeded: actionSucceeded,
-                                      changePreview: choice.changePreview);
+                                      changePreview: FormatModifier(finalModifier));
             }
 
             var randomSucceeded = RollProbability(choice.successProbability, mode);
@@ -87,7 +89,7 @@ namespace Ddalgak
                                   actionSucceeded: actionSucceeded,
                                   hasRandomResult: true,
                                   randomResultSucceeded: randomSucceeded,
-                                  changePreview: choice.changePreview);
+                                  changePreview: FormatModifier(finalModifier));
         }
 
         private static TurnResult CalculateSuddenChoice(TurnContext context)
@@ -125,6 +127,23 @@ namespace Ddalgak
             }
 
             return string.IsNullOrWhiteSpace(second) ? first : $"{first}\n{second}";
+        }
+
+        private static string FormatModifier(StatModifier modifier)
+        {
+            List<string> changes = new();
+            AddChange(changes, "국고", modifier.treasury);
+            AddChange(changes, "민심", modifier.publicSentiment);
+            AddChange(changes, "안보", modifier.security);
+            return changes.Count > 0 ? string.Join(" / ", changes) : "수치 변화 없음";
+        }
+
+        private static void AddChange(ICollection<string> changes, string statName, int value)
+        {
+            if (value != 0)
+            {
+                changes.Add($"{statName} {value:+#;-#;0}");
+            }
         }
 
         private static TurnResult EmptyResult()
