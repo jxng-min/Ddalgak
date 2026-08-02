@@ -21,6 +21,14 @@ namespace Ddalgak
         [SerializeField] private Sprite qPushSprite;
         [SerializeField] private Sprite spacePushSprite;
 
+        [Header("Hold Material")]
+        [SerializeField] private Material holdMaterial;
+
+        [Header("Transition Textures")]
+        [SerializeField] private Texture2D pTransitionTexture;
+        [SerializeField] private Texture2D qTransitionTexture;
+        [SerializeField] private Texture2D spaceTransitionTexture;
+
         [SerializeField] private Sprite[] singlePressFrames;
         [SerializeField] private Sprite[] pressFrames;
 
@@ -33,6 +41,20 @@ namespace Ddalgak
         private Key _activeKey = Key.None;
         private Sprite _pushSprite;
         private Sprite _defaultSprite;
+        private Material _pHoldMaterial;
+        private Material _qHoldMaterial;
+        private Material _spaceHoldMaterial;
+
+        private static readonly int OffsetProperty = Shader.PropertyToID("_Offset");
+        private static readonly int TransitionTextureProperty = Shader.PropertyToID("_TransTex");
+
+        private void Awake()
+        {
+            _pHoldMaterial = CreateHoldMaterialInstance(pKeyImage, pTransitionTexture);
+            _qHoldMaterial = CreateHoldMaterialInstance(qKeyImage, qTransitionTexture);
+            _spaceHoldMaterial = CreateHoldMaterialInstance(spaceKeyImage, spaceTransitionTexture);
+            ResetHoldProgress();
+        }
 
         private void Update()
         {
@@ -90,6 +112,7 @@ namespace Ddalgak
         public void Hide()
         {
             StopAnimation();
+            ResetHoldProgress();
 
             if (_activeKeyImage != null && _defaultSprite != null)
             {
@@ -102,6 +125,24 @@ namespace Ddalgak
             _activeKey = Key.None;
             _pushSprite = null;
             _defaultSprite = null;
+        }
+
+        public void SetHoldProgress(Key key, float progress)
+        {
+            Material material = GetHoldMaterialForKey(key);
+            if (material == null || !material.HasProperty(OffsetProperty))
+            {
+                return;
+            }
+
+            material.SetFloat(OffsetProperty, -Mathf.Clamp01(progress));
+        }
+
+        public void ResetHoldProgress()
+        {
+            SetMaterialOffset(_pHoldMaterial, 0f);
+            SetMaterialOffset(_qHoldMaterial, 0f);
+            SetMaterialOffset(_spaceHoldMaterial, 0f);
         }
 
         private Image GetImageForKey(Key key)
@@ -135,6 +176,59 @@ namespace Ddalgak
                 Key.Space => spacePushSprite,
                 _ => null
             };
+        }
+
+        private Material CreateHoldMaterialInstance(Image targetImage, Texture2D transitionTexture)
+        {
+            if (targetImage == null)
+            {
+                return null;
+            }
+
+            Material source = holdMaterial != null ? holdMaterial : targetImage.material;
+            if (source == null)
+            {
+                return null;
+            }
+
+            Material instance = new(source)
+            {
+                name = $"{source.name} ({targetImage.name})"
+            };
+
+            if (transitionTexture != null && instance.HasProperty(TransitionTextureProperty))
+            {
+                instance.SetTexture(TransitionTextureProperty, transitionTexture);
+            }
+
+            targetImage.material = instance;
+            return instance;
+        }
+
+        private Material GetHoldMaterialForKey(Key key)
+        {
+            return key switch
+            {
+                Key.P => _pHoldMaterial,
+                Key.Q => _qHoldMaterial,
+                Key.Space => _spaceHoldMaterial,
+                _ => null
+            };
+        }
+
+        private static void SetMaterialOffset(Material material, float offset)
+        {
+            if (material != null && material.HasProperty(OffsetProperty))
+            {
+                material.SetFloat(OffsetProperty, offset);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(_pHoldMaterial);
+            Destroy(_qHoldMaterial);
+            Destroy(_spaceHoldMaterial);
         }
 
         private void HideAllImages()

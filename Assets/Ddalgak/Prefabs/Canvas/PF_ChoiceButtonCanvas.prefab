@@ -1383,6 +1383,16 @@ MonoBehaviour:
   pActionImage: {fileID: 6576030228124308697}
   qActionImage: {fileID: 6669674646473784515}
   spaceActionImage: {fileID: 2460097365598692328}
+  pKeyImage: {fileID: 3077488318451857545}
+  qKeyImage: {fileID: 304202856880251312}
+  spaceKeyImage: {fileID: 5801167217682058007}
+  pPushSprite: {fileID: 21300000, guid: 66a6228cc69918541a3e6f67f9caafb2, type: 3}
+  qPushSprite: {fileID: 21300000, guid: 156f55f2fbf69b0408505a7048652b32, type: 3}
+  spacePushSprite: {fileID: 21300000, guid: e81a9dce1e2c49b4da32574492f4fbc6, type: 3}
+  holdMaterial: {fileID: 2100000, guid: 87df2f28e6d89994cbada52ad0c55386, type: 2}
+  pTransitionTexture: {fileID: 2800000, guid: 2b210c5d403736c46923d4d3d30592fa, type: 3}
+  qTransitionTexture: {fileID: 2800000, guid: 3afd2506c0de26d4da738e654ca63db6, type: 3}
+  spaceTransitionTexture: {fileID: 2800000, guid: 767d999e84220da49acfc98f0c328563, type: 3}
   singlePressFrames:
   - {fileID: 21300000, guid: 9a0e1e58eca0bd8408b0becd2d24ab4e, type: 3}
   - {fileID: 21300000, guid: f41ce11f9e352b049b820b77550b887d, type: 3}

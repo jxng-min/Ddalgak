@@ -207,6 +207,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 304202856880251312, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 87df2f28e6d89994cbada52ad0c55386, type: 2}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: pKeyImage
+      value: 
+      objectReference: {fileID: 1428050958}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: qKeyImage
+      value: 
+      objectReference: {fileID: 451344806}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: pPushSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66a6228cc69918541a3e6f67f9caafb2, type: 3}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: qPushSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 156f55f2fbf69b0408505a7048652b32, type: 3}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: spaceKeyImage
+      value: 
+      objectReference: {fileID: 613313459}
+    - target: {fileID: 553839169167829458, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: spacePushSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e81a9dce1e2c49b4da32574492f4fbc6, type: 3}
     - target: {fileID: 1416132864715639993, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -219,10 +247,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 650
       objectReference: {fileID: 0}
+    - target: {fileID: 3077488318451857545, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 87df2f28e6d89994cbada52ad0c55386, type: 2}
     - target: {fileID: 4523096210246007337, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
       propertyPath: m_Name
       value: PF_ChoiceButtonCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5801167217682058007, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 87df2f28e6d89994cbada52ad0c55386, type: 2}
     - target: {fileID: 5983720172980380175, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 650
@@ -571,6 +607,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41da4d454a2b45eb82dc18e91863342c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.StatView
+--- !u!114 &451344806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 304202856880251312, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+  m_PrefabInstance: {fileID: 66259885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &613313459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5801167217682058007, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+  m_PrefabInstance: {fileID: 66259885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &664452275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +886,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c25f77189f64d308d2322e7c7f2e81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ddalgak.StatPresenter
+--- !u!114 &1428050958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3077488318451857545, guid: 35c5717a7f968fb408d1f750992a37f4, type: 3}
+  m_PrefabInstance: {fileID: 66259885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1639049087
 GameObject:
   m_ObjectHideFlags: 0

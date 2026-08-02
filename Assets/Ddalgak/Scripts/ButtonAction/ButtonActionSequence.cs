@@ -133,38 +133,61 @@ namespace Ddalgak
 
         private IEnumerator ProcessHold(ButtonAction action, Action<bool> onStepFinished)
         {
+            actionView?.Show(action.ActionType, action.Key, action.Duration);
+
             float timer = 0f;
             float holdTimer = 0f;
 
             while (timer < action.Duration && !_isCancelled)
             {
                 timer += Time.deltaTime;
-                float totalDuration = 0;
-
-                if (Keyboard.current[action.Key].isPressed)
+                Keyboard keyboard = Keyboard.current;
+                if (keyboard == null)
                 {
-                    timer = 0;
-                    totalDuration = action.Duration;
+                    break;
+                }
+
+                bool wrongKeyPressed = IsOtherActionKeyPressed(keyboard, action.Key);
+                bool targetKeyReleased = keyboard[action.Key].wasReleasedThisFrame;
+
+                if (wrongKeyPressed || targetKeyReleased)
+                {
+                    actionView?.SetHoldProgress(action.Key, 0f);
+                    actionView?.Hide();
+                    onStepFinished?.Invoke(false);
+                    yield break;
+                }
+
+                if (keyboard[action.Key].isPressed)
+                {
                     holdTimer += Time.deltaTime;
+                    float progress = action.HoldedDuration > 0f
+                        ? holdTimer / action.HoldedDuration
+                        : 1f;
+                    actionView?.SetHoldProgress(action.Key, progress);
+
                     if (holdTimer >= action.HoldedDuration)
                     {
+                        actionView?.ResetHoldProgress();
+                        actionView?.Hide();
                         onStepFinished?.Invoke(true);
                         yield break;
                     }
                 }
-                else if (Keyboard.current[action.Key].wasReleasedThisFrame && holdTimer < totalDuration)
-                {
-                    onStepFinished?.Invoke(false);
-                    yield break;
-                }
-                else if (!Keyboard.current[action.Key].isPressed)
-                {
-                    totalDuration += action.AddDuration;
-                }
 
                 yield return null;
             }
+
+            actionView?.ResetHoldProgress();
+            actionView?.Hide();
             onStepFinished?.Invoke(false);
+        }
+
+        private static bool IsOtherActionKeyPressed(Keyboard keyboard, Key targetKey)
+        {
+            return targetKey != Key.P && keyboard[Key.P].wasPressedThisFrame ||
+                   targetKey != Key.Q && keyboard[Key.Q].wasPressedThisFrame ||
+                   targetKey != Key.Space && keyboard[Key.Space].wasPressedThisFrame;
         }
 
         private IEnumerator ProcessRapidPress(ButtonAction action, Action<bool> onStepFinished)
