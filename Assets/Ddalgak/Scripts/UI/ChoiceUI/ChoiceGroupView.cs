@@ -191,6 +191,7 @@ namespace Ddalgak
                     if (Keyboard.current[view.InputKey].wasPressedThisFrame)
                     {
                         _inputLocked = true;
+                        SoundManager.Instance.PlaySfx("SFX_ButtonNormalClick");
                         onSelected(view);
                         yield break;
                     }

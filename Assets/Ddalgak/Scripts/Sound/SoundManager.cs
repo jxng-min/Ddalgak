@@ -50,6 +50,22 @@ namespace Ddalgak
             CreateSfxSourcePool();
         }
 
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            SyncEntries(bgmClips);
+            SyncEntries(sfxClips);
+        }
+
+        private static void SyncEntries(List<SoundEntry> entries)
+        {
+            foreach (SoundEntry entry in entries)
+            {
+                entry?.SyncWithClip();
+            }
+        }
+#endif
+
         private static void BuildLookup(List<SoundEntry> entries, Dictionary<string, SoundEntry> lookup)
         {
             lookup.Clear();

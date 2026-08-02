@@ -13,7 +13,7 @@ namespace Ddalgak
         [SerializeField] private ImageView eventImage;
         [SerializeField] private ImageView frameImage;
         [SerializeField] private TMP_Text descriptionLabel;
-        
+
         [Space(30f)]
         [BigHeader("Effect")]
         [SerializeField] private EventPaperEffect eventPaperEffect;
@@ -31,13 +31,15 @@ namespace Ddalgak
         {
             _originAnchoredPosition = RectTransform.anchoredPosition;
         }
-        
+
         public IEnumerator ShowPaper()
         {
+            SoundManager.Instance.PlaySfx("SFX_EventOpen");
+
             _showTween?.Kill();
             _showTween = eventPaperEffect.PlayShowPaperEffect(
-                RectTransform, 
-                _originAnchoredPosition, 
+                RectTransform,
+                _originAnchoredPosition,
                 frameImage);
 
             yield return _showTween.WaitForCompletion();
@@ -88,13 +90,13 @@ namespace Ddalgak
             yield return _typingCoroutine;
             _typingCoroutine = null;
         }
-        
+
         public void HideDescriptionText()
         {
             StopTyping();
             descriptionLabel.gameObject.SetActive(false);
         }
-        
+
         public void Cancel()
         {
             StopTyping();

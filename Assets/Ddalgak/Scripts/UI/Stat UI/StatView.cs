@@ -19,6 +19,7 @@ namespace Ddalgak
 
         public IEnumerator InitStat()
         {
+            SoundManager.Instance.PlaySfx("SFX_StatusAppear");
             yield return statEffect.PlayInitStatEffect(RectTransform, _originAnchoredPosition).WaitForCompletion();
         }
     }
