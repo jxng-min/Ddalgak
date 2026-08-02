@@ -1350,6 +1350,7 @@ MonoBehaviour:
   centerView: {fileID: 653676600169392940}
   showStaggerInterval: 0.1
   stampEffect: {fileID: 4586032332482641044}
+  buttonActionView: {fileID: 553839169167829458}
 --- !u!114 &4586032332482641044
 MonoBehaviour:
   m_ObjectHideFlags: 0

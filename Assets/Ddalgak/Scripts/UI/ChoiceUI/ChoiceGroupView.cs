@@ -21,6 +21,7 @@ namespace Ddalgak
 
         [Header("Result Stamp")]
         [SerializeField] private StampEffect stampEffect;
+        [SerializeField] private ButtonActionView buttonActionView;
 
         private readonly List<ChoiceButtonView> _activeViews = new();
         private bool _inputLocked;
@@ -81,6 +82,7 @@ namespace Ddalgak
         public void Cancel()
         {
             _inputLocked = true;
+            buttonActionView?.Hide();
 
             ChoiceButtonView[] views = { leftView, rightView, centerView };
             foreach (ChoiceButtonView view in views)
@@ -192,6 +194,12 @@ namespace Ddalgak
                     {
                         _inputLocked = true;
                         SoundManager.Instance.PlaySfx("SFX_ButtonNormalClick");
+                        buttonActionView?.Show(EButtonActionType.None, view.InputKey);
+
+                        yield return new WaitUntil(() => Keyboard.current == null ||
+                                                         !Keyboard.current[view.InputKey].isPressed);
+
+                        buttonActionView?.Hide();
                         onSelected(view);
                         yield break;
                     }
