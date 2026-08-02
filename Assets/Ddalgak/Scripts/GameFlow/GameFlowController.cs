@@ -48,6 +48,7 @@ namespace Ddalgak
                 return;
             }
 
+            SoundManager.Instance.PlayBgm("BGM_Main");
             _gameLoopCoroutine = StartCoroutine(RunGameLoop());
         }
 
@@ -153,16 +154,19 @@ namespace Ddalgak
             {
                 _runtimeState.SetClear();
                 ChangeState(EGameFlowState.Clear);
+                SoundManager.Instance.PlaySfx("SFX_GameClear");
+                SoundManager.Instance.PlayBgm("BGM_ClearNormal");
                 yield return presenter.ShowClear(GameEndingDataCatalog.GetClear());
                 ChangeState(EGameFlowState.GovernanceResult);
                 yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(true));
                 yield break;
             }
-            
+
             var isWeekCompleted = _runtimeState.IsWeekCompleted;
 
             if (isWeekCompleted)
             {
+                SoundManager.Instance.PlaySfx("SFX_WeekComplete");
                 ChangeState(EGameFlowState.WeekSettlement);
                 yield return presenter.ShowWeekSettlement(_runtimeState);
             }
@@ -202,6 +206,7 @@ namespace Ddalgak
                                                   result => actionResult = result);
             context.ActionResult = actionResult ?? ActionSequenceResult.Failure(0, 0);
             _runtimeState.RecordActionResult(context.ActionResult.IsSuccess);
+            SoundManager.Instance.PlaySfx(context.ActionResult.IsSuccess ? "SFX_ActionSuccess" : "SFX_ActionFailure");
         }
 
         private IEnumerator ApplyStatChanges(TurnContext context)
@@ -332,9 +337,22 @@ namespace Ddalgak
         {
             _runtimeState.SetGameOver(reason);
             ChangeState(EGameFlowState.GameOver);
+            SoundManager.Instance.PlaySfx("SFX_GameOver");
+            SoundManager.Instance.PlayBgm(GetGameOverBgmId(reason));
             yield return presenter.ShowGameOver(GameEndingDataCatalog.GetGameOver(reason));
             ChangeState(EGameFlowState.GovernanceResult);
             yield return presenter.ShowGovernanceResult(_runtimeState.CreateGovernanceResult(false));
+        }
+
+        private static string GetGameOverBgmId(EGameOverReason reason)
+        {
+            return reason switch
+            {
+                EGameOverReason.TreasuryDepleted => "BGM_GameOver1",
+                EGameOverReason.PublicSentimentCollapsed => "BGM_GameOver2",
+                EGameOverReason.SecurityCollapsed => "BGM_GameOver3",
+                _ => "BGM_GameOver1"
+            };
         }
 
         private static EGameOverReason ToGameOverReason(EKingdomStatType statType)

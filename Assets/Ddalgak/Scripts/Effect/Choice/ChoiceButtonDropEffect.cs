@@ -36,6 +36,7 @@ namespace Ddalgak
             }
 
             Prepare(target);
+            SoundManager.Instance.PlaySfx("SFX_ButtonDrop");
             _tween = target.DOAnchorPosY(targetAnchoredY, duration).SetEase(ease);
             return _tween;
         }

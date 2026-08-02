@@ -120,6 +120,7 @@ namespace Ddalgak
 
                 if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
+                    SoundManager.Instance.PlaySfx("SFX_ButtonNormalClick");
                     actionView?.Hide();
                     onStepFinished?.Invoke(true);
                     yield break;
@@ -143,6 +144,11 @@ namespace Ddalgak
 
                 if (Keyboard.current[action.Key].isPressed)
                 {
+                    if (Keyboard.current[action.Key].wasPressedThisFrame)
+                    {
+                        SoundManager.Instance.PlaySfx("SFX_ButtonHold");
+                    }
+
                     timer = 0;
                     totalDuration = action.Duration;
                     holdTimer += Time.deltaTime;
@@ -181,6 +187,7 @@ namespace Ddalgak
                 if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
                     pressCount++;
+                    SoundManager.Instance.PlaySfx("SFX_RapidInputClick");
                     if (pressCount >= action.TargetPressCount)
                     {
                         actionView?.Hide();
@@ -198,6 +205,7 @@ namespace Ddalgak
         private IEnumerator ProcessTiming(ButtonAction action, Action<bool> onStepFinished)
         {
             actionView?.Show(action.ActionType, action.Key, action.Duration);
+            SoundManager.Instance.PlaySfx("SFX_TimingBarMove");
 
             float timer = 0f;
 
@@ -208,6 +216,7 @@ namespace Ddalgak
 
                 if (Keyboard.current[action.Key].wasPressedThisFrame)
                 {
+                    SoundManager.Instance.PlaySfx("SFX_ButtonNormalClick");
                     bool isSuccess = progress >= action.SuccessRangeStart && progress <= action.SuccessRangeEnd;
                     actionView?.Hide();
                     onStepFinished?.Invoke(isSuccess);

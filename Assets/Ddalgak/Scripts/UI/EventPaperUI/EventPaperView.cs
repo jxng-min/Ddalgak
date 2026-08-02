@@ -34,6 +34,8 @@ namespace Ddalgak
         
         public IEnumerator ShowPaper()
         {
+            SoundManager.Instance.PlaySfx("SFX_EventOpen");
+
             _showTween?.Kill();
             _showTween = eventPaperEffect.PlayShowPaperEffect(
                 RectTransform, 

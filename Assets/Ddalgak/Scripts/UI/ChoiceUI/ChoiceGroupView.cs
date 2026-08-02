@@ -93,7 +93,10 @@ namespace Ddalgak
 
         public IEnumerator ShowResultStamp(TurnResult result)
         {
-            yield return stampEffect.Play(IsSuccess(result)).WaitForCompletion();
+            bool isSuccess = IsSuccess(result);
+            SoundManager.Instance.PlaySfx("SFX_ResultPopup");
+            SoundManager.Instance.PlaySfx(isSuccess ? "SFX_EventSuccess" : "SFX_EventFail");
+            yield return stampEffect.Play(isSuccess).WaitForCompletion();
         }
 
         public void ResetResultStamp()
@@ -191,6 +194,7 @@ namespace Ddalgak
                     if (Keyboard.current[view.InputKey].wasPressedThisFrame)
                     {
                         _inputLocked = true;
+                        SoundManager.Instance.PlaySfx("SFX_Choose");
                         onSelected(view);
                         yield break;
                     }

@@ -5,6 +5,8 @@ namespace Ddalgak
 {
     public class StatPresenter : StatPresenterBase
     {
+        private const int DangerThreshold = 20;
+
         [SerializeField] private StatSlotView[] statSlotViews;
 
         private StatSlotView TreasurySlotView => statSlotViews[0];
@@ -44,6 +46,9 @@ namespace Ddalgak
             var isPositive = valueDiff > 0f;
             var valueRate = ToRate(after);
 
+            SoundManager.Instance.PlaySfx("SFX_StatusChange");
+            PlayStatWarningSfx(after);
+
             if (isPositive)
             {
                 yield return slotView.IncreaseRate(valueRate);
@@ -53,7 +58,19 @@ namespace Ddalgak
                 yield return slotView.DecreaseRate(valueRate);
             }
         }
-        
+
+        private static void PlayStatWarningSfx(float after)
+        {
+            if (after <= KingdomStats.MinValue)
+            {
+                SoundManager.Instance.PlaySfx("SFX_StatusZero");
+            }
+            else if (after <= DangerThreshold)
+            {
+                SoundManager.Instance.PlaySfx("SFX_StatusDanger");
+            }
+        }
+
         private static float ToRate(float value)
         {
             return value / KingdomStats.MaxValue;
