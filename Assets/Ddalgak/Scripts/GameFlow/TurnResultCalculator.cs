@@ -37,7 +37,10 @@ namespace Ddalgak
 
             if (!choice.hasRandomResult)
             {
-                return new TurnResult(choice.baseModifier, choice.successResultText, false);
+                return new TurnResult(choice.baseModifier,
+                                      choice.successResultText,
+                                      false,
+                                      changePreview: choice.changePreview);
             }
 
             var randomSucceeded = RollProbability(choice.successProbability, mode);
@@ -45,7 +48,8 @@ namespace Ddalgak
                                   GetRandomResultText(choice, randomSucceeded),
                                   false,
                                   hasRandomResult: true,
-                                  randomResultSucceeded: randomSucceeded);
+                                  randomResultSucceeded: randomSucceeded,
+                                  changePreview: choice.changePreview);
         }
 
         private TurnResult CalculateActionChoice(TurnContext context, EDebugOutcomeMode mode)
@@ -68,7 +72,8 @@ namespace Ddalgak
                                       resultText,
                                       fatalFailure,
                                       hasActionResult: true,
-                                      actionSucceeded: actionSucceeded);
+                                      actionSucceeded: actionSucceeded,
+                                      changePreview: choice.changePreview);
             }
 
             var randomSucceeded = RollProbability(choice.successProbability, mode);
@@ -81,7 +86,8 @@ namespace Ddalgak
                                   hasActionResult: true,
                                   actionSucceeded: actionSucceeded,
                                   hasRandomResult: true,
-                                  randomResultSucceeded: randomSucceeded);
+                                  randomResultSucceeded: randomSucceeded,
+                                  changePreview: choice.changePreview);
         }
 
         private static TurnResult CalculateSuddenChoice(TurnContext context)
